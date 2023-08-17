@@ -3,8 +3,7 @@
 @font-face {
   font-family: 'Kyiv Type';
   src: url('fonts/kyivtype/KyivTypeTitling-Medium.eot');
-  src: url('fonts/kyivtype/KyivTypeTitling-Medium.eot')
-      format('embedded-opentype'),
+  src: url('fonts/kyivtype/KyivTypeTitling-Medium.eot') format('embedded-opentype'),
     url('fonts/kyivtype/KyivTypeTitling-Medium.woff2') format('woff2'),
     url('fonts/kyivtype/KyivTypeTitling-Medium.woff') format('woff');
   font-weight: 500;
@@ -14,10 +13,16 @@
 @font-face {
   font-family: 'Kyiv Type';
   src: url('fonts/kyivtype/KyivTypeTitling-Medium.eot');
-  src: url('fonts/kyivtype/KyivTypeTitling-Medium.eot')
-      format('embedded-opentype'),
+  src: url('fonts/kyivtype/KyivTypeTitling-Medium.eot') format('embedded-opentype'),
     url('fonts/kyivtype/KyivTypeTitling-Medium.woff2') format('woff2'),
     url('fonts/kyivtype/KyivTypeTitling-Medium.woff') format('woff');
   font-weight: 350;
   font-style: normal;
+}
+
+/* потрібно додавати до кожного svg при використанні svg sprites. */
+.icon {
+  width: 24px;
+  height: 24px;
+  fill: #f9f8f4; /* дефолтний колір для білих іконок */
 }
