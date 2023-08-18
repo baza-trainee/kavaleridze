@@ -1,4 +1,4 @@
-import { PaletteOptions } from '@mui/material';
+import { PaletteOptions } from '@mui/material'
 
 export const palette: PaletteOptions = {
   primary: {
@@ -14,4 +14,4 @@ export const palette: PaletteOptions = {
     paper: '#151514',
   },
   divider: '#F9F8F4',
-};
+}
