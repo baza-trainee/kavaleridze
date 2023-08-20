@@ -1,6 +1,5 @@
 import { FC } from 'react'
 import { Outlet } from 'react-router-dom'
-import PrimaryButton from '../PrimaryButton/PrimaryButton'
 
 const SharedLayout: FC = () => {
   return (
