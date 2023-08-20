@@ -138,7 +138,7 @@
         </g>
       </symbol>
 
-      <!-- burger menu icon -->
+      <!-- burger menu icon with search -->
       <symbol id="burgerSearch_icon" viewBox="0 0 32 32">
         <g>
           <path fill-rule="evenodd" clip-rule="evenodd" d="M4.33337 16C4.33337 15.4477 4.78109 15 5.33337 15H26.6667C27.219 15 27.6667 15.4477 27.6667 16C27.6667 16.5523 27.219 17 26.6667 17H5.33337C4.78109 17 4.33337 16.5523 4.33337 16Z" />
@@ -153,6 +153,30 @@
           <!-- fill="#F9F8F4" -->
         </g>
       </symbol>
+
+      <!-- burger menu icon CLOSED -->
+      <symbol id="burgerClosed_icon"  viewBox="0 0 24 24">
+        <g>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M3.25 12C3.25 11.5858 3.58579 11.25 4 11.25H20C20.4142 11.25 20.75 11.5858 20.75 12C20.75 12.4142 20.4142 12.75 20 12.75H4C3.58579 12.75 3.25 12.4142 3.25 12Z" />
+          <!-- fill="#F9F8F4" -->
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M3.25 6C3.25 5.58579 3.58579 5.25 4 5.25H20C20.4142 5.25 20.75 5.58579 20.75 6C20.75 6.41421 20.4142 6.75 20 6.75H4C3.58579 6.75 3.25 6.41421 3.25 6Z" />
+          <!-- fill="#F9F8F4" -->
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M3.25 18C3.25 17.5858 3.58579 17.25 4 17.25H20C20.4142 17.25 20.75 17.5858 20.75 18C20.75 18.4142 20.4142 18.75 20 18.75H4C3.58579 18.75 3.25 18.4142 3.25 18Z" />
+          <!-- fill="#F9F8F4" -->
+        </g>
+      </symbol>
+
+      <!-- burger menu icon OPEN -->
+      <!-- тут дефолтний колір -->
+      <!-- колір заданий через stroke -->
+      <symbol id="burgerOpen_icon"  viewBox="0 0 32 32">
+        <g>
+          <path d="M24 8L8 24" stroke="#F9F8F4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M8 8L24 24" stroke="#F9F8F4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+      </symbol>
+
+</svg>
 
     </defs>
   </svg>
