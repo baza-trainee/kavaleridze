@@ -6,16 +6,18 @@ interface PrimaryButtonProps {
   title: string
   svgSpriteId: string
   href: string
+  componentWidth?: number
 }
 
-const PrimaryButton: FC<PrimaryButtonProps> = ({ title, svgSpriteId, href }) => {
+const PrimaryButton: FC<PrimaryButtonProps> = ({ title, svgSpriteId, href, componentWidth }) => {
   return (
     <Box>
       <Button
         href={href}
         target="_blank"
-        variant="contained"
+        variant="primary"
         endIcon={<SvgSpriteIcon svgSpriteId={svgSpriteId} />}
+        sx={{ width: `${componentWidth}px` }}
       >
         {title}
       </Button>

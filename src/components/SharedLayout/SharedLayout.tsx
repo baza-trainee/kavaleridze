@@ -1,5 +1,6 @@
-import { FC } from "react";
-import { Outlet } from "react-router-dom";
+import { FC } from 'react'
+import { Outlet } from 'react-router-dom'
+import PrimaryButton from '../PrimaryButton/PrimaryButton'
 
 const SharedLayout: FC = () => {
   return (
@@ -10,7 +11,7 @@ const SharedLayout: FC = () => {
       </main>
       <footer>Footer</footer>
     </div>
-  );
-};
+  )
+}
 
-export default SharedLayout;
+export default SharedLayout
