@@ -4,10 +4,6 @@ import { Link } from 'react-router-dom';
 import { listsItem } from './mock';
 import { SvgIconHover, TypographyList } from './styleComponents';
 
-interface IList {
-  href: string;
-  title: string;
-}
 interface IListTextProps {
   title: string;
   svg: string;
@@ -25,7 +21,7 @@ export const MyList = styled(List)(() => ({
 }));
 export const ListNavigation = () => (
   <MyList>
-    {listsItem.map(({ title, href }: IList) => {
+    {listsItem.map(({ title, href }: IListLinkTextProps) => {
       return (
         <ListItem
           key={title}
