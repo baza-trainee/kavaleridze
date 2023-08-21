@@ -1,7 +1,6 @@
 import { Box, styled } from '@mui/material';
-
-import Logo from '../../../public/Logo.svg';
 import PrimaryButton from '../PrimaryButton/PrimaryButton.tsx';
+import Logo from '/public/Logo.svg';
 
 export const MainIconBlok = () => (
   <Box sx={{ p: 2 }}>
