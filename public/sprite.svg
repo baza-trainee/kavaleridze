@@ -1,14 +1,6 @@
-
-  <!-- клас icon треба додавати до кожного svg де використовується спрайт -->
-  <!-- клас icon описаний в index.css-->
-
         <!-- зразок використання іконки із svg sprites
 
-        <svg className="icon">
-          <use href="/sprite.svg#clock_icon"></use>
-        </svg>
-
-        або можна використати компонент SvgSpriteIcon
+        <SvgSpriteIcon svgSpriteId="clock_icon" />
 
         -->
 

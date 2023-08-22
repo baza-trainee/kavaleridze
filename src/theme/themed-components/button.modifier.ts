@@ -20,6 +20,9 @@ export const MuiButton: Components<Theme>['MuiButton'] = {
     endIcon: {
       marginRight: 0,
       marginLeft: 8,
+      '& > *:first-child': {
+        fontSize: '1.5rem',
+      },
     },
   },
   variants: [
@@ -34,11 +37,6 @@ export const MuiButton: Components<Theme>['MuiButton'] = {
 
         '&:hover': {
           backgroundColor: theme.palette.primary.dark,
-        },
-
-        [`& .${svgIconClasses.fontSizeSmall}`]: {
-          width: '1.25rem',
-          height: '1.25rem',
         },
       }),
     },
