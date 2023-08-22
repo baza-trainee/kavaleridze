@@ -1,6 +1,7 @@
 import { Box, styled } from '@mui/material';
+
 import PrimaryButton from '../PrimaryButton/PrimaryButton.tsx';
-import Logo from '/public/Logo.svg';
+import Logo from '/Logo.svg';
 
 export const MainIconBlok = () => (
   <Box sx={{ p: 2 }}>
@@ -10,11 +11,7 @@ export const MainIconBlok = () => (
 const BoxButton = styled(Box)(({ theme }) => ({
   margin: '8px',
   display: 'grid',
-
   [theme.breakpoints.down('lg')]: {
-    placeItems: 'center',
-  },
-  [theme.breakpoints.down('md')]: {
     placeItems: 'center',
   },
 }));

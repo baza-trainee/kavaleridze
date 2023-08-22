@@ -1,7 +1,7 @@
-import { List, ListItem, ListItemButton, ListItemIcon, ListItemText, styled } from '@mui/material';
+import { List, ListItem, ListItemButton, ListItemIcon, ListItemText, Typography, styled } from '@mui/material';
 import { Link } from 'react-router-dom';
 
-import { SvgIconHover, TypographyList } from './styleComponents';
+import SvgSpriteIcon from '../PrimaryButton/SvgSpriteIcon';
 
 interface IListTextProps {
   title: string;
@@ -13,7 +13,7 @@ interface IListLinkTextProps {
   href: string;
 }
 
-export const listsItem = [
+const listsItem = [
   {
     href: '/',
     title: 'Головна',
@@ -35,11 +35,24 @@ export const listsItem = [
     title: 'Контакти',
   },
 ];
-export const MyList = styled(List)(() => ({
+
+const MyList = styled(List)(() => ({
   display: 'flex',
   flexDirection: 'column',
   gap: '20px',
 }));
+
+export const TypographyList = styled(Typography)(({ theme }) => ({
+  lineHeight: '21.13px',
+  fontSize: '18px',
+  transition: '0.4s',
+  color: 'inherit',
+  [theme.breakpoints.down('md')]: {
+    fontSize: '16px',
+    lineHeight: '18.78px',
+  },
+}));
+
 export const ListNavigation = () => (
   <MyList>
     {listsItem.map(({ title, href }: IListLinkTextProps) => {
@@ -48,7 +61,7 @@ export const ListNavigation = () => (
           key={title}
           sx={{
             '&:hover': {
-              color: '#F0B92D',
+              color: (theme) => theme.palette.primary.main,
             },
           }}
           disablePadding>
@@ -62,6 +75,15 @@ export const ListNavigation = () => (
     })}
   </MyList>
 );
+
+const ListTypography = ({ title, svg }: IListTextProps) => (
+  <ListItem>
+    <ListItemIcon sx={{ minWidth: '44px', color: 'inherit' }}>
+      <SvgSpriteIcon svgSpriteId={svg}></SvgSpriteIcon>
+    </ListItemIcon>
+    <ListItemText primary={<TypographyList>{title}</TypographyList>}></ListItemText>
+  </ListItem>
+);
 export const ListContacts = () => (
   <MyList>
     <ListContactItem href="tel:044 425-33-97" title="044 425-33-97" svg="phone_icon" />
@@ -70,34 +92,22 @@ export const ListContacts = () => (
     <ListTypography title="Вт-Нд 11:00 – 18:00" svg="clock_icon" />
   </MyList>
 );
-export const ListContactItem = ({ title, svg, href = '#' }: IListLinkTextProps) => {
+
+export const ListContactItem = ({ title, svg = '', href = '#' }: IListLinkTextProps) => {
   return (
-    <ListItem disablePadding>
-      <ListItemButton
-        href={href}
-        sx={{
-          '&:hover': {
-            color: (theme) => theme.palette.text.secondary,
-          },
-        }}
-        disableTouchRipple>
-        <ListItemIcon sx={{ minWidth: '44px' }}>
-          <SvgIconHover>
-            <use href={`/sprite.svg#${svg}`}></use>
-          </SvgIconHover>
+    <ListItem
+      sx={{
+        '&:hover': {
+          color: (theme) => theme.palette.text.secondary,
+        },
+      }}
+      disablePadding>
+      <ListItemButton href={href} disableTouchRipple>
+        <ListItemIcon sx={{ minWidth: '44px', color: 'inherit' }}>
+          <SvgSpriteIcon svgSpriteId={svg}></SvgSpriteIcon>
         </ListItemIcon>
         <ListItemText primary={<TypographyList>{title}</TypographyList>}></ListItemText>
       </ListItemButton>
     </ListItem>
   );
 };
-export const ListTypography = ({ title, svg }: IListTextProps) => (
-  <ListItem>
-    <ListItemIcon sx={{ minWidth: '44px' }}>
-      <SvgIconHover>
-        <use href={`/sprite.svg#${svg}`}></use>
-      </SvgIconHover>
-    </ListItemIcon>
-    <ListItemText primary={<TypographyList>{title}</TypographyList>}></ListItemText>
-  </ListItem>
-);

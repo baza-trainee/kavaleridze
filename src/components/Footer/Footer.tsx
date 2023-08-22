@@ -1,10 +1,21 @@
-import { Box, Divider, useMediaQuery, useTheme } from '@mui/material';
+import { Box, Divider, styled, useMediaQuery, useTheme } from '@mui/material';
 
 import { FooterBottom } from './FooterBottom.tsx';
 import { ListContacts, ListNavigation } from './FooterListItem.tsx';
 import { ButtonBlok, MainIconBlok } from './IconButton.tsx';
 import TabletFooter from './TabletFooter.tsx';
-import { FooterTop, WrapperFooter } from './styleComponents.tsx';
+
+const WrapperFooter = styled(Box)(({ theme }) => ({
+  maxWidth: '1190px',
+  margin: '0 auto',
+  width: '100%',
+  [theme.breakpoints.down('lg')]: {
+    padding: '0px 35px',
+  },
+  [theme.breakpoints.down('md')]: {
+    padding: '0 16px',
+  },
+}));
 
 export const Footer = () => {
   const theme = useTheme();
@@ -12,7 +23,19 @@ export const Footer = () => {
   return (
     <Box component={'footer'}>
       <WrapperFooter>
-        <FooterTop>
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            padding: '20px 0px',
+            width: '100%',
+            [theme.breakpoints.down('md')]: {
+              width: '100%',
+              padding: '50px 0',
+              flexDirection: 'column',
+              gap: '40px',
+            },
+          }}>
           {isTablet ? (
             <TabletFooter />
           ) : (
@@ -24,12 +47,13 @@ export const Footer = () => {
               <ButtonBlok />
             </>
           )}
-        </FooterTop>
+        </Box>
       </WrapperFooter>
       <Divider />
       {/* FooterBottom */}
-
-      <FooterBottom />
+      <WrapperFooter>
+        <FooterBottom />
+      </WrapperFooter>
     </Box>
   );
 };
