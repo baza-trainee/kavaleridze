@@ -17,10 +17,3 @@
   font-weight: 350;
   font-style: normal;
 }
-
-/* потрібно додавати до кожного svg при використанні svg sprites. */
-.icon {
-  width: 24px;
-  height: 24px;
-  fill: #f9f8f4; /* дефолтний колір для білих іконок */
-}
