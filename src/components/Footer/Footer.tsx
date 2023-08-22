@@ -4,20 +4,14 @@ import { FooterBottom } from './FooterBottom.tsx';
 import { ListContacts, ListNavigation } from './FooterListItem.tsx';
 import { ButtonBlok, MainIconBlok } from './IconButton.tsx';
 import TabletFooter from './TabletFooter.tsx';
-import { FooterTop, Wrapper } from './styleComponents.tsx';
+import { FooterTop, WrapperFooter } from './styleComponents.tsx';
 
 export const Footer = () => {
   const theme = useTheme();
   const isTablet = useMediaQuery(theme.breakpoints.only('md'));
   return (
-    <Box
-      sx={{
-        maxWidth: '1490px',
-        margin: '0 auto',
-        py: 5,
-      }}
-      component={'footer'}>
-      <Wrapper>
+    <Box component={'footer'}>
+      <WrapperFooter>
         <FooterTop>
           {isTablet ? (
             <TabletFooter />
@@ -31,12 +25,11 @@ export const Footer = () => {
             </>
           )}
         </FooterTop>
-      </Wrapper>
+      </WrapperFooter>
       <Divider />
       {/* FooterBottom */}
-      <Wrapper>
-        <FooterBottom />
-      </Wrapper>
+
+      <FooterBottom />
     </Box>
   );
 };

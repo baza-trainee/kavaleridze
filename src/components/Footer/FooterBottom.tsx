@@ -1,9 +1,10 @@
 import { Box, Link, Stack, styled } from '@mui/material';
 import SvgSpriteIcon from '../PrimaryButton/SvgSpriteIcon';
-import { TypographyList } from './styleComponents';
+import { TypographyList, WrapperFooter } from './styleComponents';
 
 const FooterBottomStyle = styled(Box)(({ theme }) => ({
   color: theme.palette.text.secondary,
+
   display: 'flex',
   justifyContent: 'space-between',
   padding: '20px 8px',
@@ -37,16 +38,18 @@ const TextLink = styled(Link)(({ theme }) => ({
 
 export const FooterBottom = () => {
   return (
-    <FooterBottomStyle>
-      <TypographyList>Baza Trainee Ukraine 2023. Всі права захищені</TypographyList>
-      <TextLink href="#">
-        <TypographyList>Політика конфіденційності</TypographyList>
-      </TextLink>
-      <TextLink href="#">Правила користування сайтом</TextLink>
-      <Stack gap="13px" direction="row">
-        <SvgSpriteIcon svgSize={34} svgSpriteId={'instagram_icon'} />
-        <SvgSpriteIcon svgSize={34} svgSpriteId={'facebook_icon'} />
-      </Stack>
-    </FooterBottomStyle>
+    <WrapperFooter>
+      <FooterBottomStyle>
+        <TypographyList>Baza Trainee Ukraine 2023. Всі права захищені</TypographyList>
+        <TextLink href="#">
+          <TypographyList>Політика конфіденційності</TypographyList>
+        </TextLink>
+        <TextLink href="#">Правила користування сайтом</TextLink>
+        <Stack gap="13px" direction="row">
+          <SvgSpriteIcon svgSize={34} svgSpriteId={'instagram_icon'} />
+          <SvgSpriteIcon svgSize={34} svgSpriteId={'facebook_icon'} />
+        </Stack>
+      </FooterBottomStyle>
+    </WrapperFooter>
   );
 };

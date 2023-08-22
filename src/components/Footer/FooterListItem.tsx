@@ -1,7 +1,6 @@
 import { List, ListItem, ListItemButton, ListItemIcon, ListItemText, styled } from '@mui/material';
 import { Link } from 'react-router-dom';
 
-import { listsItem } from './mock';
 import { SvgIconHover, TypographyList } from './styleComponents';
 
 interface IListTextProps {
@@ -14,6 +13,28 @@ interface IListLinkTextProps {
   href: string;
 }
 
+export const listsItem = [
+  {
+    href: '/',
+    title: 'Головна',
+  },
+  {
+    href: '/',
+    title: 'Історія музею',
+  },
+  {
+    href: '/',
+    title: 'Події',
+  },
+  {
+    href: '/',
+    title: 'Іван Кавалерідзе',
+  },
+  {
+    href: '/',
+    title: 'Контакти',
+  },
+];
 export const MyList = styled(List)(() => ({
   display: 'flex',
   flexDirection: 'column',

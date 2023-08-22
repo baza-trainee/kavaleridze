@@ -1,7 +1,7 @@
 import { Box, SvgIcon, Typography, styled } from '@mui/material';
 import { ReactNode } from 'react';
 
-export const Wrapper = ({ children }: { children: ReactNode }) => <Box sx={{ maxWidth: '1190px', m: '0 auto' }}>{children}</Box>;
+export const WrapperFooter = ({ children }: { children: ReactNode }) => <Box sx={{ maxWidth: '1190px', m: '0 auto' }}>{children}</Box>;
 
 export const FooterTop = styled(Box)(({ theme }) => ({
   display: 'flex',
