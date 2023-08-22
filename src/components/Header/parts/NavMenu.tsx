@@ -1,20 +1,34 @@
 import { FC } from 'react';
-import {
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemSecondaryAction,
-  IconButton,
-  useTheme,
-  useMediaQuery,
-} from '@mui/material';
+import { List, ListItem, ListItemButton, ListItemText, ListItemIcon, useTheme, useMediaQuery } from '@mui/material';
 import SvgSpriteIcon from '../../PrimaryButton/SvgSpriteIcon';
-
-import { menu } from './nav';
 
 interface NavMenuProps {
   secondaryAction?: () => void;
 }
+
+interface NavMenuItemProp {
+  href: string;
+  title: string;
+}
+
+const NavMenuItem: FC<NavMenuItemProp> = ({ href, title }) => {
+  return (
+    <ListItem
+      disablePadding
+      sx={{
+        width: 'auto',
+      }}>
+      <ListItemButton
+        href={href}
+        sx={{
+          px: 0,
+          py: { sx: 1, lg: 0 },
+        }}>
+        {title}
+      </ListItemButton>
+    </ListItem>
+  );
+};
 
 const NavMenu: FC<NavMenuProps> = ({ secondaryAction }) => {
   const theme = useTheme();
@@ -25,44 +39,37 @@ const NavMenu: FC<NavMenuProps> = ({ secondaryAction }) => {
       disablePadding
       sx={{
         display: 'grid',
-        gap: '40px',
+        gap: { xs: 2, md: 3, lg: 5 },
         fontFamily: 'Kyiv Type',
-        fontSize: '18px',
+        fontSize: { md: '16px', lg: '18px' },
         gridTemplate: { xs: 'repeat(4, auto)/1fr', lg: '1fr/repeat(4, auto)' },
-      }}
-    >
-      {menu.map((item) => (
+      }}>
+      <NavMenuItem href="/" title="Історія музею" />
+      <NavMenuItem href="/" title="Події" />
+      {isDesktop ? (
+        <NavMenuItem href="/" title="Іван Кавалерідзе" />
+      ) : (
         <ListItem
-          key={item.title}
           disablePadding
           sx={{
             width: 'auto',
-          }}
-        >
+          }}>
           <ListItemButton
-            href={item.href}
-            disableRipple
-            sx={{
-              padding: 0,
-              '&:hover': { color: (theme) => theme.palette.primary.main },
+            onClick={() => {
+              secondaryAction && secondaryAction();
             }}
-          >
-            {item.title}
+            sx={{
+              px: 0,
+              py: 1,
+            }}>
+            <ListItemText>Іван Кавалерідзе</ListItemText>
+            <ListItemIcon sx={{ minWidth: 24 }}>
+              <SvgSpriteIcon svgSpriteId="arrowRight_icon" />
+            </ListItemIcon>
           </ListItemButton>
-          {!isDesktop && item.title === 'Іван Кавалерідзе' && (
-            <ListItemSecondaryAction>
-              <IconButton
-                edge="end"
-                aria-label="delete"
-                color="inherit"
-                onClick={secondaryAction}
-              >
-                <SvgSpriteIcon svgSpriteId="searchArrow_icon" />
-              </IconButton>
-            </ListItemSecondaryAction>
-          )}
         </ListItem>
-      ))}
+      )}
+      <NavMenuItem href="/" title="Контакти" />
     </List>
   );
 };

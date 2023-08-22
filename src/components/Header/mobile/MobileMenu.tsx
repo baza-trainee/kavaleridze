@@ -1,25 +1,20 @@
 import { FC, useState, useRef } from 'react';
-import { Box, IconButton, useTheme, useMediaQuery, Slide } from '@mui/material';
-import SvgSpriteIcon from '../../PrimaryButton/SvgSpriteIcon';
-import NavMenu from '../parts/NavMenu';
-import SubMenu from '../parts/SubMenu';
-import MobileDialog from './MobileDialog';
+import { Box, IconButton, useTheme, useMediaQuery, Slide, Paper } from '@mui/material';
 
-const Transition = React.forwardRef(function Transition(
-  props: TransitionProps & {
-    children: React.ReactElement<any, any>;
-  },
-  ref: React.Ref<unknown>
-) {
-  return <Slide direction="up" ref={ref} {...props} />;
-});
+import SvgSpriteIcon from '../../PrimaryButton/SvgSpriteIcon';
+import MobileMainMenu from './MobileMainMenu';
+import SubMenu from './SubMenu';
+import MobileDialog from './MobileDialog';
 
 const MobileMenu: FC = () => {
   const [menuEl, setMenuEl] = useState(false);
-  const [subMenuEl, setSubMenuEl] = useState(false);
-
+  const [submenuEl, setSubmenuEl] = useState(false);
+  const containerRef = useRef(null);
+  const menuRef = useRef(null);
   const theme = useTheme();
   const isTablet = useMediaQuery(theme.breakpoints.up('md'));
+
+  console.log('menu height', menuRef.current && menuRef.current.getBoundingClientRect());
 
   const onOpenNavMenu = () => {
     setMenuEl(true);
@@ -27,6 +22,15 @@ const MobileMenu: FC = () => {
 
   const onCloseNavMenu = () => {
     setMenuEl(false);
+    setSubmenuEl(false);
+  };
+
+  const onOpenSubMenu = () => {
+    setSubmenuEl(true);
+  };
+
+  const onCloseSubMenu = () => {
+    setSubmenuEl(false);
   };
 
   return (
@@ -37,20 +41,33 @@ const MobileMenu: FC = () => {
         color="inherit"
         sx={{
           padding: 0,
-          '& .icon': {
-            width: { xs: 32, md: 24 },
-            height: { xs: 32, md: 24 },
-          },
-        }}
-      >
-        {isTablet ? (
-          <SvgSpriteIcon svgSpriteId="burgerSearch_icon" />
-        ) : (
-          <SvgSpriteIcon svgSpriteId="burgerSearch_icon" />
-        )}
+        }}>
+        {isTablet ? <SvgSpriteIcon svgSpriteId="burgerClosed_icon " /> : <SvgSpriteIcon svgSpriteId="burgerSearch_icon" fontSize="large" />}
       </IconButton>
       <MobileDialog state={menuEl} onClose={onCloseNavMenu}>
-        <NavMenu secondaryAction={() => {}} />
+        <Box position="relative" sx={{ overflowX: 'hidden', height: '100%' }} ref={containerRef}>
+          <Slide direction="right" in={!submenuEl} container={containerRef.current} appear={false}>
+            <Box sx={{ position: 'absolute', top: 0, width: '100%', minHeight: '100%' }}>
+              <Paper sx={{ width: '100%', height: 'auto' }} elevation={0} ref={menuRef}>
+                <MobileMainMenu action={onOpenSubMenu} />
+              </Paper>
+            </Box>
+          </Slide>
+
+          <Slide direction="left" in={submenuEl} container={containerRef.current}>
+            <Box sx={{ position: 'absolute', top: 0, width: '100%', minHeight: '100%' }}>
+              <Paper sx={{ width: '100%', height: 'auto' }} elevation={0}>
+                <SubMenu onClick={onCloseSubMenu} />
+              </Paper>
+            </Box>
+          </Slide>
+        </Box>
+
+        {/* <SubMenu
+          onClick={() => {
+            console.log('onClick');
+          }}
+        /> */}
       </MobileDialog>
     </Box>
   );

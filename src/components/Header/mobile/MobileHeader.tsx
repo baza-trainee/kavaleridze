@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Stack, useMediaQuery, useTheme } from '@mui/material';
+import { Stack, useMediaQuery, useTheme, Divider } from '@mui/material';
 import HeaderLogo from '../parts/HeaderLogo';
 import MobileMenu from './MobileMenu';
 import HeaderWrapper from '../parts/HeaderWrapper';
@@ -10,12 +10,13 @@ const MobileHeader: FC = () => {
   const isTablet = useMediaQuery(theme.breakpoints.up('md'));
 
   return (
-    <HeaderWrapper alignItems="center" borderBottom="1px solid">
+    <HeaderWrapper alignItems="center" position="relative">
       <HeaderLogo />
       <Stack direction="row" gap="20px">
         {isTablet && <TabletSearch />}
         <MobileMenu />
       </Stack>
+      <Divider sx={{ position: 'absolute', bottom: '0', left: '0', right: '0' }} />
     </HeaderWrapper>
   );
 };

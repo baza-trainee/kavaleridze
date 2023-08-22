@@ -1,13 +1,5 @@
 import { useState, ChangeEvent } from 'react';
-import {
-  FormControl,
-  RadioGroup,
-  FormControlLabel,
-  FormControlLabelProps,
-  Radio,
-  Divider,
-  styled,
-} from '@mui/material';
+import { FormControl, RadioGroup, FormControlLabel, FormControlLabelProps, Radio, Divider, styled } from '@mui/material';
 
 enum Language {
   UA = 'UA',
@@ -20,9 +12,7 @@ interface StyledFormControlLabelProps extends FormControlLabelProps {
   checked: boolean;
 }
 
-const StyledFormControlLabel = styled((props: StyledFormControlLabelProps) => (
-  <FormControlLabel {...props} />
-))(({ theme, checked }) => ({
+const StyledFormControlLabel = styled((props: StyledFormControlLabelProps) => <FormControlLabel {...props} />)(({ theme, checked }) => ({
   margin: 0,
   '.MuiTypography-root': {
     fontFamily: 'Kyiv Type',
@@ -48,13 +38,7 @@ const LangPanel = () => {
 
   return (
     <FormControl>
-      <RadioGroup
-        aria-labelledby="language-panel"
-        name="language"
-        value={lang}
-        onChange={onChangeLang}
-        row
-      >
+      <RadioGroup aria-labelledby="language-panel" name="language" value={lang} onChange={onChangeLang} row>
         <StyledFormControlLabel
           value={languages[0]}
           control={<Radio sx={{ display: 'none' }} />}
@@ -62,11 +46,7 @@ const LangPanel = () => {
           checked={languages[0] === lang}
           key={languages[0]}
         />
-        <Divider
-          orientation="vertical"
-          flexItem
-          sx={{ marginLeft: '8px', marginRight: '8px' }}
-        />
+        <Divider orientation="vertical" flexItem sx={{ mx: 1 }} />
         <StyledFormControlLabel
           value={languages[1]}
           control={<Radio sx={{ display: 'none' }} />}

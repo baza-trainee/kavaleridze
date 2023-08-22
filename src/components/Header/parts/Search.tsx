@@ -1,6 +1,7 @@
 import { FC, useState, ChangeEvent } from 'react';
 import { Box, TextField, InputAdornment } from '@mui/material';
 import SvgSpriteIcon from '../../PrimaryButton/SvgSpriteIcon';
+import { inputBaseClasses } from '@mui/material/InputBase';
 
 interface SearchProps {
   width: number | string;
@@ -8,9 +9,7 @@ interface SearchProps {
 const Search: FC<SearchProps> = ({ width }) => {
   const [search, setSearch] = useState('');
 
-  const onChangeSearch = (
-    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
+  const onChangeSearch = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setSearch(e.target.value);
   };
 
@@ -23,6 +22,7 @@ const Search: FC<SearchProps> = ({ width }) => {
         placeholder="Введіть Ваш запит..."
         value={search}
         onChange={onChangeSearch}
+        autoComplete="off"
         InputProps={{
           startAdornment: (
             <InputAdornment position="start">

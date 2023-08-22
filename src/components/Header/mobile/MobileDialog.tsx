@@ -1,55 +1,42 @@
-import { FC, PropsWithChildren } from 'react';
-import { Dialog, Stack, IconButton } from '@mui/material';
+import { FC, PropsWithChildren, forwardRef, Ref } from 'react';
+import { Dialog, Stack, IconButton, DialogContent } from '@mui/material';
 import DialogTransition from '../parts/DialogTransition';
 import LangPanel from '../parts/LangPanel';
 import Search from '../parts/Search';
-import Info from '../parts/Info';
-import PrimaryButton from '../../PrimaryButton/PrimaryButton';
 import SvgSpriteIcon from '../../PrimaryButton/SvgSpriteIcon';
 
-interface MobileDialog {
+interface MobileDialogProps {
   state: boolean;
   onClose: () => void;
 }
 
-const MobileDialog: FC<PropsWithChildren<MobileDialog>> = ({
-  state,
-  onClose,
-  children,
-}) => {
+const MobileDialog: FC<PropsWithChildren<MobileDialogProps>> = ({ state, onClose, children }) => {
   return (
     <Dialog
       fullScreen
       open={state}
       onClose={onClose}
       TransitionComponent={DialogTransition}
-    >
-      <Stack padding="40px 16px 48px" gap="48px">
-        <Stack
-          direction="row"
-          alignItems="center"
-          justifyContent="space-between"
-        >
-          <LangPanel />
-          <IconButton
-            onClick={onClose}
-            color="inherit"
-            aria-label="close"
-            sx={{ padding: 0, '& .icon': { width: 32, height: 32 } }}
-          >
-            <SvgSpriteIcon svgSpriteId="searchArrow_icon" />
-          </IconButton>
-        </Stack>
-        <Search width="100%" />
-        {children}
-        <Stack alignItems="center">
-          <PrimaryButton href="/" svgSpriteId="ticket_icon" title="Квитки" />
-        </Stack>
+      PaperProps={{ sx: { pt: { xs: 5, md: '44px' }, pb: 6, px: { xs: 2, md: 5 } } }}>
+      <DialogContent sx={{ padding: 0 }}>
+        <Stack gap={6} sx={{ height: '100%' }}>
+          <Stack direction="row" alignItems="center" justifyContent="space-between">
+            <LangPanel />
 
-        <Info />
-      </Stack>
+            <IconButton onClick={onClose} color="inherit" aria-label="close" sx={{ padding: 0 }}>
+              <SvgSpriteIcon svgSpriteId="burgerOpen_icon" />
+              {/* Set this after refactor SvgSpriteIcon */}
+              {/* <SvgSpriteIcon svgSpriteId="burgerOpen_icon" fontSize="large" /> */}
+            </IconButton>
+          </Stack>
+          <Search width="100%" />
+          <Stack flex="1 1 auto">{children}</Stack>
+        </Stack>
+      </DialogContent>
     </Dialog>
   );
 };
 
 export default MobileDialog;
+
+// pt:{ xs: 5, md: '44px' }, pb:6, px:{ xs: 2, md: 5 }
