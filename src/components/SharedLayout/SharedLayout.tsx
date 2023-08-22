@@ -1,5 +1,5 @@
-import { FC } from 'react'
-import { Outlet } from 'react-router-dom'
+import { FC } from 'react';
+import { Outlet } from 'react-router-dom';
 
 const SharedLayout: FC = () => {
   return (
@@ -10,7 +10,7 @@ const SharedLayout: FC = () => {
       </main>
       <footer>Footer</footer>
     </div>
-  )
-}
+  );
+};
 
-export default SharedLayout
+export default SharedLayout;

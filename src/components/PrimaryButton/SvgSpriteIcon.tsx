@@ -1,16 +1,16 @@
-import { FC } from 'react'
+import { SvgIcon, SvgIconProps } from '@mui/material';
+import { FC } from 'react';
 
-interface SvgSpriteIconProps {
-  svgSpriteId: string
-  svgSize?: number
+interface SvgSpriteIconProps extends SvgIconProps {
+  svgSpriteId: string;
 }
 
-const SvgSpriteIcon: FC<SvgSpriteIconProps> = ({ svgSpriteId, svgSize }) => {
+const SvgSpriteIcon: FC<SvgSpriteIconProps> = ({ svgSpriteId, ...props }) => {
   return (
-    <svg className="icon" style={{ width: `${svgSize}px`, height: `${svgSize}px` }}>
+    <SvgIcon {...props}>
       <use href={`/sprite.svg#${svgSpriteId}`}></use>
-    </svg>
-  )
-}
+    </SvgIcon>
+  );
+};
 
-export default SvgSpriteIcon
+export default SvgSpriteIcon;
