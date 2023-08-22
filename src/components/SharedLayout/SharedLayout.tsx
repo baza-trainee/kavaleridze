@@ -1,10 +1,11 @@
 import { FC } from 'react';
 import { Outlet } from 'react-router-dom';
+import Header from '../Header/Header';
 
 const SharedLayout: FC = () => {
   return (
     <div>
-      <header>Header</header>
+      <Header />
       <main>
         <Outlet />
       </main>
