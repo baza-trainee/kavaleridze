@@ -24,9 +24,7 @@ const MobileDialog: FC<PropsWithChildren<MobileDialogProps>> = ({ state, onClose
             <LangPanel />
 
             <IconButton onClick={onClose} color="inherit" aria-label="close" sx={{ padding: 0 }}>
-              <SvgSpriteIcon svgSpriteId="burgerOpen_icon" />
-              {/* Set this after refactor SvgSpriteIcon */}
-              {/* <SvgSpriteIcon svgSpriteId="burgerOpen_icon" fontSize="large" /> */}
+              <SvgSpriteIcon svgSpriteId="burgerOpen_icon" fontSize="medium" />
             </IconButton>
           </Stack>
           <Search width="100%" />

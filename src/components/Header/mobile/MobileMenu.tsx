@@ -14,7 +14,7 @@ const MobileMenu: FC = () => {
   const theme = useTheme();
   const isTablet = useMediaQuery(theme.breakpoints.up('md'));
 
-  console.log('menu height', menuRef.current && menuRef.current.getBoundingClientRect());
+  // console.log('menu height', menuRef.current && menuRef.current.getBoundingClientRect());
 
   const onOpenNavMenu = () => {
     setMenuEl(true);
@@ -42,7 +42,11 @@ const MobileMenu: FC = () => {
         sx={{
           padding: 0,
         }}>
-        {isTablet ? <SvgSpriteIcon svgSpriteId="burgerClosed_icon " /> : <SvgSpriteIcon svgSpriteId="burgerSearch_icon" fontSize="large" />}
+        {isTablet ? (
+          <SvgSpriteIcon svgSpriteId="burgerClosed_icon " />
+        ) : (
+          <SvgSpriteIcon svgSpriteId="burgerSearch_icon" fontSize="medium" />
+        )}
       </IconButton>
       <MobileDialog state={menuEl} onClose={onCloseNavMenu}>
         <Box position="relative" sx={{ overflowX: 'hidden', height: '100%' }} ref={containerRef}>

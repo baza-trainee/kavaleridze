@@ -44,6 +44,7 @@ const NavMenu: FC<NavMenuProps> = ({ secondaryAction }) => {
         fontSize: { md: '16px', lg: '18px' },
         gridTemplate: { xs: 'repeat(4, auto)/1fr', lg: '1fr/repeat(4, auto)' },
       }}>
+      {!isDesktop && <NavMenuItem href="/" title="Головна" />}
       <NavMenuItem href="/" title="Історія музею" />
       <NavMenuItem href="/" title="Події" />
       {isDesktop ? (
@@ -63,7 +64,7 @@ const NavMenu: FC<NavMenuProps> = ({ secondaryAction }) => {
               py: 1,
             }}>
             <ListItemText>Іван Кавалерідзе</ListItemText>
-            <ListItemIcon sx={{ minWidth: 24 }}>
+            <ListItemIcon sx={{ minWidth: 24, color: 'inherit' }}>
               <SvgSpriteIcon svgSpriteId="arrowRight_icon" />
             </ListItemIcon>
           </ListItemButton>

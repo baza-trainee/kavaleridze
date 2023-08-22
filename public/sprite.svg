@@ -83,10 +83,10 @@
       <!-- ticket icon -->
       <symbol viewBox="0 0 24 24" id="ticket_icon" fill="none" >
         <g>
-          <path id="Vector" d="M2 9C2.79565 9 3.55871 9.31607 4.12132 9.87868C4.68393 10.4413 5 11.2044 5 12C5 12.7956 4.68393 13.5587 4.12132 14.1213C3.55871 14.6839 2.79565 15 2 15V17C2 17.5304 2.21071 18.0391 2.58579 18.4142C2.96086 18.7893 3.46957 19 4 19H20C20.5304 19 21.0391 18.7893 21.4142 18.4142C21.7893 18.0391 22 17.5304 22 17V15C21.2044 15 20.4413 14.6839 19.8787 14.1213C19.3161 13.5587 19 12.7956 19 12C19 11.2044 19.3161 10.4413 19.8787 9.87868C20.4413 9.31607 21.2044 9 22 9V7C22 6.46957 21.7893 5.96086 21.4142 5.58579C21.0391 5.21071 20.5304 5 20 5H4C3.46957 5 2.96086 5.21071 2.58579 5.58579C2.21071 5.96086 2 6.46957 2 7V9Z" stroke="#151514" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          <path id="Vector_2" d="M13 5V7" stroke="#151514" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          <path id="Vector_3" d="M13 17V19" stroke="#151514" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          <path id="Vector_4" d="M13 11V13" stroke="#151514" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path id="Vector" d="M2 9C2.79565 9 3.55871 9.31607 4.12132 9.87868C4.68393 10.4413 5 11.2044 5 12C5 12.7956 4.68393 13.5587 4.12132 14.1213C3.55871 14.6839 2.79565 15 2 15V17C2 17.5304 2.21071 18.0391 2.58579 18.4142C2.96086 18.7893 3.46957 19 4 19H20C20.5304 19 21.0391 18.7893 21.4142 18.4142C21.7893 18.0391 22 17.5304 22 17V15C21.2044 15 20.4413 14.6839 19.8787 14.1213C19.3161 13.5587 19 12.7956 19 12C19 11.2044 19.3161 10.4413 19.8787 9.87868C20.4413 9.31607 21.2044 9 22 9V7C22 6.46957 21.7893 5.96086 21.4142 5.58579C21.0391 5.21071 20.5304 5 20 5H4C3.46957 5 2.96086 5.21071 2.58579 5.58579C2.21071 5.96086 2 6.46957 2 7V9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path id="Vector_2" d="M13 5V7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path id="Vector_3" d="M13 17V19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path id="Vector_4" d="M13 11V13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </g>
       </symbol>
 
@@ -132,10 +132,10 @@
       <!-- support icon -->
       <symbol viewBox="0 0 24 24" id="support_icon" fill="none">
           <g>
-            <path d="M19 14C20.49 12.54 22 10.79 22 8.5C22 7.04131 21.4205 5.64236 20.3891 4.61091C19.3576 3.57946 17.9587 3 16.5 3C14.74 3 13.5 3.5 12 5C10.5 3.5 9.26 3 7.5 3C6.04131 3 4.64236 3.57946 3.61091 4.61091C2.57946 5.64236 2 7.04131 2 8.5C2 10.8 3.5 12.55 5 14L12 21L19 14Z" stroke="#151514" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M12 5L9.03998 7.96C8.8368 8.16171 8.67554 8.40162 8.5655 8.66593C8.45546 8.93023 8.3988 9.2137 8.3988 9.5C8.3988 9.7863 8.45546 10.0698 8.5655 10.3341C8.67554 10.5984 8.8368 10.8383 9.03998 11.04C9.85998 11.86 11.17 11.89 12.04 11.11L14.11 9.21C14.6288 8.73919 15.3044 8.47839 16.005 8.47839C16.7056 8.47839 17.3811 8.73919 17.9 9.21L20.86 11.87" stroke="#151514" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M18 15L16 13" stroke="#151514" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M15 18L13 16" stroke="#151514" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M19 14C20.49 12.54 22 10.79 22 8.5C22 7.04131 21.4205 5.64236 20.3891 4.61091C19.3576 3.57946 17.9587 3 16.5 3C14.74 3 13.5 3.5 12 5C10.5 3.5 9.26 3 7.5 3C6.04131 3 4.64236 3.57946 3.61091 4.61091C2.57946 5.64236 2 7.04131 2 8.5C2 10.8 3.5 12.55 5 14L12 21L19 14Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12 5L9.03998 7.96C8.8368 8.16171 8.67554 8.40162 8.5655 8.66593C8.45546 8.93023 8.3988 9.2137 8.3988 9.5C8.3988 9.7863 8.45546 10.0698 8.5655 10.3341C8.67554 10.5984 8.8368 10.8383 9.03998 11.04C9.85998 11.86 11.17 11.89 12.04 11.11L14.11 9.21C14.6288 8.73919 15.3044 8.47839 16.005 8.47839C16.7056 8.47839 17.3811 8.73919 17.9 9.21L20.86 11.87" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M18 15L16 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M15 18L13 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </g>
       </symbol>
 
@@ -194,8 +194,8 @@
       <!-- колір заданий через stroke -->
       <symbol id="burgerOpen_icon"  viewBox="0 0 32 32">
         <g>
-          <path d="M24 8L8 24" stroke="#F9F8F4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M8 8L24 24" stroke="#F9F8F4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M24 8L8 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M8 8L24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </g>
       </symbol>
 
