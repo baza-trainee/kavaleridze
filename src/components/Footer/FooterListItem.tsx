@@ -57,15 +57,8 @@ export const ListNavigation = () => (
   <MyList>
     {listsItem.map(({ title, href }: IListLinkTextProps) => {
       return (
-        <ListItem
-          key={title}
-          sx={{
-            '&:hover': {
-              color: (theme) => theme.palette.primary.main,
-            },
-          }}
-          disablePadding>
-          <ListItemButton disableTouchRipple>
+        <ListItem key={title} disablePadding>
+          <ListItemButton>
             <Link to={href}>
               <ListItemText primary={<TypographyList>{title}</TypographyList>}></ListItemText>
             </Link>
@@ -88,21 +81,21 @@ export const ListContacts = () => (
   <MyList>
     <ListContactItem href="tel:044 425-33-97" title="044 425-33-97" svg="phone_icon" />
     <ListContactItem href="mailto:kavaleridzemuseum@gmail.com" title="kavaleridzemuseum@gmail.com" svg="email_icon" />
-    <ListTypography title="Андріївський узвіз, 21 Київ" svg="location_icon" />
+    <ListTypography title="Андріївський узвіз, 21, Київ" svg="location_icon" />
     <ListTypography title="Вт-Нд 11:00 – 18:00" svg="clock_icon" />
   </MyList>
 );
 
 export const ListContactItem = ({ title, svg = '', href = '#' }: IListLinkTextProps) => {
   return (
-    <ListItem
-      sx={{
-        '&:hover': {
-          color: (theme) => theme.palette.text.secondary,
-        },
-      }}
-      disablePadding>
-      <ListItemButton href={href} disableTouchRipple>
+    <ListItem disablePadding>
+      <ListItemButton
+        sx={{
+          ':hover': {
+            color: (theme) => theme.palette.text.secondary,
+          },
+        }}
+        href={href}>
         <ListItemIcon sx={{ minWidth: '44px', color: 'inherit' }}>
           <SvgSpriteIcon svgSpriteId={svg}></SvgSpriteIcon>
         </ListItemIcon>

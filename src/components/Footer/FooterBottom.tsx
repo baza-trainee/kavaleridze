@@ -39,7 +39,7 @@ const TextLink = styled(Link)(({ theme }) => ({
 export const FooterBottom = () => {
   return (
     <FooterBottomStyle>
-      <TypographyList>Baza Trainee Ukraine 2023. Всі права захищені</TypographyList>
+      <TypographyList>Baza Trainee Ukraine 2023. Всі права захищені&copy;</TypographyList>
       <TextLink href="#">
         <TypographyList>Політика конфіденційності</TypographyList>
       </TextLink>

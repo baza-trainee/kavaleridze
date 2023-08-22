@@ -1,4 +1,4 @@
-import { Box, Divider, styled, useMediaQuery, useTheme } from '@mui/material';
+import { Box, styled, useMediaQuery, useTheme } from '@mui/material';
 
 import { FooterBottom } from './FooterBottom.tsx';
 import { ListContacts, ListNavigation } from './FooterListItem.tsx';
@@ -8,7 +8,7 @@ import TabletFooter from './TabletFooter.tsx';
 const WrapperFooter = styled(Box)(({ theme }) => ({
   maxWidth: '1190px',
   margin: '0 auto',
-  width: '100%',
+
   [theme.breakpoints.down('lg')]: {
     padding: '0px 35px',
   },
@@ -29,9 +29,10 @@ export const Footer = () => {
             justifyContent: 'space-between',
             padding: '20px 0px',
             width: '100%',
+            margin: '0 -10px',
             [theme.breakpoints.down('md')]: {
               width: '100%',
-              padding: '50px 0',
+              padding: '30px 0',
               flexDirection: 'column',
               gap: '40px',
             },
@@ -49,7 +50,7 @@ export const Footer = () => {
           )}
         </Box>
       </WrapperFooter>
-      <Divider />
+      <Box sx={{ width: '100%', border: 'solid 1px', color: (theme) => theme.palette.text.secondary }} />
       {/* FooterBottom */}
       <WrapperFooter>
         <FooterBottom />
