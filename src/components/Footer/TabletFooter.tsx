@@ -10,7 +10,7 @@ export const MyBoxTabletStyle = styled(Box)(({ theme }) => ({
   },
 }));
 
-export default function TabletFooter() {
+function TabletFooter() {
   return (
     <Stack direction="column" justifyContent="space-between" width="100%">
       <MyBoxTabletStyle>
@@ -24,3 +24,5 @@ export default function TabletFooter() {
     </Stack>
   );
 }
+
+export default TabletFooter;

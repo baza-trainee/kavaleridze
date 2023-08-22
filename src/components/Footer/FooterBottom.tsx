@@ -7,7 +7,7 @@ const FooterBottomStyle = styled(Box)(({ theme }) => ({
   color: theme.palette.text.secondary,
   display: 'flex',
   justifyContent: 'space-between',
-  padding: '20px 8px',
+  padding: '30px 8px 25px 8px',
   [theme.breakpoints.down('lg')]: {
     flexDirection: 'column',
     justifyContent: 'centre',
@@ -36,7 +36,7 @@ const TextLink = styled(Link)(({ theme }) => ({
   },
 }));
 
-export const FooterBottom = () => {
+const FooterBottom = () => {
   return (
     <FooterBottomStyle>
       <TypographyList>Baza Trainee Ukraine 2023. Всі права захищені&copy;</TypographyList>
@@ -51,3 +51,4 @@ export const FooterBottom = () => {
     </FooterBottomStyle>
   );
 };
+export default FooterBottom;

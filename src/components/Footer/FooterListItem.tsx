@@ -86,7 +86,7 @@ export const ListContacts = () => (
   </MyList>
 );
 
-export const ListContactItem = ({ title, svg = '', href = '#' }: IListLinkTextProps) => {
+const ListContactItem = ({ title, svg = '', href = '#' }: IListLinkTextProps) => {
   return (
     <ListItem disablePadding>
       <ListItemButton

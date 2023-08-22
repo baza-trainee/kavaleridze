@@ -1,6 +1,6 @@
 import { Box, styled, useMediaQuery, useTheme } from '@mui/material';
 
-import { FooterBottom } from './FooterBottom.tsx';
+import FooterBottom from './FooterBottom.tsx';
 import { ListContacts, ListNavigation } from './FooterListItem.tsx';
 import { ButtonBlok, MainIconBlok } from './IconButton.tsx';
 import TabletFooter from './TabletFooter.tsx';
@@ -17,7 +17,7 @@ const WrapperFooter = styled(Box)(({ theme }) => ({
   },
 }));
 
-export const Footer = () => {
+const Footer = () => {
   const theme = useTheme();
   const isTablet = useMediaQuery(theme.breakpoints.only('md'));
   return (
@@ -58,3 +58,4 @@ export const Footer = () => {
     </Box>
   );
 };
+export default Footer;
