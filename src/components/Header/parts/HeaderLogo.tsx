@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { Box, Link } from '@mui/material';
-import logo from '../../../../public/Logo.svg';
+import logo from '/Logo.svg';
 
 const HeaderLogo: FC = () => {
   return (
