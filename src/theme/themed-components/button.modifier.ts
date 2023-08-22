@@ -1,5 +1,4 @@
 import { Components, Theme } from '@mui/material/styles';
-import { svgIconClasses } from '@mui/material/SvgIcon';
 
 declare module '@mui/material/Button' {
   interface ButtonPropsVariantOverrides {
@@ -20,6 +19,9 @@ export const MuiButton: Components<Theme>['MuiButton'] = {
     endIcon: {
       marginRight: 0,
       marginLeft: 8,
+      '& > *:first-of-type': {
+        fontSize: '1.5rem',
+      },
     },
   },
   variants: [
@@ -34,11 +36,6 @@ export const MuiButton: Components<Theme>['MuiButton'] = {
 
         '&:hover': {
           backgroundColor: theme.palette.primary.dark,
-        },
-
-        [`& .${svgIconClasses.fontSizeSmall}`]: {
-          width: '1.25rem',
-          height: '1.25rem',
         },
       }),
     },
