@@ -1,7 +1,6 @@
 import { FC, useState, ChangeEvent } from 'react';
 import { Box, TextField, InputAdornment } from '@mui/material';
 import SvgSpriteIcon from '../../PrimaryButton/SvgSpriteIcon';
-import { inputBaseClasses } from '@mui/material/InputBase';
 
 interface SearchProps {
   width: number | string;

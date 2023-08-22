@@ -1,4 +1,4 @@
-import { FC, PropsWithChildren, forwardRef, Ref } from 'react';
+import { FC, PropsWithChildren } from 'react';
 import { Dialog, Stack, IconButton, DialogContent } from '@mui/material';
 import DialogTransition from '../parts/DialogTransition';
 import LangPanel from '../parts/LangPanel';
