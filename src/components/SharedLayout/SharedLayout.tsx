@@ -11,7 +11,7 @@ const SharedLayout: FC = () => {
       </main>
       <footer>Footer</footer>
     </div>
-  )
-}
+  );
+};
 
-export default SharedLayout
+export default SharedLayout;

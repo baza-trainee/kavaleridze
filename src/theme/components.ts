@@ -20,5 +20,3 @@ export const components: Components<Theme> = {
   MuiSvgIcon,
   MuiListItemButton,
 };
-
-export { MuiContainer };
