@@ -16,6 +16,11 @@ export const MuiButton: Components<Theme>['MuiButton'] = {
     root: {
       textTransform: 'none',
     },
+    startIcon: {
+      '& > *:first-of-type': {
+        fontSize: '1.5rem',
+      },
+    },
     endIcon: {
       marginRight: 0,
       marginLeft: 8,

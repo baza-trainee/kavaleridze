@@ -11,7 +11,7 @@ interface SubMenuProps {
 const SubmenuItem = ({ title, href }: { title: string; href: string }) => {
   return (
     <ListItem disableGutters disablePadding>
-      <ListItemButton disableGutters href={href} sx={{ height: { xs: 'auto', md: 40 } }}>
+      <ListItemButton disableGutters href={href} sx={{ height: { xs: 'auto', md: 40 }, px: { sx: 0, md: 2 } }}>
         {title}
       </ListItemButton>
     </ListItem>
@@ -26,7 +26,7 @@ const SubMenu: FC<SubMenuProps> = ({ onClick }) => {
           variant="text"
           aria-label="return to main menu"
           onClick={onClick}
-          sx={{ fontSize: 16, justifyContent: 'flex-start', mb: 2 }}
+          sx={{ fontSize: 16, justifyContent: 'flex-start', mb: 2, px: { sx: 0, md: 2 } }}
           startIcon={<SvgSpriteIcon svgSpriteId="arrowLeft_icon" />}>
           Іван Кавалерідзе
         </Button>
