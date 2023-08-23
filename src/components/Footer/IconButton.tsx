@@ -1,4 +1,4 @@
-import { Box, styled } from '@mui/material';
+import { Box } from '@mui/material';
 
 import PrimaryButton from '../PrimaryButton/PrimaryButton.tsx';
 import Logo from '/Logo.svg';
@@ -8,15 +8,14 @@ export const MainIconBlok = () => (
     <img src={Logo}></img>
   </Box>
 );
-const BoxButton = styled(Box)(({ theme }) => ({
-  margin: '8px',
-  display: 'grid',
-  [theme.breakpoints.down('lg')]: {
-    placeItems: 'center',
-  },
-}));
+
 export const ButtonBlok = () => (
-  <BoxButton>
+  <Box
+    sx={{
+      m: 1,
+      display: 'grid',
+      placeItems: { xs: 'center', lg: 'start' },
+    }}>
     <PrimaryButton title="Підтримати музей" href="#" svgSpriteId="support_icon" />
-  </BoxButton>
+  </Box>
 );
