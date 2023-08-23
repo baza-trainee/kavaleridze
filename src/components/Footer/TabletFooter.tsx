@@ -4,9 +4,8 @@ import { ButtonBlok, MainIconBlok } from './IconButton';
 
 export const MyBoxTabletStyle = styled(Box)(({ theme }) => ({
   display: 'flex',
-  [theme.breakpoints.down('lg')]: {
+  [theme.breakpoints.only('md')]: {
     justifyContent: 'space-between',
-    margin: '25px 0',
   },
 }));
 

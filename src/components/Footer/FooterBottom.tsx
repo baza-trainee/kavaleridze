@@ -1,54 +1,48 @@
-import { Box, Link, Stack, styled } from '@mui/material';
+import { Box, IconButton, Link, Stack, styled } from '@mui/material';
 
 import SvgSpriteIcon from '../PrimaryButton/SvgSpriteIcon';
 import { TypographyList } from './FooterListItem';
 
-const FooterBottomStyle = styled(Box)(({ theme }) => ({
-  color: theme.palette.text.secondary,
-  display: 'flex',
-  justifyContent: 'space-between',
-  padding: '30px 8px 25px 8px',
-  [theme.breakpoints.down('lg')]: {
-    flexDirection: 'column',
-    justifyContent: 'centre',
-    alignItems: 'center',
-    gap: '32px',
-    wight: '100%',
-    padding: '24px 0px',
-    textAlign: 'center',
-  },
-}));
 const TextLink = styled(Link)(({ theme }) => ({
-  lineHeight: '21.13px',
-  fontSize: '18px',
-  transition: '0.5s',
   color: 'inherit',
-  height: '100%',
   textDecoration: 'none',
+  borderBottom: 'solid 1px',
   cursor: 'pointer',
-  borderBottom: 'solid 2px',
-  '&:hover': {
-    color: 'inherit',
-  },
-  [theme.breakpoints.down('md')]: {
-    fontSize: '16px',
-    lineHeight: '18.78px',
+  ':hover': {
+    color: theme.palette.primary.main,
   },
 }));
 
 const FooterBottom = () => {
   return (
-    <FooterBottomStyle>
+    <Box
+      sx={{
+        color: (theme) => theme.palette.text.secondary,
+        display: 'flex',
+        justifyContent: { xs: 'center', lg: 'space-between' },
+        flexDirection: { xs: 'column', lg: 'row' },
+        alignItems: 'center',
+        wight: '100%',
+        textAlign: 'center',
+        p: '24px 8px',
+        gap: { xs: '32px', lg: '0' },
+      }}>
       <TypographyList>Baza Trainee Ukraine 2023. Всі права захищені&copy;</TypographyList>
       <TextLink href="#">
         <TypographyList>Політика конфіденційності</TypographyList>
       </TextLink>
-      <TextLink href="#">Правила користування сайтом</TextLink>
+      <TextLink href="#">
+        <TypographyList>Правила користування сайтом</TypographyList>
+      </TextLink>
       <Stack gap="13px" direction="row">
-        <SvgSpriteIcon sx={{ color: (theme) => theme.palette.text.primary }} fontSize="medium" svgSpriteId={'instagram_icon'} />
-        <SvgSpriteIcon sx={{ color: (theme) => theme.palette.text.primary }} fontSize="medium" svgSpriteId={'facebook_icon'} />
+        <IconButton sx={{ p: 0 }} href="/" aria-label="instagram_icon">
+          <SvgSpriteIcon fontSize="medium" svgSpriteId={'instagram_icon'} />
+        </IconButton>
+        <IconButton sx={{ p: 0 }} href="/" aria-label="facebook_icon">
+          <SvgSpriteIcon fontSize="medium" svgSpriteId={'facebook_icon'} />
+        </IconButton>
       </Stack>
-    </FooterBottomStyle>
+    </Box>
   );
 };
 export default FooterBottom;

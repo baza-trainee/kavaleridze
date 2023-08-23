@@ -6,14 +6,14 @@ import { ButtonBlok, MainIconBlok } from './IconButton.tsx';
 import TabletFooter from './TabletFooter.tsx';
 
 const WrapperFooter = styled(Box)(({ theme }) => ({
-  maxWidth: '1190px',
+  maxWidth: '1280px',
   margin: '0 auto',
-
+  padding: '0px 80px',
   [theme.breakpoints.down('lg')]: {
-    padding: '0px 35px',
+    padding: '0px 24px',
   },
   [theme.breakpoints.down('md')]: {
-    padding: '0 16px',
+    padding: '0px ',
   },
 }));
 
@@ -27,15 +27,10 @@ const Footer = () => {
           sx={{
             display: 'flex',
             justifyContent: 'space-between',
-            padding: '20px 0px',
+            flexDirection: { lg: 'row', md: 'column', xs: 'column' },
             width: '100%',
-            margin: '0 -10px',
-            [theme.breakpoints.down('md')]: {
-              width: '100%',
-              padding: '30px 0',
-              flexDirection: 'column',
-              gap: '40px',
-            },
+            gap: { xs: 5, md: 0 },
+            py: { xs: '40px', lg: '24px' },
           }}>
           {isTablet ? (
             <TabletFooter />

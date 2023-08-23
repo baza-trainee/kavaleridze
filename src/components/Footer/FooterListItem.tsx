@@ -89,13 +89,7 @@ export const ListContacts = () => (
 const ListContactItem = ({ title, svg = '', href = '#' }: IListLinkTextProps) => {
   return (
     <ListItem disablePadding>
-      <ListItemButton
-        sx={{
-          ':hover': {
-            color: (theme) => theme.palette.text.secondary,
-          },
-        }}
-        href={href}>
+      <ListItemButton href={href}>
         <ListItemIcon sx={{ minWidth: '44px', color: 'inherit' }}>
           <SvgSpriteIcon svgSpriteId={svg}></SvgSpriteIcon>
         </ListItemIcon>
