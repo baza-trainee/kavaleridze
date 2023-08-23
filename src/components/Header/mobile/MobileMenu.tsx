@@ -1,4 +1,4 @@
-import { FC, useState, useRef } from 'react';
+import { FC, useState, useRef, useEffect } from 'react';
 import { Box, IconButton, useTheme, useMediaQuery, Slide, Paper } from '@mui/material';
 
 import SvgSpriteIcon from '../../PrimaryButton/SvgSpriteIcon';
@@ -9,12 +9,24 @@ import MobileDialog from './MobileDialog';
 const MobileMenu: FC = () => {
   const [menuEl, setMenuEl] = useState(false);
   const [submenuEl, setSubmenuEl] = useState(false);
-  const containerRef = useRef(null);
-  const menuRef = useRef(null);
+  const [slideHeight, setSliderHeight] = useState(0);
+  const [initialRef, setInitialRef] = useState(false);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const menuRef = useRef<HTMLDivElement | null>(null);
+  const submenuRef = useRef<HTMLDivElement | null>(null);
   const theme = useTheme();
   const isTablet = useMediaQuery(theme.breakpoints.up('md'));
 
-  // console.log('menu height', menuRef.current && menuRef.current.getBoundingClientRect());
+  useEffect(() => {
+    if (!initialRef || !menuRef.current || !submenuRef.current) {
+      return;
+    }
+    if (submenuEl) {
+      setSliderHeight(submenuRef.current.getBoundingClientRect().height);
+    } else {
+      setSliderHeight(menuRef.current && menuRef.current.getBoundingClientRect().height);
+    }
+  }, [menuRef, submenuRef, submenuEl, initialRef]);
 
   const onOpenNavMenu = () => {
     setMenuEl(true);
@@ -49,29 +61,33 @@ const MobileMenu: FC = () => {
         )}
       </IconButton>
       <MobileDialog state={menuEl} onClose={onCloseNavMenu}>
-        <Box position="relative" sx={{ overflowX: 'hidden', height: '100%' }} ref={containerRef}>
+        <Box position="relative" sx={{ overflow: 'hidden', height: slideHeight > 0 ? slideHeight : 'auto' }} ref={containerRef}>
           <Slide direction="right" in={!submenuEl} container={containerRef.current} appear={false}>
-            <Box sx={{ position: 'absolute', top: 0, width: '100%', minHeight: '100%' }}>
-              <Paper sx={{ width: '100%', height: 'auto' }} elevation={0} ref={menuRef}>
+            <Box sx={{ position: 'absolute', top: 0, width: '100%' }}>
+              <Paper
+                elevation={0}
+                ref={(el) => {
+                  menuRef.current = el;
+                  setInitialRef(true);
+                }}>
                 <MobileMainMenu action={onOpenSubMenu} />
               </Paper>
             </Box>
           </Slide>
 
           <Slide direction="left" in={submenuEl} container={containerRef.current}>
-            <Box sx={{ position: 'absolute', top: 0, width: '100%', minHeight: '100%' }}>
-              <Paper sx={{ width: '100%', height: 'auto' }} elevation={0}>
+            <Box sx={{ position: 'absolute', top: 0, width: '100%' }}>
+              <Paper
+                sx={{ width: '100%' }}
+                elevation={0}
+                ref={(el) => {
+                  submenuRef.current = el;
+                }}>
                 <SubMenu onClick={onCloseSubMenu} />
               </Paper>
             </Box>
           </Slide>
         </Box>
-
-        {/* <SubMenu
-          onClick={() => {
-            console.log('onClick');
-          }}
-        /> */}
       </MobileDialog>
     </Box>
   );
