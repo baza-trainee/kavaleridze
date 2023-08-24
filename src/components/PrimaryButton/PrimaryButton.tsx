@@ -1,4 +1,4 @@
-import { Box, Button } from '@mui/material';
+import { Button } from '@mui/material';
 import { FC, MouseEventHandler } from 'react';
 import SvgSpriteIcon from './SvgSpriteIcon';
 
