@@ -70,7 +70,7 @@ const NavMenu: FC<NavMenuProps> = ({ secondaryAction }) => {
           </ListItemButton>
         </ListItem>
       )}
-      <NavMenuItem href="/" title="Контакти" />
+      <NavMenuItem href="/contacts" title="Контакти" />
     </List>
   );
 };

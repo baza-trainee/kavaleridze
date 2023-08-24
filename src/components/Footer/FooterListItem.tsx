@@ -31,7 +31,7 @@ const listsItem = [
     title: 'Іван Кавалерідзе',
   },
   {
-    href: '/',
+    href: '/contacts',
     title: 'Контакти',
   },
 ];
