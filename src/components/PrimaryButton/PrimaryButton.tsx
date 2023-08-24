@@ -1,5 +1,5 @@
 import { Box, Button } from '@mui/material';
-import { FC } from 'react';
+import { FC, MouseEventHandler } from 'react';
 import SvgSpriteIcon from './SvgSpriteIcon';
 
 interface PrimaryButtonProps {
@@ -7,20 +7,20 @@ interface PrimaryButtonProps {
   svgSpriteId: string;
   href: string;
   componentWidth?: number;
+  onClick?: MouseEventHandler;
 }
 
-const PrimaryButton: FC<PrimaryButtonProps> = ({ title, svgSpriteId, href, componentWidth }) => {
+const PrimaryButton: FC<PrimaryButtonProps> = ({ title, svgSpriteId, componentWidth, href, onClick }) => {
   return (
-    <Box>
-      <Button
-        href={href}
-        target="_blank"
-        variant="primary"
-        endIcon={<SvgSpriteIcon svgSpriteId={svgSpriteId} fontSize="small" />}
-        sx={{ width: `${componentWidth}px` }}>
-        {title}
-      </Button>
-    </Box>
+    <Button
+      href={href}
+      target="_blank"
+      variant="primary"
+      onClick={onClick}
+      endIcon={<SvgSpriteIcon svgSpriteId={svgSpriteId} fontSize="small" />}
+      sx={{ width: `${componentWidth}px` }}>
+      {title}
+    </Button>
   );
 };
 
