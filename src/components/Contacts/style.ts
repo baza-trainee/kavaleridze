@@ -1,4 +1,10 @@
-import { List, styled, ListItem, Typography, Paper,  } from '@mui/material';
+import {  List, styled, ListItem, Typography, Paper, Link, Button } from '@mui/material';
+
+
+export const ContactLink = styled(Link)(({ theme }) => ({
+  textDecoration: 'none',
+  color: 'inherit',
+}));
 
 export const ContactList = styled(List)(({ theme }) => ({
   maxWidth: '736px',
@@ -8,7 +14,6 @@ export const ContactList = styled(List)(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   gap: '24px',
-
 }));
 export const ContactPaper = styled(Paper)(({ theme }) => ({
   background: theme.palette.common.white,
@@ -33,5 +38,16 @@ export const Text = styled(Typography)(({ theme }) => ({
   mb: '16px',
   fontSize: '18px',
   fontWeight: 400,
-  marginBottom:'16px',
+  marginBottom: '16px',
+}));
+export const ContactButton = styled(Button)(({ theme }) => ({
+  mb: '16px',
+  fontSize: '18px',
+  fontWeight: 400,
+  marginBottom: '16px',
+  textDecoration:"underline",
+  background:"none",
+  border:"none",
+  padding:0,
+  color:'inherit'
 }));

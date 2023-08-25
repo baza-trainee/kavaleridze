@@ -1,12 +1,24 @@
 import { FC } from 'react';
-import { ContactList, ContactItem, Title, Text, ContactPaper } from './style.js';
+import { ContactList, ContactItem, Title, Text, ContactPaper, ContactLink, Li, ContactButton } from './style.ts';
+import { useTheme } from '@mui/material';
 const Contacts: FC = () => {
+  const theme = useTheme();
+  const textHover = {
+    ':hover': {
+      cursor: 'pointer',
+      color: theme.palette.primary.main,
+    },
+  };
   return (
     <ContactPaper>
       <ContactList>
         <ContactItem>
           <Title variant="h3">Подзвонити до нас</Title>
-          <Text variant="body1">044 – 425-33-97</Text>
+          <ContactLink href="tel:+38(044)-425-33-97" className="Blondie">
+            <Text sx={textHover} variant="body1">
+              +38(044)-425-33-97
+            </Text>
+          </ContactLink>
         </ContactItem>
         <ContactItem>
           <Title variant="h3">Як нас знайти</Title>
@@ -17,7 +29,9 @@ const Contacts: FC = () => {
         </ContactItem>
         <ContactItem>
           <Title variant="h3">Напишіть нам</Title>
-          <Text variant="body1">kavaleridzemuseum@gmail.com</Text>
+          <ContactButton sx={{ textHover }} variant="text" >
+            kavaleridzemuseum@gmail.com
+          </ContactButton>
         </ContactItem>
       </ContactList>
     </ContactPaper>
