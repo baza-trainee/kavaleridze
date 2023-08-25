@@ -46,8 +46,6 @@ export const ContactButton = styled(Button)(({ theme }) => ({
   fontWeight: 400,
   marginBottom: '16px',
   textDecoration:"underline",
-  background:"none",
-  border:"none",
   padding:0,
   color:'inherit'
 }));
