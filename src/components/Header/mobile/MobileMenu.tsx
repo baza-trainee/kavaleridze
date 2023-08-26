@@ -24,7 +24,7 @@ const MobileMenu: FC = () => {
     if (submenuEl) {
       setSliderHeight(submenuRef.current.getBoundingClientRect().height);
     } else {
-      setSliderHeight(menuRef.current && menuRef.current.getBoundingClientRect().height);
+      setSliderHeight(menuRef.current.getBoundingClientRect().height);
     }
   }, [menuRef, submenuRef, submenuEl, initialRef]);
 

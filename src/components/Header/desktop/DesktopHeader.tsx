@@ -16,10 +16,9 @@ const DesktopHeader: FC = () => {
         <HeaderLogo />
         <PrimaryButton href="/" svgSpriteId="ticket_icon" title="Квитки" />
       </HeaderWrapper>
-
+      <Divider flexItem sx={{ position: 'absolute', top: 128, left: 0, right: 0 }} />
       <HeaderWrapper alignItems="center" position="relative">
-        <Divider flexItem sx={{ position: 'absolute', top: 0, left: 0, right: 0 }} />
-        <Search width={301} />
+        <Search width={300} />
         <NavMenu />
         <LangPanel />
       </HeaderWrapper>
