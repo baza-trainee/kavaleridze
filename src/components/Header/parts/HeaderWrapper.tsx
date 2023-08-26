@@ -6,7 +6,7 @@ const HeaderWrapper: FC<PropsWithChildren<StackProps>> = ({ children, ...props }
     <Stack
       direction="row"
       justifyContent="space-between"
-      sx={{ width: '100%', py: { xs: 2, md: 2, lg: 3 }, px: { xs: 2, md: 5, lg: 10 } }}
+      sx={{ width: '100%', maxWidth: 1280, minWidth: 320, py: { xs: 2, lg: 3 }, px: { xs: 2, md: 5, lg: 10 } }}
       {...props}>
       {children}
     </Stack>
