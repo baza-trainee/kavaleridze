@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { ContactList, ContactItem, Title, Text, ContactPaper, ContactLink, Li, ContactButton } from './style.ts';
+import { ContactList, ContactItem, Title, Text, ContactPaper, ContactLink,  ContactButton } from './style.ts';
 import { useTheme } from '@mui/material';
 const Contacts: FC = () => {
   const theme = useTheme();

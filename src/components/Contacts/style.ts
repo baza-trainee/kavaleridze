@@ -1,7 +1,6 @@
-import {  List, styled, ListItem, Typography, Paper, Link, Button } from '@mui/material';
+import { List, styled, ListItem, Typography, Paper, Link, Button } from '@mui/material';
 
-
-export const ContactLink = styled(Link)(({ theme }) => ({
+export const ContactLink = styled(Link)(({  }) => ({
   textDecoration: 'none',
   color: 'inherit',
 }));
@@ -23,29 +22,28 @@ export const ContactPaper = styled(Paper)(({ theme }) => ({
   padding: '104px 0',
 }));
 
-export const ContactItem = styled(ListItem)(({ theme }) => ({
+export const ContactItem = styled(ListItem)(({  }) => ({
   display: 'block',
   borderBottom: `1px solid var(--secondary-gray, #878684)`,
-
   padding: 0,
 }));
-export const Title = styled(Typography)(({ theme }) => ({
+export const Title = styled(Typography)(({  }) => ({
   fontSize: '24px',
   fontWeight: 600,
   marginBottom: '16px',
 }));
-export const Text = styled(Typography)(({ theme }) => ({
+export const Text = styled(Typography)(({  }) => ({
   mb: '16px',
   fontSize: '18px',
   fontWeight: 400,
   marginBottom: '16px',
 }));
-export const ContactButton = styled(Button)(({ theme }) => ({
+export const ContactButton = styled(Button)(({  }) => ({
   mb: '16px',
   fontSize: '18px',
   fontWeight: 400,
   marginBottom: '16px',
-  textDecoration:"underline",
-  padding:0,
-  color:'inherit'
+  textDecoration: 'underline',
+  padding: 0,
+  color: 'inherit',
 }));
