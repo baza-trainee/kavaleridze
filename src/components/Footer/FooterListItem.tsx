@@ -45,7 +45,6 @@ const MyList = styled(List)(() => ({
 export const TypographyList = styled(Typography)(({ theme }) => ({
   lineHeight: '21.13px',
   fontSize: '18px',
-  transition: '0.4s',
   color: 'inherit',
   [theme.breakpoints.down('md')]: {
     fontSize: '16px',

@@ -8,7 +8,7 @@ import TabletFooter from './TabletFooter.tsx';
 const WrapperFooter = styled(Box)(({ theme }) => ({
   maxWidth: '1280px',
   margin: '0 auto',
-  padding: '0px 80px',
+  padding: '0px 72px',
   [theme.breakpoints.down('lg')]: {
     padding: '0px 24px',
   },
