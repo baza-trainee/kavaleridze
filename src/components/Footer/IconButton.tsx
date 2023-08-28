@@ -4,7 +4,7 @@ import PrimaryButton from '../PrimaryButton/PrimaryButton.tsx';
 import Logo from '/Logo.svg';
 
 export const MainIconBlok = () => (
-  <Box sx={{ p: 2 }}>
+  <Box>
     <img src={Logo}></img>
   </Box>
 );
@@ -12,7 +12,6 @@ export const MainIconBlok = () => (
 export const ButtonBlok = () => (
   <Box
     sx={{
-      m: 1,
       display: 'grid',
       placeItems: { xs: 'center', lg: 'start' },
     }}>

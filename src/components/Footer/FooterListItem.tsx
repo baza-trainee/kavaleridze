@@ -39,7 +39,9 @@ const listsItem = [
 const MyList = styled(List)(() => ({
   display: 'flex',
   flexDirection: 'column',
-  gap: '20px',
+  gap: '24px',
+  padding: '0px',
+  margin: '0px',
 }));
 
 export const TypographyList = styled(Typography)(({ theme }) => ({
@@ -54,11 +56,11 @@ export const TypographyList = styled(Typography)(({ theme }) => ({
 }));
 
 export const ListNavigation = () => (
-  <MyList>
+  <MyList disablePadding>
     {listsItem.map(({ title, href }: IListLinkTextProps) => {
       return (
         <ListItem key={title} disablePadding>
-          <ListItemButton>
+          <ListItemButton sx={{ p: '0px' }}>
             <Link to={href}>
               <ListItemText primary={<TypographyList>{title}</TypographyList>}></ListItemText>
             </Link>
@@ -70,7 +72,7 @@ export const ListNavigation = () => (
 );
 
 const ListTypography = ({ title, svg }: IListTextProps) => (
-  <ListItem>
+  <ListItem sx={{ p: '0px' }}>
     <ListItemIcon sx={{ minWidth: '44px', color: 'inherit' }}>
       <SvgSpriteIcon svgSpriteId={svg}></SvgSpriteIcon>
     </ListItemIcon>
@@ -89,7 +91,7 @@ export const ListContacts = () => (
 const ListContactItem = ({ title, svg = '', href = '#' }: IListLinkTextProps) => {
   return (
     <ListItem disablePadding>
-      <ListItemButton href={href}>
+      <ListItemButton sx={{ p: '0px' }} href={href}>
         <ListItemIcon sx={{ minWidth: '44px', color: 'inherit' }}>
           <SvgSpriteIcon svgSpriteId={svg}></SvgSpriteIcon>
         </ListItemIcon>
