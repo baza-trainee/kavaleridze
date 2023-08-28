@@ -5,7 +5,7 @@ import SvgSpriteIcon from './SvgSpriteIcon';
 interface PrimaryButtonProps {
   title: string;
   svgSpriteId: string;
-  href: string;
+  href?: string;
   componentWidth?: number;
   onClick?: MouseEventHandler;
 }
@@ -14,7 +14,6 @@ const PrimaryButton: FC<PrimaryButtonProps> = ({ title, svgSpriteId, componentWi
   return (
     <Button
       href={href}
-      target="_blank"
       variant="primary"
       onClick={onClick}
       endIcon={<SvgSpriteIcon svgSpriteId={svgSpriteId} fontSize="small" />}
