@@ -7,14 +7,14 @@ interface PrimaryButtonProps {
   svgSpriteId: string;
   href?: string;
   componentWidth?: number;
-  onClick?: MouseEventHandler;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
 const PrimaryButton: FC<PrimaryButtonProps> = ({ title, svgSpriteId, componentWidth, href, onClick }) => {
   return (
     <Button
-      href={href}
       variant="primary"
+      href={href}
       onClick={onClick}
       endIcon={<SvgSpriteIcon svgSpriteId={svgSpriteId} fontSize="small" />}
       sx={{ width: `${componentWidth}px` }}>
