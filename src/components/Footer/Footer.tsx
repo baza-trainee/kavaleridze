@@ -10,10 +10,10 @@ const WrapperFooter = styled(Box)(({ theme }) => ({
   margin: '0 auto',
   padding: '0px 80px',
   [theme.breakpoints.down('lg')]: {
-    padding: '0px 24px',
+    padding: '0px 40px',
   },
   [theme.breakpoints.down('md')]: {
-    padding: '0px ',
+    padding: '0px  16px',
   },
 }));
 
@@ -30,7 +30,7 @@ const Footer = () => {
             flexDirection: { lg: 'row', md: 'column', xs: 'column' },
             width: '100%',
             gap: { xs: 5, md: 0 },
-            py: { xs: '40px', lg: '24px' },
+            py: { xs: '40px', lg: '40px' },
           }}>
           {isTablet ? (
             <TabletFooter />
