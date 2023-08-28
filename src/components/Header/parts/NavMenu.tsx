@@ -39,7 +39,7 @@ const NavMenu: FC<NavMenuProps> = ({ secondaryAction }) => {
       disablePadding
       sx={{
         display: 'grid',
-        gap: { xs: 2, md: 3, lg: 5 },
+        gap: { xs: 2, md: 3, lg: '60px' },
         fontFamily: 'Kyiv Type',
         fontSize: { md: '16px', lg: '18px' },
         gridTemplate: { xs: 'repeat(4, auto)/1fr', lg: '1fr/repeat(4, auto)' },

@@ -37,7 +37,7 @@ const LangPanel = () => {
   };
 
   return (
-    <FormControl>
+    <FormControl sx={{ ml: { xs: 0, lg: '154.5px' } }}>
       <RadioGroup aria-labelledby="language-panel" name="language" value={lang} onChange={onChangeLang} row>
         <StyledFormControlLabel
           value={languages[0]}

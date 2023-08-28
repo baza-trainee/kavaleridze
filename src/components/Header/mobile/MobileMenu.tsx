@@ -1,5 +1,5 @@
 import { FC, useState, useRef, useEffect } from 'react';
-import { Box, IconButton, useTheme, useMediaQuery, Slide, Paper } from '@mui/material';
+import { Box, IconButton, Slide, Paper } from '@mui/material';
 
 import SvgSpriteIcon from '../../PrimaryButton/SvgSpriteIcon';
 import MobileMainMenu from './MobileMainMenu';
@@ -14,8 +14,6 @@ const MobileMenu: FC = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const menuRef = useRef<HTMLDivElement | null>(null);
   const submenuRef = useRef<HTMLDivElement | null>(null);
-  const theme = useTheme();
-  const isTablet = useMediaQuery(theme.breakpoints.up('md'));
 
   useEffect(() => {
     if (!initialRef || !menuRef.current || !submenuRef.current) {
@@ -54,11 +52,7 @@ const MobileMenu: FC = () => {
         sx={{
           padding: 0,
         }}>
-        {isTablet ? (
-          <SvgSpriteIcon svgSpriteId="burgerClosed_icon " />
-        ) : (
-          <SvgSpriteIcon svgSpriteId="burgerSearch_icon" fontSize="medium" />
-        )}
+        <SvgSpriteIcon svgSpriteId="burgerSearch_icon" fontSize="medium" />
       </IconButton>
       <MobileDialog state={menuEl} onClose={onCloseNavMenu}>
         <Box position="relative" sx={{ overflow: 'hidden', height: slideHeight > 0 ? slideHeight : 'auto' }} ref={containerRef}>

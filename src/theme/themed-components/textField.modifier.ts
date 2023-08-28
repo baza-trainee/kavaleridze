@@ -6,11 +6,9 @@ import { inputBaseClasses } from '@mui/material/InputBase';
 export const MuiInputBase: Components<Theme>['MuiInputBase'] = {
   styleOverrides: {
     root: ({ theme }) => ({
-      height: '44px',
-
       [`& .${inputBaseClasses.input}`]: {
-        lineHeight: '24px',
         outline: 'none',
+        padding: 0,
 
         '&:placeholder': {
           opacity: 1,
@@ -28,9 +26,9 @@ export const MuiInputBase: Components<Theme>['MuiInputBase'] = {
 export const MuiTextField: Components<Theme>['MuiTextField'] = {
   styleOverrides: {
     root: ({ theme }) => ({
-      '--TextField-brandBorderColor': theme.palette.common.white,
-      '--TextField-brandBorderHoverColor': theme.palette.common.white,
-      '--TextField-brandBorderFocusedColor': theme.palette.common.white,
+      '--TextField-brandBorderColor': theme.palette.common.black,
+      '--TextField-brandBorderHoverColor': theme.palette.primary.main,
+      '--TextField-brandBorderFocusedColor': theme.palette.primary.main,
     }),
   },
 };
@@ -39,10 +37,12 @@ export const MuiOutlinedInput: Components<Theme>['MuiOutlinedInput'] = {
   styleOverrides: {
     notchedOutline: {
       borderColor: 'var(--TextField-brandBorderColor)',
-      borderRadius: '24px',
+      borderRadius: 24,
     },
-    root: {
-      padding: '8px',
+    root: ({ theme }) => ({
+      color: theme.palette.common.black,
+      maxHeight: 200,
+      padding: 16,
       [`&:hover .${outlinedInputClasses.notchedOutline}`]: {
         borderColor: 'var(--TextField-brandBorderHoverColor)',
       },
@@ -50,6 +50,6 @@ export const MuiOutlinedInput: Components<Theme>['MuiOutlinedInput'] = {
         border: '1px solid',
         borderColor: 'var(--TextField-brandBorderFocusedColor)',
       },
-    },
+    }),
   },
 };
