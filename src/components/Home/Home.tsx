@@ -1,14 +1,30 @@
 import { FC } from 'react';
-import { Container, Typography } from '@mui/material';
+import { Box, Container, Typography } from '@mui/material';
 import Section from '../Section/Section';
 
 const Home: FC = () => {
   return (
     <Section variant="light">
       <Container>
-        <div style={{ height: '200px' }}>
+        <Box sx={{ height: '200px' }}>
           <Typography variant="h2">Головна</Typography>
-        </div>
+        </Box>
+
+        <Box sx={{ height: '200px' }}>
+          <Typography variant="h2">Перша секція</Typography>
+        </Box>
+        <Box sx={{ height: '200px' }}>
+          <Typography variant="h2">Друга секція</Typography>
+        </Box>
+        <Box sx={{ height: '200px' }}>
+          <Typography variant="h2">Третя секція</Typography>
+        </Box>
+        <Box sx={{ height: '200px' }}>
+          <Typography variant="h2">Четверта секція</Typography>
+        </Box>
+        <Box sx={{ height: '200px' }}>
+          <Typography variant="h2">П'ята секція</Typography>
+        </Box>
       </Container>
     </Section>
   );
