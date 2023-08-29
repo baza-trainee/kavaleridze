@@ -28,10 +28,10 @@ const FooterBottom = () => {
         gap: { xs: '32px', lg: '0' },
       }}>
       <TypographyList>Baza Trainee Ukraine 2023. Всі права захищені&copy;</TypographyList>
-      <TextLink href="#">
+      <TextLink target="_blank" href="https://drive.google.com/file/d/1rQx-JY7Wl21UaxMojnHDzwfHUn7Je2Ip/view?usp=drive_link">
         <TypographyList>Політика конфіденційності</TypographyList>
       </TextLink>
-      <TextLink href="#">
+      <TextLink target="_blank" href="https://drive.google.com/file/d/1LwTnn-6qpGVNR2h0DJ_e3VZTFD_CRqDd/view?usp=drive_link">
         <TypographyList>Правила користування сайтом</TypographyList>
       </TextLink>
       <Stack gap="13px" direction="row">
