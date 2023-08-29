@@ -1,5 +1,4 @@
 import { Button, ButtonProps } from '@mui/material';
-import { LinkProps } from 'react-router-dom';
 import { FC } from 'react';
 import SvgSpriteIcon from './SvgSpriteIcon';
 
