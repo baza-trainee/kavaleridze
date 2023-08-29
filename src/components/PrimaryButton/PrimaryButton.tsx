@@ -5,16 +5,11 @@ import SvgSpriteIcon from './SvgSpriteIcon';
 interface PrimaryButtonProps extends ButtonProps {
   title: string;
   svgSpriteId: string;
-  componentWidth?: number;
 }
 
-const PrimaryButton: FC<PrimaryButtonProps> = ({ title, svgSpriteId, componentWidth, ...props }) => {
+const PrimaryButton: FC<PrimaryButtonProps> = ({ title, svgSpriteId, ...props }) => {
   return (
-    <Button
-      variant="primary"
-      endIcon={<SvgSpriteIcon svgSpriteId={svgSpriteId} fontSize="small" />}
-      sx={{ width: `${componentWidth}px` }}
-      {...props}>
+    <Button variant="primary" {...props} endIcon={<SvgSpriteIcon svgSpriteId={svgSpriteId} fontSize="small" />}>
       {title}
     </Button>
   );

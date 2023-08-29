@@ -53,29 +53,4 @@ const MobileMainMenu: FC<MobileMainMenuProp> = ({ title, href, openSubMenu, clos
   );
 };
 
-{
-  /* <ListItem
-  disablePadding
-  sx={{
-    width: 'auto',
-  }}>
-  <ListItemButton
-    onClick={() => {
-      secondaryAction && secondaryAction();
-    }}
-    sx={{
-      px: 0,
-      py: 1,
-
-      display: ' flex',
-      justifyContent: 'space-between',
-    }}>
-    {title}
-    <ListItemIcon sx={{ minWidth: 24, color: 'inherit', position: 'absolute', top: '50%', right: 0, transform: 'translateY(-50%)' }}>
-      <SvgSpriteIcon svgSpriteId="arrowRight_icon" />
-    </ListItemIcon>
-  </ListItemButton>
-</ListItem>; */
-}
-
 export default MobileMainMenu;
