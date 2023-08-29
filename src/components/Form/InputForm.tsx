@@ -6,7 +6,7 @@ import { Controller } from 'react-hook-form';
 import SvgSpriteIcon from '../PrimaryButton/SvgSpriteIcon';
 import TooltipInfo from './TooltipInfo';
 
-const InputForm = ({ placeholder, control, name, height, alert, label, error }: any) => {
+const InputForm = ({ placeholder, control, name, alert, label, error, isMulti = false }: any) => {
   const [color, setColor] = useState('black');
 
   useEffect(() => {
@@ -15,12 +15,7 @@ const InputForm = ({ placeholder, control, name, height, alert, label, error }: 
 
   return (
     <Box sx={{ position: 'relative', color: { color } }}>
-      <InputLabel
-        sx={{
-          color: { color },
-        }}>
-        {label}
-      </InputLabel>
+      <InputLabel sx={{ color: 'inherit', fontSize: { xs: '16px', md: '18px', fontWeight: '600' } }}>{label}</InputLabel>
       <Controller
         name={name}
         control={control}
@@ -30,21 +25,15 @@ const InputForm = ({ placeholder, control, name, height, alert, label, error }: 
             placeholder={placeholder}
             variant="outlined"
             fullWidth
+            multiline={isMulti}
+            error={!!error}
+            size="medium"
             autoComplete="off"
             sx={{
               '& .MuiInputBase-root': { opacity: 1, alignItems: 'start', background: 'none' },
               '& .css-17cvodc-MuiInputBase-input-MuiOutlinedInput-input': {
                 color: 'black',
-                background: 'none',
-                p: '7px  15px',
-              },
-              '& .css-1ly492x-MuiInputBase-root-MuiOutlinedInput-root': {
-                color: (theme) => theme.palette.text.primary,
-                position: 'relative',
-                height: `${height}px`,
-              },
-              '& .css-vjwdvb-MuiOutlinedInput-notchedOutline ': {
-                borderColor: { color },
+                p: '7px  10px',
               },
             }}
           />
@@ -53,9 +42,9 @@ const InputForm = ({ placeholder, control, name, height, alert, label, error }: 
       <TooltipInfo color={color} alert={alert} />
 
       {error && (
-        <Box sx={{ display: 'flex', gap: 1, color: 'red', position: 'absolute', bottom: '-30px' }}>
+        <Box sx={{ display: 'flex', gap: 1, color: { color }, position: 'absolute', bottom: '-36px' }}>
           <SvgSpriteIcon svgSpriteId="info_icon" />
-          <FormHelperText sx={{ color: { color } }}>{error.message}</FormHelperText>
+          <FormHelperText sx={{ color: { color }, fontSize: '16px' }}>{error.message}</FormHelperText>
         </Box>
       )}
     </Box>

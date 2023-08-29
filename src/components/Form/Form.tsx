@@ -1,8 +1,9 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 
-import { Box, Button, Paper } from '@mui/material';
+import { Box, Button, Dialog, IconButton, Typography } from '@mui/material';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import * as yup from 'yup';
+import SvgSpriteIcon from '../PrimaryButton/SvgSpriteIcon';
 import InputForm from './InputForm';
 interface IFormInput {
   name: string;
@@ -11,20 +12,21 @@ interface IFormInput {
   text: string;
 }
 
-export default function Form() {
+export default function Form({ handleClose, open }: any) {
   const validateSchemaFullName = yup
     .string()
+    .trim()
     .max(30, 'Ви ввели забагато симловів')
     .min(2, 'Ви ввели замало символів')
-    .matches(/^[^0-9]*$/, 'Ваодити цифри заборонино')
+    .matches(/^[^0-9]*$/, 'Ваводити цифри заборонино')
     .matches(/^[a-zA-Z0-9а-яА-Я\sґїієЯҐІЇЄ'ʼ-]*$/, 'Ваодити символи заборонино')
     .required("Обов'язкове поле");
 
   const validateSchema = yup.object().shape({
     name: validateSchemaFullName,
     surname: validateSchemaFullName,
-    email: yup.string().email('Невалідна пошта').required("Обов'язкове поле"),
-    text: yup.string().min(30, 'Ви ввели замало символів').max(500, 'Ви ввели забагато симловів').required("Обов'язкове поле"),
+    email: yup.string().trim().email('Невалідна пошта').required("Обов'язкове поле"),
+    text: yup.string().trim().min(10, 'Ви ввели замало символів').max(300, 'Ви ввели забагато симловів').required("Обов'язкове поле"),
   });
 
   const {
@@ -32,7 +34,7 @@ export default function Form() {
     handleSubmit,
     formState: { errors, isValid },
   } = useForm({
-    mode: 'onChange',
+    mode: 'onBlur',
     defaultValues: {
       name: '',
       surname: '',
@@ -45,52 +47,98 @@ export default function Form() {
   const onSubmit: SubmitHandler<IFormInput> = (data) => {
     console.log(data);
   };
-  console.log(1);
+
   return (
-    <Paper sx={{ width: '640px', height: '700px', background: 'white' }} elevation={3}>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <Box sx={{ color: 'black', display: 'flex', flexDirection: 'column', gap: '40px', p: '40px' }}>
-          <InputForm
-            control={control}
-            error={errors.name}
-            placeholder={'Введіть ваше Імʼя'}
-            name={'name'}
-            label={'Імʼя*'}
-            alert={'Це поле має містити від 2 до 30 символів. Допустимі символи: букви, пробіл, крапка, тире, апостроф'}
-          />
+    <Dialog
+      PaperProps={{ style: { padding: '0px 0px', margin: '0px' } }}
+      sx={{
+        padding: '10px',
+        '& .MuiDialog-container': {
+          '& .MuiPaper-root': {
+            width: '100%',
+            maxWidth: { xs: '630px', md: '640px', lg: '840px' },
+            margin: 3,
+          },
+        },
+      }}
+      onClose={handleClose}
+      open={open}>
+      <Box
+        sx={{
+          width: '100%',
+          maxWidth: { xs: '680px', md: '640px', lg: '840px' },
+          background: (theme) => theme.palette.common.white,
+          color: 'black',
+          position: 'relative',
+          m: '0 auto',
+        }}>
+        <IconButton
+          onClick={handleClose}
+          aria-label="close form"
+          color="inherit"
+          sx={{
+            position: 'absolute',
+            top: '24px',
+            right: '24px',
+          }}>
+          <SvgSpriteIcon fontSize="medium" svgSpriteId="burgerOpen_icon" />
+        </IconButton>
 
-          <InputForm
-            control={control}
-            error={errors?.surname}
-            placeholder={'Введіть ваше Прізвище'}
-            label={'Прізвище*'}
-            name={'surname'}
-            alert={'Це поле має містити від 2 до 30 символів. Допустимі символи: букви, пробіл, крапка, тире, апостроф'}
-          />
+        <Typography
+          sx={{ m: '0 auto', pt: 10, textAlign: 'center', width: { xs: '230px', md: '334px' }, fontSize: { xs: '18px', md: '24px' } }}>
+          Ми будемо раді отримати від Вас повідомлення!
+        </Typography>
 
-          <InputForm
-            control={control}
-            error={errors.email}
-            placeholder={'Введіть вашу Електронну адресу'}
-            label={'Електронна адреса*'}
-            name={'email'}
-            alert={'Некоректно введені дані. Вкажіть адресу у форматі example@example.com'}
-          />
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '40px',
+              p: { xs: '16px', md: '48px' },
+            }}>
+            <InputForm
+              control={control}
+              error={errors.name}
+              placeholder={'Олена'}
+              name={'name'}
+              label={'Імʼя*'}
+              alert={'Це поле має містити від 2 до 30 символів. Допустимі символи: букви, пробіл, крапка, тире, апостроф'}
+            />
 
-          <InputForm
-            control={control}
-            error={errors.text}
-            height={180}
-            placeholder={'Введіть вашу Електронну адресу'}
-            label={'Електронна адреса*'}
-            name={'text'}
-            alert={'Це поле має містити від 50 до 300 символів.'}
-          />
-          <Box sx={{ m: '0 auto' }}>
+            <InputForm
+              control={control}
+              error={errors?.surname}
+              placeholder={'Петрова'}
+              label={'Прізвище*'}
+              name={'surname'}
+              alert={'Це поле має містити від 2 до 30 символів. Допустимі символи: букви, пробіл, крапка, тире, апостроф'}
+            />
+
+            <InputForm
+              control={control}
+              error={errors.email}
+              placeholder={'olenapetrova@gmail.com'}
+              label={'Електронна адреса*'}
+              name={'email'}
+              alert={'Некоректно введені дані. Вкажіть адресу у форматі example@example.com'}
+            />
+
+            <InputForm
+              control={control}
+              error={errors.text}
+              isMulti={true}
+              placeholder={'Введіть Ваше повідомлення'}
+              label={'Текст повідомлення*'}
+              name={'text'}
+              alert={'Це поле має містити від 10 до 300 символів.'}
+            />
+
             <Button
               type="submit"
               sx={{
-                width: '404px',
+                m: '0 auto',
+                width: { xs: '250px', md: '332px', lg: '440px' },
                 background: isValid ? '' : '#CACACA',
                 cursor: isValid ? 'pointer' : 'not-allowed',
                 ':hover': {
@@ -100,8 +148,8 @@ export default function Form() {
               Відправити
             </Button>
           </Box>
-        </Box>
-      </form>
-    </Paper>
+        </form>
+      </Box>
+    </Dialog>
   );
 }
