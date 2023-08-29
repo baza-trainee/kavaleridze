@@ -5,7 +5,7 @@ import MobileMainMenu from './MobileMainMenu';
 import SubMenu from './SubMenu';
 import MobileDialog from './MobileDialog';
 import NavMenu from '../parts/NavMenu';
-import PrimaryButton from '../../PrimaryButton/PrimaryButton';
+import TicketBtn from '../parts/TicketBtn';
 import Info from '../parts/Info';
 import data from '../../../assets/siteData';
 
@@ -78,7 +78,7 @@ const MobileMenu: FC = () => {
                     ))}
                   </NavMenu>
                   <Stack alignItems="center">
-                    <PrimaryButton href="/" svgSpriteId="ticket_icon" title="Квитки" sx={{ width: 280 }} />
+                    <TicketBtn />
                   </Stack>
                   <Info />
                 </Stack>

@@ -45,7 +45,7 @@ const DesktopNavMenu: FC = () => {
   return (
     <>
       {navMenu.map(({ href, title }) => (
-        <NavMenuItem href={href} title={title} />
+        <NavMenuItem href={href} title={title} key={title} />
       ))}
     </>
   );
