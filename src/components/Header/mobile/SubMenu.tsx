@@ -1,8 +1,9 @@
 import { FC } from 'react';
-import { Box } from '@mui/material';
+import { Box, ListItem, Stack, Button, List } from '@mui/material';
 import { Link } from 'react-router-dom';
 import PrimaryButton from '../../PrimaryButton/PrimaryButton';
 import SvgSpriteIcon from '../../PrimaryButton/SvgSpriteIcon';
+import Info from '../parts/Info';
 import data from '../../../assets/siteData';
 
 const {
@@ -59,7 +60,7 @@ const SubMenu: FC<SubMenuProps> = ({ closeMainMenu, closeSubMenu }) => {
       </Stack>
 
       <Stack alignItems="center">
-        <PrimaryButton href="/" svgSpriteId="ticket_icon" title="Квитки" sx={{ width: '280px' }} />
+        <PrimaryButton component={Link} href="/tickets" svgSpriteId="ticket_icon" title="Квитки" sx={{ width: '280px' }} />
       </Stack>
 
       <Info />

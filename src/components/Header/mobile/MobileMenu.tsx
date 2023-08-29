@@ -78,7 +78,7 @@ const MobileMenu: FC = () => {
                     ))}
                   </NavMenu>
                   <Stack alignItems="center">
-                    <PrimaryButton href="/" svgSpriteId="ticket_icon" title="Квитки" componentWidth={280} />
+                    <PrimaryButton href="/" svgSpriteId="ticket_icon" title="Квитки" sx={{ width: 280 }} />
                   </Stack>
                   <Info />
                 </Stack>

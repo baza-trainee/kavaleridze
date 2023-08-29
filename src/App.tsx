@@ -7,6 +7,7 @@ import Search from './components/Search/Search';
 import MuseumHistory from './components/MuseumHistory/MuseumHistory';
 import Events from './components/Events/Events';
 import Kavaleridze from './components/Kavaleridze/Kavaleridze';
+import Tickets from './components/Tickets/Tickets';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="about" element={<Kavaleridze />} />
         <Route path="contacts" element={<Contacts />} />
         <Route path="search" element={<Search />} />
+        <Route path="tickets" element={<Tickets />} />
       </Route>
     </Routes>
   );

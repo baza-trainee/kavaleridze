@@ -17,7 +17,7 @@ export const MuiContainer: Components<Theme>['MuiContainer'] = {
 
       [theme.breakpoints.up('lg')]: {
         //TODO: write down settings for desktop container: 1280px+
-        padding: '0 48px',
+        padding: '0 80px',
         maxWidth: 1280,
       },
     }),
