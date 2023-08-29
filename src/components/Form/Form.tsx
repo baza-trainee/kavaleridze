@@ -17,16 +17,21 @@ export default function Form({ handleClose, open }: any) {
     .string()
     .trim()
     .max(30, 'Ви ввели забагато симловів')
-    .min(2, 'Ви ввели замало символів')
+    .min(2, 'Недостатньо символів')
     .matches(/^[^0-9]*$/, 'Ваводити цифри заборонино')
-    .matches(/^[a-zA-Z0-9а-яА-Я\sґїієЯҐІЇЄ'ʼ-]*$/, 'Ваодити символи заборонино')
+    .matches(/^[a-zA-Zа-яА-Яґєіїёў'-.\s]*$/, 'Введено недозволені символи')
     .required("Обов'язкове поле");
 
   const validateSchema = yup.object().shape({
     name: validateSchemaFullName,
     surname: validateSchemaFullName,
-    email: yup.string().trim().email('Невалідна пошта').required("Обов'язкове поле"),
-    text: yup.string().trim().min(10, 'Ви ввели замало символів').max(300, 'Ви ввели забагато симловів').required("Обов'язкове поле"),
+    email: yup.string().trim().email('Невірний формат вводу ел.пошти. Див.зразок').required("Обов'язкове поле"),
+    text: yup
+      .string()
+      .trim()
+      .min(10, 'Не достатньо інформації для запиту')
+      .max(300, 'Ви ввели забагато симловів')
+      .required("Обов'язкове поле"),
   });
 
   const {
