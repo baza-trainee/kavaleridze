@@ -50,13 +50,13 @@ export default function Form({ handleClose, open }: any) {
 
   return (
     <Dialog
-      PaperProps={{ style: { padding: '0px 0px', margin: '0px' } }}
+      PaperProps={{ style: { padding: '0px', margin: '0px' } }}
       sx={{
         padding: '10px',
         '& .MuiDialog-container': {
           '& .MuiPaper-root': {
             width: '100%',
-            maxWidth: { xs: '630px', md: '640px', lg: '840px' },
+            maxWidth: { xs: '640px', md: '640px', lg: '840px' },
             margin: 3,
           },
         },
@@ -66,7 +66,7 @@ export default function Form({ handleClose, open }: any) {
       <Box
         sx={{
           width: '100%',
-          maxWidth: { xs: '680px', md: '640px', lg: '840px' },
+          maxWidth: { xs: '640px', md: '640px', lg: '840px' },
           background: (theme) => theme.palette.common.white,
           color: 'black',
           position: 'relative',
