@@ -1,24 +1,15 @@
-import { Button } from '@mui/material';
-import { FC, MouseEventHandler } from 'react';
+import { Button, ButtonProps } from '@mui/material';
+import { FC } from 'react';
 import SvgSpriteIcon from './SvgSpriteIcon';
 
-interface PrimaryButtonProps {
+interface PrimaryButtonProps extends ButtonProps {
   title: string;
   svgSpriteId: string;
-  href: string;
-  componentWidth?: number;
-  onClick?: MouseEventHandler;
 }
 
-const PrimaryButton: FC<PrimaryButtonProps> = ({ title, svgSpriteId, componentWidth, href, onClick }) => {
+const PrimaryButton: FC<PrimaryButtonProps> = ({ title, svgSpriteId, ...props }) => {
   return (
-    <Button
-      href={href}
-      target="_blank"
-      variant="primary"
-      onClick={onClick}
-      endIcon={<SvgSpriteIcon svgSpriteId={svgSpriteId} fontSize="small" />}
-      sx={{ width: `${componentWidth}px` }}>
+    <Button variant="primary" {...props} endIcon={<SvgSpriteIcon svgSpriteId={svgSpriteId} fontSize="small" />}>
       {title}
     </Button>
   );
