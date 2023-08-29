@@ -8,20 +8,6 @@ import TooltipInfo from './TooltipInfo';
 
 const InputForm = ({ placeholder, control, name, alert, label, error, isMulti = false }: any) => {
   const [color, setColor] = useState('black');
-  const [colorFocus, setColorFocus] = useState(false);
-  const changeColorLeve = () => {
-    if (!colorFocus) {
-      setColor(!!error ? 'red' : 'black');
-    }
-
-    // setColor(!!error ? 'red' : '#D8A629');
-  };
-  const changeColorEnt = () => {
-    // () => setColor(!!error ? 'red' : 'black');
-    if (colorFocus) {
-      setColor(!!error ? 'red' : '#878684');
-    }
-  };
 
   useEffect(() => {
     setColor(!!error ? 'red' : 'black');
@@ -38,13 +24,9 @@ const InputForm = ({ placeholder, control, name, alert, label, error, isMulti = 
             {...field}
             placeholder={placeholder}
             variant="outlined"
-            onMouseLeave={changeColorLeve}
-            onMouseEnter={changeColorEnt}
-            onFocus={() => {
-              setColor(!!error ? 'red' : '#D8A629');
-              setColorFocus(!colorFocus);
-            }}
-            // onBlur={() => setColorFocus(!colorFocus)}
+            onMouseLeave={() => setColor(!!error ? 'red' : 'black')}
+            onMouseEnter={() => setColor(!!error ? 'red' : '#878684')}
+            onFocus={() => setColor(!!error ? 'red' : '#D8A629')}
             fullWidth
             multiline={isMulti}
             error={!!error}

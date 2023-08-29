@@ -43,7 +43,7 @@ export default function Form({ handleClose, open }: any) {
     },
     resolver: yupResolver(validateSchema),
   });
-  console.log(1);
+
   const onSubmit: SubmitHandler<IFormInput> = (data) => {
     console.log(data);
   };
@@ -57,7 +57,6 @@ export default function Form({ handleClose, open }: any) {
           '& .MuiPaper-root': {
             width: '100%',
             maxWidth: { xs: '500px', md: '540px', lg: '568px' },
-            margin: 3,
           },
         },
       }}
