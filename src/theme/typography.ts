@@ -1,4 +1,4 @@
-import { TypographyOptions } from '@mui/material/styles/createTypography'
+import { TypographyOptions } from '@mui/material/styles/createTypography';
 
 export const typography: TypographyOptions = {
   fontFamily: 'Raleway',
@@ -14,5 +14,11 @@ export const typography: TypographyOptions = {
     fontWeight: 500,
     lineHeight: 'normal',
   },
+  body2: {
+    fontFamily: 'Kyiv Type',
+    fontSize: 16,
+    fontWeight: 500,
+    lineHeight: 'normal',
+  },
   //TODO: add typography for titles
-}
+};

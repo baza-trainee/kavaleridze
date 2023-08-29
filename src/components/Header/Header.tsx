@@ -1,11 +1,5 @@
-import { FC } from 'react';
-import {
-  AppBar,
-  Toolbar,
-  useTheme,
-  useMediaQuery,
-  styled,
-} from '@mui/material';
+import { forwardRef } from 'react';
+import { AppBar, Toolbar, useTheme, useMediaQuery, styled } from '@mui/material';
 
 import MobileHeader from './mobile/MobileHeader';
 import DesktopHeader from './desktop/DesktopHeader';
@@ -15,7 +9,7 @@ const Offset = styled('div')(({ theme }) => ({
   [theme.breakpoints.up('lg')]: { ...theme.header.desktop },
 }));
 
-const Header: FC = () => {
+const Header = forwardRef<HTMLDivElement>(function (_, ref) {
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up('lg'));
 
@@ -27,14 +21,13 @@ const Header: FC = () => {
           sx={{
             display: 'flex',
             flexDirection: 'column',
-          }}
-        >
+          }}>
           {isDesktop ? <DesktopHeader /> : <MobileHeader />}
         </Toolbar>
       </AppBar>
-      <Offset />
+      <Offset ref={ref} />
     </>
   );
-};
+});
 
 export default Header;

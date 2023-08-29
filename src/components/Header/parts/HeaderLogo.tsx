@@ -1,10 +1,11 @@
 import { FC } from 'react';
-import { Box, Link } from '@mui/material';
+import { Box } from '@mui/material';
+import { Link } from 'react-router-dom';
 import logo from '/Logo.svg';
 
 const HeaderLogo: FC = () => {
   return (
-    <Link sx={{ lineHeight: 0 }} href="/">
+    <Link to="/" style={{ lineHeight: 0 }}>
       <Box component="img" src={logo} alt="Logo" />
     </Link>
   );

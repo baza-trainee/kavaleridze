@@ -17,41 +17,41 @@ const siteData = {
       },
       {
         title: 'Історія музею',
-        href: '/',
+        href: '/history',
       },
       {
         title: 'Події',
-        href: '/',
+        href: '/events',
       },
       {
         title: 'Іван Кавалерідзе',
-        href: '/',
+        href: '/about',
       },
       {
         title: 'Контакти',
-        href: '/',
+        href: '/contacts',
       },
     ],
     burgerSubMenu: [
       {
         title: 'Митець',
-        href: '/',
+        href: '/about',
       },
       {
         title: 'Біографія',
-        href: '/',
+        href: '/about',
       },
       {
         title: 'Кіно',
-        href: '/',
+        href: '/about',
       },
       {
         title: 'Скульптура',
-        href: '/',
+        href: '/about',
       },
       {
         title: 'Митець і Київ',
-        href: '/',
+        href: '/about',
       },
     ],
   },

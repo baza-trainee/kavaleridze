@@ -1,11 +1,32 @@
+import { Box, Container, Typography } from '@mui/material';
 import { FC } from 'react';
-import Form from '../Form/Form';
+import Section from '../Section/Section';
 
 const Home: FC = () => {
   return (
-    <div style={{ height: '900px', backgroundColor: 'white' }}>
-      <Form />
-    </div>
+    <Section variant="light">
+      <Container>
+        <Box sx={{ height: '200px' }}>
+          <Typography variant="h2">Головна</Typography>
+        </Box>
+
+        <Box sx={{ height: '200px' }}>
+          <Typography variant="h2">Перша секція</Typography>
+        </Box>
+        <Box sx={{ height: '200px' }}>
+          <Typography variant="h2">Друга секція</Typography>
+        </Box>
+        <Box sx={{ height: '200px' }}>
+          <Typography variant="h2">Третя секція</Typography>
+        </Box>
+        <Box sx={{ height: '200px' }}>
+          <Typography variant="h2">Четверта секція</Typography>
+        </Box>
+        <Box sx={{ height: '200px' }}>
+          <Typography variant="h2">П'ята секція</Typography>
+        </Box>
+      </Container>
+    </Section>
   );
 };
 
