@@ -1,8 +1,11 @@
 import { List, ListItem, ListItemButton, ListItemIcon, ListItemText, Typography, styled } from '@mui/material';
 import { Link } from 'react-router-dom';
-
+import data from '../../assets/siteData';
 import SvgSpriteIcon from '../PrimaryButton/SvgSpriteIcon';
 
+const {
+  menuList: { main },
+} = data;
 interface IListTextProps {
   title: string;
   svg: string;
@@ -12,29 +15,6 @@ interface IListLinkTextProps {
   svg?: string;
   href: string;
 }
-
-const listsItem = [
-  {
-    href: '/',
-    title: 'Головна',
-  },
-  {
-    href: '/',
-    title: 'Історія музею',
-  },
-  {
-    href: '/',
-    title: 'Події',
-  },
-  {
-    href: '/',
-    title: 'Іван Кавалерідзе',
-  },
-  {
-    href: '/contacts',
-    title: 'Контакти',
-  },
-];
 
 const MyList = styled(List)(() => ({
   display: 'flex',
@@ -56,7 +36,7 @@ export const TypographyList = styled(Typography)(({ theme }) => ({
 
 export const ListNavigation = () => (
   <MyList disablePadding>
-    {listsItem.map(({ title, href }: IListLinkTextProps) => {
+    {main.map(({ title, href }: IListLinkTextProps) => {
       return (
         <ListItem key={title} disablePadding>
           <ListItemButton sx={{ p: '0px' }}>
