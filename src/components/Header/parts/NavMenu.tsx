@@ -1,39 +1,8 @@
-import { FC } from 'react';
-import { List, ListItem, ListItemButton, ListItemText, ListItemIcon, useTheme, useMediaQuery } from '@mui/material';
-import SvgSpriteIcon from '../../PrimaryButton/SvgSpriteIcon';
+import { FC, PropsWithChildren } from 'react';
 
-interface NavMenuProps {
-  secondaryAction?: () => void;
-}
+import { List } from '@mui/material';
 
-interface NavMenuItemProp {
-  href: string;
-  title: string;
-}
-
-const NavMenuItem: FC<NavMenuItemProp> = ({ href, title }) => {
-  return (
-    <ListItem
-      disablePadding
-      sx={{
-        width: 'auto',
-      }}>
-      <ListItemButton
-        href={href}
-        sx={{
-          px: 0,
-          py: { sx: 1, lg: 0 },
-        }}>
-        {title}
-      </ListItemButton>
-    </ListItem>
-  );
-};
-
-const NavMenu: FC<NavMenuProps> = ({ secondaryAction }) => {
-  const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up('lg'));
-
+const NavMenu: FC<PropsWithChildren> = ({ children }) => {
   return (
     <List
       disablePadding
@@ -42,35 +11,9 @@ const NavMenu: FC<NavMenuProps> = ({ secondaryAction }) => {
         gap: { xs: 2, md: 3, lg: '60px' },
         fontFamily: 'Kyiv Type',
         fontSize: { md: '16px', lg: '18px' },
-        gridTemplate: { xs: 'repeat(4, auto)/1fr', lg: '1fr/repeat(4, auto)' },
+        gridTemplate: { xs: 'repeat(5, auto)/1fr', lg: '1fr/repeat(4, auto)' },
       }}>
-      {!isDesktop && <NavMenuItem href="/" title="Головна" />}
-      <NavMenuItem href="/" title="Історія музею" />
-      <NavMenuItem href="/" title="Події" />
-      {isDesktop ? (
-        <NavMenuItem href="/" title="Іван Кавалерідзе" />
-      ) : (
-        <ListItem
-          disablePadding
-          sx={{
-            width: 'auto',
-          }}>
-          <ListItemButton
-            onClick={() => {
-              secondaryAction && secondaryAction();
-            }}
-            sx={{
-              px: 0,
-              py: 1,
-            }}>
-            <ListItemText>Іван Кавалерідзе</ListItemText>
-            <ListItemIcon sx={{ minWidth: 24, color: 'inherit' }}>
-              <SvgSpriteIcon svgSpriteId="arrowRight_icon" />
-            </ListItemIcon>
-          </ListItemButton>
-        </ListItem>
-      )}
-      <NavMenuItem href="/contacts" title="Контакти" />
+      {children}
     </List>
   );
 };

@@ -1,41 +1,61 @@
 import { FC } from 'react';
-import { List, ListItem, ListItemButton, Button, Stack } from '@mui/material';
+import { Box, List, ListItem, Button, Stack } from '@mui/material';
+import { Link } from 'react-router-dom';
 import PrimaryButton from '../../PrimaryButton/PrimaryButton';
 import Info from '../parts/Info';
 import SvgSpriteIcon from '../../PrimaryButton/SvgSpriteIcon';
+import data from '../../../assets/siteData';
+
+const {
+  menuList: { burgerSubMenu },
+} = data;
 
 interface SubMenuProps {
-  onClick: () => void;
+  closeSubMenu: () => void;
+  closeMainMenu: () => void;
 }
 
-const SubmenuItem = ({ title, href }: { title: string; href: string }) => {
+interface SubmenuItemProps {
+  title: string;
+  href: string;
+  closeMainMenu: () => void;
+}
+
+const SubmenuItem: FC<SubmenuItemProps> = ({ title, href, closeMainMenu }) => {
   return (
-    <ListItem disableGutters disablePadding>
-      <ListItemButton disableGutters href={href} sx={{ height: { xs: 'auto', md: 40 }, px: { sx: 0, md: 2 } }}>
+    <ListItem disableGutters disablePadding sx={{ height: { xs: 'auto', md: 40 }, px: { sx: 0, md: 2 }, py: 1 }}>
+      <Box
+        component={Link}
+        to={href}
+        onClick={closeMainMenu}
+        sx={{
+          color: 'inherit',
+          fontFamily: (theme) => theme.typography.body2,
+          '&:hover': { color: (theme) => theme.palette.primary.dark },
+        }}>
         {title}
-      </ListItemButton>
+      </Box>
+      <Link to={href}></Link>
     </ListItem>
   );
 };
 
-const SubMenu: FC<SubMenuProps> = ({ onClick }) => {
+const SubMenu: FC<SubMenuProps> = ({ closeMainMenu, closeSubMenu }) => {
   return (
     <Stack gap={6}>
       <Stack>
         <Button
           variant="text"
           aria-label="return to main menu"
-          onClick={onClick}
+          onClick={closeSubMenu}
           sx={{ fontSize: 16, justifyContent: 'flex-start', mb: 2, px: { xs: 0, md: 2 } }}
           startIcon={<SvgSpriteIcon svgSpriteId="arrowLeft_icon" />}>
           Іван Кавалерідзе
         </Button>
         <List disablePadding sx={{ display: 'grid', gap: 2 }}>
-          <SubmenuItem title="Митець" href="/" />
-          <SubmenuItem title="Біографія" href="/" />
-          <SubmenuItem title="Кіно" href="/" />
-          <SubmenuItem title="Скульптура" href="/" />
-          <SubmenuItem title="Митець і Київ" href="/" />
+          {burgerSubMenu.map(({ href, title }) => (
+            <SubmenuItem title={title} href={href} key={title} closeMainMenu={closeMainMenu} />
+          ))}
         </List>
       </Stack>
 

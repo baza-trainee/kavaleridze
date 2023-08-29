@@ -1,24 +1,81 @@
 import { FC } from 'react';
-import { Stack } from '@mui/material';
-import NavMenu from '../parts/NavMenu';
-import PrimaryButton from '../../PrimaryButton/PrimaryButton';
-import Info from '../parts/Info';
-
+import { useTheme, Box, ListItem, ListItemButton, ListItemIcon } from '@mui/material';
+import { Link, useResolvedPath, useMatch } from 'react-router-dom';
+import SvgSpriteIcon from '../../PrimaryButton/SvgSpriteIcon';
 interface MobileMainMenuProp {
-  action: () => void;
+  title: string;
+  href: string;
+  openSubMenu: () => void;
+  closeMainMenu: () => void;
 }
 
-const MobileMainMenu: FC<MobileMainMenuProp> = ({ action }) => {
-  return (
-    <Stack gap={6}>
-      <NavMenu secondaryAction={action} />
-      <Stack alignItems="center">
-        <PrimaryButton href="/" svgSpriteId="ticket_icon" title="Квитки" componentWidth={280} />
-      </Stack>
+const MobileMainMenu: FC<MobileMainMenuProp> = ({ title, href, openSubMenu, closeMainMenu }) => {
+  const theme = useTheme();
+  const resolved = useResolvedPath(href);
+  const match = useMatch({ path: resolved.pathname, end: true });
 
-      <Info />
-    </Stack>
+  if (title === 'Іван Кавалерідзе') {
+    return (
+      <ListItem key={href} disableGutters disablePadding>
+        <ListItemButton
+          onClick={openSubMenu}
+          sx={{
+            px: 0,
+            py: 1,
+
+            display: ' flex',
+            justifyContent: 'space-between',
+          }}>
+          {title}
+          <ListItemIcon sx={{ minWidth: 24, color: 'inherit', position: 'absolute', top: '50%', right: 0, transform: 'translateY(-50%)' }}>
+            <SvgSpriteIcon svgSpriteId="arrowRight_icon" />
+          </ListItemIcon>
+        </ListItemButton>
+      </ListItem>
+    );
+  }
+  return (
+    <ListItem key={href} disableGutters disablePadding>
+      <Box
+        component={Link}
+        to={href}
+        onClick={closeMainMenu}
+        sx={{
+          height: { xs: 'auto', md: 40 },
+          py: 1,
+          width: '100%',
+          color: match ? theme.palette.primary.main : theme.palette.text.primary,
+          '&:hover': { color: theme.palette.primary.dark },
+        }}>
+        {title}
+      </Box>
+    </ListItem>
   );
 };
+
+{
+  /* <ListItem
+  disablePadding
+  sx={{
+    width: 'auto',
+  }}>
+  <ListItemButton
+    onClick={() => {
+      secondaryAction && secondaryAction();
+    }}
+    sx={{
+      px: 0,
+      py: 1,
+
+      display: ' flex',
+      justifyContent: 'space-between',
+    }}>
+    {title}
+    <ListItemIcon sx={{ minWidth: 24, color: 'inherit', position: 'absolute', top: '50%', right: 0, transform: 'translateY(-50%)' }}>
+      <SvgSpriteIcon svgSpriteId="arrowRight_icon" />
+    </ListItemIcon>
+  </ListItemButton>
+</ListItem>; */
+}
 
 export default MobileMainMenu;

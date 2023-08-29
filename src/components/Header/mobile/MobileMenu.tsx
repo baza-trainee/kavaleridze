@@ -1,10 +1,17 @@
 import { FC, useState, useRef, useEffect } from 'react';
-import { Box, IconButton, Slide, Paper } from '@mui/material';
-
+import { Box, IconButton, Slide, Paper, Stack } from '@mui/material';
 import SvgSpriteIcon from '../../PrimaryButton/SvgSpriteIcon';
 import MobileMainMenu from './MobileMainMenu';
 import SubMenu from './SubMenu';
 import MobileDialog from './MobileDialog';
+import NavMenu from '../parts/NavMenu';
+import PrimaryButton from '../../PrimaryButton/PrimaryButton';
+import Info from '../parts/Info';
+import data from '../../../assets/siteData';
+
+const {
+  menuList: { main },
+} = data;
 
 const MobileMenu: FC = () => {
   const [menuEl, setMenuEl] = useState(false);
@@ -64,7 +71,17 @@ const MobileMenu: FC = () => {
                   menuRef.current = el;
                   setInitialRef(true);
                 }}>
-                <MobileMainMenu action={onOpenSubMenu} />
+                <Stack gap={6}>
+                  <NavMenu>
+                    {main.map(({ title, href }) => (
+                      <MobileMainMenu key={title} title={title} href={href} openSubMenu={onOpenSubMenu} closeMainMenu={onCloseNavMenu} />
+                    ))}
+                  </NavMenu>
+                  <Stack alignItems="center">
+                    <PrimaryButton href="/" svgSpriteId="ticket_icon" title="Квитки" componentWidth={280} />
+                  </Stack>
+                  <Info />
+                </Stack>
               </Paper>
             </Box>
           </Slide>
@@ -77,7 +94,7 @@ const MobileMenu: FC = () => {
                 ref={(el) => {
                   submenuRef.current = el;
                 }}>
-                <SubMenu onClick={onCloseSubMenu} />
+                <SubMenu closeSubMenu={onCloseSubMenu} closeMainMenu={onCloseNavMenu} />
               </Paper>
             </Box>
           </Slide>
