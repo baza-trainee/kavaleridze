@@ -1,8 +1,8 @@
+import { Button, List, ListItem, ListItemButton, Stack } from '@mui/material';
 import { FC } from 'react';
-import { List, ListItem, ListItemButton, Button, Stack } from '@mui/material';
 import PrimaryButton from '../../PrimaryButton/PrimaryButton';
-import Info from '../parts/Info';
 import SvgSpriteIcon from '../../PrimaryButton/SvgSpriteIcon';
+import Info from '../parts/Info';
 
 interface SubMenuProps {
   onClick: () => void;
@@ -40,7 +40,7 @@ const SubMenu: FC<SubMenuProps> = ({ onClick }) => {
       </Stack>
 
       <Stack alignItems="center">
-        <PrimaryButton href="/" svgSpriteId="ticket_icon" title="Квитки" componentWidth={280} />
+        <PrimaryButton href="/" svgSpriteId="ticket_icon" title="Квитки" sx={{ width: '280px' }} />
       </Stack>
 
       <Info />

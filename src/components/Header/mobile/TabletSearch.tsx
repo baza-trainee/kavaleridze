@@ -1,9 +1,9 @@
-import { FC, useState } from 'react';
 import { Box, IconButton, Stack, Typography } from '@mui/material';
+import { FC, useState } from 'react';
 import PrimaryButton from '../../PrimaryButton/PrimaryButton';
-import MobileDialog from './MobileDialog';
 import SvgSpriteIcon from '../../PrimaryButton/SvgSpriteIcon';
 import Info from '../parts/Info';
+import MobileDialog from './MobileDialog';
 
 const TabletSearch: FC = () => {
   const [searchEl, setSearchEl] = useState(false);
@@ -25,7 +25,7 @@ const TabletSearch: FC = () => {
         <Stack gap={6}>
           <Typography>Search Results</Typography>
           <Stack alignItems="center">
-            <PrimaryButton href="/" svgSpriteId="ticket_icon" title="Квитки" componentWidth={280} />
+            <PrimaryButton href="/" svgSpriteId="ticket_icon" title="Квитки" sx={{ width: '280px' }} />
           </Stack>
           <Info />
         </Stack>
