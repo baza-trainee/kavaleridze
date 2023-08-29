@@ -2,7 +2,7 @@ import { FC, PropsWithChildren } from 'react';
 import { Dialog, Stack, IconButton } from '@mui/material';
 import DialogTransition from '../parts/DialogTransition';
 import LangPanel from '../parts/LangPanel';
-import Search from '../parts/Search';
+import SearchInput from '../parts/SearchInput';
 import SvgSpriteIcon from '../../PrimaryButton/SvgSpriteIcon';
 
 interface MobileDialogProps {
@@ -25,7 +25,7 @@ const MobileDialog: FC<PropsWithChildren<MobileDialogProps>> = ({ state, onClose
             <SvgSpriteIcon svgSpriteId="burgerOpen_icon" fontSize="medium" />
           </IconButton>
         </Stack>
-        <Search width="100%" />
+        <SearchInput onCloseMenu={onClose} />
         {children}
       </Stack>
     </Dialog>

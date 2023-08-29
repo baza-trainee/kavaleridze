@@ -2,11 +2,12 @@ import { FC } from 'react';
 import { Divider } from '@mui/material';
 import Info from '../parts/Info';
 import HeaderLogo from '../parts/HeaderLogo';
-import Search from '../parts/Search';
+import Search from '../parts/SearchInput';
 import NavMenu from '../parts/NavMenu';
 import LangPanel from '../parts/LangPanel';
-import PrimaryButton from '../../PrimaryButton/PrimaryButton';
 import HeaderWrapper from '../parts/HeaderWrapper';
+import DesktopNavMenu from './DesktopNavMenu';
+import TicketBtn from '../parts/TicketBtn';
 
 const DesktopHeader: FC = () => {
   return (
@@ -14,12 +15,14 @@ const DesktopHeader: FC = () => {
       <HeaderWrapper alignItems="flex-start">
         <Info />
         <HeaderLogo />
-        <PrimaryButton href="/" svgSpriteId="ticket_icon" title="Квитки" />
+        <TicketBtn />
       </HeaderWrapper>
       <Divider flexItem sx={{ position: 'absolute', top: 128, left: 0, right: 0 }} />
-      <HeaderWrapper alignItems="center" position="relative">
-        <Search width={300} />
-        <NavMenu />
+      <HeaderWrapper alignItems="center" position="relative" justifyContent="flex-end">
+        <Search />
+        <NavMenu>
+          <DesktopNavMenu />
+        </NavMenu>
         <LangPanel />
       </HeaderWrapper>
     </>

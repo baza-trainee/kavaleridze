@@ -1,10 +1,17 @@
 import { FC, useState, useRef, useEffect } from 'react';
-import { Box, IconButton, useTheme, useMediaQuery, Slide, Paper } from '@mui/material';
-
+import { Box, IconButton, Slide, Paper, Stack } from '@mui/material';
 import SvgSpriteIcon from '../../PrimaryButton/SvgSpriteIcon';
 import MobileMainMenu from './MobileMainMenu';
 import SubMenu from './SubMenu';
 import MobileDialog from './MobileDialog';
+import NavMenu from '../parts/NavMenu';
+import TicketBtn from '../parts/TicketBtn';
+import Info from '../parts/Info';
+import data from '../../../assets/siteData';
+
+const {
+  menuList: { main },
+} = data;
 
 const MobileMenu: FC = () => {
   const [menuEl, setMenuEl] = useState(false);
@@ -14,8 +21,6 @@ const MobileMenu: FC = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const menuRef = useRef<HTMLDivElement | null>(null);
   const submenuRef = useRef<HTMLDivElement | null>(null);
-  const theme = useTheme();
-  const isTablet = useMediaQuery(theme.breakpoints.up('md'));
 
   useEffect(() => {
     if (!initialRef || !menuRef.current || !submenuRef.current) {
@@ -54,11 +59,7 @@ const MobileMenu: FC = () => {
         sx={{
           padding: 0,
         }}>
-        {isTablet ? (
-          <SvgSpriteIcon svgSpriteId="burgerClosed_icon " />
-        ) : (
-          <SvgSpriteIcon svgSpriteId="burgerSearch_icon" fontSize="medium" />
-        )}
+        <SvgSpriteIcon svgSpriteId="burgerSearch_icon" fontSize="medium" />
       </IconButton>
       <MobileDialog state={menuEl} onClose={onCloseNavMenu}>
         <Box position="relative" sx={{ overflow: 'hidden', height: slideHeight > 0 ? slideHeight : 'auto' }} ref={containerRef}>
@@ -70,7 +71,17 @@ const MobileMenu: FC = () => {
                   menuRef.current = el;
                   setInitialRef(true);
                 }}>
-                <MobileMainMenu action={onOpenSubMenu} />
+                <Stack gap={6}>
+                  <NavMenu>
+                    {main.map(({ title, href }) => (
+                      <MobileMainMenu key={title} title={title} href={href} openSubMenu={onOpenSubMenu} closeMainMenu={onCloseNavMenu} />
+                    ))}
+                  </NavMenu>
+                  <Stack alignItems="center">
+                    <TicketBtn />
+                  </Stack>
+                  <Info />
+                </Stack>
               </Paper>
             </Box>
           </Slide>
@@ -83,7 +94,7 @@ const MobileMenu: FC = () => {
                 ref={(el) => {
                   submenuRef.current = el;
                 }}>
-                <SubMenu onClick={onCloseSubMenu} />
+                <SubMenu closeSubMenu={onCloseSubMenu} closeMainMenu={onCloseNavMenu} />
               </Paper>
             </Box>
           </Slide>

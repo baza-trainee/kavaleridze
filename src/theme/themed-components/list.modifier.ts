@@ -8,7 +8,7 @@ export const MuiListItemButton: Components<Theme>['MuiListItemButton'] = {
   styleOverrides: {
     root: ({ theme }) => ({
       '&: hover': {
-        color: theme.palette.primary.main,
+        color: theme.palette.primary.dark,
         backgroundColor: 'transparent',
       },
     }),

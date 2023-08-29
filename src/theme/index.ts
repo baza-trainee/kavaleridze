@@ -19,17 +19,15 @@ declare module '@mui/material/styles' {
   }
 }
 
-export const theme = () => {
-  return createTheme({
-    palette,
-    typography,
-    breakpoints,
-    components,
-    header: {
-      mobile: { minHeight: 112 },
-      desktop: {
-        minHeight: 220,
-      },
+export const theme = createTheme({
+  palette,
+  typography,
+  breakpoints,
+  components,
+  header: {
+    mobile: { minHeight: 112 },
+    desktop: {
+      minHeight: 220,
     },
-  });
-};
+  },
+});
