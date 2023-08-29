@@ -5,17 +5,10 @@ import { Components, Theme } from '@mui/material/styles';
 
 export const MuiInputBase: Components<Theme>['MuiInputBase'] = {
   styleOverrides: {
-    root: ({ theme, ownerState }) => ({
-      defaultProps: {
-        size: 'small',
-      },
-
-      ...(ownerState.size === 'small' && { height: '44px' }),
-      ...(ownerState.size === 'medium' && { height: '56px' }),
-
+    root: ({ theme }) => ({
       [`& .${inputBaseClasses.input}`]: {
-        lineHeight: '24px',
         outline: 'none',
+        padding: 0,
 
         '&:placeholder': {
           opacity: 1,
@@ -34,15 +27,8 @@ export const MuiTextField: Components<Theme>['MuiTextField'] = {
   styleOverrides: {
     root: ({ theme }) => ({
       '--TextField-brandBorderColor': theme.palette.common.black,
-      '--TextField-brandBorderHoverColor': theme.palette.text.secondary,
-      '--TextField-brandBorderFocusedColor': theme.palette.primary.dark,
-
-      '&  .css-1ai984g-MuiInputBase-root-MuiOutlinedInput-root': {
-        height: '180px',
-        color: theme.palette.common.black,
-        opacity: 1,
-        padding: '16px 20px',
-      },
+      '--TextField-brandBorderHoverColor': theme.palette.divider,
+      '--TextField-brandBorderFocusedColor': theme.palette.primary.main,
     }),
   },
 };
@@ -51,17 +37,19 @@ export const MuiOutlinedInput: Components<Theme>['MuiOutlinedInput'] = {
   styleOverrides: {
     notchedOutline: {
       borderColor: 'var(--TextField-brandBorderColor)',
-      borderRadius: '24px',
+      borderRadius: 24,
     },
-    root: {
-      padding: '8px',
+    root: ({ theme }) => ({
+      color: theme.palette.common.black,
+      maxHeight: 200,
+      padding: 16,
       [`&:hover .${outlinedInputClasses.notchedOutline}`]: {
         borderColor: 'var(--TextField-brandBorderHoverColor)',
       },
       [`&.Mui-focused .${outlinedInputClasses.notchedOutline}`]: {
-        border: 'solid 1px',
+        border: '1px solid',
         borderColor: 'var(--TextField-brandBorderFocusedColor)',
       },
-    },
+    }),
   },
 };
