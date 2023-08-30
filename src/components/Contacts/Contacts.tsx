@@ -14,9 +14,9 @@ const Contacts: FC = () => {
       <ContactList>
         <ContactItem>
           <Title variant="h3">Подзвонити до нас</Title>
-          <ContactLink href="tel:+38(044)-425-33-97" className="Blondie">
+          <ContactLink href="tel:+380444253397" className="Blondie">
             <Text sx={textHover} variant="body1">
-              +38(044)-425-33-97
+            044 – 425-33-97
             </Text>
           </ContactLink>
         </ContactItem>
