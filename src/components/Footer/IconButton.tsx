@@ -5,7 +5,9 @@ import Logo from '/Logo.svg';
 
 export const MainIconBlok = () => (
   <Box>
-    <img src={Logo}></img>
+    <a href={'/'}>
+      <img src={Logo}></img>
+    </a>
   </Box>
 );
 
@@ -15,6 +17,6 @@ export const ButtonBlok = () => (
       display: 'grid',
       placeItems: { xs: 'center', lg: 'start' },
     }}>
-    <PrimaryButton title="Підтримати музей" href="#" svgSpriteId="support_icon" />
+    <PrimaryButton sx={{ width: { md: '280px', lg: '261px' } }} title="Підтримати музей" href="#" svgSpriteId="support_icon" />
   </Box>
 );
