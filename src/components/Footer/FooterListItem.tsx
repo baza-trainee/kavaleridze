@@ -1,11 +1,13 @@
-import { List, ListItem, ListItemButton, ListItemIcon, ListItemText, Typography, styled } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { List, ListItem, ListItemButton, ListItemIcon, ListItemText, Link as MuiLink, Stack, styled, useTheme } from '@mui/material';
+import { Link, useMatch, useResolvedPath } from 'react-router-dom';
 import data from '../../assets/siteData';
 import SvgSpriteIcon from '../PrimaryButton/SvgSpriteIcon';
 
 const {
   menuList: { main },
 } = data;
+
+const { phone, email, location, workingHours } = data.general;
 interface IListTextProps {
   title: string;
   svg: string;
@@ -24,58 +26,82 @@ const MyList = styled(List)(() => ({
   margin: '0px',
 }));
 
-export const TypographyList = styled(Typography)(({ theme }) => ({
+export const TypographyList = styled(MuiLink)(({ theme }) => ({
   lineHeight: '21.13px',
   fontSize: '18px',
   color: 'inherit',
-  [theme.breakpoints.down('md')]: {
+  textDecoration: 'none',
+
+  [theme.breakpoints.down('lg')]: {
     fontSize: '16px',
     lineHeight: '18.78px',
   },
 }));
+const ListNavigation = ({ title, href }: IListLinkTextProps) => {
+  const resolved = useResolvedPath(href);
+  const match = useMatch({ path: resolved.pathname, end: true });
+  const theme = useTheme();
+  return (
+    <ListItem key={title} disablePadding>
+      <ListItemButton sx={{ p: '0px' }}>
+        <Link to={href}>
+          <ListItemText
+            primary={
+              <TypographyList
+                sx={{
+                  color: match ? theme.palette.primary.main : theme.palette.text.primary,
+                  '&:hover': { color: theme.palette.primary.dark },
+                }}>
+                {title}
+              </TypographyList>
+            }></ListItemText>
+        </Link>
+      </ListItemButton>
+    </ListItem>
+  );
+};
 
-export const ListNavigation = () => (
+export const NavRedder = () => (
   <MyList disablePadding>
-    {main.map(({ title, href }: IListLinkTextProps) => {
-      return (
-        <ListItem key={title} disablePadding>
-          <ListItemButton sx={{ p: '0px' }}>
-            <Link to={href}>
-              <ListItemText primary={<TypographyList>{title}</TypographyList>}></ListItemText>
-            </Link>
-          </ListItemButton>
-        </ListItem>
-      );
-    })}
+    {main.map(({ href, title }: IListLinkTextProps) => (
+      <ListNavigation key={href} title={title} href={href} />
+    ))}
   </MyList>
 );
 
 const ListTypography = ({ title, svg }: IListTextProps) => (
-  <ListItem sx={{ p: '0px' }}>
-    <ListItemIcon sx={{ minWidth: '44px', color: 'inherit' }}>
+  <ListItem disablePadding>
+    <ListItemIcon sx={{ minWidth: '32px', color: 'inherit' }}>
       <SvgSpriteIcon svgSpriteId={svg}></SvgSpriteIcon>
     </ListItemIcon>
     <ListItemText primary={<TypographyList>{title}</TypographyList>}></ListItemText>
   </ListItem>
 );
 export const ListContacts = () => (
-  <MyList>
-    <ListContactItem href="tel:044 425-33-97" title="044 425-33-97" svg="phone_icon" />
-    <ListContactItem href="mailto:kavaleridzemuseum@gmail.com" title="kavaleridzemuseum@gmail.com" svg="email_icon" />
-    <ListTypography title="Андріївський узвіз, 21, Київ" svg="location_icon" />
-    <ListTypography title="Вт-Нд 11:00 – 18:00" svg="clock_icon" />
+  <MyList sx={{ py: 1 }}>
+    <ListContactItem href={`tel:${phone}`} title={phone} svg="phone_icon" />
+    <ListContactItem href={`mailto:${email}`} title={email} svg="email_icon" />
+    <ListTypography title={location} svg="location_icon" />
+    <ListTypography title={workingHours} svg="clock_icon" />
   </MyList>
 );
 
 const ListContactItem = ({ title, svg = '', href = '#' }: IListLinkTextProps) => {
   return (
     <ListItem disablePadding>
-      <ListItemButton sx={{ p: '0px' }} href={href}>
-        <ListItemIcon sx={{ minWidth: '44px', color: 'inherit' }}>
+      <Link to={href}>
+        <Stack
+          sx={{
+            ':hover': {
+              color: (theme) => theme.palette.primary.main,
+            },
+          }}
+          gap={1}
+          direction={'row'}>
           <SvgSpriteIcon svgSpriteId={svg}></SvgSpriteIcon>
-        </ListItemIcon>
-        <ListItemText primary={<TypographyList>{title}</TypographyList>}></ListItemText>
-      </ListItemButton>
+          <TypographyList>{title}</TypographyList>
+        </Stack>
+      </Link>
     </ListItem>
   );
 };
