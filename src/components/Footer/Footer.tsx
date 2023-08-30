@@ -1,7 +1,7 @@
-import { Box, styled, useMediaQuery, useTheme } from '@mui/material';
+import { Box, Divider, styled, useMediaQuery, useTheme } from '@mui/material';
 
 import FooterBottom from './FooterBottom.tsx';
-import { ListContacts, ListNavigation } from './FooterListItem.tsx';
+import { ListContacts, NavRedder } from './FooterListItem.tsx';
 import { ButtonBlok, MainIconBlok } from './IconButton.tsx';
 import TabletFooter from './TabletFooter.tsx';
 
@@ -30,7 +30,7 @@ const Footer = () => {
             flexDirection: { lg: 'row', md: 'column', xs: 'column' },
             width: '100%',
             gap: { xs: 5, md: 0 },
-            py: { xs: '40px', lg: '40px' },
+            py: { xs: '48px', lg: '24px' },
           }}>
           {isTablet ? (
             <TabletFooter />
@@ -38,14 +38,14 @@ const Footer = () => {
             <>
               {/* Desktop Mobile menu */}
               <MainIconBlok />
-              <ListNavigation />
+              <NavRedder />
               <ListContacts />
               <ButtonBlok />
             </>
           )}
         </Box>
       </WrapperFooter>
-      <Box sx={{ width: '100%', border: 'solid 1px', color: (theme) => theme.palette.text.secondary }} />
+      <Divider />
       {/* FooterBottom */}
       <WrapperFooter>
         <FooterBottom />

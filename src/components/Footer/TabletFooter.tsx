@@ -1,5 +1,5 @@
 import { Box, Stack, styled } from '@mui/material';
-import { ListContacts, ListNavigation } from './FooterListItem';
+import { ListContacts, NavRedder } from './FooterListItem';
 import { ButtonBlok, MainIconBlok } from './IconButton';
 
 export const MyBoxTabletStyle = styled(Box)(({ theme }) => ({
@@ -11,13 +11,13 @@ export const MyBoxTabletStyle = styled(Box)(({ theme }) => ({
 
 function TabletFooter() {
   return (
-    <Stack direction="column" justifyContent="space-between" width="100%">
+    <Stack direction="column" gap={'48px'} justifyContent="space-between" width="100%">
       <MyBoxTabletStyle>
         <MainIconBlok />
         <ButtonBlok />
       </MyBoxTabletStyle>
       <MyBoxTabletStyle>
-        <ListNavigation />
+        <NavRedder />
         <ListContacts />
       </MyBoxTabletStyle>
     </Stack>
