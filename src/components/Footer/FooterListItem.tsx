@@ -1,4 +1,4 @@
-import { List, ListItem, ListItemButton, ListItemIcon, ListItemText, Link as MuiLink, Stack, styled, useTheme } from '@mui/material';
+import { List, ListItem, ListItemButton, ListItemIcon, ListItemText, Stack, Typography, styled, useTheme } from '@mui/material';
 import { Link, useMatch, useResolvedPath } from 'react-router-dom';
 import data from '../../assets/siteData';
 import SvgSpriteIcon from '../PrimaryButton/SvgSpriteIcon';
@@ -26,7 +26,7 @@ const MyList = styled(List)(() => ({
   margin: '0px',
 }));
 
-export const TypographyList = styled(MuiLink)(({ theme }) => ({
+export const TypographyList = styled(Typography)(({ theme }) => ({
   lineHeight: '21.13px',
   fontSize: '18px',
   color: 'inherit',
@@ -78,7 +78,7 @@ const ListTypography = ({ title, svg }: IListTextProps) => (
   </ListItem>
 );
 export const ListContacts = () => (
-  <MyList sx={{ py: 1 }}>
+  <MyList sx={{ gap: '27px' }}>
     <ListContactItem href={`tel:${phone}`} title={phone} svg="phone_icon" />
     <ListContactItem href={`mailto:${email}`} title={email} svg="email_icon" />
     <ListTypography title={location} svg="location_icon" />
