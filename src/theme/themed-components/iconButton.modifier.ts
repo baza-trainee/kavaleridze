@@ -1,6 +1,5 @@
 import { Components, Theme } from '@mui/material/styles';
 
-
 export const MuiIconButton: Components<Theme>['MuiIconButton'] = {
   defaultProps: {
     disableRipple: true,
@@ -8,8 +7,9 @@ export const MuiIconButton: Components<Theme>['MuiIconButton'] = {
     disableFocusRipple: true,
   },
   styleOverrides: {
-    root: ({ theme }) => ({
-      color: theme.palette.text.primary,
+    root: ({ theme, ownerState }) => ({
+      ...(ownerState.color === 'primary' && { color: theme.palette.text.primary }),
+      ...(ownerState.color === 'secondary' && { color: theme.palette.primary.dark }),
       '&:hover': {
         color: theme.palette.primary.main,
       },
