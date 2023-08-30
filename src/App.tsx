@@ -8,6 +8,7 @@ import MuseumHistory from './components/MuseumHistory/MuseumHistory';
 import Events from './components/Events/Events';
 import Kavaleridze from './components/Kavaleridze/Kavaleridze';
 import Tickets from './components/Tickets/Tickets';
+import Breadcrumbs from './components/Breadcrumbs/Breadcrumbs';
 
 function App() {
   return (
