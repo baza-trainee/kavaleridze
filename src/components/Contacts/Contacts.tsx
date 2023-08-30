@@ -1,8 +1,10 @@
 import { FC } from 'react';
 import { ContactList, ContactItem, Title, Text, ContactPaper, ContactLink,  ContactButton } from './style.ts';
 import { useTheme } from '@mui/material';
+import data from '../../assets/siteData';
 const Contacts: FC = () => {
   const theme = useTheme();
+  const { phone, email } = data.general;
   const textHover = {
     ':hover': {
       cursor: 'pointer',
@@ -14,9 +16,9 @@ const Contacts: FC = () => {
       <ContactList>
         <ContactItem>
           <Title variant="h3">Подзвонити до нас</Title>
-          <ContactLink href="tel:+380444253397" className="Blondie">
+          <ContactLink  href={`tel:${phone}`} className="Blondie">
             <Text sx={textHover} variant="body1">
-            044 – 425-33-97
+            {phone}
             </Text>
           </ContactLink>
         </ContactItem>
@@ -30,7 +32,7 @@ const Contacts: FC = () => {
         <ContactItem>
           <Title variant="h3">Напишіть нам</Title>
           <ContactButton sx={{ textHover }} variant="text" >
-            kavaleridzemuseum@gmail.com
+            {email}
           </ContactButton>
         </ContactItem>
       </ContactList>
