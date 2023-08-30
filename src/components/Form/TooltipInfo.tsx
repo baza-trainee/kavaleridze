@@ -14,7 +14,7 @@ const MyTooltip = styled(({ className, ...props }: TooltipProps) => <Tooltip {..
 
 function TooltipInfo({ alert }: any) {
   return (
-    <Box sx={{ position: 'absolute', right: '8px', top: '30px' }}>
+    <Box sx={{ position: 'absolute', right: '8px', top: '38px' }}>
       <MyTooltip enterTouchDelay={1} placement={'top-start'} title={<Typography variant="body1">{alert}</Typography>}>
         <IconButton sx={{ color: 'inherit' }}>
           <SvgSpriteIcon svgSpriteId="info_icon" />
