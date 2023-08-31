@@ -3,6 +3,7 @@ import { Components, Theme } from '@mui/material/styles';
 declare module '@mui/material/Button' {
   interface ButtonPropsVariantOverrides {
     primary: true;
+    secondary: true;
   }
 }
 export const MuiButton: Components<Theme>['MuiButton'] = {
@@ -34,13 +35,64 @@ export const MuiButton: Components<Theme>['MuiButton'] = {
       props: { variant: 'primary' },
       style: ({ theme }) => ({
         borderRadius: 24,
-        padding: '8px 28px',
+        padding: '8px 16px',
         minWidth: 204,
         backgroundColor: theme.palette.primary.main,
-        color: theme.palette.background.paper,
+        color: theme.palette.primary.contrastText,
 
         '&:hover': {
           backgroundColor: theme.palette.primary.dark,
+        },
+
+        '&:focus': {
+          backgroundColor: theme.palette.primary.dark,
+        },
+
+        '&:active': {
+          boxShadow: '0px 4px 8px 0px rgba(21, 21, 20, 0.15) inset',
+          backgroundColor: theme.palette.primary.dark,
+        },
+
+        '&:disabled': {
+          color: theme.palette.common.black,
+          backgroundColor: theme.palette.action.disabledBackground,
+        },
+      }),
+    },
+    {
+      props: { variant: 'secondary' },
+      style: ({ theme }) => ({
+        borderRadius: 24,
+        padding: '7px 16px',
+        minWidth: 204,
+        backgroundColor: 'transparent',
+        border: '1.5px solid',
+        borderColor: theme.palette.primary.contrastText,
+        color: theme.palette.primary.contrastText,
+
+        '&:hover': {
+          color: theme.palette.primary.dark,
+          borderColor: theme.palette.primary.dark,
+          backgroundColor: theme.palette.secondary.main,
+        },
+
+        '&:focus': {
+          color: theme.palette.primary.dark,
+          borderColor: theme.palette.primary.dark,
+          backgroundColor: theme.palette.secondary.dark,
+        },
+
+        '&:active': {
+          boxShadow: '0px 4px 8px 0px rgba(21, 21, 20, 0.15) inset',
+          backgroundColor: theme.palette.secondary.main,
+          color: theme.palette.primary.dark,
+          borderColor: theme.palette.primary.dark,
+        },
+
+        '&:disabled': {
+          color: theme.palette.text.disabled,
+          borderColor: theme.palette.text.disabled,
+          backgroundColor: 'transparent',
         },
       }),
     },

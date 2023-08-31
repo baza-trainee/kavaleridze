@@ -7,6 +7,7 @@ import { MuiIconButton } from './themed-components/iconButton.modifier';
 import { MuiListItemButton } from './themed-components/list.modifier';
 import { MuiSvgIcon } from './themed-components/svgIcon.modifier';
 import { MuiInputBase, MuiOutlinedInput, MuiTextField } from './themed-components/textField.modifier';
+import { MuiTooltip } from './themed-components/tooltip.modifier';
 
 import { Theme } from '@mui/material/styles';
 
@@ -21,4 +22,5 @@ export const components: Components<Theme> = {
   MuiTextField,
   MuiListItemButton,
   MuiFab,
+  MuiTooltip,
 };
