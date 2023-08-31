@@ -1,9 +1,9 @@
-import { Stack, Fab, Box, Fade, useScrollTrigger } from '@mui/material';
+import { Stack, useScrollTrigger } from '@mui/material';
 import { FC, useRef } from 'react';
 import { Outlet } from 'react-router-dom';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
-import SvgSpriteIcon from '../PrimaryButton/SvgSpriteIcon';
+import ScrollToTop from '../ScrollToTop/ScrollToTop';
 
 const SharedLayout: FC = () => {
   const scrollRef = useRef<HTMLDivElement | null>(null);
@@ -15,7 +15,7 @@ const SharedLayout: FC = () => {
     }
   };
   return (
-    <Stack display={'flex'} minHeight={'100vh'}>
+    <Stack minHeight={'100vh'}>
       <Header ref={scrollRef} />
       <Stack
         sx={{
@@ -23,17 +23,7 @@ const SharedLayout: FC = () => {
           flex: '1 1 auto',
         }}>
         <Outlet />
-        <Fade in={scrollTrigger}>
-          <Box sx={{ position: 'sticky', bottom: 0 }} role="presentation">
-            <Box sx={{ position: 'absolute', bottom: 90, right: 20 }}>
-              <Fab onClick={onClickScrollTop}>
-                <Stack width={50} height={50} justifyContent="center" alignItems="center" border="1px solid" borderRadius="50%">
-                  <SvgSpriteIcon svgSpriteId="arrowRight_icon" sx={{ transform: 'rotate(-90deg)' }} />
-                </Stack>
-              </Fab>
-            </Box>
-          </Box>
-        </Fade>
+        <ScrollToTop scrollTrigger={scrollTrigger} onClickScrollTop={onClickScrollTop} />
       </Stack>
       <Footer />
     </Stack>
