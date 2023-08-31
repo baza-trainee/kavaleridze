@@ -35,26 +35,38 @@ const siteData = {
     burgerSubMenu: [
       {
         title: 'Митець',
-        href: '/about',
+        href: '/about/artist',
       },
       {
         title: 'Біографія',
-        href: '/about',
+        href: '/about/biography',
       },
       {
         title: 'Кіно',
-        href: '/about',
+        href: '/about/movie',
       },
       {
         title: 'Скульптура',
-        href: '/about',
+        href: '/about/sculpture',
       },
       {
         title: 'Митець і Київ',
-        href: '/about',
+        href: '/about/kyiv',
+      },
+    ],
+    other: [
+      {
+        title: 'Результати пошуку',
+        href: '/search',
+      },
+      {
+        title: 'Квитки',
+        href: '/tickets',
       },
     ],
   },
 };
+
+export const routing = [...siteData.menuList.main, ...siteData.menuList.burgerSubMenu, ...siteData.menuList.other];
 
 export default siteData;
