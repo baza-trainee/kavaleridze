@@ -7,6 +7,7 @@ import { MuiAppBar } from './themed-components/appBar.modifier';
 import { MuiInputBase, MuiOutlinedInput, MuiTextField } from './themed-components/textField.modifier';
 import { MuiListItemButton } from './themed-components/list.modifier';
 import { MuiFab } from './themed-components/fab.modifier';
+import { MuiTooltip } from './themed-components/tooltip.modifier';
 
 import { Theme } from '@mui/material/styles';
 
@@ -21,4 +22,5 @@ export const components: Components<Theme> = {
   MuiTextField,
   MuiListItemButton,
   MuiFab,
+  MuiTooltip,
 };
