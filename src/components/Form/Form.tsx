@@ -5,6 +5,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import SvgSpriteIcon from '../PrimaryButton/SvgSpriteIcon';
 import InputForm from './InputForm';
+
 interface IFormInput {
   name: string;
   surname: string;
@@ -12,7 +13,7 @@ interface IFormInput {
   text: string;
 }
 
-export default function Form({ handleClose, open }: any) {
+export default function FeedBackForm({ handleClose, open }: any) {
   const validateSchemaFullName = yup
     .string()
     .trim()

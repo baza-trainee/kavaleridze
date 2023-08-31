@@ -2,15 +2,13 @@ import { IconButton, Tooltip, TooltipProps, Typography, tooltipClasses } from '@
 import { Box, styled } from '@mui/system';
 import SvgSpriteIcon from '../PrimaryButton/SvgSpriteIcon';
 
-const MyTooltip = styled(({ className, ...props }: TooltipProps) => <Tooltip {...props} arrow classes={{ popper: className }} />)(
-  ({ theme }) => ({
-    width: '250px',
-    opacity: 1,
-    [`& .${tooltipClasses.tooltip}`]: {
-      color: '#EEEEEE',
-    },
-  })
-);
+const MyTooltip = styled(({ className, ...props }: TooltipProps) => <Tooltip {...props} arrow classes={{ popper: className }} />)(() => ({
+  width: '250px',
+  opacity: 1,
+  [`& .${tooltipClasses.tooltip}`]: {
+    color: '#EEEEEE',
+  },
+}));
 
 function TooltipInfo({ alert }: any) {
   return (

@@ -6,7 +6,7 @@ import { Controller } from 'react-hook-form';
 import SvgSpriteIcon from '../PrimaryButton/SvgSpriteIcon';
 import TooltipInfo from './TooltipInfo';
 
-const InputForm = ({ placeholder, control, name, alert, label, error, id, rows, isMulti = false }: any) => {
+const InputForm = ({ placeholder, control, name, alert, label, error, rows, isMulti = false }: any) => {
   const [color, setColor] = useState('black');
 
   useEffect(() => {
