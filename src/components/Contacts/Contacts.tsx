@@ -2,7 +2,6 @@ import { FC } from 'react';
 import { ContactList, ContactItem, Title, Text, ContactPaper, ContactLink, ContactButton } from './style.ts';
 import { useTheme } from '@mui/material';
 import data from '../../assets/siteData';
-import Breadcrumbs from '../Breadcrumbs/Breadcrumbs.tsx';
 
 const Contacts: FC = () => {
   const theme = useTheme();
@@ -15,7 +14,6 @@ const Contacts: FC = () => {
   };
   return (
     <>
-      <Breadcrumbs />
       <ContactPaper>
         <ContactList>
           <ContactItem>
