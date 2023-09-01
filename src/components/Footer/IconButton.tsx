@@ -1,15 +1,13 @@
 import { Box } from '@mui/material';
 
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import PrimaryButton from '../PrimaryButton/PrimaryButton.tsx';
 import Logo from '/Logo.svg';
 
 export const MainIconBlok = () => {
-  const { pathname } = useLocation();
-
   return (
     <Box>
-      <Link to={pathname === '/' ? pathname : '/'}>
+      <Link to={'/'}>
         <img src={Logo}></img>
       </Link>
     </Box>
