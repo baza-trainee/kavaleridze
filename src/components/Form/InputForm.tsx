@@ -1,12 +1,11 @@
+import { useEffect, useState } from 'react';
+import { Controller } from 'react-hook-form';
 import { FormHelperText, InputLabel, TextField } from '@mui/material';
 import { Box } from '@mui/system';
-import { memo, useEffect, useState } from 'react';
-
-import { Controller } from 'react-hook-form';
 import SvgSpriteIcon from '../PrimaryButton/SvgSpriteIcon';
 import TooltipInfo from './TooltipInfo';
 
-const InputForm = ({ placeholder, control, name, alert, onBlur, label, error, rows, isMulti = false }: any) => {
+const InputForm = ({ placeholder, control, name, alert, label, error, rows, isMulti = false }: any) => {
   const [color, setColor] = useState('black');
 
   useEffect(() => {
@@ -64,4 +63,4 @@ const InputForm = ({ placeholder, control, name, alert, onBlur, label, error, ro
   );
 };
 
-export default memo(InputForm);
+export default InputForm;
