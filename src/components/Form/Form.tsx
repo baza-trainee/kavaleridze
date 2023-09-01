@@ -26,7 +26,12 @@ export default function FeedBackForm({ handleClose, open }: any) {
   const validateSchema = yup.object().shape({
     name: validateSchemaFullName,
     surname: validateSchemaFullName,
-    email: yup.string().trim().required('Невірно введені дані.').email('Невірний формат вводу ел.пошти. Див.зразок'),
+    email: yup
+      .string()
+      .trim()
+      .required('Невірно введені дані.')
+      .matches(/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/, 'Невірний формат вводу ел.пошти. Див.зразок')
+      .email('Невірний формат вводу ел.пошти. Див.зразок'),
     text: yup
       .string()
       .trim()
@@ -39,7 +44,8 @@ export default function FeedBackForm({ handleClose, open }: any) {
     control,
     handleSubmit,
     clearErrors,
-    formState: { errors, isValid },
+    reset,
+    formState: { errors, isValid, validate },
   } = useForm({
     mode: 'onBlur',
     defaultValues: {
@@ -53,6 +59,7 @@ export default function FeedBackForm({ handleClose, open }: any) {
 
   const onSubmit: SubmitHandler<IFormInput> = (data) => {
     console.log(data);
+    reset();
   };
 
   return (
@@ -63,7 +70,7 @@ export default function FeedBackForm({ handleClose, open }: any) {
         '& .MuiDialog-container': {
           '& .MuiPaper-root': {
             width: '100%',
-            maxWidth: { xs: '288px', md: '540px', lg: '568px' },
+            maxWidth: { xs: '100%', md: '540px', lg: '568px' },
           },
         },
       }}
@@ -124,7 +131,7 @@ export default function FeedBackForm({ handleClose, open }: any) {
               placeholder={'Олена'}
               name={'name'}
               label={'Імʼя*'}
-              alert={'Це поле має містити від 2 до 30 символів. Допустимі символи: букви, пробіл, крапка, тире, апостроф'}
+              alert={'Від 2 до 30 символів: букви, дефіс, крапка, апостроф, пробіл'}
             />
 
             <InputForm
@@ -133,7 +140,7 @@ export default function FeedBackForm({ handleClose, open }: any) {
               placeholder={'Петрова'}
               label={'Прізвище*'}
               name={'surname'}
-              alert={'Це поле має містити від 2 до 30 символів. Допустимі символи: букви, пробіл, крапка, тире, апостроф'}
+              alert={'Від 2 до 30 символів: букви, дефіс, крапка, апостроф, пробіл'}
             />
 
             <InputForm
@@ -142,7 +149,7 @@ export default function FeedBackForm({ handleClose, open }: any) {
               placeholder={'olenapetrova@gmail.com'}
               label={'Електронна адреса*'}
               name={'email'}
-              alert={'Некоректно введені дані. Вкажіть адресу у форматі example@example.com'}
+              alert={'Формат example@google.com'}
             />
 
             <InputForm
@@ -154,7 +161,8 @@ export default function FeedBackForm({ handleClose, open }: any) {
               placeholder={'Ваше повідомлення'}
               label={'Текст повідомлення*'}
               name={'text'}
-              alert={'Це поле має містити від 10 до 300 символів.'}
+              alert={'Від 10 до 300 символів'}
+              onBlur={onBlur}
             />
           </Box>
           <Box
@@ -169,14 +177,15 @@ export default function FeedBackForm({ handleClose, open }: any) {
             <Button
               type="submit"
               variant="primary"
+              disabled={!isValid}
               endIcon={<SvgSpriteIcon svgSpriteId="send_icon" />}
               sx={{
                 width: { xs: '256px', md: '220px', lg: '328px' },
-                background: isValid ? '' : '#CACACA',
-                cursor: isValid ? 'pointer' : 'not-allowed',
-                ':hover': {
-                  background: isValid ? '' : '#CACACA',
-                },
+                // background: isValid ? '' : '#CACACA',
+                // cursor: isValid ? 'pointer' : 'not-allowed',
+                // ':hover': {
+                //   background: isValid ? '' : '#CACACA',
+                // },
               }}>
               Відправити
             </Button>

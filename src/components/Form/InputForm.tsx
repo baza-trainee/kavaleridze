@@ -6,13 +6,12 @@ import { Controller } from 'react-hook-form';
 import SvgSpriteIcon from '../PrimaryButton/SvgSpriteIcon';
 import TooltipInfo from './TooltipInfo';
 
-const InputForm = ({ placeholder, control, name, alert, label, error, rows, isMulti = false }: any) => {
+const InputForm = ({ placeholder, control, name, alert, onBlur, label, error, rows, isMulti = false }: any) => {
   const [color, setColor] = useState('black');
 
   useEffect(() => {
     setColor(error ? 'red' : 'black');
   }, [error]);
-  // console.log(1);
   return (
     <Box sx={{ position: 'relative', color: { color } }}>
       <InputLabel sx={{ marginBottom: '8px', color: 'inherit', fontSize: { xs: '16px', lg: '18px', fontWeight: '600' } }}>
@@ -23,6 +22,13 @@ const InputForm = ({ placeholder, control, name, alert, label, error, rows, isMu
         control={control}
         render={({ field }) => (
           <TextField
+            sx={{
+              input: {
+                '&::placeholder': {
+                  fontSize: { xs: '14px', md: '16px' },
+                },
+              },
+            }}
             {...field}
             placeholder={placeholder}
             variant="outlined"
