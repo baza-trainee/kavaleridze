@@ -1,10 +1,9 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-
 import { Box, Button, Dialog, IconButton, Typography } from '@mui/material';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import * as yup from 'yup';
 import SvgSpriteIcon from '../PrimaryButton/SvgSpriteIcon';
 import InputForm from './InputForm';
+import { validateSchema } from './Validation';
 
 interface IFormInput {
   name: string;
@@ -14,34 +13,14 @@ interface IFormInput {
 }
 
 export default function FeedBackForm({ handleClose, open }: any) {
-  const validateSchemaFullName = yup
-    .string()
-    .trim()
-    .required('Невірно введені дані.')
-    .max(30, 'Ви ввели забагато симловів')
-    .min(2, 'Недостатньо символів')
-    .matches(/^[^0-9]*$/, 'Ваводити цифри заборонино')
-    .matches(/^[a-zA-Zа-яА-Яґєіїёў'-.\s]*$/, 'Введено недозволені символи');
-
-  const validateSchema = yup.object().shape({
-    name: validateSchemaFullName,
-    surname: validateSchemaFullName,
-    email: yup.string().trim().required('Невірно введені дані.').email('Невірний формат вводу ел.пошти. Див.зразок'),
-    text: yup
-      .string()
-      .trim()
-      .required('Невірно введені дані.')
-      .min(10, 'Не достатньо інформації для запиту')
-      .max(300, 'Ви ввели забагато симловів'),
-  });
-
   const {
     control,
     handleSubmit,
     clearErrors,
+    reset,
     formState: { errors, isValid },
   } = useForm({
-    mode: 'onBlur',
+    mode: 'all',
     defaultValues: {
       name: '',
       surname: '',
@@ -53,6 +32,7 @@ export default function FeedBackForm({ handleClose, open }: any) {
 
   const onSubmit: SubmitHandler<IFormInput> = (data) => {
     console.log(data);
+    reset();
   };
 
   return (
@@ -63,7 +43,7 @@ export default function FeedBackForm({ handleClose, open }: any) {
         '& .MuiDialog-container': {
           '& .MuiPaper-root': {
             width: '100%',
-            maxWidth: { xs: '288px', md: '540px', lg: '568px' },
+            maxWidth: { xs: '100%', md: '540px', lg: '568px' },
           },
         },
       }}
@@ -83,6 +63,7 @@ export default function FeedBackForm({ handleClose, open }: any) {
         <IconButton
           onClick={() => {
             clearErrors();
+            reset();
             handleClose();
           }}
           aria-label="close form"
@@ -124,7 +105,7 @@ export default function FeedBackForm({ handleClose, open }: any) {
               placeholder={'Олена'}
               name={'name'}
               label={'Імʼя*'}
-              alert={'Це поле має містити від 2 до 30 символів. Допустимі символи: букви, пробіл, крапка, тире, апостроф'}
+              alert={'Від 2 до 30 символів: букви, дефіс, крапка, апостроф, пробіл'}
             />
 
             <InputForm
@@ -133,7 +114,7 @@ export default function FeedBackForm({ handleClose, open }: any) {
               placeholder={'Петрова'}
               label={'Прізвище*'}
               name={'surname'}
-              alert={'Це поле має містити від 2 до 30 символів. Допустимі символи: букви, пробіл, крапка, тире, апостроф'}
+              alert={'Від 2 до 30 символів: букви, дефіс, крапка, апостроф, пробіл'}
             />
 
             <InputForm
@@ -142,7 +123,7 @@ export default function FeedBackForm({ handleClose, open }: any) {
               placeholder={'olenapetrova@gmail.com'}
               label={'Електронна адреса*'}
               name={'email'}
-              alert={'Некоректно введені дані. Вкажіть адресу у форматі example@example.com'}
+              alert={'Формат example@google.com'}
             />
 
             <InputForm
@@ -154,7 +135,7 @@ export default function FeedBackForm({ handleClose, open }: any) {
               placeholder={'Ваше повідомлення'}
               label={'Текст повідомлення*'}
               name={'text'}
-              alert={'Це поле має містити від 10 до 300 символів.'}
+              alert={'Від 10 до 300 символів'}
             />
           </Box>
           <Box
@@ -166,18 +147,7 @@ export default function FeedBackForm({ handleClose, open }: any) {
               marginTop: { xs: '24px' },
               marginBottom: { xs: '48px', md: '24px' },
             }}>
-            <Button
-              type="submit"
-              variant="primary"
-              endIcon={<SvgSpriteIcon svgSpriteId="send_icon" />}
-              sx={{
-                width: { xs: '256px', md: '220px', lg: '328px' },
-                background: isValid ? '' : '#CACACA',
-                cursor: isValid ? 'pointer' : 'not-allowed',
-                ':hover': {
-                  background: isValid ? '' : '#CACACA',
-                },
-              }}>
+            <Button type="submit" variant="primary" disabled={!isValid} endIcon={<SvgSpriteIcon svgSpriteId="send_icon" />}>
               Відправити
             </Button>
           </Box>
