@@ -43,7 +43,7 @@ const ListNavigation = ({ title, href }: IListLinkTextProps) => {
   const theme = useTheme();
   return (
     <ListItem key={title} disablePadding>
-      <ListItemButton sx={{ p: '0px' }}>
+      <ListItemButton onClick={() => window.scrollTo(0, 0)} sx={{ p: '0px' }}>
         <Link to={href}>
           <ListItemText
             primary={
