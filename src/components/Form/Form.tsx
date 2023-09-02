@@ -39,7 +39,6 @@ export default function FeedBackForm({ handleClose, open }: any) {
     <Dialog
       PaperProps={{ style: { padding: '0px', margin: '0px' } }}
       sx={{
-        padding: '10px',
         '& .MuiDialog-container': {
           '& .MuiPaper-root': {
             width: '100%',
