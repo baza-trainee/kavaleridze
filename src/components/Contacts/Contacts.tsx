@@ -1,9 +1,21 @@
-import { FC } from 'react';
-import { ContactList, ContactItem, Title, Text, ContactPaper, ContactLink, ContactButton } from './style.ts';
+
 import { useTheme } from '@mui/material';
+import { FC, useState } from 'react';
+import { ContactButton, ContactItem, ContactLink, ContactList, ContactPaper, Text, Title } from './style.ts';
+import FeedBackForm from '../Form/Form.tsx';
+
 import data from '../../assets/siteData';
 
 const Contacts: FC = () => {
+  const [open, setOpen] = useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   const theme = useTheme();
   const { phone, email } = data.general;
   const textHover = {
@@ -33,12 +45,14 @@ const Contacts: FC = () => {
           </ContactItem>
           <ContactItem>
             <Title variant="h3">Напишіть нам</Title>
-            <ContactButton sx={{ textHover }} variant="text">
+            <ContactButton onClick={handleClickOpen} sx={{ textHover }} variant="text">
               {email}
             </ContactButton>
           </ContactItem>
         </ContactList>
+
       </ContactPaper>
+      <FeedBackForm handleClose={handleClose} open={open} />
     </>
   );
 };

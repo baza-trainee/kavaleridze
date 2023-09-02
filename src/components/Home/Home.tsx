@@ -1,5 +1,5 @@
-import { FC } from 'react';
 import { Box, Container, Typography } from '@mui/material';
+import { FC } from 'react';
 import Section from '../Section/Section';
 
 const Home: FC = () => {
