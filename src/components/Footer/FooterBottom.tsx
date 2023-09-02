@@ -35,10 +35,18 @@ const FooterBottom = () => {
         <TypographyList>Правила користування сайтом</TypographyList>
       </TextLink>
       <Stack gap="13px" direction="row">
-        <IconButton sx={{ p: 0 }} target="_blank" href="https://www.instagram.com/" aria-label="instagram_icon">
+        <IconButton
+          sx={{ p: 0, color: (theme) => theme.palette.common.white }}
+          target="_blank"
+          href="https://www.instagram.com/"
+          aria-label="instagram_icon">
           <SvgSpriteIcon fontSize="medium" svgSpriteId={'instagram_icon'} />
         </IconButton>
-        <IconButton sx={{ p: 0 }} target="_blank" href="https://www.facebook.com/" aria-label="facebook_icon">
+        <IconButton
+          sx={{ p: 0, color: (theme) => theme.palette.common.white }}
+          target="_blank"
+          href="https://www.facebook.com/"
+          aria-label="facebook_icon">
           <SvgSpriteIcon fontSize="medium" svgSpriteId={'facebook_icon'} />
         </IconButton>
       </Stack>
