@@ -1,9 +1,11 @@
+
 import { useTheme } from '@mui/material';
 import { FC, useState } from 'react';
 import { ContactButton, ContactItem, ContactLink, ContactList, ContactPaper, Text, Title } from './style.ts';
 import FeedBackForm from '../Form/Form.tsx';
 
 import data from '../../assets/siteData';
+
 const Contacts: FC = () => {
   const [open, setOpen] = useState(false);
 
@@ -48,7 +50,8 @@ const Contacts: FC = () => {
             </ContactButton>
           </ContactItem>
         </ContactList>
-      </ContactPaper>{' '}
+
+      </ContactPaper>
       <FeedBackForm handleClose={handleClose} open={open} />
     </>
   );

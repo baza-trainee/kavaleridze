@@ -4,8 +4,13 @@ import { Outlet } from 'react-router-dom';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 import ScrollToTop from '../ScrollToTop/ScrollToTop';
+import Page from '../Breadcrumbs/Breadcrumbs';
+import { useLocation } from 'react-router-dom';
 
 const SharedLayout: FC = () => {
+  const location = useLocation();
+
+  const isHomePage = location.pathname;
   const scrollRef = useRef<HTMLDivElement | null>(null);
   const scrollTrigger = useScrollTrigger({ disableHysteresis: true, threshold: 100 });
   const theme = useTheme();
@@ -19,6 +24,7 @@ const SharedLayout: FC = () => {
   return (
     <Stack minHeight={'100vh'}>
       <Header ref={scrollRef} />
+      {isHomePage !== '/' && <Page />}
       <Stack
         sx={{
           minHeight: '100%',
