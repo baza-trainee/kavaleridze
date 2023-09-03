@@ -63,7 +63,7 @@ export const MuiButton: Components<Theme>['MuiButton'] = {
       props: { variant: 'secondary' },
       style: ({ theme }) => ({
         borderRadius: 24,
-        padding: '7px 16px',
+        padding: '8px 16px',
         minWidth: 204,
         backgroundColor: 'transparent',
         border: '1.5px solid',

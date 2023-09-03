@@ -1,27 +1,44 @@
-import {} from '@emotion/react';
-import { Box, Container, InputAdornment, TextField, Typography, styled, useTheme } from '@mui/material';
-import { FC } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
-import PrimaryButton from '../PrimaryButton/PrimaryButton';
-import SvgSpriteIcon from '../PrimaryButton/SvgSpriteIcon';
+import { Container, List, Stack, Typography } from '@mui/material';
+import { ChangeEventHandler, FC, FormEventHandler, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
+
 import Section from '../Section/Section';
+import SearchListItem from './SearchListItem';
+import SearchResultsInput from './SearchResultsInput';
+
+import SearchInfo from './SearchInfo.js';
+import ShowMoreBtn from './ShowMoreBtn.js';
+import { testData } from './testData.js';
 
 const Search: FC = () => {
   const [searchParams] = useSearchParams();
   const search = searchParams.get('request');
   const { palette } = useTheme();
 
-  const CustomTextField = styled(TextField)(({ theme, ...props }) => ({
-    '& .MuiInputBase-root': {
-      height: 38,
-      // width: '100%',
-      color: theme.palette.common.black,
+  const [inputVal, setInputVal] = useState(search || '');
+  const [searchResults, setSearchResults] = useState(() => {
+    return searchContent(search) || [];
+  });
+  const [searchTitleVal, setSearchTitleVal] = useState(inputVal);
 
-      '&:before': {
-        borderBottom: `1px solid ${theme.palette.text.secondary}`,
-      },
-    },
-  }));
+  function searchContent(patt: string): string[] {
+    const pattern = new RegExp(patt, 'gim');
+    const res = testData.filter((el) => pattern.test(el.text) || pattern.test(el.title));
+    console.log(res);
+    return res;
+  }
+
+  const handleChange: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement> = (e) => {
+    setInputVal(e.target.value);
+  };
+
+  const onSubmit: FormEventHandler<HTMLFormElement> = (e) => {
+    e.preventDefault();
+    console.log(inputVal, 'onSubmit');
+    setSearchResults([]);
+    setSearchTitleVal(inputVal);
+    setSearchResults(searchContent(inputVal));
+  };
 
   return (
     <Section variant="light">
@@ -29,24 +46,20 @@ const Search: FC = () => {
         <Typography component={'p'} sx={{ fontSize: '0.875rem', py: '16px', mb: '55px' }}>
           there should be breadcrumbs
         </Typography>
-        <Box component={'form'} sx={{ mb: '70px' }}>
-          <CustomTextField
-            fullWidth={true}
-            variant="standard"
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  <SvgSpriteIcon sx={{ color: palette.text.secondary }} svgSpriteId="search_icon" />
-                </InputAdornment>
-              ),
-            }}
-          />
-        </Box>
-        {/* <Box sx={{ px: 3, py: 3 }}>
-          <Typography> Here is search results.</Typography>
-          <Typography mb={4}>Search: {search?.split('-').join(' ')}</Typography>
-          <PrimaryButton component={Link} href="/" title="Повернутись на головну" svgSpriteId="arrowLeft_icon" />
-        </Box> */}
+
+        <SearchResultsInput inputVal={inputVal} handleChange={handleChange} onSubmit={onSubmit} />
+
+        {/* search title */}
+        <SearchInfo resultsCount={searchResults.length} searchTitle={searchTitleVal} />
+
+        {/* search results */}
+
+        <List disablePadding>
+          {searchResults.map((data, index) => {
+            return <SearchListItem key={index} {...data} />;
+          })}
+        </List>
+        <ShowMoreBtn />
       </Container>
     </Section>
   );
