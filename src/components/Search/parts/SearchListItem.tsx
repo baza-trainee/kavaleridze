@@ -20,16 +20,14 @@ interface SearchListItemProps {
 
 const SearchListItem: FC<SearchListItemProps> = ({ route, title, text }) => {
   const theme = useTheme();
-
   const mainRoute = route.split('/').filter((x) => x)[0];
 
   const getRouteTitle = (route: string): string => {
-    return routing.find((el) => el.href === route).title || '';
+    return routing.find((el) => el.href === route)?.title || '';
   };
 
   return (
     <Box component={'li'}>
-      {/* section link */}
       <ContentBox>
         <Typography component={'p'} sx={{ fontSize: '1rem', fontWeight: 400, color: theme.palette.text.secondary }}>
           Перейти на сторінку "
@@ -37,9 +35,16 @@ const SearchListItem: FC<SearchListItemProps> = ({ route, title, text }) => {
             {getRouteTitle(route)}"
           </Link>
         </Typography>
-        {/* main link */}
         <Stack spacing={1} component={RouterLink} to={`${route}`}>
-          <Typography component={'p'} sx={{ fontSize: '1.5rem', lineHeight: 1.2 }}>
+          <Typography
+            component={'p'}
+            sx={{
+              fontSize: '1.5rem',
+              lineHeight: 1.2,
+              '&:hover': {
+                color: theme.palette.primary.dark,
+              },
+            }}>
             {title}
           </Typography>
           <Typography

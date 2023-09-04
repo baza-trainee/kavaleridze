@@ -8,24 +8,25 @@ import SearchListItem from './parts/SearchListItem';
 import SearchResultsInput from './parts/SearchResultsInput';
 import ShowMoreBtn from './parts/ShowMoreBtn.tsx';
 
-import { testData } from './testData.js';
+import { testData } from './testData.ts';
 
 const Search: FC = () => {
   const [searchParams] = useSearchParams();
-  const search = searchParams.get('request');
+  const search = searchParams.get('request') || '';
 
-  const [inputData, setInputData] = useState(search || '');
+  const [inputData, setInputData] = useState(search);
   const [searchResults, setSearchResults] = useState(() => {
-    return searchContent(search) || [];
+    return searchContent(search);
   });
   const [searchTitleVal, setSearchTitleVal] = useState(inputData);
-  //number of visible results
   const [visibleNum, setVisibleNum] = useState(5);
 
-  function searchContent(patt: string): string[] {
-    const pattern = new RegExp(patt, 'gim');
-    const res = testData.filter((el) => pattern.test(el.text) || pattern.test(el.title));
-    return res;
+  function searchContent(patt: string) {
+    if (patt.length) {
+      const pattern = new RegExp(patt, 'gim');
+      return testData.filter((el) => pattern.test(el.text || '') || pattern.test(el.title));
+    }
+    return [];
   }
 
   const handleChange: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement> = (e) => {
@@ -33,7 +34,7 @@ const Search: FC = () => {
   };
 
   const onSubmit: FormEventHandler<HTMLFormElement> = (e) => {
-    if (inputData.length > 3) {
+    if (inputData.length > 2) {
       e.preventDefault();
       setSearchResults([]);
       setSearchTitleVal(inputData);
