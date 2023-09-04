@@ -1,17 +1,21 @@
 import { Box, InputAdornment, TextField, useTheme } from '@mui/material';
-import { ChangeEventHandler, FC, FormEvent, FormEventHandler } from 'react';
+import { ChangeEventHandler, FC, FormEventHandler } from 'react';
 import SvgSpriteIcon from '../PrimaryButton/SvgSpriteIcon';
 
 interface SearchResultsInputProps {
-  inputVal: string;
+  inputData: string;
   handleChange: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>;
   onSubmit?: FormEventHandler<HTMLFormElement>;
 }
 
-const SearchResultsInput: FC<SearchResultsInputProps> = ({ inputVal, handleChange, onSubmit }) => {
+const SearchResultsInput: FC<SearchResultsInputProps> = ({ inputData, handleChange, onSubmit }) => {
   const { palette } = useTheme();
   const styles = {
-    padding: '55px 0 15px 0',
+    padding: {
+      lg: '55px 0 15px 0',
+      md: '32px 0 15px 0',
+      sm: '24px 0 15px 0',
+    },
     '& .MuiInputBase-root': {
       height: 38,
       color: palette.common.black,
@@ -30,7 +34,7 @@ const SearchResultsInput: FC<SearchResultsInputProps> = ({ inputVal, handleChang
         variant="standard"
         fullWidth
         autoComplete="off"
-        value={inputVal}
+        value={inputData}
         onChange={handleChange}
         sx={{ ...styles }}
         InputProps={{

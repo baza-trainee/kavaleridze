@@ -34,11 +34,13 @@ const Search: FC = () => {
   };
 
   const onSubmit: FormEventHandler<HTMLFormElement> = (e) => {
-    e.preventDefault();
-    setSearchResults([]);
-    setSearchTitleVal(inputData);
-    setSearchResults(searchContent(inputData));
-    setVisibleNum(5);
+    if (inputData.length > 3) {
+      e.preventDefault();
+      setSearchResults([]);
+      setSearchTitleVal(inputData);
+      setSearchResults(searchContent(inputData));
+      setVisibleNum(5);
+    }
   };
 
   const changeVisibleNum = () => {
@@ -48,23 +50,34 @@ const Search: FC = () => {
   return (
     <Section variant="light">
       <Container>
-        <Typography component={'p'} sx={{ fontSize: '0.875rem', py: '16px', mb: '55px' }}>
+        <Typography component={'p'} sx={{ fontSize: '0.875rem', py: '20px' }}>
           there should be breadcrumbs
         </Typography>
 
         <SearchResultsInput inputData={inputData} handleChange={handleChange} onSubmit={onSubmit} />
-
         {/* search title */}
         <SearchInfo resultsCount={searchResults.length} searchTitle={searchTitleVal} />
-
         {/* search results */}
-        <List disablePadding sx={{ paddingBottom: '120px' }}>
+        <Stack
+          component={'ul'}
+          sx={{
+            rowGap: {
+              lg: '44px',
+              md: '32px',
+              sm: '24px',
+            },
+            paddingBottom: {
+              lg: '100px',
+              md: '80px',
+              sm: '60px',
+            },
+          }}>
           {searchResults.slice(0, visibleNum).map((data, index) => {
             return <SearchListItem key={index} {...data} />;
           })}
           {/* show more button */}
           {visibleNum < searchResults.length && <ShowMoreBtn onClick={changeVisibleNum} />}
-        </List>
+        </Stack>
       </Container>
     </Section>
   );

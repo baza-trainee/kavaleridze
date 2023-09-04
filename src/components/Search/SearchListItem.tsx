@@ -28,7 +28,7 @@ const SearchListItem: FC<SearchListItemProps> = ({ route, title, text }) => {
   };
 
   return (
-    <Box component={'li'} sx={{ paddingBottom: '45px' }}>
+    <Box component={'li'}>
       {/* section link */}
       <ContentBox>
         <Typography component={'p'} sx={{ fontSize: '1rem', fontWeight: 400, color: theme.palette.text.secondary }}>
@@ -42,7 +42,16 @@ const SearchListItem: FC<SearchListItemProps> = ({ route, title, text }) => {
           <Typography component={'p'} sx={{ fontSize: '1.5rem', lineHeight: 1.2 }}>
             {title}
           </Typography>
-          <Typography component={'p'} sx={{ fontSize: '1rem', lineHeight: 1.5 }}>
+          <Typography
+            component={'p'}
+            sx={{
+              fontSize: {
+                lg: '1.125rem',
+                md: '1rem',
+                sm: '0.875rem',
+              },
+              lineHeight: 1.5,
+            }}>
             {text}
           </Typography>
         </Stack>
