@@ -1,6 +1,6 @@
 import { FC, PropsWithChildren } from 'react';
 
-import { List } from '@mui/material';
+import { List, ListItem } from '@mui/material';
 
 const NavMenu: FC<PropsWithChildren> = ({ children }) => {
   return (

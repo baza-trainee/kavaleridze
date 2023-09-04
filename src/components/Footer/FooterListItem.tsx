@@ -1,5 +1,6 @@
 import { List, ListItem, ListItemButton, ListItemIcon, ListItemText, Stack, Typography, styled, useTheme } from '@mui/material';
-import { Link, useMatch, useResolvedPath } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import useActiveLink from '../../hooks/useActiveLink';
 import data from '../../assets/siteData';
 import SvgSpriteIcon from '../PrimaryButton/SvgSpriteIcon';
 
@@ -38,9 +39,9 @@ export const TypographyList = styled(Typography)(({ theme }) => ({
   },
 }));
 const ListNavigation = ({ title, href }: IListLinkTextProps) => {
-  const resolved = useResolvedPath(href);
-  const match = useMatch({ path: resolved.pathname, end: true });
   const theme = useTheme();
+  const isActiveLink = useActiveLink(href);
+
   return (
     <ListItem key={title} disablePadding>
       <ListItemButton onClick={() => window.scrollTo(0, 0)} sx={{ p: '0px' }}>
@@ -49,7 +50,7 @@ const ListNavigation = ({ title, href }: IListLinkTextProps) => {
             primary={
               <TypographyList
                 sx={{
-                  color: match ? theme.palette.primary.main : theme.palette.text.primary,
+                  color: isActiveLink ? theme.palette.primary.main : theme.palette.text.primary,
                   '&:hover': { color: theme.palette.primary.dark },
                 }}>
                 {title}

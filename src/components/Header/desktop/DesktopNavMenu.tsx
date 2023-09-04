@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { useTheme, ListItem, Box } from '@mui/material';
-import { Link, useResolvedPath, useMatch } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import useActiveLink from '../../../hooks/useActiveLink';
 
 import data from '../../../assets/siteData';
 
@@ -17,8 +18,7 @@ interface NavMenuItemProp {
 
 const NavMenuItem: FC<NavMenuItemProp> = ({ href, title }) => {
   const theme = useTheme();
-  const resolved = useResolvedPath(href);
-  const match = useMatch({ path: resolved.pathname, end: true });
+  const isActiveLink = useActiveLink(href);
 
   return (
     <ListItem
@@ -32,7 +32,7 @@ const NavMenuItem: FC<NavMenuItemProp> = ({ href, title }) => {
         sx={{
           py: 0,
           width: '100%',
-          color: match ? theme.palette.primary.main : theme.palette.text.primary,
+          color: isActiveLink ? theme.palette.primary.main : theme.palette.text.primary,
           '&:hover': { color: theme.palette.primary.dark },
         }}>
         {title}

@@ -9,8 +9,8 @@ export const MuiFab: Components<Theme>['MuiFab'] = {
   styleOverrides: {
     root: ({ theme }) => ({
       backgroundColor: 'transparent',
-      width: 60,
-      height: 60,
+      width: 52,
+      height: 52,
       boxShadow: 'none',
 
       '&:hover': {
