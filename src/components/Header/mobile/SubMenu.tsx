@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { Box, ListItem, Stack, Button, List } from '@mui/material';
 import { Link } from 'react-router-dom';
+import useActiveLink from '../../../hooks/useActiveLink';
 import SvgSpriteIcon from '../../PrimaryButton/SvgSpriteIcon';
 import TicketBtn from '../parts/TicketBtn';
 import Info from '../parts/Info';
@@ -22,6 +23,8 @@ interface SubmenuItemProps {
 }
 
 const SubmenuItem: FC<SubmenuItemProps> = ({ title, href, closeMainMenu }) => {
+  const isActiveLink = useActiveLink(href);
+
   return (
     <ListItem disableGutters disablePadding sx={{ height: { xs: 'auto', md: 40 }, px: { sx: 0, md: 2 }, py: 1 }}>
       <Box
@@ -30,8 +33,8 @@ const SubmenuItem: FC<SubmenuItemProps> = ({ title, href, closeMainMenu }) => {
         onClick={closeMainMenu}
         sx={{
           width: '100%',
-          color: 'inherit',
           fontFamily: (theme) => theme.typography.body2,
+          color: (theme) => (isActiveLink ? theme.palette.primary.main : theme.palette.text.primary),
           '&:hover': { color: (theme) => theme.palette.primary.dark },
         }}>
         {title}

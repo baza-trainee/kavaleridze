@@ -1,6 +1,7 @@
 import { FC } from 'react';
-import { useTheme, Box, ListItem, ListItemButton, ListItemIcon } from '@mui/material';
-import { Link, useResolvedPath, useMatch } from 'react-router-dom';
+import { Box, ListItem, ListItemButton, ListItemIcon } from '@mui/material';
+import { Link } from 'react-router-dom';
+import useActiveLink from '../../../hooks/useActiveLink';
 import SvgSpriteIcon from '../../PrimaryButton/SvgSpriteIcon';
 interface MobileMainMenuProp {
   title: string;
@@ -10,9 +11,7 @@ interface MobileMainMenuProp {
 }
 
 const MobileMainMenu: FC<MobileMainMenuProp> = ({ title, href, openSubMenu, closeMainMenu }) => {
-  const theme = useTheme();
-  const resolved = useResolvedPath(href);
-  const match = useMatch({ path: resolved.pathname, end: true });
+  const isActiveLink = useActiveLink(href);
 
   if (title === 'Іван Кавалерідзе') {
     return (
@@ -25,6 +24,8 @@ const MobileMainMenu: FC<MobileMainMenuProp> = ({ title, href, openSubMenu, clos
 
             display: ' flex',
             justifyContent: 'space-between',
+            color: (theme) => (isActiveLink ? theme.palette.primary.main : theme.palette.text.primary),
+            '&:hover': { color: (theme) => theme.palette.primary.dark },
           }}>
           {title}
           <ListItemIcon sx={{ minWidth: 24, color: 'inherit', position: 'absolute', top: '50%', right: 0, transform: 'translateY(-50%)' }}>
@@ -44,8 +45,8 @@ const MobileMainMenu: FC<MobileMainMenuProp> = ({ title, href, openSubMenu, clos
           height: { xs: 'auto', md: 40 },
           py: 1,
           width: '100%',
-          color: match ? theme.palette.primary.main : theme.palette.text.primary,
-          '&:hover': { color: theme.palette.primary.dark },
+          color: (theme) => (isActiveLink ? theme.palette.primary.main : theme.palette.text.primary),
+          '&:hover': { color: (theme) => theme.palette.primary.dark },
         }}>
         {title}
       </Box>
