@@ -1,7 +1,7 @@
 import { Box, Divider, Link, Stack, Typography, styled, useTheme } from '@mui/material';
 import { FC } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
-import { routing } from '../../assets/siteData';
+import { routing } from '../../../assets/siteData';
 
 const ContentBox = styled(Box)(() => ({
   display: 'flex',

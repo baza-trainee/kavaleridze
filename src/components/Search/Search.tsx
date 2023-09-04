@@ -1,19 +1,18 @@
-import { Container, List, Stack, Typography } from '@mui/material';
+import { Container, Stack } from '@mui/material';
 import { ChangeEventHandler, FC, FormEventHandler, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 import Section from '../Section/Section';
-import SearchListItem from './SearchListItem';
-import SearchResultsInput from './SearchResultsInput';
+import SearchInfo from './parts/SearchInfo.tsx';
+import SearchListItem from './parts/SearchListItem';
+import SearchResultsInput from './parts/SearchResultsInput';
+import ShowMoreBtn from './parts/ShowMoreBtn.tsx';
 
-import SearchInfo from './SearchInfo.js';
-import ShowMoreBtn from './ShowMoreBtn.js';
 import { testData } from './testData.js';
 
 const Search: FC = () => {
   const [searchParams] = useSearchParams();
   const search = searchParams.get('request');
-  const { palette } = useTheme();
 
   const [inputData, setInputData] = useState(search || '');
   const [searchResults, setSearchResults] = useState(() => {
@@ -50,12 +49,7 @@ const Search: FC = () => {
   return (
     <Section variant="light">
       <Container>
-        <Typography component={'p'} sx={{ fontSize: '0.875rem', py: '20px' }}>
-          there should be breadcrumbs
-        </Typography>
-
         <SearchResultsInput inputData={inputData} handleChange={handleChange} onSubmit={onSubmit} />
-        {/* search title */}
         <SearchInfo resultsCount={searchResults.length} searchTitle={searchTitleVal} />
         {/* search results */}
         <Stack

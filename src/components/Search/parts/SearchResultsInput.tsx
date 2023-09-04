@@ -1,6 +1,6 @@
 import { Box, InputAdornment, TextField, useTheme } from '@mui/material';
 import { ChangeEventHandler, FC, FormEventHandler } from 'react';
-import SvgSpriteIcon from '../PrimaryButton/SvgSpriteIcon';
+import SvgSpriteIcon from '../../PrimaryButton/SvgSpriteIcon';
 
 interface SearchResultsInputProps {
   inputData: string;
