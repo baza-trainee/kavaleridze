@@ -15,29 +15,34 @@ const Search: FC = () => {
   const search = searchParams.get('request');
   const { palette } = useTheme();
 
-  const [inputVal, setInputVal] = useState(search || '');
+  const [inputData, setInputData] = useState(search || '');
   const [searchResults, setSearchResults] = useState(() => {
     return searchContent(search) || [];
   });
-  const [searchTitleVal, setSearchTitleVal] = useState(inputVal);
+  const [searchTitleVal, setSearchTitleVal] = useState(inputData);
+  //number of visible results
+  const [visibleNum, setVisibleNum] = useState(5);
 
   function searchContent(patt: string): string[] {
     const pattern = new RegExp(patt, 'gim');
     const res = testData.filter((el) => pattern.test(el.text) || pattern.test(el.title));
-    console.log(res);
     return res;
   }
 
   const handleChange: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement> = (e) => {
-    setInputVal(e.target.value);
+    setInputData(e.target.value);
   };
 
   const onSubmit: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
-    console.log(inputVal, 'onSubmit');
     setSearchResults([]);
-    setSearchTitleVal(inputVal);
-    setSearchResults(searchContent(inputVal));
+    setSearchTitleVal(inputData);
+    setSearchResults(searchContent(inputData));
+    setVisibleNum(5);
+  };
+
+  const changeVisibleNum = () => {
+    setVisibleNum((prevVal) => prevVal + 5);
   };
 
   return (
@@ -47,19 +52,19 @@ const Search: FC = () => {
           there should be breadcrumbs
         </Typography>
 
-        <SearchResultsInput inputVal={inputVal} handleChange={handleChange} onSubmit={onSubmit} />
+        <SearchResultsInput inputData={inputData} handleChange={handleChange} onSubmit={onSubmit} />
 
         {/* search title */}
         <SearchInfo resultsCount={searchResults.length} searchTitle={searchTitleVal} />
 
         {/* search results */}
-
-        <List disablePadding>
-          {searchResults.map((data, index) => {
+        <List disablePadding sx={{ paddingBottom: '120px' }}>
+          {searchResults.slice(0, visibleNum).map((data, index) => {
             return <SearchListItem key={index} {...data} />;
           })}
+          {/* show more button */}
+          {visibleNum < searchResults.length && <ShowMoreBtn onClick={changeVisibleNum} />}
         </List>
-        <ShowMoreBtn />
       </Container>
     </Section>
   );
