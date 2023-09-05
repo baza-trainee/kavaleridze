@@ -1,6 +1,6 @@
 import { useTheme, Container } from '@mui/material';
 import { FC, useState } from 'react';
-import { ContactButton, ContactItem, ContactLink, ContactList, ContactPaper, Text, Title } from './style.ts';
+import { BoxContact, ContactButton, ContactItem, ContactLink, ContactList, ContactPaper, Paragraph, Title } from './style.ts';
 import FeedBackForm from '../Form/Form.tsx';
 import Section from '../Section/Section.tsx';
 import data from '../../assets/siteData';
@@ -31,21 +31,23 @@ const Contacts: FC = () => {
             <ContactList>
               <ContactItem>
                 <Title variant="h3">Подзвонити до нас</Title>
-                <ContactLink href={`tel:${phone}`} className="Blondie">
-                  <Text sx={textHover} variant="body1">
+                <ContactLink sx={textHover} href={`tel:${phone}`} className="Blondie">
                     {phone}
-                  </Text>
                 </ContactLink>
               </ContactItem>
               <ContactItem>
                 <Title variant="h3">Як нас знайти</Title>
-                <Text variant="body1">
-                  Метро (до станції «Контрактова площа», далі пройти пішки близько 1 км. Від станції «Поштова площа» піднятися на фунікулері
-                  до Михайлівської площі, далі пройти по вулиці Володимирській до Андріївського узвозу, 21); Автобус (114 119 18ТР)
-                </Text>
+                <BoxContact>
+                  <Paragraph><strong>Метро:</strong> до станції «Контрактова площа», далі пройти пішки близько 1 км.</Paragraph>
+                  <Paragraph>
+                    <strong>Фунікулер:</strong> від станції «Поштова площа» піднятися до Михайлівської площі, далі пройти по вулиці Володимирській до
+                    Андріївського узвозу, 21.
+                  </Paragraph>
+                  <Paragraph><strong>Автобус:</strong> 114; 119; 18ТР.</Paragraph>
+                </BoxContact>
               </ContactItem>
               <ContactItem>
-                <Title variant="h3">Напишіть нам</Title>
+                <Title variant="h3">Написати нам</Title>
                 <ContactButton onClick={handleClickOpen} sx={{ textHover }} variant="text">
                   {email}
                 </ContactButton>
