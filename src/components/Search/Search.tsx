@@ -38,8 +38,8 @@ const Search: FC = () => {
   };
 
   const onSubmit: FormEventHandler<HTMLFormElement> = (e) => {
+    e.preventDefault();
     if (inputData.length > 2) {
-      e.preventDefault();
       setSearchResults([]);
       setSearchTitleVal(inputData);
       setSearchResults(searchContent(inputData));
