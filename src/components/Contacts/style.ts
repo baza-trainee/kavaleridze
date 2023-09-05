@@ -77,6 +77,7 @@ export const ContactButton = styled(Button)(({ theme }) => ({
   fontSize: '14px',
   fontWeight: 400,
   marginBottom: '16px',
+  fontFamily: 'Raleway',
   padding: 0,
   color: 'inherit',
   [theme.breakpoints.up('md')]: {
