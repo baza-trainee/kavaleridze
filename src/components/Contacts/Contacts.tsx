@@ -1,6 +1,6 @@
 import { useTheme, Container } from '@mui/material';
 import { FC, useState } from 'react';
-import { BoxContact, ContactButton, ContactItem, ContactLink, ContactList, ContactPaper, Paragraph, Text, Title } from './style.ts';
+import { BoxContact, ContactButton, ContactItem, ContactLink, ContactList, ContactPaper, Paragraph, Title } from './style.ts';
 import FeedBackForm from '../Form/Form.tsx';
 import Section from '../Section/Section.tsx';
 import data from '../../assets/siteData';
