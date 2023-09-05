@@ -24,7 +24,7 @@ const FooterBottom = () => {
         alignItems: 'center',
         wight: '100%',
         textAlign: 'center',
-        p: '24px 8px',
+        p: '24px 0px',
         gap: { xs: '32px', lg: '0' },
       }}>
       <TypographyList>Baza Trainee Ukraine 2023 &copy; Всі права захищені</TypographyList>
