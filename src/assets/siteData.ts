@@ -2,7 +2,7 @@ const siteData = {
   general: {
     workingHours: 'Вт-Нд 11:00 – 18:00',
     location: 'Андріївський узвіз, 21, Київ',
-    phone: '044 425-33-97',
+    phone: '(044) 425-33-97',
     email: 'kavaleridzemuseum@gmail.com',
   },
   buttonsLabels: {
