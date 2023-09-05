@@ -76,6 +76,7 @@ export const MuiButton: Components<Theme>['MuiButton'] = {
           backgroundColor: theme.palette.secondary.main,
         },
 
+        // після кліку на кнопку ПОКАЗАТИ БІЛЬШЕ вона не змінює колір на дефолтний, якщо ці властивості розкоментувати
         // '&:focus': {
         //   color: theme.palette.primary.dark,
         //   borderColor: theme.palette.primary.dark,

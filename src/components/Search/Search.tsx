@@ -4,11 +4,11 @@ import { useSearchParams } from 'react-router-dom';
 
 import Section from '../Section/Section';
 import SearchInfo from './parts/SearchInfo.tsx';
-import SearchListItem from './parts/SearchListItem';
+// import SearchListItem from './parts/SearchListItem';
 import SearchResultsInput from './parts/SearchResultsInput';
 import ShowMoreBtn from './parts/ShowMoreBtn.tsx';
 
-import { testData } from './testData.ts';
+// import { testData } from './testData.ts';
 
 const Search: FC = () => {
   const [searchParams] = useSearchParams();
@@ -16,21 +16,26 @@ const Search: FC = () => {
 
   const [inputData, setInputData] = useState(search);
   const [searchResults, setSearchResults] = useState(() => {
-    return searchContent(search);
+    // return searchContent(search)
+    return [];
   });
   const [searchTitleVal, setSearchTitleVal] = useState(inputData);
   const [visibleNum, setVisibleNum] = useState(5);
 
-  function searchContent(patt: string) {
-    if (patt.length) {
-      const pattern = new RegExp(patt, 'gim');
-      return testData.filter((el) => pattern.test(el.text || '') || pattern.test(el.title));
-    }
-    return [];
-  }
+  // function searchContent(patt: string) {
+  //   if (patt.length) {
+  //     const pattern = new RegExp(patt, 'gim');
+  //     return testData.filter((el) => pattern.test(el.text || '') || pattern.test(el.title));
+  //   }
+  //   return [];
+  // }
 
   const handleChange: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement> = (e) => {
     setInputData(e.target.value);
+  };
+
+  const changeVisibleNum = () => {
+    setVisibleNum((prevVal) => prevVal + 5);
   };
 
   const onSubmit: FormEventHandler<HTMLFormElement> = (e) => {
@@ -38,13 +43,9 @@ const Search: FC = () => {
       e.preventDefault();
       setSearchResults([]);
       setSearchTitleVal(inputData);
-      setSearchResults(searchContent(inputData));
+      // setSearchResults(searchContent(inputData));
       setVisibleNum(5);
     }
-  };
-
-  const changeVisibleNum = () => {
-    setVisibleNum((prevVal) => prevVal + 5);
   };
 
   return (
@@ -67,9 +68,10 @@ const Search: FC = () => {
               sm: '60px',
             },
           }}>
-          {searchResults.slice(0, visibleNum).map((data, index) => {
+          {/* RENDER SEARCH RESULTS LIST */}
+          {/* {searchResults.slice(0, visibleNum).map((data, index) => {
             return <SearchListItem key={index} {...data} />;
-          })}
+          })} */}
           {/* show more button */}
           {visibleNum < searchResults.length && <ShowMoreBtn onClick={changeVisibleNum} />}
         </Stack>
