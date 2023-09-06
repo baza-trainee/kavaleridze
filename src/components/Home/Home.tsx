@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import Hero from './Hero/Hero';
 import MainSlider from './MainSlider/MainSlider';
-import Events from '../Events/Events';
+import EventsPreview from './EventsPreview/EventsPreview';
 import FamousArtist from './FamousArtist/FamousArtist';
 import AboutHistory from './AboutHistory/AboutHistory';
 import Section from '../Section/Section';
@@ -11,7 +11,7 @@ const Home: FC = () => {
     <Section variant="light">
       <Hero />
       <MainSlider />
-      <Events />
+      <EventsPreview />
       <FamousArtist />
       <AboutHistory />
     </Section>
