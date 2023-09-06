@@ -12,16 +12,11 @@ const SearchInfo: FC<SearchInfoProps> = ({ resultsCount, searchTitle }) => {
       {resultsCount ? (
         <Typography
           component={'p'}
-          variant="button"
+          variant="h2"
           sx={{
-            fontSize: {
-              lg: '2rem',
-              md: '1.5rem',
-              sm: '1.25rem',
-            },
             padding: {
-              lg: '55px 0',
-              md: '30px 0',
+              lg: '44px 0 56px 0',
+              md: '32px 0',
               sm: '24px 0',
             },
             textTransform: 'none',
@@ -30,12 +25,16 @@ const SearchInfo: FC<SearchInfoProps> = ({ resultsCount, searchTitle }) => {
         </Typography>
       ) : (
         <Stack
-          spacing={3}
           sx={{
             padding: {
-              lg: '55px 0',
-              md: '30px 0',
-              sm: '24px 0',
+              lg: '44px 0 60px',
+              md: '32px 0 60px',
+              sm: '24px 0 60px',
+            },
+            rowGap: {
+              lg: '24px',
+              md: '16px',
+              sm: '16px',
             },
           }}>
           <Typography
@@ -48,6 +47,7 @@ const SearchInfo: FC<SearchInfoProps> = ({ resultsCount, searchTitle }) => {
                 sm: '1.25rem',
               },
               textTransform: 'none',
+              lineHeight: 1.1,
             }}>
             На жаль, за Вашим запитом “{searchTitle}” нічого не знайдено.
           </Typography>
