@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
 import { AppBar, Toolbar, useTheme, useMediaQuery, styled } from '@mui/material';
-
+import Section from '../Section/Section';
 import MobileHeader from './mobile/MobileHeader';
 import DesktopHeader from './desktop/DesktopHeader';
 
@@ -14,7 +14,7 @@ const Header = forwardRef<HTMLDivElement>(function (_, ref) {
   const isDesktop = useMediaQuery(theme.breakpoints.up('lg'));
 
   return (
-    <>
+    <Section variant="dark">
       <AppBar component="header" position="fixed">
         <Toolbar
           disableGutters
@@ -26,7 +26,7 @@ const Header = forwardRef<HTMLDivElement>(function (_, ref) {
         </Toolbar>
       </AppBar>
       <Offset ref={ref} />
-    </>
+    </Section>
   );
 });
 

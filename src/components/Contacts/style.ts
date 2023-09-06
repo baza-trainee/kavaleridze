@@ -1,9 +1,17 @@
 import { List, styled, ListItem, Typography, Box, Link, Button } from '@mui/material';
 
-export const ContactLink = styled(Link)({
-  textDecoration: 'none',
+export const ContactLink = styled(Link)(({ theme }) => ({
+  mb: '16px',
+  fontSize: '14px',
+  fontWeight: 400,
   color: 'inherit',
-});
+  display: 'inline-block',
+  textDecoration: 'none',
+  marginBottom: '16px',
+  [theme.breakpoints.up('md')]: {
+    fontSize: '18px',
+  },
+}));
 
 export const ContactList = styled(List)(({ theme }) => ({
   maxWidth: '736px',
@@ -38,33 +46,41 @@ export const ContactItem = styled(ListItem)(({ theme }) => ({
 }));
 
 export const Title = styled(Typography)(({ theme }) => ({
-  fontSize: '20px',
+  fontSize: '18px',
   fontWeight: 600,
   marginBottom: '16px',
 
   [theme.breakpoints.up('md')]: {
-    fontSize: '22px',
+    fontSize: '20px',
   },
   [theme.breakpoints.up('lg')]: {
     fontSize: '24px',
   },
 }));
-export const Text = styled(Typography)(({ theme }) => ({
+export const BoxContact = styled(Box)({
+  fontSize: '14px',
+  fontWeight: 400,
+  marginBottom: '16px',
+});
+
+export const Paragraph = styled(Typography)(({ theme }) => ({
+  fontSize: '14px',
+  margin: 0,
+  lineHeight: '28px',
+  [theme.breakpoints.up('md')]: {
+    fontSize: '18px',
+  },
+}));
+
+export const ContactButton = styled(Button)(({ theme }) => ({
   mb: '16px',
   fontSize: '14px',
   fontWeight: 400,
   marginBottom: '16px',
-  [theme.breakpoints.up('md')]: {
-    fontSize: '18 px',
-  },
-}));
-
-export const ContactButton = styled(Button)({
-  mb: '16px',
-  fontSize: '18px',
-  fontWeight: 400,
-  marginBottom: '16px',
-  textDecoration: 'underline',
+  fontFamily: 'Raleway',
   padding: 0,
   color: 'inherit',
-});
+  [theme.breakpoints.up('md')]: {
+    fontSize: '18px',
+  },
+}));
