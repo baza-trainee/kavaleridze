@@ -24,7 +24,7 @@ const Search: FC = () => {
   function searchContent(patt: string) {
     if (patt.length) {
       const pattern = new RegExp(patt, 'gim');
-      return testData.filter((el) => pattern.test(el.text || '') || pattern.test(el.title));
+      return testData.filter((el) => pattern.test(el.description || '') || pattern.test(el.title));
     }
     return [];
   }
@@ -53,27 +53,29 @@ const Search: FC = () => {
         <SearchResultsInput inputData={inputData} handleChange={handleChange} onSubmit={onSubmit} />
         <SearchInfo resultsCount={searchResults.length} searchTitle={searchTitleVal} />
         {/* search results */}
-        <Stack
-          component={'ul'}
-          sx={{
-            rowGap: {
-              lg: '44px',
-              md: '32px',
-              sm: '24px',
-            },
-            paddingBottom: {
-              lg: '100px',
-              md: '80px',
-              sm: '60px',
-            },
-          }}>
-          {/* RENDER SEARCH RESULTS LIST */}
-          {searchResults.slice(0, visibleNum).map((data, index) => {
-            return <SearchListItem key={index} {...data} />;
-          })}
-          {/* show more button */}
-          {visibleNum < searchResults.length && <ShowMoreBtn onClick={changeVisibleNum} />}
-        </Stack>
+        {!!searchResults?.length && (
+          <Stack
+            component={'ul'}
+            sx={{
+              rowGap: {
+                lg: '44px',
+                md: '32px',
+                sm: '24px',
+              },
+              paddingBottom: {
+                lg: '120px',
+                md: '80px',
+                sm: '60px',
+              },
+            }}>
+            {/* RENDER SEARCH RESULTS LIST */}
+            {searchResults.slice(0, visibleNum).map((data, index) => {
+              return <SearchListItem key={index} {...data} />;
+            })}
+            {/* show more button */}
+            {visibleNum < searchResults.length && <ShowMoreBtn onClick={changeVisibleNum} />}
+          </Stack>
+        )}
       </Container>
     </Section>
   );

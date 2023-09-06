@@ -6,7 +6,7 @@ interface ShowMoreBtnProps extends ButtonProps {}
 const ShowMoreBtn: FC<ShowMoreBtnProps> = ({ onClick }) => {
   return (
     <>
-      <Box sx={{ textAlign: 'center', paddingTop: '45px' }}>
+      <Box sx={{ textAlign: 'center' }}>
         <Button onClick={onClick} variant="secondary" sx={{ width: '248px' }}>
           Показати більше
         </Button>

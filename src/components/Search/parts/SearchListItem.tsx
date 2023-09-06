@@ -1,24 +1,29 @@
-import { Box, Divider, Link, Stack, Typography, styled, useTheme } from '@mui/material';
+import { Box, Divider, Link, Typography, styled, useTheme } from '@mui/material';
 import { FC } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { routing } from '../../../assets/siteData';
 
-const ContentBox = styled(Box)(() => ({
+const ContentBox = styled(Box)(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'flex-start',
-  rowGap: '8px',
-  maxWidth: '670px',
+  rowGap: '16px',
+  [theme.breakpoints.up('lg')]: {
+    maxWidth: '800px',
+  },
+  [theme.breakpoints.between('md', 'lg')]: {
+    maxWidth: '670px',
+  },
 }));
 
 interface SearchListItemProps {
   route: string;
   title: string;
-  text?: string;
+  description?: string;
   key?: string | number;
 }
 
-const SearchListItem: FC<SearchListItemProps> = ({ route, title, text }) => {
+const SearchListItem: FC<SearchListItemProps> = ({ route, title, description }) => {
   const theme = useTheme();
   const mainRoute = route.split('/').filter((x) => x)[0];
 
@@ -29,24 +34,25 @@ const SearchListItem: FC<SearchListItemProps> = ({ route, title, text }) => {
   return (
     <Box component={'li'}>
       <ContentBox>
-        <Typography component={'p'} sx={{ fontSize: '1rem', fontWeight: 400, color: theme.palette.text.secondary }}>
+        <Typography variant="body2" component={'p'} sx={{ color: theme.palette.text.secondary }}>
           Перейти на сторінку "
           <Link sx={{ color: 'inherit', textDecoration: 'underline', cursor: 'pointer' }} component={RouterLink} to={`/${mainRoute}`}>
             {getRouteTitle(route)}"
           </Link>
         </Typography>
-        <Stack spacing={1} component={RouterLink} to={`${route}`}>
-          <Typography
-            component={'p'}
-            sx={{
-              fontSize: '1.5rem',
-              lineHeight: 1.2,
-              '&:hover': {
-                color: theme.palette.primary.dark,
-              },
-            }}>
-            {title}
-          </Typography>
+        <Typography
+          component={RouterLink}
+          to={`${route}`}
+          variant="subhead"
+          sx={{
+            fontWeight: 600,
+            '&:hover': {
+              color: theme.palette.primary.dark,
+            },
+          }}>
+          {title}
+        </Typography>
+        {description?.length && (
           <Typography
             component={'p'}
             sx={{
@@ -57,9 +63,9 @@ const SearchListItem: FC<SearchListItemProps> = ({ route, title, text }) => {
               },
               lineHeight: 1.5,
             }}>
-            {text}
+            {description}
           </Typography>
-        </Stack>
+        )}
       </ContentBox>
       <Divider
         sx={{

@@ -12,14 +12,22 @@ const SearchResultsInput: FC<SearchResultsInputProps> = ({ inputData, handleChan
   const { palette } = useTheme();
   const styles = {
     padding: {
-      lg: '55px 0 15px 0',
-      md: '32px 0 15px 0',
-      sm: '24px 0 15px 0',
+      lg: '56px 0 16px 0',
+      md: '32px 0 16px 0',
+      sm: '24px 0 16px 0',
     },
     '& .MuiInputBase-root': {
-      height: 38,
+      height: {
+        lg: 44,
+        md: 44,
+        xs: 36,
+      },
       color: palette.common.black,
-      fontSize: '1.125rem',
+      fontSize: {
+        lg: '1.125rem',
+        md: '1.125rem',
+        xs: '0.875rem',
+      },
 
       '&:before': {
         borderBottom: `1px solid ${palette.text.secondary}`,
