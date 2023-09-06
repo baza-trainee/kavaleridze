@@ -41,7 +41,11 @@ const createBreadcrumbNameMap = (routing: RoutingProps[]) => {
 };
 
 function LinkRouter(props: LinkRouterProps) {
-  return <Link {...props} component={RouterLink as any} />;
+  return (
+    <Typography variant="breadcrumbs">
+      <Link {...props} component={RouterLink as any} />
+    </Typography>
+  );
 }
 
 function Page() {
@@ -62,7 +66,7 @@ function Page() {
             const breadcrumbNameMap = createBreadcrumbNameMap(routing);
 
             return last ? (
-              <Typography sx={{ color: '#151514', fontSize: 'inherit', fontWeight: 'inherit' }} key={to}>
+              <Typography variant="breadcrumbs" sx={{ color: '#151514' }} key={to}>
                 {breadcrumbNameMap[to]}
               </Typography>
             ) : (

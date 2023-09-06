@@ -1,17 +1,17 @@
 import { List, styled, ListItem, Typography, Box, Link, Button } from '@mui/material';
 
-export const ContactLink = styled(Link)(({ theme }) => ({
-  mb: '16px',
-  fontSize: '14px',
-  fontWeight: 400,
+export const ContactLink = styled(Link)({
+  // mb: '16px',
+  // fontSize: '14px',
+  // fontWeight: 400,
   color: 'inherit',
   display: 'inline-block',
   textDecoration: 'none',
   marginBottom: '16px',
-  [theme.breakpoints.up('md')]: {
-    fontSize: '18px',
-  },
-}));
+  // [theme.breakpoints.up('md')]: {
+  //   fontSize: '18px',
+  // },
+});
 
 export const ContactList = styled(List)(({ theme }) => ({
   maxWidth: '736px',
@@ -45,42 +45,44 @@ export const ContactItem = styled(ListItem)(({ theme }) => ({
   padding: 0,
 }));
 
-export const Title = styled(Typography)(({ theme }) => ({
-  fontSize: '18px',
-  fontWeight: 600,
+export const Title = styled(Typography)({
+  display: 'block',
+  // fontSize: '18px',
+  // fontWeight: 600,
   marginBottom: '16px',
 
-  [theme.breakpoints.up('md')]: {
-    fontSize: '20px',
-  },
-  [theme.breakpoints.up('lg')]: {
-    fontSize: '24px',
-  },
-}));
+  // [theme.breakpoints.up('md')]: {
+  //   fontSize: '20px',
+  // },
+  // [theme.breakpoints.up('lg')]: {
+  //   fontSize: '24px',
+  // },
+});
 export const BoxContact = styled(Box)({
   fontSize: '14px',
   fontWeight: 400,
   marginBottom: '16px',
 });
 
-export const Paragraph = styled(Typography)(({ theme }) => ({
-  fontSize: '14px',
+export const Paragraph = styled(Typography)({
+  // fontSize: '14px',
   margin: 0,
-  lineHeight: '28px',
-  [theme.breakpoints.up('md')]: {
-    fontSize: '18px',
-  },
-}));
+  // lineHeight: '28px',
+  // [theme.breakpoints.up('md')]: {
+  //   fontSize: '18px',
+  // },
+});
 
-export const ContactButton = styled(Button)(({ theme }) => ({
-  mb: '16px',
-  fontSize: '14px',
-  fontWeight: 400,
+export const ContactButton = styled(Button)({
   marginBottom: '16px',
-  fontFamily: 'Raleway',
+  // mb: '16px',
+
   padding: 0,
   color: 'inherit',
-  [theme.breakpoints.up('md')]: {
-    fontSize: '18px',
-  },
-}));
+  // fontSize: '14px',
+  // fontWeight: 400,
+  // fontFamily: 'Raleway',
+  // [theme.breakpoints.up('md')]: {
+  //   fontSize: '18px',
+  // },
+});

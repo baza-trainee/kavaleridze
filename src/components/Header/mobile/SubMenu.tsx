@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Box, ListItem, Stack, Button, List } from '@mui/material';
+import { Box, ListItem, Stack, Button, List, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
 import useActiveLink from '../../../hooks/useActiveLink';
 import SvgSpriteIcon from '../../PrimaryButton/SvgSpriteIcon';
@@ -33,11 +33,12 @@ const SubmenuItem: FC<SubmenuItemProps> = ({ title, href, closeMainMenu }) => {
         onClick={closeMainMenu}
         sx={{
           width: '100%',
-          fontFamily: (theme) => theme.typography.body2,
           color: (theme) => (isActiveLink ? theme.palette.primary.main : theme.palette.text.primary),
           '&:hover': { color: (theme) => theme.palette.primary.dark },
         }}>
-        {title}
+        <Typography variant="navigationKyiv" component="span">
+          {title}
+        </Typography>
       </Box>
       <Link to={href}></Link>
     </ListItem>

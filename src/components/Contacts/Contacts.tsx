@@ -1,4 +1,4 @@
-import { useTheme, Container } from '@mui/material';
+import { useTheme, Container, Typography } from '@mui/material';
 import { FC, useState } from 'react';
 import { BoxContact, ContactButton, ContactItem, ContactLink, ContactList, ContactPaper, Paragraph, Title } from './style.ts';
 import FeedBackForm from '../Form/Form.tsx';
@@ -32,24 +32,32 @@ const Contacts: FC = () => {
               <ContactItem>
                 <Title variant="h3">Подзвонити до нас</Title>
                 <ContactLink sx={textHover} href={`tel:${phone}`} className="Blondie">
+                  <Typography component="span" variant="body1">
                     {phone}
+                  </Typography>
                 </ContactLink>
               </ContactItem>
               <ContactItem>
                 <Title variant="h3">Як нас знайти</Title>
                 <BoxContact>
-                  <Paragraph><strong>Метро:</strong> до станції «Контрактова площа», далі пройти пішки близько 1 км.</Paragraph>
                   <Paragraph>
-                    <strong>Фунікулер:</strong> від станції «Поштова площа» піднятися до Михайлівської площі, далі пройти по вулиці Володимирській до
-                    Андріївського узвозу, 21.
+                    <strong>Метро:</strong> до станції «Контрактова площа», далі пройти пішки близько 1 км.
                   </Paragraph>
-                  <Paragraph><strong>Автобус:</strong> 114; 119; 18ТР.</Paragraph>
+                  <Paragraph>
+                    <strong>Фунікулер:</strong> від станції «Поштова площа» піднятися до Михайлівської площі, далі пройти по вулиці
+                    Володимирській до Андріївського узвозу, 21.
+                  </Paragraph>
+                  <Paragraph>
+                    <strong>Автобус:</strong> 114; 119; 18ТР.
+                  </Paragraph>
                 </BoxContact>
               </ContactItem>
               <ContactItem>
                 <Title variant="h3">Написати нам</Title>
                 <ContactButton onClick={handleClickOpen} sx={{ textHover }} variant="text">
-                  {email}
+                  <Typography component="span" variant="body1">
+                    {email}
+                  </Typography>
                 </ContactButton>
               </ContactItem>
             </ContactList>
