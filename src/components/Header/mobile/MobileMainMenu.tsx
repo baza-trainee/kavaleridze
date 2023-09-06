@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Box, ListItem, ListItemButton, ListItemIcon } from '@mui/material';
+import { Box, ListItem, ListItemButton, ListItemIcon, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
 import useActiveLink from '../../../hooks/useActiveLink';
 import SvgSpriteIcon from '../../PrimaryButton/SvgSpriteIcon';
@@ -27,7 +27,9 @@ const MobileMainMenu: FC<MobileMainMenuProp> = ({ title, href, openSubMenu, clos
             color: (theme) => (isActiveLink ? theme.palette.primary.main : theme.palette.text.primary),
             '&:hover': { color: (theme) => theme.palette.primary.dark },
           }}>
-          {title}
+          <Typography variant="navigationKyiv" component="span">
+            {title}
+          </Typography>
           <ListItemIcon sx={{ minWidth: 24, color: 'inherit', position: 'absolute', top: '50%', right: 0, transform: 'translateY(-50%)' }}>
             <SvgSpriteIcon svgSpriteId="arrowRight_icon" />
           </ListItemIcon>
@@ -42,13 +44,15 @@ const MobileMainMenu: FC<MobileMainMenuProp> = ({ title, href, openSubMenu, clos
         to={href}
         onClick={closeMainMenu}
         sx={{
-          height: { xs: 'auto', md: 40 },
           py: 1,
           width: '100%',
+          lineHeight: 1,
           color: (theme) => (isActiveLink ? theme.palette.primary.main : theme.palette.text.primary),
           '&:hover': { color: (theme) => theme.palette.primary.dark },
         }}>
-        {title}
+        <Typography variant="navigationKyiv" component="span">
+          {title}
+        </Typography>
       </Box>
     </ListItem>
   );

@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { useTheme, ListItem, Box } from '@mui/material';
+import { useTheme, ListItem, Box, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
 import useActiveLink from '../../../hooks/useActiveLink';
 
@@ -35,7 +35,9 @@ const NavMenuItem: FC<NavMenuItemProp> = ({ href, title }) => {
           color: isActiveLink ? theme.palette.primary.main : theme.palette.text.primary,
           '&:hover': { color: theme.palette.primary.dark },
         }}>
-        {title}
+        <Typography variant="navigationKyiv" component="span">
+          {title}
+        </Typography>
       </Box>
     </ListItem>
   );

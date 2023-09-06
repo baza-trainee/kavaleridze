@@ -14,9 +14,10 @@ export const MuiButton: Components<Theme>['MuiButton'] = {
     disableFocusRipple: true,
   },
   styleOverrides: {
-    root: {
+    root: ({ theme }) => ({
       textTransform: 'none',
-    },
+      color: theme.palette.common.black,
+    }),
     startIcon: {
       '& > *:first-of-type': {
         fontSize: '1.5rem',
