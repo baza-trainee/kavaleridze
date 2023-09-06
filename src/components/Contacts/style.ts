@@ -1,6 +1,6 @@
 import { List, styled, ListItem, Typography, Box, Link, Button } from '@mui/material';
 
-export const ContactLink = styled(Link)(({ theme }) => ({
+export const ContactLink = styled(Link)({
   // mb: '16px',
   // fontSize: '14px',
   // fontWeight: 400,
@@ -11,7 +11,7 @@ export const ContactLink = styled(Link)(({ theme }) => ({
   // [theme.breakpoints.up('md')]: {
   //   fontSize: '18px',
   // },
-}));
+});
 
 export const ContactList = styled(List)(({ theme }) => ({
   maxWidth: '736px',
@@ -64,16 +64,16 @@ export const BoxContact = styled(Box)({
   marginBottom: '16px',
 });
 
-export const Paragraph = styled(Typography)(({ theme }) => ({
+export const Paragraph = styled(Typography)({
   // fontSize: '14px',
   margin: 0,
   // lineHeight: '28px',
   // [theme.breakpoints.up('md')]: {
   //   fontSize: '18px',
   // },
-}));
+});
 
-export const ContactButton = styled(Button)(({ theme }) => ({
+export const ContactButton = styled(Button)({
   marginBottom: '16px',
   // mb: '16px',
 
@@ -85,4 +85,4 @@ export const ContactButton = styled(Button)(({ theme }) => ({
   // [theme.breakpoints.up('md')]: {
   //   fontSize: '18px',
   // },
-}));
+});
