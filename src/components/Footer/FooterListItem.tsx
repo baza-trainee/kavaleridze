@@ -1,7 +1,7 @@
-import { List, ListItem, ListItemButton, ListItemIcon, ListItemText, Stack, Typography, styled, useTheme } from '@mui/material';
+import { Box, List, ListItem, ListItemIcon, ListItemText, Stack, Typography, styled, useTheme } from '@mui/material';
 import { Link } from 'react-router-dom';
-import useActiveLink from '../../hooks/useActiveLink';
 import data from '../../assets/siteData';
+import useActiveLink from '../../hooks/useActiveLink';
 import SvgSpriteIcon from '../PrimaryButton/SvgSpriteIcon';
 
 const {
@@ -22,48 +22,34 @@ interface IListLinkTextProps {
 const MyList = styled(List)(() => ({
   display: 'flex',
   flexDirection: 'column',
-  gap: '24px',
   padding: '0px',
-  margin: '0px',
 }));
 
-export const TypographyList = styled(Typography)(({ theme }) => ({
-  lineHeight: '21.13px',
-  fontSize: '18px',
-  color: 'inherit',
-  textDecoration: 'none',
-
-  [theme.breakpoints.down('lg')]: {
-    fontSize: '16px',
-    lineHeight: '18.78px',
-  },
-}));
 const ListNavigation = ({ title, href }: IListLinkTextProps) => {
   const theme = useTheme();
   const isActiveLink = useActiveLink(href);
 
   return (
-    <ListItem key={title} disablePadding>
-      <ListItemButton onClick={() => window.scrollTo(0, 0)} sx={{ p: '0px' }}>
-        <Link to={href}>
-          <ListItemText
-            primary={
-              <TypographyList
-                sx={{
-                  color: isActiveLink ? theme.palette.primary.main : theme.palette.text.primary,
-                  '&:hover': { color: theme.palette.primary.dark },
-                }}>
-                {title}
-              </TypographyList>
-            }></ListItemText>
-        </Link>
-      </ListItemButton>
+    <ListItem onClick={() => window.scrollTo(0, 0)} sx={{ p: '0px' }} key={title} disablePadding>
+      <Box
+        component={Link}
+        to={href}
+        sx={{
+          py: 0,
+          width: '100%',
+          color: isActiveLink ? theme.palette.primary.main : theme.palette.text.primary,
+          '&:hover': { color: theme.palette.primary.dark },
+        }}>
+        <Typography variant="navigationRale" component="span">
+          {title}
+        </Typography>
+      </Box>
     </ListItem>
   );
 };
 
 export const NavRedder = () => (
-  <MyList disablePadding>
+  <MyList sx={{ gap: { xs: '17.8px', ld: '20.1px' } }} disablePadding>
     {main.map(({ href, title }: IListLinkTextProps) => (
       <ListNavigation key={href} title={title} href={href} />
     ))}
@@ -71,15 +57,15 @@ export const NavRedder = () => (
 );
 
 const ListTypography = ({ title, svg }: IListTextProps) => (
-  <ListItem disablePadding>
+  <ListItem sx={{ p: '0px' }} disablePadding>
     <ListItemIcon sx={{ minWidth: '32px', color: 'inherit' }}>
       <SvgSpriteIcon svgSpriteId={svg}></SvgSpriteIcon>
     </ListItemIcon>
-    <ListItemText primary={<TypographyList>{title}</TypographyList>}></ListItemText>
+    <ListItemText sx={{ m: '0px' }} primary={<Typography variant="navigationRale">{title}</Typography>}></ListItemText>
   </ListItem>
 );
 export const ListContacts = () => (
-  <MyList sx={{ gap: '27px' }}>
+  <MyList sx={{ gap: { xs: '24px', lg: '20.1px' } }} disablePadding>
     <ListContactItem href={`tel:${phone}`} title={phone} svg="phone_icon" />
     <ListContactItem href={`mailto:${email}`} title={email} svg="email_icon" />
     <ListTypography title={location} svg="location_icon" />
@@ -89,7 +75,7 @@ export const ListContacts = () => (
 
 const ListContactItem = ({ title, svg = '', href = '#' }: IListLinkTextProps) => {
   return (
-    <ListItem disablePadding>
+    <ListItem sx={{ p: '0px' }} disablePadding>
       <Link to={href}>
         <Stack
           sx={{
@@ -100,7 +86,7 @@ const ListContactItem = ({ title, svg = '', href = '#' }: IListLinkTextProps) =>
           gap={1}
           direction={'row'}>
           <SvgSpriteIcon svgSpriteId={svg}></SvgSpriteIcon>
-          <TypographyList>{title}</TypographyList>
+          <Typography variant="navigationRale">{title}</Typography>
         </Stack>
       </Link>
     </ListItem>
