@@ -1,6 +1,5 @@
-import { FC, useState, ChangeEvent, FormEvent, useEffect } from 'react';
-import { useNavigate, useSearchParams } from 'react-router-dom';
-
+import { FC, useState, ChangeEvent, FormEvent, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Box, TextField, InputAdornment, styled, useTheme, useMediaQuery } from '@mui/material';
 import SvgSpriteIcon from '../../PrimaryButton/SvgSpriteIcon';
 
@@ -33,23 +32,12 @@ const CustomTextField = styled(TextField)(({ theme, value }) => ({
 }));
 
 const SearchInput: FC<SearchInputProps> = ({ onCloseMenu }) => {
-  const [searchParam] = useSearchParams();
-
-  const [search, setSearch] = useState(() => {
-    const search = searchParam.get('request');
-    return search ? search : '';
-  });
+  const searchRef = useRef<HTMLInputElement>(null);
+  const [search, setSearch] = useState('');
 
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up('lg'));
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const request = searchParam.get('request');
-    if (!request) {
-      setSearch('');
-    }
-  }, [searchParam]);
 
   const onChangeSearch = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setSearch(e.target.value);
@@ -57,10 +45,14 @@ const SearchInput: FC<SearchInputProps> = ({ onCloseMenu }) => {
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    searchRef.current && searchRef.current.blur();
     const request = search.split(' ').join('-');
-    if (search.length > 3) {
+
+    if (search.length > 2) {
       if (!isDesktop && onCloseMenu) onCloseMenu();
+
       navigate(`/search?request=${request}`);
+      setSearch('');
     }
   };
 
@@ -73,7 +65,9 @@ const SearchInput: FC<SearchInputProps> = ({ onCloseMenu }) => {
         placeholder="Пошук..."
         value={search}
         onChange={onChangeSearch}
+        ref={searchRef}
         autoComplete="off"
+        inputProps={{ maxLength: 120 }}
         InputProps={{
           startAdornment: (
             <InputAdornment position="start">
