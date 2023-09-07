@@ -17,6 +17,8 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
+import './styles.css';
+
 // import required modules
 import { Navigation, Pagination, Mousewheel, Keyboard } from 'swiper/modules';
 
@@ -24,7 +26,9 @@ import { AllEventsButton } from './style';
 // import Section from '../../Section/Section';
 
 const EventsPreviewSection = styled('section')(({ theme }) => ({
+  position: 'relative',
   margin: '120px 0px',
+  // paddingBottom: '80px',
   // [theme.breakpoints.down('lg')]: {
   //   padding: '0px 40px',
   // },
@@ -78,11 +82,26 @@ const CardsTitle = styled('h3')(({ theme }) => ({
   // },
 }));
 
+const WrapperImg = styled(Box)(({ theme }) => ({
+  backgroundColor: 'blue',
+  width: '642px',
+}));
+
 const EventDescription = styled(Typography)(({ theme }) => ({
   fontSize: '18px',
   fontWeight: '400',
   lineHeight: '28px',
   color: '#000000',
+
+  // `.img` {
+  //   width: 100%;
+  // }
+
+  img: {
+    cursor: 'pointer',
+    color: theme.palette.primary.main,
+    backgroundColor: 'transparent',
+  },
 
   // [theme.breakpoints.down('lg')]: {
   //   padding: '0px 40px',
@@ -98,6 +117,7 @@ const EventDescription = styled(Typography)(({ theme }) => ({
 //     color: theme.palette.primary.main,
 //   },
 // };
+import './styles.css';
 
 const EventsPreview: FC = () => {
   return (
@@ -110,7 +130,7 @@ const EventsPreview: FC = () => {
           </AllEventsButton>
         </Box>
         <Swiper
-          cssMode={true}
+          // cssMode={true}
           navigation={true}
           pagination={true}
           mousewheel={true}
@@ -118,7 +138,7 @@ const EventsPreview: FC = () => {
           modules={[Navigation, Pagination, Mousewheel, Keyboard]}
           className="mySwiper">
           {dataInfo.map((slideContent, index) => (
-            <SwiperSlide key={index} virtualIndex={index}>
+            <SwiperSlide key={index}>
               <Box sx={{ display: 'flex', gap: '26px' }}>
                 <Box sx={{ width: ' 452px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
                   <DataInfo>{slideContent.data}</DataInfo>
@@ -128,14 +148,18 @@ const EventsPreview: FC = () => {
                     Детальніше про подію
                   </Button>
                 </Box>
-                <Box sx={{ backgroundColor: 'blue', width: '642px' }}>
-                  {' '}
-                  <img src={slideContent.img} alt="picture" />{' '}
-                </Box>
+                <WrapperImg sx={{}}>
+                  <img src={slideContent.img} alt="picture" />
+                </WrapperImg>
               </Box>
             </SwiperSlide>
           ))}
         </Swiper>
+        {/* <div className="slider-controler">
+          <div className="swiper-button-prev slider-arrow"></div>
+          <div className="swiper-button-next slider-arrow"></div>
+          <div className="swiper-pagination"></div>
+        </div> */}
       </Container>
     </EventsPreviewSection>
   );

@@ -11,9 +11,9 @@ export const AllEventsButton = styled(Button)(({ theme }) => ({
     fontSize: '18px',
   },
 
-  ':hover': {
-    cursor: 'pointer',
-    color: theme.palette.primary.main,
-    backgroundColor: 'transparent',
+  '.img': {
+    width: '100%',
+    height: 'auto',
+    objectFit: 'cover',
   },
 }));
