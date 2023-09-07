@@ -1,5 +1,5 @@
 import { Box, Container, Stack } from '@mui/material';
-import { ChangeEventHandler, FC, FormEventHandler, useState } from 'react';
+import { ChangeEventHandler, FC, FormEventHandler, useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 import Section from '../Section/Section';
@@ -12,7 +12,18 @@ import { testData } from './testData.ts';
 
 const Search: FC = () => {
   const [searchParams] = useSearchParams();
-  const search = searchParams.get('request') || '';
+  let search = searchParams.get('request') || '';
+
+  useEffect(() => {
+    search = searchParams.get('request') || '';
+    setInputData(search);
+    if (inputData.length > 2) {
+      setSearchResults([]);
+      setSearchResults(searchContent(search));
+      setSearchTitleVal(search);
+      setVisibleNum(5);
+    }
+  }, [searchParams]);
 
   const [inputData, setInputData] = useState(search);
   const [searchResults, setSearchResults] = useState(() => {

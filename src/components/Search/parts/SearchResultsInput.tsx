@@ -2,6 +2,8 @@ import { Box, InputAdornment, TextField, useTheme } from '@mui/material';
 import { ChangeEventHandler, FC, FormEventHandler } from 'react';
 import SvgSpriteIcon from '../../PrimaryButton/SvgSpriteIcon';
 
+const MAX_SYMBOLS_INPUT = 120;
+
 interface SearchResultsInputProps {
   inputData: string;
   handleChange: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>;
@@ -33,6 +35,9 @@ const SearchResultsInput: FC<SearchResultsInputProps> = ({ inputData, handleChan
         borderBottom: `1px solid ${palette.text.secondary}`,
         marginLeft: '25px',
       },
+      '&:hover:not(.Mui-disabled, .Mui-error):before': {
+        borderBottom: `1px solid ${palette.primary.dark}`,
+      },
     },
   };
 
@@ -45,6 +50,7 @@ const SearchResultsInput: FC<SearchResultsInputProps> = ({ inputData, handleChan
         value={inputData}
         onChange={handleChange}
         sx={{ ...styles }}
+        inputProps={{ maxLength: MAX_SYMBOLS_INPUT }}
         InputProps={{
           startAdornment: (
             <InputAdornment position="start">
