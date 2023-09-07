@@ -27,8 +27,8 @@ const SearchInfo: FC<SearchInfoProps> = ({ resultsCount, searchTitle }) => {
         <Stack
           sx={{
             padding: {
-              lg: '44px 0 60px',
-              md: '32px 0 60px',
+              lg: '44px 0 120px',
+              md: '32px 0 80px',
               sm: '24px 0 60px',
             },
             rowGap: {
