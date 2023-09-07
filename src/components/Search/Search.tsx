@@ -1,4 +1,4 @@
-import { Container, Stack } from '@mui/material';
+import { Box, Container, Stack } from '@mui/material';
 import { ChangeEventHandler, FC, FormEventHandler, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
@@ -50,32 +50,35 @@ const Search: FC = () => {
   return (
     <Section variant="light">
       <Container>
-        <SearchResultsInput inputData={inputData} handleChange={handleChange} onSubmit={onSubmit} />
-        <SearchInfo resultsCount={searchResults.length} searchTitle={searchTitleVal} />
-        {/* search results */}
-        {!!searchResults?.length && (
-          <Stack
-            component={'ul'}
-            sx={{
-              rowGap: {
-                lg: '44px',
-                md: '32px',
-                sm: '24px',
-              },
-              paddingBottom: {
-                lg: '120px',
-                md: '80px',
-                sm: '60px',
-              },
-            }}>
-            {/* RENDER SEARCH RESULTS LIST */}
-            {searchResults.slice(0, visibleNum).map((data, index) => {
-              return <SearchListItem key={index} {...data} />;
-            })}
-            {/* show more button */}
-            {visibleNum < searchResults.length && <ShowMoreBtn onClick={changeVisibleNum} />}
-          </Stack>
-        )}
+        <Box
+          sx={{
+            paddingBottom: {
+              lg: '120px',
+              md: '80px',
+              sm: '60px',
+            },
+          }}>
+          <SearchResultsInput inputData={inputData} handleChange={handleChange} onSubmit={onSubmit} />
+          <SearchInfo resultsCount={searchResults.length} searchTitle={searchTitleVal} />
+          {!!searchResults?.length && (
+            <>
+              <Stack
+                component={'ul'}
+                sx={{
+                  rowGap: {
+                    lg: '44px',
+                    md: '32px',
+                    sm: '24px',
+                  },
+                }}>
+                {searchResults.slice(0, visibleNum).map((data, index) => {
+                  return <SearchListItem key={index} {...data} />;
+                })}
+              </Stack>
+              {visibleNum < searchResults.length && <ShowMoreBtn onClick={changeVisibleNum} />}
+            </>
+          )}
+        </Box>
       </Container>
     </Section>
   );
