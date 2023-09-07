@@ -1,11 +1,12 @@
 import { FC } from 'react';
 import { Container } from '@mui/material';
+import { Link as RouterLink } from 'react-router-dom';
 
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { Button, CardActionArea, CardActions, styled, Box, Link } from '@mui/material';
+import { Button, CardActionArea, CardActions, styled, Box } from '@mui/material';
 import SvgSpriteIcon from '../../PrimaryButton/SvgSpriteIcon';
 import { dataInfo } from './dataInfo';
 console.log(dataInfo);
@@ -22,7 +23,7 @@ import './styles.css';
 // import required modules
 import { Navigation, Pagination, Mousewheel, Keyboard } from 'swiper/modules';
 
-import { AllEventsButton } from './style';
+import { LinkWrapper } from './style';
 // import Section from '../../Section/Section';
 
 const EventsPreviewSection = styled('section')(({ theme }) => ({
@@ -125,9 +126,10 @@ const EventsPreview: FC = () => {
       <Container>
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '40px' }}>
           <EventsTitle variant="h2">Події музею</EventsTitle>
-          <AllEventsButton href="#text-buttons" endIcon={<SvgSpriteIcon svgSpriteId="breadcrumbsSeparator_icon" />}>
+          <LinkWrapper component={RouterLink} to="/events" badProp>
             Дивитись усі події
-          </AllEventsButton>
+            <SvgSpriteIcon svgSpriteId="breadcrumbsSeparator_icon" />
+          </LinkWrapper>
         </Box>
         <Swiper
           // cssMode={true}
@@ -135,6 +137,7 @@ const EventsPreview: FC = () => {
           pagination={true}
           mousewheel={true}
           keyboard={true}
+          speed={700}
           modules={[Navigation, Pagination, Mousewheel, Keyboard]}
           className="mySwiper">
           {dataInfo.map((slideContent, index) => (
