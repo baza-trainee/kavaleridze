@@ -41,14 +41,19 @@ const SearchListItem: FC<SearchListItemProps> = ({ route, title, description }) 
 
   return (
     <Box component={'li'}>
-      <ContentBox onMouseEnter={() => setIsMouseOn(true)} onMouseLeave={() => setIsMouseOn(false)}>
+      <ContentBox>
         <Typography variant="body2" component={'p'} sx={{ color: theme.palette.text.secondary }}>
           Перейти на сторінку "
           <Link sx={{ color: 'inherit', textDecoration: 'underline', cursor: 'pointer' }} component={RouterLink} to={`/${mainRoute}`}>
             {getRouteTitle(route)}"
           </Link>
         </Typography>
-        <Stack spacing={2} component={RouterLink} to={`${route}`}>
+        <Stack
+          spacing={2}
+          component={RouterLink}
+          to={`${route}`}
+          onMouseEnter={() => setIsMouseOn(true)}
+          onMouseLeave={() => setIsMouseOn(false)}>
           <Typography
             variant="subhead"
             sx={{
