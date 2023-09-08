@@ -1,5 +1,5 @@
-import { Container, Stack } from '@mui/material';
-import { ChangeEventHandler, FC, FormEventHandler, useState } from 'react';
+import { Box, Container, Stack } from '@mui/material';
+import { ChangeEventHandler, FC, FormEventHandler, useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 import Section from '../Section/Section';
@@ -12,7 +12,18 @@ import { testData } from './testData.ts';
 
 const Search: FC = () => {
   const [searchParams] = useSearchParams();
-  const search = searchParams.get('request') || '';
+  let search = searchParams.get('request') || '';
+
+  useEffect(() => {
+    search = searchParams.get('request') || '';
+    setInputData(search);
+    if (inputData.length > 2) {
+      setSearchResults([]);
+      setSearchResults(searchContent(search));
+      setSearchTitleVal(search);
+      setVisibleNum(5);
+    }
+  }, [searchParams]);
 
   const [inputData, setInputData] = useState(search);
   const [searchResults, setSearchResults] = useState(() => {
@@ -24,7 +35,7 @@ const Search: FC = () => {
   function searchContent(patt: string) {
     if (patt.length) {
       const pattern = new RegExp(patt, 'gim');
-      return testData.filter((el) => pattern.test(el.text || '') || pattern.test(el.title));
+      return testData.filter((el) => pattern.test(el.description || '') || pattern.test(el.title));
     }
     return [];
   }
@@ -50,30 +61,35 @@ const Search: FC = () => {
   return (
     <Section variant="light">
       <Container>
-        <SearchResultsInput inputData={inputData} handleChange={handleChange} onSubmit={onSubmit} />
-        <SearchInfo resultsCount={searchResults.length} searchTitle={searchTitleVal} />
-        {/* search results */}
-        <Stack
-          component={'ul'}
+        <Box
           sx={{
-            rowGap: {
-              lg: '44px',
-              md: '32px',
-              sm: '24px',
-            },
             paddingBottom: {
-              lg: '100px',
+              lg: '120px',
               md: '80px',
               sm: '60px',
             },
           }}>
-          {/* RENDER SEARCH RESULTS LIST */}
-          {searchResults.slice(0, visibleNum).map((data, index) => {
-            return <SearchListItem key={index} {...data} />;
-          })}
-          {/* show more button */}
-          {visibleNum < searchResults.length && <ShowMoreBtn onClick={changeVisibleNum} />}
-        </Stack>
+          <SearchResultsInput inputData={inputData} handleChange={handleChange} onSubmit={onSubmit} />
+          <SearchInfo resultsCount={searchResults.length} searchTitle={searchTitleVal} />
+          {!!searchResults?.length && (
+            <>
+              <Stack
+                component={'ul'}
+                sx={{
+                  rowGap: {
+                    lg: '44px',
+                    md: '32px',
+                    sm: '24px',
+                  },
+                }}>
+                {searchResults.slice(0, visibleNum).map((data, index) => {
+                  return <SearchListItem key={index} {...data} />;
+                })}
+              </Stack>
+              {visibleNum < searchResults.length && <ShowMoreBtn onClick={changeVisibleNum} />}
+            </>
+          )}
+        </Box>
       </Container>
     </Section>
   );
