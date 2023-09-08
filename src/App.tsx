@@ -13,6 +13,7 @@ import Movie from './components/Kavaleridze/Movie/Movie';
 import Sculpture from './components/Kavaleridze/Sculpture/Sculpture';
 import Biography from './components/Kavaleridze/Biography/Biography';
 import Kyiv from './components/Kavaleridze/Kyiv/Kyiv';
+import Donation from './components/Donation/Donation';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
         <Route path="contacts" element={<Contacts />} />
         <Route path="search" element={<Search />} />
         <Route path="tickets" element={<Tickets />} />
+        <Route path="donation" element={<Donation />} />
       </Route>
     </Routes>
   );
