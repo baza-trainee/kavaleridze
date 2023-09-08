@@ -10,6 +10,7 @@ import { MuiSvgIcon } from './themed-components/svgIcon.modifier';
 import { MuiInputBase, MuiOutlinedInput, MuiTextField } from './themed-components/textField.modifier';
 import { MuiTooltip } from './themed-components/tooltip.modifier';
 import { MuiTypography } from './themed-components/typography.modifier';
+import { MuiBreadcrumbs } from './themed-components/breadcrumbs.modifier';
 
 import { Theme } from '@mui/material/styles';
 
@@ -27,4 +28,5 @@ export const components: Components<Theme> = {
   MuiFab,
   MuiTooltip,
   MuiTypography,
+  MuiBreadcrumbs,
 };

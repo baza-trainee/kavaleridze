@@ -1,8 +1,8 @@
 import { FC } from 'react';
-import { Container, Box, Typography } from '@mui/material';
 import Section from '../Section/Section';
+import { Container, Box, Typography } from '@mui/material';
 
-const Tickets: FC = () => {
+const Donation: FC = () => {
   return (
     <Section variant="light">
       <Container>
@@ -14,4 +14,4 @@ const Tickets: FC = () => {
   );
 };
 
-export default Tickets;
+export default Donation;

@@ -63,6 +63,10 @@ const siteData = {
         title: 'Квитки',
         href: '/tickets',
       },
+      {
+        title: 'Підтримати музей',
+        href: '/donation',
+      },
     ],
   },
 };

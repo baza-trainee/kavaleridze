@@ -37,14 +37,14 @@ const FooterBottom = () => {
         <IconButton
           sx={{ p: 0, color: (theme) => theme.palette.common.white }}
           target="_blank"
-          href="https://www.instagram.com/"
+          href="https://www.instagram.com/kavaleridzemuseum/?hl=en"
           aria-label="instagram_icon">
           <SvgSpriteIcon fontSize="medium" svgSpriteId={'instagram_icon'} />
         </IconButton>
         <IconButton
           sx={{ p: 0, color: (theme) => theme.palette.common.white }}
           target="_blank"
-          href="https://www.facebook.com/"
+          href="https://www.facebook.com/ikavaleridzemuseum/"
           aria-label="facebook_icon">
           <SvgSpriteIcon fontSize="medium" svgSpriteId={'facebook_icon'} />
         </IconButton>

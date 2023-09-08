@@ -12,14 +12,10 @@ const BreadcrumbsBox = styled(Box)(({ theme }) => ({
   width: '100%',
 }));
 
-const BreadcrumbsNav = styled(Breadcrumbs)(({ theme }) => ({
-  color: theme.palette.text.secondary,
-  backgroundColor: theme.palette.common.white,
+const BreadcrumbsNav = styled(Breadcrumbs)({
   padding: '16px 0',
   textDecoration: 'none',
-  fontSize: '14px',
-  fontWeight: 500,
-}));
+});
 
 interface RoutingProps {
   title: string;
@@ -41,11 +37,7 @@ const createBreadcrumbNameMap = (routing: RoutingProps[]) => {
 };
 
 function LinkRouter(props: LinkRouterProps) {
-  return (
-    <Typography variant="breadcrumbs">
-      <Link {...props} component={RouterLink as any} />
-    </Typography>
-  );
+  return <Link {...props} component={RouterLink} />;
 }
 
 function Page() {
@@ -55,7 +47,7 @@ function Page() {
   return (
     <BreadcrumbsBox>
       <Container>
-        <BreadcrumbsNav separator={<SvgSpriteIcon svgSpriteId="breadcrumbsSeparator_icon" />} aria-label="breadcrumb" color="red">
+        <BreadcrumbsNav separator={<SvgSpriteIcon svgSpriteId="breadcrumbsSeparator_icon" />} aria-label="breadcrumb">
           <LinkRouter underline="hover" color="inherit" to="/">
             Головна
           </LinkRouter>
@@ -66,7 +58,7 @@ function Page() {
             const breadcrumbNameMap = createBreadcrumbNameMap(routing);
 
             return last ? (
-              <Typography variant="breadcrumbs" sx={{ color: '#151514' }} key={to}>
+              <Typography variant="breadcrumbs" sx={{ color: (theme) => theme.palette.common.black }} key={to}>
                 {breadcrumbNameMap[to]}
               </Typography>
             ) : (
