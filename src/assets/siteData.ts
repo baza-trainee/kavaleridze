@@ -4,13 +4,14 @@ const siteData = {
     location: 'Андріївський узвіз, 21, Київ',
     phone: '(044) 425-33-97',
     email: 'kavaleridzemuseum@gmail.com',
-    mainTitle:'Музей-майстерня Івана Кавалерідзе'
+    mainTitle: 'Музей-майстерня Івана Кавалерідзе',
   },
   buttonsLabels: {
     tickets: 'Квитки',
     support: 'Підтримати музей',
     share: 'Поділитись сайтом',
   },
+
   menuList: {
     main: [
       {

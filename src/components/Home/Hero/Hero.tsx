@@ -1,7 +1,7 @@
 import { FC } from 'react';
-import { HeroButton, ContentBlock, Title, WrapperContent, ButtonText } from './style.js';
+import {  ContentBlock, Title, WrapperContent } from './style.js';
 import data from '../../../assets/siteData';
-import SvgSpriteIcon from '../../PrimaryButton/SvgSpriteIcon.js';
+import GeneralButton from '../../GeneralButton/GeneralButton.js';
 const Hero: FC = () => {
   const { mainTitle } = data.general;
   const { share } = data.buttonsLabels;
@@ -9,10 +9,7 @@ const Hero: FC = () => {
     <WrapperContent>
       <ContentBlock>
         <Title variant="title">{mainTitle}</Title>
-        <HeroButton variant="secondary">
-          <ButtonText variant="navigationKyiv">{share}</ButtonText>{' '}
-          <SvgSpriteIcon svgSpriteId="share_icon" />
-        </HeroButton>
+        <GeneralButton sx={{ color: 'white', borderColor: 'white' }} title={share} svgSpriteId="share_icon" variant="secondary" />
       </ContentBlock>
     </WrapperContent>
   );
