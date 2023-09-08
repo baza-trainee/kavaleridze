@@ -1,168 +1,50 @@
 import { FC } from 'react';
-import { Container } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
-
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import { Button, CardActionArea, CardActions, styled, Box } from '@mui/material';
+import { Container } from '@mui/material';
+import { useTheme, styled, Box, Typography } from '@mui/material';
 import SvgSpriteIcon from '../../PrimaryButton/SvgSpriteIcon';
-import { dataInfo } from './dataInfo';
-console.log(dataInfo);
+import { dataInfo } from './fakeData';
+import Slider from './Slider';
 
-import { Swiper, SwiperSlide } from 'swiper/react';
-
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-
-import './styles.css';
-
-// import required modules
-import { Navigation, Pagination, Mousewheel, Keyboard } from 'swiper/modules';
-
-import { LinkWrapper } from './style';
-// import Section from '../../Section/Section';
-
-const EventsPreviewSection = styled('section')(({ theme }) => ({
+const EventsPreviewSection = styled('section')(() => ({
   position: 'relative',
   margin: '120px 0px',
-  // paddingBottom: '80px',
-  // [theme.breakpoints.down('lg')]: {
-  //   padding: '0px 40px',
-  // },
-  // [theme.breakpoints.down('md')]: {
-  //   padding: '0px  16px',
-  // },
 }));
 
-const EventsTitle = styled(Typography)(({ theme }) => ({
+const EventsTitle = styled(Typography)(() => ({
   fontFamily: 'Kyiv Type',
   fontSize: '40px',
   fontWeight: '500',
   lineHeight: '44px',
   color: '#000000',
-
-  // [theme.breakpoints.down('lg')]: {
-  //   padding: '0px 40px',
-  // },
-  // [theme.breakpoints.down('md')]: {
-  //   padding: '0px  16px',
-  // },
 }));
-
-const DataInfo = styled(Typography)(({ theme }) => ({
-  // fontFamily: 'Raleway',
-  fontSize: '18px',
-  fontWeight: '500',
-  lineHeight: '28px',
-  color: theme.palette.text.secondary,
-
-  // [theme.breakpoints.down('lg')]: {
-  //   padding: '0px 40px',
-  // },
-  // [theme.breakpoints.down('md')]: {
-  //   padding: '0px  16px',
-  // },
-}));
-
-const CardsTitle = styled('h3')(({ theme }) => ({
-  fontFamily: 'Kyiv Type',
-  fontSize: '24px',
-  fontWeight: '500',
-  lineHeight: '28px',
-  color: '#000000',
-
-  // [theme.breakpoints.down('lg')]: {
-  //   padding: '0px 40px',
-  // },
-  // [theme.breakpoints.down('md')]: {
-  //   padding: '0px  16px',
-  // },
-}));
-
-const WrapperImg = styled(Box)(({ theme }) => ({
-  backgroundColor: 'blue',
-  width: '642px',
-}));
-
-const EventDescription = styled(Typography)(({ theme }) => ({
-  fontSize: '18px',
-  fontWeight: '400',
-  lineHeight: '28px',
-  color: '#000000',
-
-  // `.img` {
-  //   width: 100%;
-  // }
-
-  img: {
-    cursor: 'pointer',
-    color: theme.palette.primary.main,
-    backgroundColor: 'transparent',
-  },
-
-  // [theme.breakpoints.down('lg')]: {
-  //   padding: '0px 40px',
-  // },
-  // [theme.breakpoints.down('md')]: {
-  //   padding: '0px  16px',
-  // },
-}));
-
-// const textHover = {
-//   ':hover': {
-//     cursor: 'pointer',
-//     color: theme.palette.primary.main,
-//   },
-// };
-import './styles.css';
 
 const EventsPreview: FC = () => {
+  const theme = useTheme();
+
   return (
     <EventsPreviewSection>
       <Container>
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '40px' }}>
           <EventsTitle variant="h2">Події музею</EventsTitle>
-          <LinkWrapper component={RouterLink} to="/events" badProp>
+          <Box
+            component={RouterLink}
+            to="/events"
+            sx={{
+              display: 'flex',
+              gap: '4px',
+              alignItems: 'center',
+              color: '#000000',
+              fontSize: '18px',
+              fontWeight: '600',
+              transition: '250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms',
+              '&:hover': { color: theme.palette.primary.dark },
+            }}>
             Дивитись усі події
             <SvgSpriteIcon svgSpriteId="breadcrumbsSeparator_icon" />
-          </LinkWrapper>
+          </Box>
         </Box>
-        <Swiper
-          // cssMode={true}
-          navigation={true}
-          pagination={true}
-          mousewheel={true}
-          keyboard={true}
-          speed={700}
-          modules={[Navigation, Pagination, Mousewheel, Keyboard]}
-          className="mySwiper">
-          {dataInfo.map((slideContent, index) => (
-            <SwiperSlide key={index}>
-              <Box sx={{ display: 'flex', gap: '26px' }}>
-                <Box sx={{ width: ' 452px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                  <DataInfo>{slideContent.data}</DataInfo>
-                  <CardsTitle>{slideContent.cardTitle}</CardsTitle>
-                  <EventDescription>{slideContent.description}</EventDescription>
-                  <Button variant="secondary" sx={{ maxWidth: '244px', lineHeight: '1.67' }}>
-                    Детальніше про подію
-                  </Button>
-                </Box>
-                <WrapperImg sx={{}}>
-                  <img src={slideContent.img} alt="picture" />
-                </WrapperImg>
-              </Box>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-        {/* <div className="slider-controler">
-          <div className="swiper-button-prev slider-arrow"></div>
-          <div className="swiper-button-next slider-arrow"></div>
-          <div className="swiper-pagination"></div>
-        </div> */}
+        <Slider fakeData={dataInfo} />
       </Container>
     </EventsPreviewSection>
   );
