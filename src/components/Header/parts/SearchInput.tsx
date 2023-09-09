@@ -1,4 +1,4 @@
-import { FC, useState, ChangeEvent, FormEvent, useRef, FocusEvent } from 'react';
+import { FC, useState, ChangeEvent, FormEvent, useRef, FocusEvent, TouchEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Box, TextField, InputAdornment, styled, useTheme, useMediaQuery } from '@mui/material';
 import SvgSpriteIcon from '../../PrimaryButton/SvgSpriteIcon';
@@ -56,18 +56,24 @@ const SearchInput: FC<SearchInputProps> = ({ onCloseMenu }) => {
     }
   };
 
-  const onTouchStarts = (e: FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const onFocusSearch = (e: FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     e.stopPropagation();
     const platform = navigator.platform.toLowerCase().includes('ios');
     if (platform) {
-      if (searchRef.current) {
-        searchRef.current.style.transform = 'translateY(-100000px)';
-        searchRef.current.focus();
-        setTimeout(function () {
-          if (searchRef.current) searchRef.current.style.transform = 'none';
-        }, 100);
-      }
+      window.scrollTo(0, 0);
+      document.body.scrollTop = 0;
+      // if (searchRef.current) {
+      //   searchRef.current.style.transform = 'translateY(-100000px)';
+      //   searchRef.current.focus();
+      //   setTimeout(function () {
+      //     if (searchRef.current) searchRef.current.style.transform = 'none';
+      //   }, 100);
+      // }
     }
+  };
+
+  const onTouchMoveSearch = (e: TouchEvent) => {
+    e.preventDefault();
   };
 
   return (
@@ -79,7 +85,8 @@ const SearchInput: FC<SearchInputProps> = ({ onCloseMenu }) => {
         placeholder="Пошук..."
         value={search}
         onChange={onChangeSearch}
-        onFocus={onTouchStarts}
+        onFocus={onFocusSearch}
+        onTouchMove={onTouchMoveSearch}
         ref={searchRef}
         autoComplete="off"
         inputProps={{ maxLength: 120 }}
