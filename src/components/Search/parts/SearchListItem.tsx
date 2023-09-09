@@ -3,7 +3,7 @@ import { FC, useState } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { routing } from '../../../assets/siteData';
 
-const MAX_DESC_LENGTH = 170;
+const MAX_DESC_LENGTH = 200;
 
 const ContentBox = styled(Box)(({ theme }) => ({
   display: 'flex',
