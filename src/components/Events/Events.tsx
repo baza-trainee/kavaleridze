@@ -8,27 +8,27 @@ import bannerTablet from './ImgBanner/banner-tablet.png';
 import bannerDesc from './ImgBanner/banner-desctop.png';
 import { theme } from '../../theme';
 
+import { useMediaQuery } from '@mui/material';
+
 const BannerWrapper = styled(Box)(({ theme }) => ({
   width: '100%',
-  height: '480px',
+
   margin: '0 auto',
   paddingTop: '236px',
   paddingBottom: '32px',
-  // opacity: 0.8,
-  // background: 'linear-gradient(45deg, #fe6b8b 30%, #ff8e53 90%)',
-  // backgroundPosition: 'center',
+
   backgroundSize: 'cover',
   backgroundRepeat: 'no-repeat',
   [theme.breakpoints.up('xs')]: {
     backgroundImage: `linear-gradient(to right, rgba(0, 0, 0, 0.60), rgba(0, 0, 0, 0.60)), url(${bannerMob})`,
-    // backgroundImage: `url(${bannerMob})`,
   },
   [theme.breakpoints.up('md')]: {
-    height: '400px',
     paddingTop: '216px',
     backgroundImage: `linear-gradient(to right, rgba(0, 0, 0, 0.60), rgba(0, 0, 0, 0.60)), url(${bannerTablet})`,
   },
   [theme.breakpoints.up('lg')]: {
+    paddingTop: '312px',
+    paddingBottom: '44px',
     backgroundImage: `linear-gradient(to right, rgba(0, 0, 0, 0.60), rgba(0, 0, 0, 0.60)), url(${bannerDesc})`,
   },
 }));
@@ -46,7 +46,7 @@ const ContentBox = styled(Box)(({ theme }) => ({
     width: '100%',
     padding: '0 40px',
   },
-  [theme.breakpoints.up('lg')]: {},
+  [theme.breakpoints.up('lg')]: { padding: '0 80px' },
 }));
 
 const TextBox = styled(Box)(({ theme }) => ({
@@ -57,7 +57,10 @@ const TextBox = styled(Box)(({ theme }) => ({
   [theme.breakpoints.up('md')]: {
     alignItems: 'flex-end',
     width: '434px',
+    gap: '24px',
   },
+
+  [theme.breakpoints.up('lg')]: { width: '560px' },
 }));
 
 const ButtonBox = styled(Box)(({ theme }) => ({
@@ -71,29 +74,51 @@ const ButtonBox = styled(Box)(({ theme }) => ({
 // console.log(dataInfo);
 
 const Banner = () => {
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
+
+  const buttonText = isSmallScreen ? 'Детальніше' : 'Детальніше про подію';
+
+  const truncateDescription = (string: string): string => {
+    return string.length >= 200 ? string.slice(0, 200) + '...' : string;
+  };
+
   return (
     <BannerWrapper>
       <ContentBox>
         <TextBox>
-          <Typography variant="h3" sx={{ fontWeight: '600', color: theme.palette.text.primary }}>
+          <Typography
+            variant="h2"
+            sx={{
+              fontSize: { xs: '18px', md: '24px', lg: '32px' },
+              fontWeight: '500',
+              lineHeight: { xs: '22px', md: '28px', lg: '36px' },
+              color: theme.palette.text.primary,
+            }}>
             Виставка робіт Дмитра Чернобая “Війна ще триває”
           </Typography>
-          <Typography sx={{ fontWeight: '500', color: theme.palette.text.primary }}>
-            Ця виставка-розповідь Дмитра Чернобая, простого хлопця з Маріуполя, що пройшов через пекло, але знайшов в собі сили творити
-            мистецтво.
+          <Typography
+            sx={{
+              fontSize: { md: '16px' },
+              fontWeight: { md: '400' },
+              lineHeight: { md: '24px' },
+              color: theme.palette.text.primary,
+            }}>
+            {truncateDescription(
+              'Ця виставка-розповідь Дмитра Чернобая, простого хлопця з Маріуполя, що пройшов через пекло, але знайшов в собі сили творити мистецтво. Ця виставка-розповідь Дмитра Чернобая, простого хлопця з Маріуполя хлопця з Маріуполя'
+            )}
           </Typography>
         </TextBox>
         <ButtonBox>
           <Button
             sx={{
-              minWidth: { xs: '143px', md: '242px' },
+              minWidth: { xs: '143px' },
               fontSize: '18px',
               fontWeight: '500',
               borderColor: theme.palette.text.primary,
               color: theme.palette.text.primary,
             }}
             variant="secondary">
-            Детальніше
+            {buttonText}
           </Button>
         </ButtonBox>
       </ContentBox>
@@ -114,7 +139,7 @@ const Events: FC = () => {
           </Box>
           <Typography sx={{ color: theme.palette.text.secondary }}>15.08.2023</Typography>
           <Typography variant="h2" sx={{ fontWeight: '500' }}>
-            Відкриття персональної виставки Ірен VODOLAZ “UNDER FIRE”{' '}
+            Відкриття персональної виставки Ірен VODOLAZ “UNDER FIRE”
           </Typography>
           <Typography sx={{ fontWeight: '600' }}>10 серпня – 6 вересня</Typography>
           <Typography>
