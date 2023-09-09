@@ -1,10 +1,12 @@
-import { useState, ChangeEvent } from 'react';
+import { FC, useState, ChangeEvent } from 'react';
 import { FormControl, RadioGroup, FormControlLabel, FormControlLabelProps, Radio, Divider, styled } from '@mui/material';
 
 enum Language {
   UA = 'UA',
   EN = 'EN',
 }
+
+const localStorageKey = 'lang';
 
 const languages = Object.values(Language);
 
@@ -28,12 +30,24 @@ const StyledFormControlLabel = styled((props: StyledFormControlLabelProps) => <F
   },
 }));
 
-const LangPanel = () => {
-  const [lang, setLang] = useState<Language>(languages[0]);
+interface LangPanelProps {
+  additionalClickFn?: () => void;
+}
+
+const LangPanel: FC<LangPanelProps> = ({ additionalClickFn }) => {
+  const [lang, setLang] = useState<Language>(() => {
+    const value = localStorage.getItem(localStorageKey);
+    return value ? (value as Language) : languages[0];
+  });
 
   const onChangeLang = (event: ChangeEvent<HTMLInputElement>) => {
-    const target = event.target as HTMLInputElement;
-    setLang(target.value as Language);
+    const value = (event.target as HTMLInputElement).value as Language;
+    setLang(value);
+    localStorage.setItem(localStorageKey, value);
+
+    if (additionalClickFn) {
+      additionalClickFn();
+    }
   };
 
   return (

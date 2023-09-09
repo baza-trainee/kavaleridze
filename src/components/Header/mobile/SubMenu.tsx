@@ -65,7 +65,7 @@ const SubMenu: FC<SubMenuProps> = ({ closeMainMenu, closeSubMenu }) => {
       </Stack>
 
       <Stack alignItems="center">
-        <TicketBtn />
+        <TicketBtn additionalClickFn={closeMainMenu} />
       </Stack>
 
       <Info />

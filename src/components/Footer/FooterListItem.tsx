@@ -30,7 +30,7 @@ const ListNavigation = ({ title, href }: IListLinkTextProps) => {
   const isActiveLink = useActiveLink(href);
 
   return (
-    <ListItem onClick={() => window.scrollTo(0, 0)} sx={{ p: '0px' }} key={title} disablePadding>
+    <ListItem sx={{ p: '0px' }} key={title} disablePadding>
       <Box
         component={Link}
         to={href}
