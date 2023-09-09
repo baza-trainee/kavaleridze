@@ -11,7 +11,7 @@ import { theme } from '../../theme';
 import { useMediaQuery } from '@mui/material';
 
 const BannerWrapper = styled(Box)(({ theme }) => ({
-  width: '100%',
+  maxWidth: '1280px',
 
   margin: '0 auto',
   paddingTop: '236px',
@@ -78,8 +78,8 @@ const Banner = () => {
 
   const buttonText = isSmallScreen ? 'Детальніше' : 'Детальніше про подію';
 
-  const truncateDescription = (string: string): string => {
-    return string.length >= 200 ? string.slice(0, 200) + '...' : string;
+  const truncateDescription = (string: string, maxLength: number): string => {
+    return string.length >= maxLength ? string.slice(0, maxLength) + '...' : string;
   };
 
   return (
@@ -94,7 +94,7 @@ const Banner = () => {
               lineHeight: { xs: '22px', md: '28px', lg: '36px' },
               color: theme.palette.text.primary,
             }}>
-            Виставка робіт Дмитра Чернобая “Війна ще триває”
+            {truncateDescription('Виставка робіт Дмитра Чернобая “Війна ще триває”', 100)}
           </Typography>
           <Typography
             sx={{
@@ -104,7 +104,8 @@ const Banner = () => {
               color: theme.palette.text.primary,
             }}>
             {truncateDescription(
-              'Ця виставка-розповідь Дмитра Чернобая, простого хлопця з Маріуполя, що пройшов через пекло, але знайшов в собі сили творити мистецтво. Ця виставка-розповідь Дмитра Чернобая, простого хлопця з Маріуполя хлопця з Маріуполя'
+              'Ця виставка-розповідь Дмитра Чернобая, простого хлопця з Маріуполя, що пройшов через пекло, але знайшов в собі сили творити мистецтво. Ця виставка-розповідь Дмитра Чернобая, простого хлопця з Маріуполя хлопця з Маріуполя',
+              200
             )}
           </Typography>
         </TextBox>
@@ -126,26 +127,61 @@ const Banner = () => {
   );
 };
 
+export const WrapperImg = styled(Box)(({ theme }) => ({
+  // backgroundColor: 'blue',
+  width: '100%',
+  // height: '270px',
+
+  '& img': {
+    display: 'block',
+    width: '100%',
+    minHeight: 'auto',
+    objectFit: 'cover',
+  },
+}));
+
 const Events: FC = () => {
   const theme = useTheme();
 
   return (
     <Section variant="light">
       <Banner />
-      <Container sx={{ paddingTop: '32px' }}>
-        <Box style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-          <Box>
-            <img src="" alt="" />
-          </Box>
-          <Typography sx={{ color: theme.palette.text.secondary }}>15.08.2023</Typography>
-          <Typography variant="h2" sx={{ fontWeight: '500' }}>
-            Відкриття персональної виставки Ірен VODOLAZ “UNDER FIRE”
-          </Typography>
-          <Typography sx={{ fontWeight: '600' }}>10 серпня – 6 вересня</Typography>
-          <Typography>
-            Запрошуємо на персональну виставку Ірен Vodolaz “UNDER FIRE” 10.08 о 16:00, яка відбудеться у музеї-мастерні І.П. Кавалерідзе за
-            адресою Андріївський
-          </Typography>
+      <Container>
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '32px',
+            marginTop: '32px',
+            paddingBottom: '24px',
+          }}>
+          {dataInfo.map((item) => (
+            <Box sx={{ paddingTop: '24px', paddingBottom: '24px', borderBottom: `1px solid ${theme.palette.gray.main} ` }}>
+              <Box
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '16px',
+                }}>
+                <WrapperImg>
+                  <img src={item.img} alt="" />
+                </WrapperImg>
+                <Typography sx={{ color: theme.palette.text.secondary }}>15.08.2023</Typography>
+                <Typography variant="h2" sx={{ fontWeight: '500' }}>
+                  Відкриття персональної виставки Ірен VODOLAZ “UNDER FIRE”
+                </Typography>
+                <Typography sx={{ fontWeight: '600' }}>10 серпня – 6 вересня</Typography>
+                <Typography>
+                  Запрошуємо на персональну виставку Ірен Vodolaz “UNDER FIRE” 10.08 о 16:00, яка відбудеться у музеї-мастерні І.П.
+                  Кавалерідзе за адресою Андріївський
+                </Typography>
+              </Box>
+
+              <Typography sx={{ marginTop: '24px' }} variant="h3">
+                Читати далі
+              </Typography>
+            </Box>
+          ))}
         </Box>
       </Container>
     </Section>
