@@ -20,7 +20,7 @@ const MobileDialog: FC<PropsWithChildren<MobileDialogProps>> = ({ state, onClose
       PaperProps={{ sx: { pt: { xs: 5, md: '44px' }, pb: 6, px: { xs: 2, md: 5 } } }}>
       <Stack gap={6}>
         <Stack direction="row" alignItems="center" justifyContent="space-between">
-          <LangPanel />
+          <LangPanel additionalClickFn={onClose} />
           <IconButton onClick={onClose} color="inherit" aria-label="close" sx={{ padding: 0 }}>
             <SvgSpriteIcon svgSpriteId="burgerOpen_icon" fontSize="medium" />
           </IconButton>

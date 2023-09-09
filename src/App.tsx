@@ -1,7 +1,7 @@
-import { Route, Routes } from 'react-router-dom';
+import { useLayoutEffect } from 'react';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import SharedLayout from './components/SharedLayout/SharedLayout';
 import Home from './components/Home/Home';
-import './App.css';
 import Contacts from './components/Contacts/Contacts';
 import Search from './components/Search/Search';
 import MuseumHistory from './components/MuseumHistory/MuseumHistory';
@@ -16,6 +16,12 @@ import Kyiv from './components/Kavaleridze/Kyiv/Kyiv';
 import Donation from './components/Donation/Donation';
 
 function App() {
+  const location = useLocation();
+
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
+
   return (
     <Routes>
       <Route path="/" element={<SharedLayout />}>

@@ -78,7 +78,7 @@ const MobileMenu: FC = () => {
                     ))}
                   </NavMenu>
                   <Stack alignItems="center">
-                    <TicketBtn />
+                    <TicketBtn additionalClickFn={onCloseNavMenu} />
                   </Stack>
                   <Info />
                 </Stack>
