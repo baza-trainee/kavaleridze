@@ -1,5 +1,7 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 import { Container, Box, Typography, styled, Button } from '@mui/material';
+import SvgSpriteIcon from '../PrimaryButton/SvgSpriteIcon';
 import Section from '../Section/Section';
 import { dataInfo } from './fakeData';
 import { useTheme } from '@mui/material';
@@ -9,6 +11,7 @@ import bannerDesc from './ImgBanner/banner-desctop.png';
 import { theme } from '../../theme';
 
 import { useMediaQuery } from '@mui/material';
+import { useState } from 'react';
 
 const BannerWrapper = styled(Box)(({ theme }) => ({
   maxWidth: '1280px',
@@ -73,14 +76,14 @@ const ButtonBox = styled(Box)(({ theme }) => ({
 
 // console.log(dataInfo);
 
+const truncateDescription = (string: string, maxLength: number): string => {
+  return string.length >= maxLength ? string.slice(0, maxLength) + '...' : string;
+};
+
 const Banner = () => {
   const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
 
   const buttonText = isSmallScreen ? 'Детальніше' : 'Детальніше про подію';
-
-  const truncateDescription = (string: string, maxLength: number): string => {
-    return string.length >= maxLength ? string.slice(0, maxLength) + '...' : string;
-  };
 
   return (
     <BannerWrapper>
@@ -111,6 +114,8 @@ const Banner = () => {
         </TextBox>
         <ButtonBox>
           <Button
+            component={RouterLink}
+            to="/events/event"
             sx={{
               minWidth: { xs: '143px' },
               fontSize: '18px',
@@ -128,20 +133,30 @@ const Banner = () => {
 };
 
 export const WrapperImg = styled(Box)(({ theme }) => ({
-  // backgroundColor: 'blue',
+  backgroundColor: 'blue',
   width: '100%',
-  // height: '270px',
+  height: '100%',
 
   '& img': {
     display: 'block',
     width: '100%',
-    minHeight: 'auto',
+    height: '100%',
     objectFit: 'cover',
   },
 }));
 
 const Events: FC = () => {
+  const [cardsEvent, setItems] = useState(dataInfo);
+  const [visibleItems, setVisibleItems] = useState(3);
   const theme = useTheme();
+
+  useEffect(() => {
+    setItems(dataInfo);
+  }, []);
+
+  const handlerLoadMore = () => {
+    setVisibleItems((prevValue) => prevValue + 3);
+  };
 
   return (
     <Section variant="light">
@@ -152,36 +167,61 @@ const Events: FC = () => {
             display: 'flex',
             flexDirection: 'column',
             gap: '32px',
-            marginTop: '32px',
-            paddingBottom: '24px',
+            marginTop: { xs: '32px', md: '44px' },
+            paddingBottom: { xs: '40px', md: '32px' },
           }}>
-          {dataInfo.map((item) => (
-            <Box sx={{ paddingTop: '24px', paddingBottom: '24px', borderBottom: `1px solid ${theme.palette.gray.main} ` }}>
+          {cardsEvent.slice(0, visibleItems).map((item, index) => (
+            <Box key={index} sx={{ padding: { xs: '24px 0', md: '32px 0' }, borderBottom: `1px solid ${theme.palette.gray.main} ` }}>
               <Box
                 sx={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '16px',
+                  display: 'grid',
+                  gridTemplateColumns: { md: '1fr 1fr', lg: '494px 436px' },
+                  gap: { xs: '16px', md: '24px' },
                 }}>
                 <WrapperImg>
                   <img src={item.img} alt="" />
                 </WrapperImg>
-                <Typography sx={{ color: theme.palette.text.secondary }}>15.08.2023</Typography>
-                <Typography variant="h2" sx={{ fontWeight: '500' }}>
-                  Відкриття персональної виставки Ірен VODOLAZ “UNDER FIRE”
-                </Typography>
-                <Typography sx={{ fontWeight: '600' }}>10 серпня – 6 вересня</Typography>
-                <Typography>
-                  Запрошуємо на персональну виставку Ірен Vodolaz “UNDER FIRE” 10.08 о 16:00, яка відбудеться у музеї-мастерні І.П.
-                  Кавалерідзе за адресою Андріївський
-                </Typography>
+                <Box>
+                  <Box
+                    sx={{
+                      display: 'flex',
+                      flexDirection: 'column',
+                      gap: '16px',
+                    }}>
+                    <Typography sx={{ color: theme.palette.text.secondary }}>{item.dataPublication}</Typography>
+                    <Typography variant="h2" sx={{ fontWeight: '500' }}>
+                      {truncateDescription(item.cardTitle, 100)}
+                    </Typography>
+                    <Typography sx={{ fontWeight: '600' }}>{item.dataPerformance}</Typography>
+                    <Typography sx={{ fontSize: { md: '16px' }, lineHeight: { md: '24px' } }}>
+                      {truncateDescription(item.description, 200)}
+                    </Typography>
+                  </Box>
+                  <Box
+                    component={RouterLink}
+                    to="/events/event"
+                    sx={{
+                      display: 'flex',
+                      gap: '4px',
+                      marginTop: '24px',
+                      alignItems: 'center',
+                      fontSize: '18px',
+                      fontWeight: '600',
+                      transition: '250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms',
+                      '&:hover': { color: theme.palette.primary.dark },
+                    }}>
+                    Читати далі
+                    <SvgSpriteIcon svgSpriteId="breadcrumbsSeparator_icon" />
+                  </Box>
+                </Box>
               </Box>
-
-              <Typography sx={{ marginTop: '24px' }} variant="h3">
-                Читати далі
-              </Typography>
             </Box>
           ))}
+        </Box>
+        <Box sx={{ width: '100%', textAlign: 'center', marginBottom: { xs: '60px', md: '80px' } }}>
+          <Button sx={{ width: '248px' }} onClick={handlerLoadMore} disabled={visibleItems >= cardsEvent.length} variant="secondary">
+            Показати більше
+          </Button>
         </Box>
       </Container>
     </Section>
