@@ -133,15 +133,32 @@ const Banner = () => {
 };
 
 export const WrapperImg = styled(Box)(({ theme }) => ({
-  backgroundColor: 'blue',
+  // backgroundColor: 'grey',
   width: '100%',
   height: '100%',
+  // maxWidth: '480px',
+  // height: 'auto',
+
+  [theme.breakpoints.up('md')]: {
+    // maxWidth: '332px',
+  },
+
+  [theme.breakpoints.up('lg')]: {},
 
   '& img': {
     display: 'block',
     width: '100%',
     height: '100%',
     objectFit: 'cover',
+
+    [theme.breakpoints.up('md')]: {
+      // width: '100%',
+      // height: '100%',
+      // maxWidth: '332px',
+      // height: 'auto',
+    },
+
+    [theme.breakpoints.up('lg')]: { maxWidth: '100%', height: '100%' },
   },
 }));
 
@@ -194,7 +211,7 @@ const Events: FC = () => {
                     </Typography>
                     <Typography sx={{ fontWeight: '600' }}>{item.dataPerformance}</Typography>
                     <Typography sx={{ fontSize: { md: '16px' }, lineHeight: { md: '24px' } }}>
-                      {truncateDescription(item.description, 200)}
+                      {truncateDescription(item.description, 150)}
                     </Typography>
                   </Box>
                   <Box
