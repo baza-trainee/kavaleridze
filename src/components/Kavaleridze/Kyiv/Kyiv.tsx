@@ -1,12 +1,9 @@
 import { FC } from 'react';
-import { Box, Typography } from '@mui/material';
+import PageTemplate from '../../PageTemplate/PageTemplate';
+import { kyivData } from '../../../assets/tempData/staticInfo/kyiv';
 
 const Kyiv: FC = () => {
-  return (
-    <Box style={{ height: '200px' }}>
-      <Typography variant="h2">Митець і Київ</Typography>
-    </Box>
-  );
+  return <PageTemplate data={kyivData} />;
 };
 
 export default Kyiv;

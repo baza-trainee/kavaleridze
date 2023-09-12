@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import { MenuList, MenuItem } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { MenuList } from '@mui/material';
+import Item from './Item';
 import data from '../../../assets/siteData';
 
 const {
@@ -8,11 +8,16 @@ const {
 } = data;
 const Menu: FC = () => {
   return (
-    <MenuList>
+    <MenuList
+      sx={{
+        paddingTop: 2,
+        paddingBottom: 2,
+        display: 'flex',
+        justifyContent: { md: 'space-between', lg: 'center' },
+        gap: { md: 'auto', lg: 13 },
+      }}>
       {burgerSubMenu.map(({ href, title }) => (
-        <MenuItem key={title}>
-          <Link to={href}>{title}</Link>
-        </MenuItem>
+        <Item key={title} href={href} title={title} />
       ))}
     </MenuList>
   );
