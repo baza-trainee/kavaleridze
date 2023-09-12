@@ -1,35 +1,28 @@
 import { FC } from 'react';
-import { Container, Typography } from '@mui/material';
+import { Container,  Typography } from '@mui/material';
 import Section from '../../Section/Section';
-import { SmallGridItem, BigGridItem, FamousList, ImgArt, TopTextBlock } from './style';
-
+import { SmallGridItem, BigGridItem, FamousList, ImgArt, TopTextBlock, Title } from './style';
+import data from '../../../assets/siteData';
 const FamousArtist: FC = () => {
-  const images = [
-    { number: '1', alt: 'famous_artist', size: 'big' },
-    { number: '2', alt: 'famous_artist', size: 'big' },
-    { number: '3', alt: 'famous_artist', size: 'big' },
-    { number: '4', alt: 'famous_artist', size: 'small' },
-    { number: '5', alt: 'famous_artist', size: 'small' },
-  ];
-
+  const { famousArtImages } = data;
   return (
     <Section variant="dark">
       <Container>
-        <FamousList sx={{ p: '120px 0' }}>
-          <TopTextBlock >
-            <Typography variant="h1">Пориньте у світ відомих митців України</Typography>
-            <Typography variant="body1">Щорічно ми проводимо виставки молодих митців та організовуємо творчі вечори</Typography>
-          </TopTextBlock>
-          {images.map((image) => {
-            const img = <ImgArt src={`/images/famous_artist/${image.number}.png`} alt={image.alt} />;
-            const key = image.number + image.alt + image.size;
-            return image.size === 'small' ? <SmallGridItem key={key}>{img}</SmallGridItem> : <BigGridItem key={key}>{img}</BigGridItem>;
-          })}
+      <FamousList sx={{ p: '120px 0' }}>
+        <TopTextBlock>
+          <Title variant="h1">Пориньте у світ відомих митців України</Title>
+          <Typography variant="body1">Щорічно ми проводимо виставки молодих митців та організовуємо творчі вечори</Typography>
+        </TopTextBlock>
+        {famousArtImages.map(({src,alt,size}) => {
+          const img = <ImgArt src={src} alt={src} />;
+          const key = src + alt + size;
+          return size === 'small' ? <SmallGridItem key={key}>{img}</SmallGridItem> : <BigGridItem key={key}>{img}</BigGridItem>;
+        })}
 
-          <SmallGridItem sx={{alignSelf:"end"}}>
-            <Typography variant="h1">станьте частиною нашої загальної історії</Typography>
-          </SmallGridItem>
-        </FamousList>
+        <SmallGridItem sx={{ alignSelf: 'end' }}>
+          <Title variant="h1">станьте частиною нашої загальної історії</Title>
+        </SmallGridItem>
+      </FamousList>
       </Container>
     </Section>
   );

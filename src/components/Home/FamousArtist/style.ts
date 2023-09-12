@@ -1,4 +1,4 @@
-import { List, ListItem, styled } from '@mui/material';
+import { List, ListItem, Typography, styled } from '@mui/material';
 
 export const FamousList = styled(List)(({ theme }) => ({
   display: 'grid',
@@ -23,3 +23,6 @@ export const ImgArt = styled('img')({
   maxWidth: '100%',
   height: 'auto',
 });
+export const Title  = styled(Typography)({
+  fontWeight:500
+})

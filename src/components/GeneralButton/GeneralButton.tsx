@@ -5,7 +5,7 @@ import SvgSpriteIcon from '../PrimaryButton/SvgSpriteIcon';
 interface GeneralButton extends ButtonProps {
   title: string;
   svgSpriteId: string;
-  variant?: 'primary' | 'secondary';
+  variant?: 'primary' | 'secondary'| 'text'|'tertiary';
 }
 
 const GeneralButton: FC<GeneralButton> = ({ title, svgSpriteId, variant = 'primary', ...props }) => {

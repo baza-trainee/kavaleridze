@@ -1,4 +1,4 @@
-import { styled, Typography, Box, Container} from '@mui/material';
+import { styled, Typography, Box, Container } from '@mui/material';
 
 export const ContentBlock = styled(Container)(() => ({
   display: 'flex',
@@ -13,9 +13,7 @@ export const WrapperContent = styled(Box)(() => ({
     'linear-gradient(90deg, rgba(0, 0, 0, 0.70) 28.24%, rgba(0, 0, 0, 0.50) 53.35%, rgba(0, 0, 0, 0.00) 70.25%), url("./images/hero/section_hero_bg.jpg") lightgray 50% / cover no-repeat',
 }));
 export const Title = styled(Typography)(({ theme }) => ({
-  maxWidth: '545px',
+  whiteSpace: 'pre',
   color: theme.palette.common.white,
+  fontWeight: 500,
 }));
-
-
-
