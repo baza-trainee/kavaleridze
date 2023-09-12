@@ -6,23 +6,28 @@
 .mySwiper .swiper-button-prev,
 .mySwiper .swiper-button-next {
   /* position: absolute; */
-  color: black;
-  top: 478px;
+  color: #151514;
+  /* top: 480px; */
+  top: 600px;
   z-index: 1000;
   width: 44px;
   height: 44px;
+
+  /* @media (min-width: 767px) {
+    top: 480px;
+  } */
 }
 
 .mySwiper .swiper-button-prev {
-  left: 476px;
+  left: 50px;
+  /* left: 476px; */
   /* bottom: 40px; */
-  z-index: 10000;
 }
 
 .mySwiper .swiper-button-next {
-  right: 476px;
-  bottom: 80px;
-  z-index: 1000;
+  right: 50px;
+  /* right: 476px; */
+  /* bottom: 80px; */
 }
 
 .mySwiper .swiper-button-prev::after,
@@ -32,7 +37,8 @@
 }
 
 .mySwiper .swiper-pagination {
-  bottom: 10px;
+  /* bottom: 10px; */
+  bottom: 100px;
 }
 
 .mySwiper .swiper-pagination-bullet {

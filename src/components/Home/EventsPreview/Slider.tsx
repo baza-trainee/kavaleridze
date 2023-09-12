@@ -41,16 +41,16 @@ const Slider: FC<IFullData> = ({ fakeData }) => {
     <Swiper
       navigation={true}
       pagination={true}
-      mousewheel={true}
+      // mousewheel={true}
       keyboard={true}
       speed={700}
       spaceBetween={80}
-      modules={[Navigation, Pagination, Mousewheel, Keyboard]}
+      modules={[Navigation, Pagination, Keyboard]}
       className="mySwiper">
       {fakeData.map(({ dataPublication, cardTitle, dataPerformance, description, img }, index) => (
         <SwiperSlide key={index}>
-          <Box sx={{ display: 'flex', gap: '26px' }}>
-            <Box sx={{ width: ' 452px', display: 'flex', flexDirection: 'column', gap: '36px' }}>
+          <Box sx={{ display: 'flex', flexDirection: { xs: 'column-reverse', md: 'row' }, gap: '26px' }}>
+            <Box sx={{ width: { xs: '100%', lg: '452px' }, display: 'flex', flexDirection: 'column', gap: '36px' }}>
               <Box sx={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                 <DataInfo>{dataPublication}</DataInfo>
                 <CardsTitle>{cardTitle}</CardsTitle>

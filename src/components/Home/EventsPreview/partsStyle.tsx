@@ -44,15 +44,32 @@ export const EventData = styled(Typography)(({ theme }) => ({
 }));
 
 export const WrapperImg = styled(Box)(({ theme }) => ({
-  backgroundColor: 'blue',
-  width: '642px',
-  height: '412px',
+  // backgroundColor: 'blue',
+  width: '100%',
+  // height: '270px',
+
+  [theme.breakpoints.up('md')]: {
+    height: '412px',
+  },
+
+  [theme.breakpoints.up('lg')]: {
+    width: '642px',
+    height: '412px',
+  },
 
   '& img': {
     display: 'block',
     width: '100%',
-    height: '412px',
+    height: '100%',
     objectFit: 'cover',
+
+    [theme.breakpoints.up('md')]: {
+      height: '412px',
+    },
+
+    [theme.breakpoints.up('lg')]: {
+      // height: '412px',
+    },
   },
 }));
 
