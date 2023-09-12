@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { Container, Typography, useTheme } from '@mui/material';
+import { Container, Typography } from '@mui/material';
 import Section from '../../Section/Section';
 import data from '../../../assets/siteData';
 import { InfoWrapper,Img, Button } from './style';
