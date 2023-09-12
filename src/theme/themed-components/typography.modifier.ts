@@ -133,7 +133,10 @@ export const MuiTypography: Components<Theme>['MuiTypography'] = {
           fontSize: 18,
           lineHeight: 1.555, //28px,
         },
-        
+        [theme.breakpoints.up('lg')]: {
+          fontSize: 18,
+        },
+
       }),
     },
     {

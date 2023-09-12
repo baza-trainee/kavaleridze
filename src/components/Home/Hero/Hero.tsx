@@ -7,6 +7,7 @@ const Hero: FC = () => {
   const { share } = data.buttonsLabels;
   return (
     <WrapperContent>
+      
       <ContentBlock>
         <Title  variant="title">{mainTitle}</Title>
         <GeneralButton sx={{ color: 'white', borderColor: 'white', backgroundColor: "transparent!important" }} title={share} svgSpriteId="share_icon" variant="secondary" />
