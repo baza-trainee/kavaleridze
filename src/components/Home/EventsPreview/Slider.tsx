@@ -41,11 +41,11 @@ const Slider: FC<IFullData> = ({ fakeData }) => {
     <Swiper
       navigation={true}
       pagination={true}
-      // mousewheel={true}
+      mousewheel={true}
       keyboard={true}
       speed={700}
       spaceBetween={80}
-      modules={[Navigation, Pagination, Keyboard]}
+      modules={[Navigation, Pagination, Mousewheel, Keyboard]}
       className="mySwiper">
       {fakeData.map(({ dataPublication, cardTitle, dataPerformance, description, img }, index) => (
         <SwiperSlide key={index}>
