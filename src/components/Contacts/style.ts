@@ -1,16 +1,10 @@
 import { List, styled, ListItem, Typography, Box, Link, Button } from '@mui/material';
 
 export const ContactLink = styled(Link)({
-  // mb: '16px',
-  // fontSize: '14px',
-  // fontWeight: 400,
   color: 'inherit',
   display: 'inline-block',
   textDecoration: 'none',
   marginBottom: '16px',
-  // [theme.breakpoints.up('md')]: {
-  //   fontSize: '18px',
-  // },
 });
 
 export const ContactList = styled(List)(({ theme }) => ({
@@ -47,16 +41,11 @@ export const ContactItem = styled(ListItem)(({ theme }) => ({
 
 export const Title = styled(Typography)({
   display: 'block',
-  // fontSize: '18px',
-  // fontWeight: 600,
   marginBottom: '16px',
-
-  // [theme.breakpoints.up('md')]: {
-  //   fontSize: '20px',
-  // },
-  // [theme.breakpoints.up('lg')]: {
-  //   fontSize: '24px',
-  // },
+});
+export const SubTitle = styled(Typography)({
+  display: 'inline-block',
+  fontWeight: 600,
 });
 export const BoxContact = styled(Box)({
   fontSize: '14px',
@@ -65,24 +54,11 @@ export const BoxContact = styled(Box)({
 });
 
 export const Paragraph = styled(Typography)({
-  // fontSize: '14px',
   margin: 0,
-  // lineHeight: '28px',
-  // [theme.breakpoints.up('md')]: {
-  //   fontSize: '18px',
-  // },
 });
 
 export const ContactButton = styled(Button)({
   marginBottom: '16px',
-  // mb: '16px',
-
   padding: 0,
   color: 'inherit',
-  // fontSize: '14px',
-  // fontWeight: 400,
-  // fontFamily: 'Raleway',
-  // [theme.breakpoints.up('md')]: {
-  //   fontSize: '18px',
-  // },
 });
