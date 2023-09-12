@@ -1,9 +1,9 @@
-import { FormHelperText, InputLabel, TextField, Box, useTheme } from '@mui/material';
-import { useEffect, useState, FC } from 'react';
-import { Controller, Control, FieldError } from 'react-hook-form';
+import { Box, FormHelperText, InputLabel, TextField, useTheme } from '@mui/material';
+import { FC, useEffect, useState } from 'react';
+import { Control, Controller, FieldError } from 'react-hook-form';
 import SvgSpriteIcon from '../PrimaryButton/SvgSpriteIcon';
+import { IFormInput } from './FeedBackForm';
 import TooltipInfo from './TooltipInfo';
-import { IFormInput } from './Form';
 
 interface InputFormProps {
   placeholder: string;
