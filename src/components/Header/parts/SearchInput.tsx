@@ -62,13 +62,6 @@ const SearchInput: FC<SearchInputProps> = ({ onCloseMenu }) => {
     if (platform) {
       window.scrollTo(0, 0);
       document.body.scrollTop = 0;
-      // if (searchRef.current) {
-      //   searchRef.current.style.transform = 'translateY(-100000px)';
-      //   searchRef.current.focus();
-      //   setTimeout(function () {
-      //     if (searchRef.current) searchRef.current.style.transform = 'none';
-      //   }, 100);
-      // }
     }
   };
 

@@ -1,12 +1,9 @@
 import { FC } from 'react';
-import { Box, Typography } from '@mui/material';
+import PageTemplate from '../../PageTemplate/PageTemplate';
+import { artistData } from '../../../assets/tempData/staticInfo/artist';
 
 const Artist: FC = () => {
-  return (
-    <Box style={{ height: '200px' }}>
-      <Typography variant="h2">Митець</Typography>
-    </Box>
-  );
+  return <PageTemplate data={artistData} />;
 };
 
 export default Artist;

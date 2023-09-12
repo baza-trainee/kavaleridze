@@ -1,12 +1,9 @@
 import { FC } from 'react';
-import { Box, Typography } from '@mui/material';
+import PageTemplate from '../../PageTemplate/PageTemplate';
+import { movieData } from '../../../assets/tempData/staticInfo/movie';
 
 const Movie: FC = () => {
-  return (
-    <Box style={{ height: '200px' }}>
-      <Typography variant="h2">Кіно</Typography>
-    </Box>
-  );
+  return <PageTemplate data={movieData} />;
 };
 
 export default Movie;

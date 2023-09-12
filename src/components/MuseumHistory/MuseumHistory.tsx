@@ -1,14 +1,14 @@
 import { FC } from 'react';
-import { Container, Box, Typography } from '@mui/material';
+import { Container } from '@mui/material';
 import Section from '../Section/Section';
+import PageTemplate from '../PageTemplate/PageTemplate';
+import { museumData } from '../../assets/tempData/staticInfo/museumHistory';
 
 const MuseumHistory: FC = () => {
   return (
     <Section variant="light">
       <Container>
-        <Box style={{ height: '200px' }}>
-          <Typography variant="h2">Історія музею</Typography>
-        </Box>
+        <PageTemplate data={museumData} />
       </Container>
     </Section>
   );

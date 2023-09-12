@@ -1,17 +1,9 @@
 import { FC } from 'react';
-import { Container, Box, Typography } from '@mui/material';
-import Section from '../../Section/Section';
+import PageTemplate from '../../PageTemplate/PageTemplate';
+import { sculptureData } from '../../../assets/tempData/staticInfo/sculpture';
 
 const Sculpture: FC = () => {
-  return (
-    <Section variant="light">
-      <Container>
-        <Box style={{ height: '200px' }}>
-          <Typography variant="h2">Скульптура</Typography>
-        </Box>
-      </Container>
-    </Section>
-  );
+  return <PageTemplate data={sculptureData} />;
 };
 
 export default Sculpture;
