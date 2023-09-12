@@ -1,6 +1,6 @@
-import { FC } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Box, Button, Dialog, IconButton, Typography } from '@mui/material';
+import { FC } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import SvgSpriteIcon from '../PrimaryButton/SvgSpriteIcon';
 import InputForm from './InputForm';
@@ -15,10 +15,11 @@ export interface IFormInput {
 
 interface FeedBackFormProps {
   handleClose: () => void;
+  handleClickButton: () => void;
   open: boolean;
 }
 
-const FeedBackForm: FC<FeedBackFormProps> = ({ handleClose, open }) => {
+const FeedBackForm: FC<FeedBackFormProps> = ({ handleClose, open, handleClickButton }) => {
   const {
     control,
     handleSubmit,
@@ -38,6 +39,8 @@ const FeedBackForm: FC<FeedBackFormProps> = ({ handleClose, open }) => {
 
   const onSubmit: SubmitHandler<IFormInput> = (data) => {
     console.log(data);
+    handleClickButton();
+    handleClose();
     reset();
   };
 
