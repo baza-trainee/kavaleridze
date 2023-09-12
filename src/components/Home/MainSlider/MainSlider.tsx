@@ -24,43 +24,6 @@ import slide_image_15 from "../../../assets/images/img_5_tablet.png";
 import { Typography,Box } from '@mui/material';
 import s from "./mainslider.module.css"
 
-
-
-
-
-{/* <picture>
-  <source media="(min-width: 1200px)"
-    srcset="./img/team/team-1-desktop.webp 1x, 
-                        ./img/team/team-1-desktop@2x.webp 2x"
-    type="image/webp">
-    <source media="(min-width: 768px)"
-      srcset="./img/team/team-1-tablet.webp 1x, 
-                        ./img/team/team-1-tablet@2x.webp 2x"
-      type="image/webp">
-      <source media="(min-width: 250px)"
-        srcset="./img/team/team-1.webp 1x, 
-                        ./img/team/team-1@2x.webp 2x"
-        type="image/webp">
-
-        <source media="(min-width: 1200px)"
-          srcset="./img/team/team-1-desktop.jpg 1x, 
-                        ./img/team/team-1-desktop@2x.jpg 2x">
-          <source media="(min-width: 768px)"
-            srcset="./img/team/team-1-tablet.jpg 1x, 
-                        ./img/team/team-1-tablet@2x.jpg 2x">
-            <source media="(min-width: 250px)"
-              srcset="./img/team/team-1.jpg 1x, 
-                        ./img/team/team-1@2x.jpg 2x">
-
-              <img
-                src="./img/team/team-1.jpg"
-                alt="Дизайнер"
-                loading="lazy">
-              </picture> */}
-
-
-
-
 // interface ProfileType {
 //   name: string
 //   image: string
@@ -86,7 +49,7 @@ const MainSlider:FC = () => {
           effect={'coverflow'}
           grabCursor={true}
           centeredSlides={true}
-          spaceBetween={600}
+          spaceBetween={500}
           slidesPerView={'auto'}
           loop={true}
           coverflowEffect={{
@@ -110,7 +73,7 @@ const MainSlider:FC = () => {
                 srcset={slide_image_11}
                 type="image/webp">
               </source>
-              <img src={slide_image_1} alt="slide_image" />
+              <img src={slide_image_1} alt="slide_image"  loading="lazy" />
             </picture>
               {/* <img src={slide_image_1} alt="slide_image" /> */}
             </SwiperSlide>
@@ -124,7 +87,7 @@ const MainSlider:FC = () => {
                 srcset={slide_image_12}
                 type="image/webp">
               </source>
-              <img src={slide_image_2} alt="slide_image" />
+              <img src={slide_image_2} alt="slide_image"  loading="lazy"/>
             </picture>
               {/* <img src={slide_image_2} alt="slide_image" /> */}
           </SwiperSlide>
@@ -138,7 +101,7 @@ const MainSlider:FC = () => {
                 srcset={slide_image_13}
                 type="image/webp">
               </source>
-              <img src={slide_image_3} alt="slide_image" />
+              <img src={slide_image_3} alt="slide_image"  loading="lazy" />
             </picture>
               {/* <img src={slide_image_3} alt="slide_image" /> */}
             </SwiperSlide>
@@ -152,7 +115,7 @@ const MainSlider:FC = () => {
                 srcset={slide_image_14}
                 type="image/webp">
               </source>
-              <img src={slide_image_4} alt="slide_image" />
+              <img src={slide_image_4} alt="slide_image"  loading="lazy"/>
             </picture>
               {/* <img src={slide_image_4} alt="slide_image" /> */}
             </SwiperSlide>
@@ -166,7 +129,7 @@ const MainSlider:FC = () => {
                 srcset={slide_image_15}
                 type="image/webp">
               </source>
-              <img src={slide_image_5} alt="slide_image" />
+              <img src={slide_image_5} alt="slide_image"  loading="lazy"/>
             </picture>
               {/* <img src={slide_image_5} alt="slide_image" /> */}
             </SwiperSlide>
