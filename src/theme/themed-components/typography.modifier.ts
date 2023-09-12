@@ -13,6 +13,7 @@ declare module '@mui/material/Typography' {
     navigationRale: true;
     navigationKyiv: true;
     caption: true;
+    imageLabel: true;
   }
 }
 export const MuiTypography: Components<Theme>['MuiTypography'] = {
@@ -207,6 +208,17 @@ export const MuiTypography: Components<Theme>['MuiTypography'] = {
           fontSize: 16,
           lineHeight: 1.5, //'24px',
         },
+      }),
+    },
+    {
+      props: { variant: 'imageLabel' },
+      style: ({ theme }) => ({
+        fontFamily: 'Raleway',
+        fontVariantNumeric: 'lining-nums proportional-nums',
+        fontSize: 12,
+        lineHeight: 1.333, //'16px',
+        fontWeight: 400,
+        color: theme.palette.text.secondary,
       }),
     },
   ],

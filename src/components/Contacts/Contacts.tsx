@@ -1,18 +1,26 @@
-import { useTheme, Container, Typography } from '@mui/material';
+import { Container, Typography, useTheme } from '@mui/material';
 import { FC, useState } from 'react';
-import { BoxContact, ContactButton, ContactItem, ContactLink, ContactList, ContactPaper, Paragraph, SubTitle, Title } from './style.ts';
-import FeedBackForm from '../Form/Form.tsx';
-import Section from '../Section/Section.tsx';
 import data from '../../assets/siteData';
+import FeedBackForm from '../Form/FeedBackForm.tsx';
+import ModalDialog from '../Form/ModalDialog.tsx';
+import Section from '../Section/Section.tsx';
+import { BoxContact, ContactButton, ContactItem, ContactLink, ContactList, ContactPaper, Paragraph, Title } from './style.ts';
 
 const Contacts: FC = () => {
   const [open, setOpen] = useState(false);
+  const [openDialog, setOpenDialog] = useState(false);
 
   const handleClickOpen = () => {
     setOpen(true);
   };
   const handleClose = () => {
     setOpen(false);
+  };
+  const handleClickButton = () => {
+    setOpenDialog(true);
+  };
+  const handleCloseDialog = () => {
+    setOpenDialog(false);
   };
 
   const theme = useTheme();
@@ -41,14 +49,14 @@ const Contacts: FC = () => {
                 <Title variant="h3">Як нас знайти</Title>
                 <BoxContact>
                   <Paragraph>
-                    <SubTitle>Метро:</SubTitle> до станції «Контрактова площа», далі пройти пішки близько 1 км.
+                    <strong>Метро:</strong> до станції «Контрактова площа», далі пройти пішки близько 1 км.
                   </Paragraph>
                   <Paragraph>
-                    <SubTitle>Фунікулер:</SubTitle> від станції «Поштова площа» піднятися до Михайлівської площі, далі пройти по вулиці
+                    <strong>Фунікулер:</strong> від станції «Поштова площа» піднятися до Михайлівської площі, далі пройти по вулиці
                     Володимирській до Андріївського узвозу, 21.
                   </Paragraph>
                   <Paragraph>
-                    <SubTitle>Автобус:</SubTitle> 114; 119; 18ТР.
+                    <strong>Автобус:</strong> 114; 119; 18ТР.
                   </Paragraph>
                 </BoxContact>
               </ContactItem>
@@ -64,7 +72,8 @@ const Contacts: FC = () => {
           </ContactPaper>
         </Container>
       </Section>
-      <FeedBackForm handleClose={handleClose} open={open} />
+      <FeedBackForm handleClickButton={handleClickButton} handleClose={handleClose} open={open} />
+      <ModalDialog handleClose={handleCloseDialog} open={openDialog} />
     </>
   );
 };

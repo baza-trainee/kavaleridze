@@ -1,6 +1,6 @@
 import { FC, useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
-import { Container, Grid } from '@mui/material';
+import { Container, useTheme, useMediaQuery } from '@mui/material';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Section from '../Section/Section';
 import Menu from './Menu/Menu';
@@ -8,24 +8,21 @@ import Menu from './Menu/Menu';
 const Kavaleridze: FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const theme = useTheme();
+  const isNotMobile = useMediaQuery(theme.breakpoints.up('md'));
 
   useEffect(() => {
     if (location.pathname === '/about') {
       navigate('/about/artist');
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location]);
 
   return (
     <Section variant="light">
       <Container>
-        <Grid container gridTemplateAreas='"menu content" "content content"'>
-          <Grid item gridArea="menu">
-            <Menu />
-          </Grid>
-          <Grid item gridArea="content">
-            <Outlet />
-          </Grid>
-        </Grid>
+        {isNotMobile && <Menu />}
+        <Outlet />
       </Container>
     </Section>
   );

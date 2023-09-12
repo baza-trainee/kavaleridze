@@ -1,12 +1,9 @@
 import { FC } from 'react';
-import { Box, Typography } from '@mui/material';
+import PageTemplate from '../../PageTemplate/PageTemplate';
+import { biographyDate } from '../../../assets/tempData/staticInfo/biography';
 
 const Biography: FC = () => {
-  return (
-    <Box style={{ height: '200px' }}>
-      <Typography variant="h2">Біографія</Typography>
-    </Box>
-  );
+  return <PageTemplate data={biographyDate} />;
 };
 
 export default Biography;

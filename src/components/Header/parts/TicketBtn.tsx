@@ -3,12 +3,19 @@ import { useNavigate } from 'react-router-dom';
 import PrimaryButton from '../../PrimaryButton/PrimaryButton';
 import data from '../../../assets/siteData';
 
-const TicketBtn: FC = () => {
+interface TicketBtnProps {
+  additionalClickFn?: () => void;
+}
+
+const TicketBtn: FC<TicketBtnProps> = ({ additionalClickFn }) => {
   const navigate = useNavigate();
 
   const onClickBtn = (e: MouseEvent) => {
     e.preventDefault();
     navigate('/tickets');
+    if (additionalClickFn) {
+      additionalClickFn();
+    }
   };
 
   return (

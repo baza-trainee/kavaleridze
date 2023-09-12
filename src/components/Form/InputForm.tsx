@@ -1,16 +1,30 @@
-import { FormHelperText, InputLabel, TextField } from '@mui/material';
-import { Box } from '@mui/system';
-import { useEffect, useState } from 'react';
-import { Controller } from 'react-hook-form';
+import { Box, FormHelperText, InputLabel, TextField, useTheme } from '@mui/material';
+import { FC, useEffect, useState } from 'react';
+import { Control, Controller, FieldError } from 'react-hook-form';
 import SvgSpriteIcon from '../PrimaryButton/SvgSpriteIcon';
+import { IFormInput } from './FeedBackForm';
 import TooltipInfo from './TooltipInfo';
 
-const InputForm = ({ placeholder, control, name, alert, label, error, rows, isMulti = false }: any) => {
-  const [color, setColor] = useState('black');
+interface InputFormProps {
+  placeholder: string;
+  control: Control<IFormInput>;
+  name: 'text' | 'name' | 'email' | 'surname';
+  alert: string;
+  label: string;
+  error: FieldError | undefined;
+  rows?: number;
+  isMulti?: boolean;
+}
+
+const InputForm: FC<InputFormProps> = ({ placeholder, control, name, alert, label, error, rows, isMulti = false }) => {
+  const theme = useTheme();
+  const [color, setColor] = useState(theme.palette.common.black);
 
   useEffect(() => {
-    setColor(error ? 'red' : 'black');
+    setColor(error ? theme.palette.error.main : theme.palette.common.black);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [error]);
+
   return (
     <Box sx={{ position: 'relative', color: { color } }}>
       <InputLabel sx={{ marginBottom: '8px', color: 'inherit', fontSize: { xs: '16px', lg: '18px', fontWeight: '600' } }}>
@@ -31,9 +45,9 @@ const InputForm = ({ placeholder, control, name, alert, label, error, rows, isMu
             {...field}
             placeholder={placeholder}
             variant="outlined"
-            onMouseLeave={() => setColor(error ? 'red' : 'black')}
-            onMouseEnter={() => setColor(error ? 'red' : '#D8A629')}
-            onFocus={() => setColor(error ? 'red' : '#D8A629')}
+            onMouseLeave={() => setColor(error ? theme.palette.error.main : theme.palette.common.black)}
+            onMouseEnter={() => setColor(error ? theme.palette.error.main : theme.palette.primary.dark)}
+            onFocus={() => setColor(error ? theme.palette.error.main : theme.palette.primary.dark)}
             fullWidth
             multiline={isMulti}
             error={!!error}

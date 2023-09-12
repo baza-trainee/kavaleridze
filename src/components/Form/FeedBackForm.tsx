@@ -1,18 +1,25 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Box, Button, Dialog, IconButton, Typography } from '@mui/material';
+import { FC } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import SvgSpriteIcon from '../PrimaryButton/SvgSpriteIcon';
 import InputForm from './InputForm';
 import { validateSchema } from './Validation';
 
-interface IFormInput {
+export interface IFormInput {
   name: string;
   surname: string;
   email: string;
   text: string;
 }
 
-export default function FeedBackForm({ handleClose, open }: any) {
+interface FeedBackFormProps {
+  handleClose: () => void;
+  handleClickButton: () => void;
+  open: boolean;
+}
+
+const FeedBackForm: FC<FeedBackFormProps> = ({ handleClose, open, handleClickButton }) => {
   const {
     control,
     handleSubmit,
@@ -32,6 +39,8 @@ export default function FeedBackForm({ handleClose, open }: any) {
 
   const onSubmit: SubmitHandler<IFormInput> = (data) => {
     console.log(data);
+    handleClickButton();
+    handleClose();
     reset();
   };
 
@@ -55,7 +64,7 @@ export default function FeedBackForm({ handleClose, open }: any) {
         sx={{
           width: '100%',
           background: (theme) => theme.palette.common.white,
-          color: 'black',
+          color: (theme) => theme.palette.common.black,
           position: 'relative',
           m: '0 auto',
         }}>
@@ -128,7 +137,6 @@ export default function FeedBackForm({ handleClose, open }: any) {
             <InputForm
               control={control}
               error={errors.text}
-              id="outlined-multiline-static"
               isMulti={true}
               rows={6}
               placeholder={'Ваше повідомлення'}
@@ -154,4 +162,6 @@ export default function FeedBackForm({ handleClose, open }: any) {
       </Box>
     </Dialog>
   );
-}
+};
+
+export default FeedBackForm;

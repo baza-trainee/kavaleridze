@@ -1,4 +1,4 @@
-import { FC, useState, ChangeEvent, FormEvent, useRef } from 'react';
+import { FC, useState, ChangeEvent, FormEvent, useRef, FocusEvent, TouchEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Box, TextField, InputAdornment, styled, useTheme, useMediaQuery } from '@mui/material';
 import SvgSpriteIcon from '../../PrimaryButton/SvgSpriteIcon';
@@ -56,6 +56,19 @@ const SearchInput: FC<SearchInputProps> = ({ onCloseMenu }) => {
     }
   };
 
+  const onFocusSearch = (e: FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    e.stopPropagation();
+    const platform = navigator.platform.toLowerCase().includes('ios');
+    if (platform) {
+      window.scrollTo(0, 0);
+      document.body.scrollTop = 0;
+    }
+  };
+
+  const onTouchMoveSearch = (e: TouchEvent) => {
+    e.preventDefault();
+  };
+
   return (
     <Box component="form" flex="1 1 auto" mr={{ xs: 0, lg: 2 }} sx={{ width: { xs: '100%', lg: 'auto' } }} onSubmit={onSubmit}>
       <CustomTextField
@@ -65,6 +78,8 @@ const SearchInput: FC<SearchInputProps> = ({ onCloseMenu }) => {
         placeholder="Пошук..."
         value={search}
         onChange={onChangeSearch}
+        onFocus={onFocusSearch}
+        onTouchMove={onTouchMoveSearch}
         ref={searchRef}
         autoComplete="off"
         inputProps={{ maxLength: 120 }}

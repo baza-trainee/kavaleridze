@@ -1,13 +1,23 @@
 import { FC } from 'react';
-import { Box } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Box, Link } from '@mui/material';
+import { Link as RouterLink, useLocation } from 'react-router-dom';
 import logo from '/Logo.svg';
 
 const HeaderLogo: FC = () => {
+  const location = useLocation();
+  const isMainPage = location.pathname === '/';
+
+  if (isMainPage) {
+    return (
+      <Link href="/" style={{ lineHeight: 0 }}>
+        <Box component="img" src={logo} alt="Logo" />
+      </Link>
+    );
+  }
   return (
-    <Link to="/" style={{ lineHeight: 0 }}>
+    <RouterLink to="/" style={{ lineHeight: 0 }}>
       <Box component="img" src={logo} alt="Logo" />
-    </Link>
+    </RouterLink>
   );
 };
 
