@@ -1,11 +1,18 @@
 import { styled, Typography, Box, Container } from '@mui/material';
 
-export const ContentBlock = styled(Container)(() => ({
+export const ContentBlock = styled(Container)(({ theme }) => ({
   display: 'flex',
   alignItems: 'flex-start',
   justifyContent: 'center',
   flexDirection: 'column',
-  minHeight: '500px',
+  minHeight: '413px',
+
+  [theme.breakpoints.up('md')]: {
+    height: '456px',
+  },
+  [theme.breakpoints.up('lg')]: {
+    height: '500px',
+  },
   gap: '32px',
 }));
 export const WrapperContent = styled(Box)(() => ({
@@ -16,4 +23,5 @@ export const Title = styled(Typography)(({ theme }) => ({
   whiteSpace: 'pre',
   color: theme.palette.common.white,
   fontWeight: 500,
+  fontSize: '24px',
 }));

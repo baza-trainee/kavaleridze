@@ -14,11 +14,11 @@ const siteData = {
     more: 'Читати більше',
   },
   famousArtImages: [
-    { src: `/images/famous_artist/1.png`, alt: 'famous_artist', size: 'big' },
-    { src: `/images/famous_artist/2.png`, alt: 'famous_artist', size: 'big' },
-    { src: `/images/famous_artist/3.png`, alt: 'famous_artist', size: 'big' },
-    { src: `/images/famous_artist/4.png`, alt: 'famous_artist', size: 'small' },
-    { src: `/images/famous_artist/5.png`, alt: 'famous_artist', size: 'small' },
+    { src: {tablet:`./images/famous_artist/1.png`,mobile:`./images/famous_artist/mobile/1.png`}, alt: 'famous_artist', size: 'big' },
+    { src: {tablet:`./images/famous_artist/2.png`,mobile:`./images/famous_artist/mobile/2.png`}, alt: 'famous_artist', size: 'big' },
+    { src: {tablet:`./images/famous_artist/3.png`,mobile:`./images/famous_artist/mobile/3.png`}, alt: 'famous_artist', size: 'big' },
+    { src: {tablet:`./images/famous_artist/4.png`,mobile:`./images/famous_artist/mobile/4.png`}, alt: 'famous_artist', size: 'small' },
+    { src: {tablet:`./images/famous_artist/5.png`,mobile:`./images/famous_artist/mobile/5.png`}, alt: 'famous_artist', size: 'small' },
   ],
   about_history: {
     text: {
