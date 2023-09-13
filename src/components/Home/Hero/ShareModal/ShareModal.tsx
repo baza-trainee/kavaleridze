@@ -1,7 +1,9 @@
 import { FC } from 'react';
 import { Modal, Box, Typography, Stack, IconButton, Divider } from '@mui/material';
+import { FacebookShareButton, ViberShareButton, TelegramShareButton } from 'react-share';
 import SvgSpriteIcon from '../../../PrimaryButton/SvgSpriteIcon';
 import { StyledBox, StyledTextButton } from './styles';
+
 import facebook from '/images/social_media/facebook.png';
 import gmail from '/images/social_media/gmail.png';
 import viber from '/images/social_media/viber.png';
@@ -12,31 +14,22 @@ interface ShareModalProps {
   onCloseModal: () => void;
 }
 
-interface SocialMediaBtnProps {
+interface SocialMediaIconProps {
   src: string;
   alt: string;
-  onClick: () => void;
 }
 
-const SocialMediaBtn: FC<SocialMediaBtnProps> = ({ src, alt, onClick }) => {
-  return (
-    <IconButton aria-label={alt} sx={{ p: 0 }} onClick={onClick}>
-      <Box component="img" src={src} alt={alt} width={{ xs: 40, md: 56 }} height={{ xs: 40, md: 56 }} />
-    </IconButton>
-  );
+const SocialMediaIcon: FC<SocialMediaIconProps> = ({ src, alt }) => {
+  return <Box component="img" src={src} alt={alt} height={{ xs: 40, md: 56 }} width={{ xs: 40, md: 56 }} display="block" />;
 };
 
 const ShareModal: FC<ShareModalProps> = ({ open, onCloseModal }) => {
   const CLIENT_URL = import.meta.env.VITE_CLIENT_URL;
 
-  const onClickFacebookBtn = () => {};
-
-  const onClickTelegramBtn = () => {};
-  const onClickViberBtn = () => {};
-
   const onClickGmailBtn = () => {
-    const url = `https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=&su=Your+Subject+here&body=message&ui=2&tf=1&pli=1`;
-    window.open(url, 'sharer', 'toolbar=0,status=0,width=648,height=395');
+    const message = `Check out this awesome website! %0D%0A %0D%0A ${CLIENT_URL}`;
+    const url = `https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=&su=сайт+музею-майстерні+Іван+Кавалерідзе&body=${message}&ui=2&tf=1&pli=1`;
+    window.open(url, 'sharer', 'toolbar=no,status=no,width=648,height=395');
   };
 
   return (
@@ -57,14 +50,19 @@ const ShareModal: FC<ShareModalProps> = ({ open, onCloseModal }) => {
           <Typography maxWidth={{ xs: 216, md: 302 }} textAlign="center" fontWeight={500}>
             Надішліть посилання на сайт через cоціальні мережі
           </Typography>
-          <Stack direction="row" gap={{ xs: 2, md: 4, lg: 4 }}>
-            <SocialMediaBtn alt="share via facebook" src={facebook} onClick={onClickFacebookBtn} />
-
-            <SocialMediaBtn alt="share via telegram" src={telegram} onClick={onClickTelegramBtn} />
-
-            <SocialMediaBtn alt="share via viber" src={viber} onClick={onClickViberBtn} />
-
-            <SocialMediaBtn alt="share via gmail" src={gmail} onClick={onClickGmailBtn} />
+          <Stack direction="row" gap={{ xs: 2, md: 4, lg: 4 }} width="100%" justifyContent="center">
+            <FacebookShareButton url={CLIENT_URL}>
+              <SocialMediaIcon alt="share via facebook" src={facebook} />
+            </FacebookShareButton>
+            <TelegramShareButton url={CLIENT_URL}>
+              <SocialMediaIcon alt="share via telegram" src={telegram} />
+            </TelegramShareButton>
+            <ViberShareButton url={CLIENT_URL}>
+              <SocialMediaIcon alt="share via viber" src={viber} />
+            </ViberShareButton>
+            <IconButton aria-label="share via gmail" sx={{ p: 0 }} onClick={onClickGmailBtn}>
+              <SocialMediaIcon alt="share via gmail" src={gmail} />
+            </IconButton>
           </Stack>
           <Typography textAlign="center" fontWeight={500}>
             або скопіюйте лінк
