@@ -1,33 +1,60 @@
 .mySwiper {
   /* position: static; */
-  padding-bottom: 85px;
+  padding-bottom: 64px;
+
+  @media (min-width: 767px) {
+    top: 480px;
+  }
+
+  @media (min-width: 1280px) {
+    padding-bottom: 85px;
+  }
 }
 
 .mySwiper .swiper-button-prev,
 .mySwiper .swiper-button-next {
   /* position: absolute; */
   color: #151514;
-  top: 480px;
+  top: 96%;
   /* top: 600px; */
   z-index: 1000;
   width: 44px;
   height: 44px;
 
-  /* @media (min-width: 767px) {
+  @media (min-width: 767px) {
     top: 480px;
-  } */
+  }
+
+  @media (min-width: 1280px) {
+    top: 468px;
+  }
 }
 
 .mySwiper .swiper-button-prev {
   /* left: 50px; */
-  left: 476px;
+  left: calc(50% - 90px);
   /* bottom: 40px; */
+  @media (min-width: 767px) {
+    color: red;
+  }
+  @media (min-width: 1280px) {
+    left: 476px;
+    color: red;
+  }
 }
 
 .mySwiper .swiper-button-next {
   /* right: 50px; */
-  right: 476px;
+  right: calc(50% - 90px);
   /* bottom: 80px; */
+  @media (min-width: 767px) {
+    /* color: red; */
+  }
+
+  @media (min-width: 1280px) {
+    color: red;
+    right: 476px;
+  }
 }
 
 .mySwiper .swiper-button-prev::after,
@@ -37,8 +64,16 @@
 }
 
 .mySwiper .swiper-pagination {
-  bottom: 10px;
+  bottom: 3%;
   /* bottom: 100px; */
+
+  @media (min-width: 767px) {
+    /* color: red; */
+  }
+
+  @media (min-width: 1280px) {
+    bottom: 10px;
+  }
 }
 
 .mySwiper .swiper-pagination-bullet {

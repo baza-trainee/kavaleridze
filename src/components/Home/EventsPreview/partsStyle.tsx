@@ -46,15 +46,15 @@ export const EventData = styled(Typography)(({ theme }) => ({
 export const WrapperImg = styled(Box)(({ theme }) => ({
   // backgroundColor: 'blue',
   width: '100%',
-  // height: '270px',
+  height: '270px',
 
   [theme.breakpoints.up('md')]: {
-    height: '412px',
+    // height: '412px',
   },
 
   [theme.breakpoints.up('lg')]: {
     width: '642px',
-    height: '412px',
+    // height: '412px',
   },
 
   '& img': {
@@ -64,7 +64,7 @@ export const WrapperImg = styled(Box)(({ theme }) => ({
     objectFit: 'cover',
 
     [theme.breakpoints.up('md')]: {
-      height: '412px',
+      // height: '100%',
     },
 
     [theme.breakpoints.up('lg')]: {
@@ -77,7 +77,6 @@ export const EventDescription = styled(Typography)(({ theme }) => ({
   fontSize: '18px',
   fontWeight: '400',
   lineHeight: '28px',
-  color: '#000000',
 
   img: {
     display: 'block',

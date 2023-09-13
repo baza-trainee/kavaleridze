@@ -1,14 +1,23 @@
 import { FC } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { Container } from '@mui/material';
-import { useTheme, styled, Box, Typography } from '@mui/material';
+import { useTheme, styled, Box, Typography, Button } from '@mui/material';
 import SvgSpriteIcon from '../../PrimaryButton/SvgSpriteIcon';
 import { dataInfo } from './fakeData';
 import Slider from './Slider';
 
-const EventsPreviewSection = styled('section')(() => ({
+const EventsPreviewSection = styled('section')(({ theme }) => ({
   position: 'relative',
-  margin: '120px 0px',
+  marginBottom: '60px',
+
+  [theme.breakpoints.up('md')]: {
+    // height: '412px',
+  },
+
+  [theme.breakpoints.up('lg')]: {
+    width: '642px',
+    // height: '412px',
+  },
 }));
 
 const EventsTitle = styled(Typography)(() => ({
@@ -16,7 +25,6 @@ const EventsTitle = styled(Typography)(() => ({
   fontSize: '40px',
   fontWeight: '500',
   lineHeight: '44px',
-  color: '#000000',
 }));
 
 const EventsPreview: FC = () => {
@@ -31,25 +39,18 @@ const EventsPreview: FC = () => {
             flexDirection: { xs: 'column', md: 'row' },
             justifyContent: { xs: '', md: 'space-between' },
             gap: { xs: '24px' },
-            // alignItems: 'flex-end',
+            alignItems: { xs: 'flex-start' },
             marginBottom: { xs: '24px', md: '40px' },
           }}>
-          <EventsTitle variant="h2">Події музею</EventsTitle>
-          <Box
+          <Typography variant="h1">Події музею</Typography>
+          <Button
+            variant="tertiary"
             component={RouterLink}
+            sx={{ fontWeight: '600' }}
             to="/events"
-            sx={{
-              display: 'flex',
-              gap: '4px',
-              alignItems: 'center',
-              fontSize: '18px',
-              fontWeight: '600',
-              transition: '250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms',
-              '&:hover': { color: theme.palette.primary.dark },
-            }}>
+            endIcon={<SvgSpriteIcon svgSpriteId="breadcrumbsSeparator_icon" />}>
             Дивитись усі події
-            <SvgSpriteIcon svgSpriteId="breadcrumbsSeparator_icon" />
-          </Box>
+          </Button>
         </Box>
         <Slider fakeData={dataInfo} />
       </Container>
