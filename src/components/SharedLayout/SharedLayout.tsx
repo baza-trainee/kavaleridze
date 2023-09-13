@@ -1,16 +1,16 @@
-import { Stack, useScrollTrigger, useTheme, useMediaQuery } from '@mui/material';
+import { Stack, useMediaQuery, useScrollTrigger, useTheme } from '@mui/material';
 import { FC, useRef } from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
+import Page from '../Breadcrumbs/Breadcrumbs';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 import ScrollToTop from '../ScrollToTop/ScrollToTop';
-import Page from '../Breadcrumbs/Breadcrumbs';
-import { useLocation } from 'react-router-dom';
 
 const SharedLayout: FC = () => {
   const location = useLocation();
 
   const isHomePage = location.pathname;
+  const is404Page = location.pathname === '/404';
   const scrollRef = useRef<HTMLDivElement | null>(null);
   const scrollTrigger = useScrollTrigger({ disableHysteresis: true, threshold: 100 });
   const theme = useTheme();
@@ -24,7 +24,7 @@ const SharedLayout: FC = () => {
   return (
     <Stack minHeight={'100vh'}>
       <Header ref={scrollRef} />
-      {isHomePage !== '/' && <Page />}
+      {isHomePage !== '/' && !is404Page && <Page />}
       <Stack
         sx={{
           minHeight: '100%',
