@@ -24,10 +24,10 @@ const SocialMediaIcon: FC<SocialMediaIconProps> = ({ src, alt }) => {
 };
 
 const ShareModal: FC<ShareModalProps> = ({ open, onCloseModal }) => {
-  const CLIENT_URL = import.meta.env.VITE_CLIENT_URL;
+  const shareUrl = window.location.href;
 
   const onClickGmailBtn = () => {
-    const message = `Check out this awesome website! %0D%0A %0D%0A ${CLIENT_URL}`;
+    const message = `Check out this awesome website! %0D%0A %0D%0A ${shareUrl}`;
     const url = `https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=&su=сайт+музею-майстерні+Іван+Кавалерідзе&body=${message}&ui=2&tf=1&pli=1`;
     window.open(url, 'sharer', 'toolbar=no,status=no,width=648,height=395');
   };
@@ -51,13 +51,13 @@ const ShareModal: FC<ShareModalProps> = ({ open, onCloseModal }) => {
             Надішліть посилання на сайт через cоціальні мережі
           </Typography>
           <Stack direction="row" gap={{ xs: 2, md: 4, lg: 4 }} width="100%" justifyContent="center">
-            <FacebookShareButton url={CLIENT_URL}>
+            <FacebookShareButton url={shareUrl}>
               <SocialMediaIcon alt="share via facebook" src={facebook} />
             </FacebookShareButton>
-            <TelegramShareButton url={CLIENT_URL}>
+            <TelegramShareButton url={shareUrl}>
               <SocialMediaIcon alt="share via telegram" src={telegram} />
             </TelegramShareButton>
-            <ViberShareButton url={CLIENT_URL}>
+            <ViberShareButton url={shareUrl}>
               <SocialMediaIcon alt="share via viber" src={viber} />
             </ViberShareButton>
             <IconButton aria-label="share via gmail" sx={{ p: 0 }} onClick={onClickGmailBtn}>
