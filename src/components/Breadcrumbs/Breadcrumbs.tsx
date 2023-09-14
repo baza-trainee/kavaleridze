@@ -1,11 +1,9 @@
 import Link, { LinkProps } from '@mui/material/Link';
-import { Box, styled } from '@mui/material';
-import Typography from '@mui/material/Typography';
-import Breadcrumbs from '@mui/material/Breadcrumbs';
+import { Container, Box, styled, useMediaQuery, Typography, Breadcrumbs } from '@mui/material';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 import { routing } from '../../assets/siteData';
 import SvgSpriteIcon from '../PrimaryButton/SvgSpriteIcon';
-import Container from '@mui/material/Container';
+import { theme } from '../../theme';
 
 const BreadcrumbsBox = styled(Box)(({ theme }) => ({
   backgroundColor: theme.palette.common.white,
@@ -44,10 +42,17 @@ function Page() {
   const location = useLocation();
   const pathnames = location.pathname.split('/').filter((x) => x);
 
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
+
+  const maxItemsBreadcrumbs = isSmallScreen ? 2 : 10;
+
   return (
     <BreadcrumbsBox>
       <Container>
-        <BreadcrumbsNav separator={<SvgSpriteIcon svgSpriteId="breadcrumbsSeparator_icon" />} aria-label="breadcrumb">
+        <BreadcrumbsNav
+          maxItems={maxItemsBreadcrumbs}
+          separator={<SvgSpriteIcon svgSpriteId="breadcrumbsSeparator_icon" />}
+          aria-label="breadcrumb">
           <LinkRouter underline="hover" color="inherit" to="/">
             Головна
           </LinkRouter>
