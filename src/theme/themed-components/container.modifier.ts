@@ -12,7 +12,6 @@ export const MuiContainer: Components<Theme>['MuiContainer'] = {
       [theme.breakpoints.up('md')]: {
         //TODO: write down settings for tablet container: 768px - 1279px
         padding: '0 40px',
-        width: 768,
       },
 
       [theme.breakpoints.up('lg')]: {
