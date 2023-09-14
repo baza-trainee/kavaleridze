@@ -67,8 +67,13 @@ export const MuiButton: Components<Theme>['MuiButton'] = {
         padding: 0,
         borderBottom: '1px solid',
         borderColor: 'transparent',
+        fontFamily: 'Raleway',
         backgroundColor: theme.palette.common.white,
         color: theme.palette.common.black,
+
+        '& .MuiButton-endIcon': {
+          marginLeft: 4,
+        },
 
         borderRadius: 0,
         '&:hover': {
@@ -81,8 +86,7 @@ export const MuiButton: Components<Theme>['MuiButton'] = {
           borderColor: 'theme.palette.primary.dark',
         },
 
-        '&:active': {
-        },
+        '&:active': {},
 
         '&:disabled': {
           color: theme.palette.text.disabled,
