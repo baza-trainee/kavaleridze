@@ -1,60 +1,16 @@
-import { Typography, styled, Box } from '@mui/material';
-
-export const DataInfo = styled(Typography)(({ theme }) => ({
-  fontSize: '18px',
-  fontWeight: '500',
-  lineHeight: '28px',
-  color: theme.palette.text.secondary,
-
-  // [theme.breakpoints.down('lg')]: {
-  //   padding: '0px 40px',
-  // },
-  // [theme.breakpoints.down('md')]: {
-  //   padding: '0px  16px',
-  // },
-}));
-
-export const CardsTitle = styled('h3')(() => ({
-  fontFamily: 'Kyiv Type',
-  fontSize: '24px',
-  fontWeight: '500',
-  lineHeight: '28px',
-  color: '#000000',
-
-  // [theme.breakpoints.down('lg')]: {
-  //   padding: '0px 40px',
-  // },
-  // [theme.breakpoints.down('md')]: {
-  //   padding: '0px  16px',
-  // },
-}));
-
-export const EventData = styled(Typography)(({ theme }) => ({
-  fontSize: '18px',
-  fontWeight: '600',
-  lineHeight: '28px',
-  color: theme.palette.primary.contrastText,
-
-  // [theme.breakpoints.down('lg')]: {
-  //   padding: '0px 40px',
-  // },
-  // [theme.breakpoints.down('md')]: {
-  //   padding: '0px  16px',
-  // },
-}));
+import { styled, Box } from '@mui/material';
 
 export const WrapperImg = styled(Box)(({ theme }) => ({
-  // backgroundColor: 'blue',
   width: '100%',
   height: '270px',
 
   [theme.breakpoints.up('md')]: {
-    // height: '412px',
+    height: '319px',
   },
 
   [theme.breakpoints.up('lg')]: {
     width: '642px',
-    // height: '412px',
+    height: '400px',
   },
 
   '& img': {
@@ -62,33 +18,6 @@ export const WrapperImg = styled(Box)(({ theme }) => ({
     width: '100%',
     height: '100%',
     objectFit: 'cover',
-
-    [theme.breakpoints.up('md')]: {
-      // height: '100%',
-    },
-
-    [theme.breakpoints.up('lg')]: {
-      // height: '412px',
-    },
+    borderRadius: '4px',
   },
-}));
-
-export const EventDescription = styled(Typography)(({ theme }) => ({
-  fontSize: '18px',
-  fontWeight: '400',
-  lineHeight: '28px',
-
-  img: {
-    display: 'block',
-    cursor: 'pointer',
-    color: theme.palette.primary.main,
-    backgroundColor: 'transparent',
-  },
-
-  // [theme.breakpoints.down('lg')]: {
-  //   padding: '0px 40px',
-  // },
-  // [theme.breakpoints.down('md')]: {
-  //   padding: '0px  16px',
-  // },
 }));
