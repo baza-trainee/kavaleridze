@@ -25,12 +25,14 @@ const SocialMediaIcon: FC<SocialMediaIconProps> = ({ src, alt }) => {
 
 const ShareModal: FC<ShareModalProps> = ({ open, onCloseModal }) => {
   const shareUrl = window.location.href;
-  const device = navigator.platform;
+  const device = navigator.appVersion;
+  console.log(navigator);
+  console.log(window);
 
   const onClickGmailBtn = () => {
     const emailSubject = 'Сайт Музею-майстрені імені Івана Кавалерідзе';
     const emailBody = `Ось посилання на сайт музею-майстрені імені Івана Кавалерідзе: %0D%0A %0D%0A ${shareUrl}`;
-    const isAndroid = navigator.platform.toLowerCase().includes('android');
+    const isAndroid = navigator.appVersion.toLowerCase().includes('android');
 
     if (isAndroid) {
       const gmailAppLink = `intent://send?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(
