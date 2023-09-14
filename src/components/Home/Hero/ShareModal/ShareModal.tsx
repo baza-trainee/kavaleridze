@@ -24,9 +24,8 @@ const SocialMediaIcon: FC<SocialMediaIconProps> = ({ src, alt }) => {
 };
 
 const ShareModal: FC<ShareModalProps> = ({ open, onCloseModal }) => {
-  const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up('lg'));
   const shareUrl = window.location.href;
+  const device = navigator.platform;
 
   const onClickGmailBtn = () => {
     const emailSubject = 'Сайт Музею-майстрені імені Івана Кавалерідзе';
@@ -60,6 +59,7 @@ const ShareModal: FC<ShareModalProps> = ({ open, onCloseModal }) => {
             Поділіться сайтом з друзями!
           </Typography>
         </Box>
+        <Typography>{device}</Typography>
         <Divider sx={{ borderColor: (theme) => theme.palette.gray.main }} />
         <Stack alignItems="center" px={2} pt={{ xs: 3, md: 4, lg: 5 }} pb={5} rowGap={{ xs: 2, md: 3, lg: 4 }}>
           <Typography maxWidth={{ xs: 216, md: 302 }} textAlign="center" fontWeight={500}>
