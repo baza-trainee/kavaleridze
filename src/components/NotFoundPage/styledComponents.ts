@@ -7,16 +7,16 @@ const ImageBox = styled(Box)<BoxProps>(({ theme }) => ({
   alignItems: 'center',
   textAlign: 'center',
   margin: '0px auto',
-  width: '463px',
-  height: '390px',
+  width: '400px',
+  height: '360px',
 
   [theme.breakpoints.only('md')]: {
     width: '380px',
-    height: '333px',
+    height: '355px',
   },
   [theme.breakpoints.only('sm')]: {
     width: '160px',
-    height: '132px',
+    height: '145px',
   },
 }));
 
@@ -24,13 +24,12 @@ const Text404 = styled(Typography)<TypographyProps>(({ theme }) => ({
   position: 'absolute',
   bottom: 0,
   left: 0,
-  fontSize: '13.75rem',
+  fontSize: '11.25rem',
   fontWeight: 800,
   lineHeight: 1,
   width: '100%',
-  [theme.breakpoints.only('md')]: {
-    fontSize: '11.25rem',
-  },
+  textShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+  textAlign: 'center',
   [theme.breakpoints.only('sm')]: {
     fontSize: '4rem',
   },
@@ -47,51 +46,25 @@ const ContentBox = styled(Box)<BoxProps>(({ theme }) => ({
 }));
 
 const Error404Box = styled(Box)<BoxProps>(({ theme }) => ({
-  paddingBottom: '20px',
-  [theme.breakpoints.only('lg')]: {
-    paddingBottom: '28px',
+  paddingBottom: '60px',
+  [theme.breakpoints.only('md')]: {
+    paddingBottom: '45px',
+  },
+  [theme.breakpoints.only('sm')]: {
+    paddingBottom: '20px',
   },
 }));
 
 const SupportTextBox = styled(Stack)<StackProps>(({ theme }) => ({
   alignItems: 'center',
   textAlign: 'center',
-  rowGap: '28px',
+  rowGap: '32px',
   [theme.breakpoints.only('md')]: {
-    rowGap: '20px',
+    rowGap: '24px',
   },
   [theme.breakpoints.only('sm')]: {
     rowGap: '16px',
   },
 }));
 
-const SupportTitle = styled(Typography)<TypographyProps>(({ theme }) => ({
-  fontWeight: 300,
-  [theme.breakpoints.only('lg')]: {
-    fontSize: '3rem',
-    letterSpacing: '3.36px',
-  },
-}));
-const SupportSubTitle = styled(Typography)<TypographyProps>(({ theme }) => ({
-  fontWeight: 500,
-  maxWidth: '725px',
-  fontSize: '2.25rem',
-  lineHeight: 1.1,
-  [theme.breakpoints.only('lg')]: {
-    letterSpacing: '2.52px',
-    fontSize: '2.25rem',
-    lineHeight: 1.1,
-  },
-  [theme.breakpoints.only('md')]: {
-    fontSize: '1.25rem',
-    lineHeight: 1.1,
-    fontWeight: 600,
-  },
-  [theme.breakpoints.only('sm')]: {
-    fontSize: '1.125rem',
-    lineHeight: 1.1,
-    fontWeight: 600,
-  },
-}));
-
-export { ContentBox, Error404Box, ImageBox, SupportSubTitle, SupportTextBox, SupportTitle, Text404 };
+export { ContentBox, Error404Box, ImageBox, SupportTextBox, Text404 };

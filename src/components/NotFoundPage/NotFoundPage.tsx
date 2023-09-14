@@ -1,4 +1,4 @@
-import { Container } from '@mui/material';
+import { Container, Typography } from '@mui/material';
 import { FC, MouseEventHandler } from 'react';
 
 import { useNavigate } from 'react-router-dom';
@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import Section from '../Section/Section';
 import ErrorImage from './parts/ErrorImage';
 import NavToMainPageBtn from './parts/NavToMainPageBtn';
-import { ContentBox, Error404Box, ImageBox, SupportSubTitle, SupportTextBox, SupportTitle, Text404 } from './styledComponents';
+import { ContentBox, Error404Box, ImageBox, SupportTextBox, Text404 } from './styledComponents';
 
 import image from '/404.png';
 
@@ -29,10 +29,14 @@ const NotFoundPage: FC = () => {
             </ImageBox>
           </Error404Box>
           <SupportTextBox>
-            <SupportTitle variant="h1">Вибачте, але сторінку не знайдено</SupportTitle>
-            <SupportSubTitle>Сторінка, яку ви шукаєте видалена або тимчасово недоступна</SupportSubTitle>
+            <Typography variant="h1" fontWeight={500}>
+              Вибачте, але сторінку не знайдено
+            </Typography>
+            <Typography variant="h3" fontWeight={500}>
+              Сторінка, яку ви шукаєте видалена або тимчасово недоступна
+            </Typography>
+            <NavToMainPageBtn onClick={handleClick} />
           </SupportTextBox>
-          <NavToMainPageBtn onClick={handleClick} />
         </ContentBox>
       </Container>
     </Section>

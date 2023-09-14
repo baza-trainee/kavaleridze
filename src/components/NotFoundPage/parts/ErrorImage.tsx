@@ -15,8 +15,9 @@ const ErrorImage: FC<ErrorImageProps> = ({ image }) => {
         zIndex: '0',
         top: 0,
         left: {
-          lg: '7%',
-          md: 0,
+          lg: 0,
+          md: '2%',
+          sm: 0,
         },
         width: {
           lg: '400px',
