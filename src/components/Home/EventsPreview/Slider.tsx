@@ -63,7 +63,7 @@ const Slider: FC<IFullData> = ({ fakeData }) => {
                   component={RouterLink}
                   to="/events"
                   variant="secondary"
-                  sx={{ width: { xs: '288px', md: '242px', lg: '244px' }, height: '48px', fontSize: { xs: '16px', lg: '18px' } }}>
+                  sx={{ width: { xs: '288px', md: '242px', lg: '248px' }, height: '48px', fontSize: { xs: '16px', lg: '18px' } }}>
                   Детальніше про подію
                 </Button>
               </Box>
