@@ -27,8 +27,21 @@ const ShareModal: FC<ShareModalProps> = ({ open, onCloseModal }) => {
   const shareUrl = window.location.href;
 
   const onClickGmailBtn = () => {
-    const message = `Check out this awesome website! %0D%0A %0D%0A ${shareUrl}`;
-    const url = `https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=&su=сайт+музею-майстерні+Іван+Кавалерідзе&body=${message}&ui=2&tf=1&pli=1`;
+    const emailSubject = 'Сайт Музею-майстрені імені Івана Кавалерідзе';
+    const emailBody = `Ось посилання на сайт музею-майстрені імені Івана Кавалерідзе: %0D%0A %0D%0A ${shareUrl}`;
+    const isAndroid = navigator.platform.toLowerCase().includes('android');
+
+    if (isAndroid) {
+      const gmailAppLink = `intent://send?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(
+        emailBody
+      )}#Intent;package=com.google.android.gm;end`;
+      window.location.href = gmailAppLink;
+      return;
+    }
+    const url = `https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=&su=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(
+      emailBody
+    )}&ui=2&tf=1&pli=1`;
+
     window.open(url, 'sharer', 'toolbar=no,status=no,width=648,height=395');
   };
 
