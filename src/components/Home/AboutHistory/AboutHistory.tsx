@@ -14,7 +14,7 @@ const AboutHistory: FC = () => {
 
   return (
     <Section variant="light">
-      <Container style={{maxWidth:'1280px',width:'100%'}} >
+      <Container  >
         <InfoWrapper >
           <Typography variant="h1">Історія музею</Typography>
           <Button title={buttonsLabels.more} svgSpriteId="arrow_rigth_icon" variant="tertiary" />

@@ -35,10 +35,10 @@ export const Button = styled(GeneralButton)(({ theme }) => ({
   lineHeight: 1.429, //20px,
   [theme.breakpoints.up('md')]: {
     fontSize: 18,
-    order:'initial',
+    order: 'initial',
     lineHeight: 1.555, //28px,
-alignSelf: 'end',
- },
+    alignSelf: 'end',
+  },
   [theme.breakpoints.up('lg')]: {
     fontSize: 18,
   },

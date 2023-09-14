@@ -16,6 +16,7 @@ export const ContentBlock = styled(Container)(({ theme }) => ({
   gap: '32px',
 }));
 export const WrapperContent = styled(Box)(() => ({
+  height: 'calc(100vh - 112px)',
   background:
     'linear-gradient(90deg, rgba(0, 0, 0, 0.70) 28.24%, rgba(0, 0, 0, 0.50) 53.35%, rgba(0, 0, 0, 0.00) 70.25%), url("./images/hero/section_hero_bg.jpg") lightgray 50% / cover no-repeat',
 }));
