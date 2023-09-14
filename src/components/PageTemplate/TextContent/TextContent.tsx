@@ -9,7 +9,9 @@ interface TextContentProps {
 const TextContent: FC<TextContentProps> = ({ textContent, columns }) => {
   return (
     <Grid item xs={12} lg={columns === 1 ? 6 : 12}>
-      <Typography whiteSpace="pre-line">{textContent}</Typography>
+      <Typography whiteSpace="pre-line" align="justify">
+        {textContent}
+      </Typography>
     </Grid>
   );
 };
