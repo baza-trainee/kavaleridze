@@ -1,19 +1,20 @@
 import { useLayoutEffect } from 'react';
-import { Route, Routes, useLocation } from 'react-router-dom';
-import SharedLayout from './components/SharedLayout/SharedLayout';
-import Home from './components/Home/Home';
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import Contacts from './components/Contacts/Contacts';
-import Search from './components/Search/Search';
-import MuseumHistory from './components/MuseumHistory/MuseumHistory';
+import Donation from './components/Donation/Donation';
 import Events from './components/Events/Events';
-import Kavaleridze from './components/Kavaleridze/Kavaleridze';
-import Tickets from './components/Tickets/Tickets';
+import Home from './components/Home/Home';
 import Artist from './components/Kavaleridze/Artist/Artist';
+import Biography from './components/Kavaleridze/Biography/Biography';
+import Kavaleridze from './components/Kavaleridze/Kavaleridze';
+import Kyiv from './components/Kavaleridze/Kyiv/Kyiv';
 import Movie from './components/Kavaleridze/Movie/Movie';
 import Sculpture from './components/Kavaleridze/Sculpture/Sculpture';
-import Biography from './components/Kavaleridze/Biography/Biography';
-import Kyiv from './components/Kavaleridze/Kyiv/Kyiv';
-import Donation from './components/Donation/Donation';
+import MuseumHistory from './components/MuseumHistory/MuseumHistory';
+import NotFoundPage from './components/NotFoundPage/NotFoundPage';
+import Search from './components/Search/Search';
+import SharedLayout from './components/SharedLayout/SharedLayout';
+import Tickets from './components/Tickets/Tickets';
 
 function App() {
   const location = useLocation();
@@ -39,6 +40,8 @@ function App() {
         <Route path="search" element={<Search />} />
         <Route path="tickets" element={<Tickets />} />
         <Route path="donation" element={<Donation />} />
+        <Route path="*" element={<Navigate to={'404'} />} />
+        <Route path="404" element={<NotFoundPage />} />
       </Route>
     </Routes>
   );
