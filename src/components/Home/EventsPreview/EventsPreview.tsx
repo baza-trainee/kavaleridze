@@ -1,27 +1,25 @@
 import { FC } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { Container } from '@mui/material';
-import { useTheme, styled, Box, Typography } from '@mui/material';
+import { styled, Box, Typography, Button } from '@mui/material';
 import SvgSpriteIcon from '../../PrimaryButton/SvgSpriteIcon';
 import { dataInfo } from './fakeData';
 import Slider from './Slider';
 
-const EventsPreviewSection = styled('section')(() => ({
+const EventsPreviewSection = styled('section')(({ theme }) => ({
   position: 'relative',
-  margin: '120px 0px',
-}));
+  marginBottom: '60px',
 
-const EventsTitle = styled(Typography)(() => ({
-  fontFamily: 'Kyiv Type',
-  fontSize: '40px',
-  fontWeight: '500',
-  lineHeight: '44px',
-  color: '#000000',
+  [theme.breakpoints.up('md')]: {
+    marginBottom: '80px',
+  },
+
+  [theme.breakpoints.up('lg')]: {
+    marginBottom: '120px',
+  },
 }));
 
 const EventsPreview: FC = () => {
-  const theme = useTheme();
-
   return (
     <EventsPreviewSection>
       <Container>
@@ -29,27 +27,20 @@ const EventsPreview: FC = () => {
           sx={{
             display: 'flex',
             flexDirection: { xs: 'column', md: 'row' },
-            justifyContent: { xs: '', md: 'space-between' },
-            gap: { xs: '24px' },
-            // alignItems: 'flex-end',
-            marginBottom: { xs: '24px', md: '40px' },
+            justifyContent: { md: 'space-between' },
+            gap: { xs: '24px', md: '0' },
+            alignItems: { xs: 'flex-start', md: 'flex-end' },
+            marginBottom: { xs: '24px', md: '32px', lg: '40px' },
           }}>
-          <EventsTitle variant="h2">Події музею</EventsTitle>
-          <Box
+          <Typography variant="h1">Події музею</Typography>
+          <Button
+            variant="tertiary"
             component={RouterLink}
+            sx={{ fontSize: { xs: '14px', md: '18px' }, fontWeight: '600', lineHeight: { xs: '20px', md: 'normal' } }}
             to="/events"
-            sx={{
-              display: 'flex',
-              gap: '4px',
-              alignItems: 'center',
-              fontSize: '18px',
-              fontWeight: '600',
-              transition: '250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms',
-              '&:hover': { color: theme.palette.primary.dark },
-            }}>
+            endIcon={<SvgSpriteIcon svgSpriteId="breadcrumbsSeparator_icon" />}>
             Дивитись усі події
-            <SvgSpriteIcon svgSpriteId="breadcrumbsSeparator_icon" />
-          </Box>
+          </Button>
         </Box>
         <Slider fakeData={dataInfo} />
       </Container>
