@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Container, Typography, useTheme } from '@mui/material';
+import {  Typography, useTheme } from '@mui/material';
 import Section from '../../Section/Section';
 import { SmallGridItem, BigGridItem, FamousList, ImgArt, TopTextBlock, BottomtTextBlock, Title, ContainerFamous } from './style';
 import data from '../../../assets/siteData';
