@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Modal, Box, Typography, Stack, IconButton, Divider } from '@mui/material';
+import { Modal, Box, Typography, Stack, IconButton, Divider, useTheme, useMediaQuery } from '@mui/material';
 import { FacebookShareButton, ViberShareButton, TelegramShareButton } from 'react-share';
 import SvgSpriteIcon from '../../../PrimaryButton/SvgSpriteIcon';
 import { StyledBox, StyledTextButton } from './styles';
@@ -24,12 +24,17 @@ const SocialMediaIcon: FC<SocialMediaIconProps> = ({ src, alt }) => {
 };
 
 const ShareModal: FC<ShareModalProps> = ({ open, onCloseModal }) => {
+  const theme = useTheme();
+  const isDesktop = useMediaQuery(theme.breakpoints.up('lg'));
   const shareUrl = window.location.href;
 
   const onClickGmailBtn = () => {
     const message = `Check out this awesome website! %0D%0A %0D%0A ${shareUrl}`;
-    const url = `https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=&su=сайт+музею-майстерні+Іван+Кавалерідзе&body=${message}&ui=2&tf=1&pli=1`;
-    window.open(url, 'sharer', 'toolbar=no,status=no,width=648,height=395');
+    if (isDesktop) {
+      const url = `https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=&su=сайт+музею-майстерні+Іван+Кавалерідзе&body=${message}&ui=2&tf=1&pli=1`;
+      window.open(url, 'sharer', 'toolbar=no,status=no,width=648,height=395');
+      return;
+    }
   };
 
   return (
@@ -52,16 +57,16 @@ const ShareModal: FC<ShareModalProps> = ({ open, onCloseModal }) => {
           </Typography>
           <Stack direction="row" gap={{ xs: 2, md: 4, lg: 4 }} width="100%" justifyContent="center">
             <FacebookShareButton url={shareUrl}>
-              <SocialMediaIcon alt="share via facebook" src={facebook} />
+              <SocialMediaIcon alt="facebook icon" src={facebook} />
             </FacebookShareButton>
             <TelegramShareButton url={shareUrl}>
-              <SocialMediaIcon alt="share via telegram" src={telegram} />
+              <SocialMediaIcon alt="telegram icon" src={telegram} />
             </TelegramShareButton>
             <ViberShareButton url={shareUrl}>
-              <SocialMediaIcon alt="share via viber" src={viber} />
+              <SocialMediaIcon alt="viber icon" src={viber} />
             </ViberShareButton>
-            <IconButton aria-label="share via gmail" sx={{ p: 0 }} onClick={onClickGmailBtn}>
-              <SocialMediaIcon alt="share via gmail" src={gmail} />
+            <IconButton aria-label="gmail" sx={{ p: 0 }} onClick={onClickGmailBtn}>
+              <SocialMediaIcon alt="gmail icon" src={gmail} />
             </IconButton>
           </Stack>
           <Typography textAlign="center" fontWeight={500}>
