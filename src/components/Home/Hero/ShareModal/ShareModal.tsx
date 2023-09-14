@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Modal, Box, Typography, Stack, IconButton, Divider, useTheme, useMediaQuery } from '@mui/material';
+import { Modal, Box, Typography, Stack, IconButton, Divider } from '@mui/material';
 import { FacebookShareButton, ViberShareButton, TelegramShareButton } from 'react-share';
 import SvgSpriteIcon from '../../../PrimaryButton/SvgSpriteIcon';
 import { StyledBox, StyledTextButton } from './styles';
