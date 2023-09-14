@@ -1,33 +1,26 @@
 .mySwiper {
-  /* position: static; */
-  padding-bottom: 85px;
+  padding-bottom: 64px;
+
+  @media (min-width: 1280px) {
+    padding-bottom: 85px;
+  }
 }
 
 .mySwiper .swiper-button-prev,
 .mySwiper .swiper-button-next {
-  /* position: absolute; */
   color: #151514;
-  top: 480px;
-  /* top: 600px; */
+  top: 96%;
   z-index: 1000;
   width: 44px;
   height: 44px;
-
-  /* @media (min-width: 767px) {
-    top: 480px;
-  } */
 }
 
 .mySwiper .swiper-button-prev {
-  /* left: 50px; */
-  left: 476px;
-  /* bottom: 40px; */
+  left: calc(50% - 90px);
 }
 
 .mySwiper .swiper-button-next {
-  /* right: 50px; */
-  right: 476px;
-  /* bottom: 80px; */
+  right: calc(50% - 90px);
 }
 
 .mySwiper .swiper-button-prev::after,
@@ -37,8 +30,15 @@
 }
 
 .mySwiper .swiper-pagination {
-  bottom: 10px;
-  /* bottom: 100px; */
+  bottom: 2.8%;
+
+  @media (min-width: 767px) {
+    bottom: 2%;
+  }
+
+  @media (min-width: 1280px) {
+    bottom: 2.5%;
+  }
 }
 
 .mySwiper .swiper-pagination-bullet {

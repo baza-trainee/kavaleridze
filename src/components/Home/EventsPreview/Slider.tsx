@@ -1,10 +1,10 @@
 import { FC } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
-import { Button, Box } from '@mui/material';
+import { Button, Box, Typography } from '@mui/material';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import { DataInfo, CardsTitle, EventData, EventDescription, WrapperImg } from './partsStyle';
+import { WrapperImg } from './partsStyle';
 
 interface IDataSliderProps {
   mainTitle: string;
@@ -31,10 +31,8 @@ import './sliderStyles.css';
 import { Navigation, Pagination, Mousewheel, Keyboard } from 'swiper/modules';
 
 const Slider: FC<IFullData> = ({ fakeData }) => {
-  const truncateDescription = (string: string): string => {
-    const arrayWords = string.split(' ');
-
-    return arrayWords.length > 30 ? string.split(' ').slice(0, 30).join(' ') + ' ' + '...' : string;
+  const truncateDescription = (string: string, maxLength: number): string => {
+    return string.length >= maxLength ? string.slice(0, maxLength) + '...' : string;
   };
 
   return (
@@ -47,19 +45,28 @@ const Slider: FC<IFullData> = ({ fakeData }) => {
       spaceBetween={80}
       modules={[Navigation, Pagination, Mousewheel, Keyboard]}
       className="mySwiper">
-      {fakeData.map(({ dataPublication, cardTitle, dataPerformance, description, img }, index) => (
+      {fakeData.map(({ cardTitle, dataPerformance, description, img }, index) => (
         <SwiperSlide key={index}>
-          <Box sx={{ display: 'flex', flexDirection: { xs: 'column-reverse', md: 'row' }, gap: '26px' }}>
-            <Box sx={{ width: { xs: '100%', lg: '452px' }, display: 'flex', flexDirection: 'column', gap: '36px' }}>
+          <Box sx={{ display: 'flex', flexDirection: { xs: 'column-reverse', md: 'row' }, gap: { xs: '24px', lg: '26px' } }}>
+            <Box sx={{ width: { xs: '100%', lg: '452px' }, display: 'flex', flexDirection: 'column', gap: { xs: '24px', lg: '40px' } }}>
               <Box sx={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                <DataInfo>{dataPublication}</DataInfo>
-                <CardsTitle>{cardTitle}</CardsTitle>
-                <EventData>{dataPerformance}</EventData>
-                <EventDescription>{truncateDescription(description)}</EventDescription>
+                <Typography sx={{ fontWeight: '500' }} variant="h3Kyiv" component="h3">
+                  {cardTitle}
+                </Typography>
+                <Typography variant="body1" sx={{ fontWeight: '600' }}>
+                  {dataPerformance}
+                </Typography>
+                <Typography variant="caption">{truncateDescription(description, 150)}</Typography>
               </Box>
-              <Button component={RouterLink} to="/events" variant="secondary" sx={{ maxWidth: '244px' }}>
-                Детальніше про подію
-              </Button>
+              <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: { xs: 'center', md: 'flex-start' } }}>
+                <Button
+                  component={RouterLink}
+                  to="/events"
+                  variant="secondary"
+                  sx={{ width: { xs: '288px', md: '242px', lg: '244px' }, height: '48px', fontSize: { xs: '16px', lg: '18px' } }}>
+                  Детальніше про подію
+                </Button>
+              </Box>
             </Box>
             <WrapperImg sx={{}}>
               <img src={img} alt="picture" />
