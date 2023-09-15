@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { Modal, Box, Typography, Stack, IconButton, Divider } from '@mui/material';
-import { FacebookShareButton, ViberShareButton, TelegramShareButton } from 'react-share';
+import { FacebookShareButton, ViberShareButton, TelegramShareButton, EmailShareButton } from 'react-share';
 import SvgSpriteIcon from '../../../PrimaryButton/SvgSpriteIcon';
 import { StyledBox, StyledTextButton } from './styles';
 
@@ -25,28 +25,26 @@ const SocialMediaIcon: FC<SocialMediaIconProps> = ({ src, alt }) => {
 
 const ShareModal: FC<ShareModalProps> = ({ open, onCloseModal }) => {
   const shareUrl = window.location.href;
-  const device = navigator.appVersion;
-  console.log(navigator);
-  console.log(window);
+  // const device = navigator.appVersion;
 
-  const onClickGmailBtn = () => {
-    const emailSubject = 'Сайт Музею-майстрені імені Івана Кавалерідзе';
-    const emailBody = `Ось посилання на сайт музею-майстрені імені Івана Кавалерідзе: %0D%0A %0D%0A ${shareUrl}`;
-    const isAndroid = navigator.appVersion.toLowerCase().includes('android');
+  // const onClickGmailBtn = () => {
+  //   const emailSubject = 'Сайт Музею-майстрені імені Івана Кавалерідзе';
+  //   const emailBody = `Ось посилання на сайт музею-майстрені імені Івана Кавалерідзе: %0D%0A %0D%0A ${shareUrl}`;
+  //   const isAndroid = navigator.appVersion.toLowerCase().includes('android');
 
-    if (isAndroid) {
-      const gmailAppLink = `intent://send?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(
-        emailBody
-      )}#Intent;package=com.google.android.gm;end`;
-      window.location.href = gmailAppLink;
-      return;
-    }
-    const url = `https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=&su=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(
-      emailBody
-    )}&ui=2&tf=1&pli=1`;
+  //   if (isAndroid) {
+  //     const gmailAppLink = `intent://send?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(
+  //       emailBody
+  //     )}#Intent;package=com.google.android.gm;end`;
+  //     window.location.href = gmailAppLink;
+  //     return;
+  //   }
+  //   const url = `https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=&su=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(
+  //     emailBody
+  //   )}&ui=2&tf=1&pli=1`;
 
-    window.open(url, 'sharer', 'toolbar=no,status=no,width=648,height=395');
-  };
+  //   window.open(url, 'sharer', 'toolbar=no,status=no,width=648,height=395');
+  // };
 
   return (
     <Modal open={open} onClose={onCloseModal}>
@@ -61,7 +59,7 @@ const ShareModal: FC<ShareModalProps> = ({ open, onCloseModal }) => {
             Поділіться сайтом з друзями!
           </Typography>
         </Box>
-        <Typography>{device}</Typography>
+        {/* <Typography>{device}</Typography> */}
         <Divider sx={{ borderColor: (theme) => theme.palette.gray.main }} />
         <Stack alignItems="center" px={2} pt={{ xs: 3, md: 4, lg: 5 }} pb={5} rowGap={{ xs: 2, md: 3, lg: 4 }}>
           <Typography maxWidth={{ xs: 216, md: 302 }} textAlign="center" fontWeight={500}>
@@ -77,9 +75,12 @@ const ShareModal: FC<ShareModalProps> = ({ open, onCloseModal }) => {
             <ViberShareButton url={shareUrl}>
               <SocialMediaIcon alt="viber icon" src={viber} />
             </ViberShareButton>
-            <IconButton aria-label="gmail" sx={{ p: 0 }} onClick={onClickGmailBtn}>
+            <EmailShareButton url={shareUrl}>
               <SocialMediaIcon alt="gmail icon" src={gmail} />
-            </IconButton>
+            </EmailShareButton>
+            {/* <IconButton aria-label="gmail" sx={{ p: 0 }} onClick={onClickGmailBtn}>
+              <SocialMediaIcon alt="gmail icon" src={gmail} />
+            </IconButton> */}
           </Stack>
           <Typography textAlign="center" fontWeight={500}>
             або скопіюйте лінк
