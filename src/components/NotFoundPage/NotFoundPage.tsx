@@ -29,10 +29,10 @@ const NotFoundPage: FC = () => {
             </ImageBox>
           </Error404Box>
           <SupportTextBox>
-            <Typography variant="h1" fontWeight={500}>
+            <Typography variant="h2" fontWeight={500}>
               Вибачте, але сторінку не знайдено
             </Typography>
-            <Typography variant="h3" fontWeight={500}>
+            <Typography variant="body1" fontWeight={500}>
               Сторінка, яку ви шукаєте видалена або тимчасово недоступна
             </Typography>
             <NavToMainPageBtn onClick={handleClick} />
