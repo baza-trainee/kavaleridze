@@ -13,11 +13,11 @@ export const StyledBox = styled(Box)(({ theme }) => ({
   borderRadius: '4px',
 
   [theme.breakpoints.up('md')]: {
-    width: 448,
+    width: 480,
   },
 
   [theme.breakpoints.up('lg')]: {
-    width: 524,
+    width: 556,
   },
 }));
 

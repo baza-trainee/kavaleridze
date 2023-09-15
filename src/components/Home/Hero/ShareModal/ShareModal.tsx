@@ -20,11 +20,29 @@ interface SocialMediaIconProps {
 }
 
 const SocialMediaIcon: FC<SocialMediaIconProps> = ({ src, alt }) => {
-  return <Box component="img" src={src} alt={alt} height={{ xs: 40, md: 56 }} width={{ xs: 40, md: 56 }} display="block" />;
+  return (
+    <Box
+      component="img"
+      src={src}
+      alt={alt}
+      height={{ xs: 40, md: 56 }}
+      width={{ xs: 40, md: 56 }}
+      display="block"
+      sx={{
+        borderRadius: '50%',
+        boxShadow:
+          '0px 1px 2px 0px rgba(0, 0, 0, 0.04), 0px 4px 4px 0px rgba(0, 0, 0, 0.03), 0px 10px 6px 0px rgba(0, 0, 0, 0.02), 0px 17px 7px 0px rgba(0, 0, 0, 0.01), 0px 27px 7px 0px rgba(0, 0, 0, 0.00)',
+      }}
+    />
+  );
 };
 
 const ShareModal: FC<ShareModalProps> = ({ open, onCloseModal }) => {
   const shareUrl = window.location.href;
+
+  const copyLinkToClipboard = () => {
+    navigator.clipboard.writeText(shareUrl);
+  };
 
   const onClickGmailBtn = () => {
     const emailSubject = 'Сайт Музею-майстрені імені Івана Кавалерідзе';
@@ -33,23 +51,6 @@ const ShareModal: FC<ShareModalProps> = ({ open, onCloseModal }) => {
 
     if (isAndroid) {
       const gmailAppLink = `mailto:?subject=${emailSubject}&body=${emailBody}`;
-      window.location.href = gmailAppLink;
-      return;
-    }
-    const url = `https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=&su=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(
-      emailBody
-    )}&ui=2&tf=1&pli=1`;
-
-    window.open(url, 'sharer', 'toolbar=no,status=no,width=648,height=395');
-  };
-
-  const onClickGmailBtn1 = () => {
-    const emailSubject = 'Сайт Музею-майстрені імені Івана Кавалерідзе';
-    const emailBody = `Ось посилання на сайт музею-майстрені імені Івана Кавалерідзе:  ${shareUrl}`;
-    const isAndroid = navigator.appVersion.toLowerCase().includes('android');
-
-    if (isAndroid) {
-      const gmailAppLink = `googlegmail://?subject=${emailSubject}&body=${emailBody}`;
       window.location.href = gmailAppLink;
       return;
     }
@@ -73,7 +74,7 @@ const ShareModal: FC<ShareModalProps> = ({ open, onCloseModal }) => {
             Поділіться сайтом з друзями!
           </Typography>
         </Box>
-        {/* <Typography>{device}</Typography> */}
+
         <Divider sx={{ borderColor: (theme) => theme.palette.gray.main }} />
         <Stack alignItems="center" px={2} pt={{ xs: 3, md: 4, lg: 5 }} pb={5} rowGap={{ xs: 2, md: 3, lg: 4 }}>
           <Typography maxWidth={{ xs: 216, md: 302 }} textAlign="center" fontWeight={500}>
@@ -89,20 +90,14 @@ const ShareModal: FC<ShareModalProps> = ({ open, onCloseModal }) => {
             <ViberShareButton url={shareUrl}>
               <SocialMediaIcon alt="viber icon" src={viber} />
             </ViberShareButton>
-            {/* <EmailShareButton url={shareUrl}>
-              <SocialMediaIcon alt="gmail icon" src={gmail} />
-            </EmailShareButton> */}
             <IconButton aria-label="gmail" sx={{ p: 0 }} onClick={onClickGmailBtn}>
-              <SocialMediaIcon alt="gmail icon" src={gmail} />
-            </IconButton>
-            <IconButton aria-label="gmail" sx={{ p: 0 }} onClick={onClickGmailBtn1}>
               <SocialMediaIcon alt="gmail icon" src={gmail} />
             </IconButton>
           </Stack>
           <Typography textAlign="center" fontWeight={500}>
             або скопіюйте лінк
           </Typography>
-          <StyledTextButton variant="text" svgSpriteId="share_icon" title="  Скопіювати посилання" />
+          <StyledTextButton variant="text" svgSpriteId="share_icon" title="Скопіювати посилання" onClick={copyLinkToClipboard} />
         </Stack>
       </StyledBox>
     </Modal>
