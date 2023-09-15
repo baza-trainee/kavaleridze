@@ -1,14 +1,14 @@
 import { FC } from 'react';
-import { Container, Typography, useTheme } from '@mui/material';
+import {  Typography, useTheme } from '@mui/material';
 import Section from '../../Section/Section';
-import { SmallGridItem, BigGridItem, FamousList, ImgArt, TopTextBlock, BottomtTextBlock, Title } from './style';
+import { SmallGridItem, BigGridItem, FamousList, ImgArt, TopTextBlock, BottomtTextBlock, Title, ContainerFamous } from './style';
 import data from '../../../assets/siteData';
 const FamousArtist: FC = () => {
   const { famousArtImages } = data;
   const theme = useTheme();
   return (
     <Section variant="dark">
-      <Container style={{maxWidth:'1280px',width:'100%'}} >
+      <ContainerFamous >
         <FamousList>
           <TopTextBlock>
             <Title variant="h1">Пориньте у світ відомих митців України</Title>
@@ -23,7 +23,7 @@ const FamousArtist: FC = () => {
             </Typography>
           </TopTextBlock>
           {famousArtImages.map(({ src, alt, size }) => {
-            const img = <ImgArt src={src.tablet} alt={src.mobile} />;
+            const img = <ImgArt src={src} alt={alt} />;
             const key = src + alt + size;
             return size === 'small' ? <SmallGridItem key={key}>{img}</SmallGridItem> : <BigGridItem key={key}>{img}</BigGridItem>;
           })}
@@ -32,7 +32,7 @@ const FamousArtist: FC = () => {
             <Title variant="h1">станьте частиною нашої загальної історії</Title>
           </BottomtTextBlock>
         </FamousList>
-      </Container>
+      </ContainerFamous>
     </Section>
   );
 };

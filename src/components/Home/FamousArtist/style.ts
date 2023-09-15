@@ -1,4 +1,4 @@
-import { List, ListItem, Typography, styled } from '@mui/material';
+import { List, ListItem, Container, Typography, styled } from '@mui/material';
 const styles = {
   overflow: 'hidden',
 
@@ -9,15 +9,22 @@ const styles = {
 export const FamousList = styled(List)(({ theme }) => ({
   display: 'grid',
   justifyContent: 'center',
-   padding: '60px 0',
-   gridTemplateRows:'min-content repeat(5,minmax(100px , 168px))',
+  alignContent:'center',
+  padding: '60px',
+  gridTemplateRows: 'min-content repeat(5,minmax(100px , 168px))',
   [theme.breakpoints.up('md')]: {
-    padding: '80px 0',
-    gridTemplateRows:'172px 240px 172px',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    padding: '80px',
+    gridTemplateRows: 'minmax(172px,260px) minmax(240px,400px) minmax(172px,260px)',
     gridTemplateColumns: 'repeat(6,1fr)',
-  }, [theme.breakpoints.up('lg')]: {
-    padding: '120px 0',
-    gridTemplateRows:'260px 400px 260px',
+  },
+  [theme.breakpoints.up('lg')]: {
+    padding: '120px 80px',
+    
     gridTemplateColumns: 'repeat(6,1fr)',
   },
 
@@ -26,7 +33,6 @@ export const FamousList = styled(List)(({ theme }) => ({
 export const BigGridItem = styled(ListItem)(({ theme }) => ({
   [theme.breakpoints.up('md')]: {
     gridColumn: 'span 3',
-
   },
 
   ...styles,
@@ -34,7 +40,6 @@ export const BigGridItem = styled(ListItem)(({ theme }) => ({
 export const SmallGridItem = styled(ListItem)(({ theme }) => ({
   [theme.breakpoints.up('md')]: {
     gridColumn: 'span 2',
-
   },
   ...styles,
 }));
@@ -43,14 +48,28 @@ export const TopTextBlock = styled(BigGridItem)({
   flexDirection: 'column',
   maxWidth: '452px',
   gap: '16px',
-
 });
-export const BottomtTextBlock = styled(SmallGridItem)(({ theme }) => ({
+export const ContainerFamous = styled(Container)(({ theme }) => ({
+  [theme.breakpoints.up('md')]: {
+    position: 'relative',
+    ':before': {
+      content: '""',
+      paddingTop: 'calc(94.4% + 160px)',
+      display: 'block',
+    }}, [theme.breakpoints.up('lg')]: {
 
-  width:'75%',
+    ':before': {
+      content: '""',
+      paddingTop: 'calc(86% + 240px)',
+      display: 'block',
+    },
+  },
+}));
+export const BottomtTextBlock = styled(SmallGridItem)(({ theme }) => ({
+  width: '75%',
   [theme.breakpoints.up('md')]: {
     alignSelf: 'end',
-    width:'100%'
+    width: '100%',
   },
 }));
 
