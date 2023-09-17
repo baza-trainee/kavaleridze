@@ -4,23 +4,24 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, EffectCoverflow } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/effect-coverflow'
-import slide_image_1 from "../../../assets/tempData/images/mainSlider/img1.jpg"
-import slide_image_2 from "../../../assets/tempData/images/mainSlider/img2.jpg" 
-import slide_image_3 from "../../../assets/tempData/images/mainSlider/img3.jpg" 
-import slide_image_4 from "../../../assets/tempData/images/mainSlider/img4.jpg" 
-import slide_image_5 from "../../../assets/tempData/images/mainSlider/img5.jpg" 
-import slide_image_11 from  "../../../assets/tempData/images/mainSlider/img1_tablet.jpg"
-import slide_image_12 from  "../../../assets/tempData/images/mainSlider/img2_tablet.jpg"
-import slide_image_13 from  "../../../assets/tempData/images/mainSlider/img3_tablet.jpg"
-import slide_image_14 from  "../../../assets/tempData/images/mainSlider/img4_tablet.jpg"
-import slide_image_15 from "../../../assets/tempData/images/mainSlider/img5_tablet.jpg"
-import slide_image_6 from "../../../assets/tempData/images/mainSlider/img1_mobil.jpg"
-import slide_image_7 from "../../../assets/tempData/images/mainSlider/img2_mobil.jpg"
-import slide_image_8 from "../../../assets/tempData/images/mainSlider/img3_mobil.jpg"
-import slide_image_9 from "../../../assets/tempData/images/mainSlider/img4_mobil.jpg"
-import slide_image_10 from "../../../assets/tempData/images/mainSlider/img5_mobil.jpg"
+// import slide_image_1 from "../../../assets/tempData/images/mainSlider/img1.jpg"
+// import slide_image_2 from "../../../assets/tempData/images/mainSlider/img2.jpg" 
+// import slide_image_3 from "../../../assets/tempData/images/mainSlider/img3.jpg" 
+// import slide_image_4 from "../../../assets/tempData/images/mainSlider/img4.jpg" 
+// import slide_image_5 from "../../../assets/tempData/images/mainSlider/img5.jpg" 
+// import slide_image_11 from  "../../../assets/tempData/images/mainSlider/img1_tablet.jpg"
+// import slide_image_12 from  "../../../assets/tempData/images/mainSlider/img2_tablet.jpg"
+// import slide_image_13 from  "../../../assets/tempData/images/mainSlider/img3_tablet.jpg"
+// import slide_image_14 from  "../../../assets/tempData/images/mainSlider/img4_tablet.jpg"
+// import slide_image_15 from "../../../assets/tempData/images/mainSlider/img5_tablet.jpg"
+// import slide_image_6 from "../../../assets/tempData/images/mainSlider/img1_mobil.jpg"
+// import slide_image_7 from "../../../assets/tempData/images/mainSlider/img2_mobil.jpg"
+// import slide_image_8 from "../../../assets/tempData/images/mainSlider/img3_mobil.jpg"
+// import slide_image_9 from "../../../assets/tempData/images/mainSlider/img4_mobil.jpg"
+// import slide_image_10 from "../../../assets/tempData/images/mainSlider/img5_mobil.jpg"
+
+// import Section from '../../Section/Section';
 import s from "./mainslider.module.css"
-import Section from '../../Section/Section';
 // import { PropsWithChildren } from 'react'
 
 // interface Slide {
