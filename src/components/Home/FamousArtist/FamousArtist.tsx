@@ -3,6 +3,7 @@ import {  Typography, useTheme } from '@mui/material';
 import Section from '../../Section/Section';
 import { SmallGridItem, BigGridItem, FamousList, ImgArt, TopTextBlock, BottomtTextBlock, Title, ContainerFamous } from './style';
 import data from '../../../assets/siteData';
+
 const FamousArtist: FC = () => {
   const { famousArtImages } = data;
   const theme = useTheme();

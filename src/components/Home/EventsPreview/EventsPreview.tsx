@@ -8,14 +8,17 @@ import Slider from './Slider';
 
 const EventsPreviewSection = styled('section')(({ theme }) => ({
   position: 'relative',
-  marginBottom: '60px',
+  paddingTop: '60px',
+  paddingBottom: '60px',
 
   [theme.breakpoints.up('md')]: {
-    marginBottom: '80px',
+    paddingTop: '80px',
+    paddingBottom: '80px',
   },
 
   [theme.breakpoints.up('lg')]: {
-    marginBottom: '120px',
+    paddingTop: '120px',
+    paddingBottom: '120px',
   },
 }));
 

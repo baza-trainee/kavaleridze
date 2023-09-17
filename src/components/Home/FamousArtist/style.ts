@@ -9,7 +9,7 @@ const styles = {
 export const FamousList = styled(List)(({ theme }) => ({
   display: 'grid',
   justifyContent: 'center',
-  alignContent:'center',
+  alignContent: 'center',
   padding: '60px',
   gridTemplateRows: 'min-content repeat(5,minmax(100px , 168px))',
   [theme.breakpoints.up('md')]: {
@@ -24,7 +24,7 @@ export const FamousList = styled(List)(({ theme }) => ({
   },
   [theme.breakpoints.up('lg')]: {
     padding: '120px 80px',
-    
+
     gridTemplateColumns: 'repeat(6,1fr)',
   },
 
@@ -49,6 +49,7 @@ export const TopTextBlock = styled(BigGridItem)({
   maxWidth: '452px',
   gap: '16px',
 });
+
 export const ContainerFamous = styled(Container)(({ theme }) => ({
   [theme.breakpoints.up('md')]: {
     position: 'relative',
@@ -56,8 +57,9 @@ export const ContainerFamous = styled(Container)(({ theme }) => ({
       content: '""',
       paddingTop: 'calc(94.4% + 160px)',
       display: 'block',
-    }}, [theme.breakpoints.up('lg')]: {
-
+    },
+  },
+  [theme.breakpoints.up('lg')]: {
     ':before': {
       content: '""',
       paddingTop: 'calc(86% + 240px)',
