@@ -40,7 +40,7 @@ const PageTemplate: FC<PageTemplateProps> = ({ data }) => {
           }
 
           if (item.type === 'slider') {
-            return <SliderContent key={index} />;
+            return <SliderContent key={index} images={item.images} columns={item.columns} />;
           }
 
           return null;
