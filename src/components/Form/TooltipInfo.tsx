@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import { IconButton, Tooltip, TooltipProps, Typography, tooltipClasses } from '@mui/material';
 import { Box, styled } from '@mui/system';
 import SvgSpriteIcon from '../PrimaryButton/SvgSpriteIcon';
@@ -15,7 +16,11 @@ const MyTooltip = styled(({ className, ...props }: TooltipProps) => <Tooltip {..
   })
 );
 
-function TooltipInfo({ alert }: any) {
+interface TooltipInfoProps {
+  alert: string;
+}
+
+const TooltipInfo: FC<TooltipInfoProps> = ({ alert }) => {
   return (
     <Box sx={{ position: 'absolute', right: '8px', top: { xs: '38px', lg: '40px' } }}>
       <MyTooltip
@@ -32,5 +37,5 @@ function TooltipInfo({ alert }: any) {
       </MyTooltip>
     </Box>
   );
-}
+};
 export default TooltipInfo;

@@ -10,15 +10,15 @@ const validateSchemaFullName = yup
   .matches(/^[a-zA-Zа-яА-Яґєіїёў'-.\s]*$/, 'Введено недозволені символи');
 
 export const validateSchema = yup.object().shape({
-  name: validateSchemaFullName,
-  surname: validateSchemaFullName,
+  firstName: validateSchemaFullName,
+  lastName: validateSchemaFullName,
   email: yup
     .string()
     .trim()
     .required('Невірно введені дані.')
     .matches(/^[a-zA-Z0-9]+([._-][a-zA-Z0-9]+)*@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, 'Невірний формат вводу ел.пошти. Див.зразок')
     .email('Невірний формат вводу ел.пошти. Див.зразок'),
-  text: yup
+  message: yup
     .string()
     .trim()
     .required('Невірно введені дані.')

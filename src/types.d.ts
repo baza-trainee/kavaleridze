@@ -34,3 +34,10 @@ interface IEvent {
   created: Date; //дата створення події
   content: ContentType[];
 }
+
+export interface IFormInput {
+  firstName: string;
+  lastName: string;
+  email: string;
+  message: string;
+}
