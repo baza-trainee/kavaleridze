@@ -2,13 +2,13 @@ import { Box, FormHelperText, InputLabel, TextField, useTheme } from '@mui/mater
 import { FC, useEffect, useState } from 'react';
 import { Control, Controller, FieldError } from 'react-hook-form';
 import SvgSpriteIcon from '../PrimaryButton/SvgSpriteIcon';
-import { IFormInput } from './FeedBackForm';
+import { IFormInput } from '../../types';
 import TooltipInfo from './TooltipInfo';
 
 interface InputFormProps {
   placeholder: string;
   control: Control<IFormInput>;
-  name: 'text' | 'name' | 'email' | 'surname';
+  name: 'message' | 'firstName' | 'email' | 'lastName';
   alert: string;
   label: string;
   error: FieldError | undefined;
@@ -57,7 +57,7 @@ const InputForm: FC<InputFormProps> = ({ placeholder, control, name, alert, labe
           />
         )}
       />
-      <TooltipInfo color={color} alert={alert} />
+      <TooltipInfo alert={alert} />
 
       {!!error && (
         <Box

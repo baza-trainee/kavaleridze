@@ -5,13 +5,8 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import SvgSpriteIcon from '../PrimaryButton/SvgSpriteIcon';
 import InputForm from './InputForm';
 import { validateSchema } from './Validation';
-
-export interface IFormInput {
-  name: string;
-  surname: string;
-  email: string;
-  text: string;
-}
+import { IFormInput } from '../../types';
+import { sendFeedbackForm } from '../../api';
 
 interface FeedBackFormProps {
   handleClose: () => void;
@@ -29,16 +24,16 @@ const FeedBackForm: FC<FeedBackFormProps> = ({ handleClose, open, handleClickBut
   } = useForm({
     mode: 'all',
     defaultValues: {
-      name: '',
-      surname: '',
+      firstName: '',
+      lastName: '',
       email: '',
-      text: '',
+      message: '',
     },
     resolver: yupResolver(validateSchema),
   });
 
-  const onSubmit: SubmitHandler<IFormInput> = (data) => {
-    console.log(data);
+  const onSubmit: SubmitHandler<IFormInput> = async (data) => {
+    sendFeedbackForm(data);
     handleClickButton();
     handleClose();
     reset();
@@ -109,19 +104,19 @@ const FeedBackForm: FC<FeedBackFormProps> = ({ handleClose, open, handleClickBut
             }}>
             <InputForm
               control={control}
-              error={errors.name}
+              error={errors.firstName}
               placeholder={'Олена'}
-              name={'name'}
+              name={'firstName'}
               label={'Імʼя*'}
               alert={'Від 2 до 30 символів: букви, дефіс, крапка, апостроф, пробіл'}
             />
 
             <InputForm
               control={control}
-              error={errors?.surname}
+              error={errors?.lastName}
               placeholder={'Петрова'}
               label={'Прізвище*'}
-              name={'surname'}
+              name={'lastName'}
               alert={'Від 2 до 30 символів: букви, дефіс, крапка, апостроф, пробіл'}
             />
 
@@ -136,12 +131,12 @@ const FeedBackForm: FC<FeedBackFormProps> = ({ handleClose, open, handleClickBut
 
             <InputForm
               control={control}
-              error={errors.text}
+              error={errors.message}
               isMulti={true}
               rows={6}
               placeholder={'Ваше повідомлення'}
               label={'Текст повідомлення*'}
-              name={'text'}
+              name={'message'}
               alert={'Від 10 до 300 символів'}
             />
           </Box>
