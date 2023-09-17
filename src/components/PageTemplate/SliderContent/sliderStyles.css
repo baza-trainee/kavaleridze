@@ -5,12 +5,15 @@
 .historySwiper .swiper-button-prev,
 .historySwiper .swiper-button-next {
   color: #151514;
-  top: calc(100% - 26px);
+  top: calc(100% - 16px);
   z-index: 1000;
-  width: 44px;
-  height: 44px;
+  width: 25px;
+  height: 25px;
 
   @media (min-width: 768px) {
+    width: 44px;
+    height: 44px;
+    top: calc(100% - 26px);
     &::after {
       font-size: 28px !important;
     }
@@ -22,7 +25,7 @@
 }
 
 .historySwiper .swiper-button-prev {
-  left: calc(50% - 84px);
+  left: calc(50% - 78px);
 
   @media (min-width: 768px) {
     left: calc(50% - 110px);
@@ -30,7 +33,7 @@
 }
 
 .historySwiper .swiper-button-next {
-  right: calc(50% - 84px);
+  right: calc(50% - 78px);
 
   @media (min-width: 768px) {
     right: calc(50% - 110px);
