@@ -1,6 +1,6 @@
+import { Box, Button, Typography } from '@mui/material';
 import { FC } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
-import { Button, Box, Typography } from '@mui/material';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import { WrapperImg } from './styles';
@@ -27,7 +27,7 @@ import 'swiper/css/pagination';
 import './sliderStyles.css';
 
 // import required modules
-import { Navigation, Pagination, Mousewheel, Keyboard } from 'swiper/modules';
+import { Keyboard, Mousewheel, Navigation, Pagination } from 'swiper/modules';
 
 const Slider: FC<IFullData> = ({ fakeData }) => {
   const truncateDescription = (string: string, maxLength: number): string => {
@@ -60,7 +60,7 @@ const Slider: FC<IFullData> = ({ fakeData }) => {
               <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: { xs: 'center', md: 'flex-start' } }}>
                 <Button
                   component={RouterLink}
-                  to="/events"
+                  to={cardTitle}
                   variant="secondary"
                   sx={{ width: { xs: '288px', md: '242px', lg: '248px' }, height: '48px', fontSize: { xs: '16px', lg: '18px' } }}>
                   Детальніше про подію
