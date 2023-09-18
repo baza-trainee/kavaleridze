@@ -1,7 +1,7 @@
 import { Box, Button } from '@mui/material';
 import { FC, MouseEventHandler } from 'react';
 import { useNavigate } from 'react-router-dom';
-import SvgSpriteIcon from '../../PrimaryButton/SvgSpriteIcon';
+import SvgSpriteIcon from '../../Common/SvgSpriteIcon';
 
 interface BackToEventsBtnProps {
   title: string;

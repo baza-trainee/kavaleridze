@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { Stack, Typography } from '@mui/material';
-import SvgSpriteIcon from '../../PrimaryButton/SvgSpriteIcon';
+import SvgSpriteIcon from '../../Common/SvgSpriteIcon';
 import data from '../../../assets/siteData';
 
 const { general } = data;

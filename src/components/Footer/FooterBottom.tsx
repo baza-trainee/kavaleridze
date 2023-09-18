@@ -1,6 +1,6 @@
 import { Box, IconButton, Link, Stack, Typography, styled } from '@mui/material';
 
-import SvgSpriteIcon from '../PrimaryButton/SvgSpriteIcon';
+import SvgSpriteIcon from '../Common/SvgSpriteIcon';
 
 const TextLink = styled(Link)(({ theme }) => ({
   color: 'inherit',

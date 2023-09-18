@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { IconButton, Tooltip, TooltipProps, Typography, tooltipClasses } from '@mui/material';
 import { Box, styled } from '@mui/system';
-import SvgSpriteIcon from '../PrimaryButton/SvgSpriteIcon';
+import SvgSpriteIcon from '../Common/SvgSpriteIcon';
 
 const MyTooltip = styled(({ className, ...props }: TooltipProps) => <Tooltip {...props} arrow classes={{ popper: className }} />)(
   ({ theme }) => ({

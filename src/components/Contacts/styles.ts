@@ -3,7 +3,6 @@ import { List, styled, ListItem, Typography, Box, Link, Button } from '@mui/mate
 export const ContactLink = styled(Link)({
   color: 'inherit',
   display: 'inline-block',
-  textDecoration: 'none',
   marginBottom: '16px',
 });
 

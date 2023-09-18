@@ -2,7 +2,7 @@ import { FC, useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Container, useTheme, useMediaQuery } from '@mui/material';
 import { useLocation, useNavigate } from 'react-router-dom';
-import Section from '../Section/Section';
+import Section from '../Common/Section';
 import Menu from './Menu/Menu';
 
 const Kavaleridze: FC = () => {

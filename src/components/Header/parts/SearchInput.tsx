@@ -1,7 +1,7 @@
 import { FC, useState, ChangeEvent, FormEvent, useRef, FocusEvent, TouchEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Box, TextField, InputAdornment, styled, useTheme, useMediaQuery } from '@mui/material';
-import SvgSpriteIcon from '../../PrimaryButton/SvgSpriteIcon';
+import SvgSpriteIcon from '../../Common/SvgSpriteIcon';
 
 interface SearchInputProps {
   onCloseMenu?: () => void;

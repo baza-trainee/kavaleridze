@@ -1,8 +1,8 @@
 import { FC } from 'react';
 
 import { Container, useMediaQuery, useTheme } from '@mui/material';
-import Section from '../Section/Section';
 
+import Section from '../Common/Section';
 import { eventData as data } from './eventData';
 import BackToEventsBtn from './parts/BackToEventsBtn';
 import EventDetails from './parts/EventDetails';

@@ -2,7 +2,7 @@ import { Box, Container, Stack } from '@mui/material';
 import { ChangeEventHandler, FC, FormEventHandler, useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
-import Section from '../Section/Section';
+import Section from '../Common/Section.tsx';
 import SearchInfo from './parts/SearchInfo.tsx';
 import SearchListItem from './parts/SearchListItem';
 import SearchResultsInput from './parts/SearchResultsInput';

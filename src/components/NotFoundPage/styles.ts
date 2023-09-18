@@ -1,6 +1,6 @@
 import { Box, BoxProps, Stack, StackProps, Typography, TypographyProps, styled } from '@mui/material';
 
-const ImageBox = styled(Box)<BoxProps>(({ theme }) => ({
+export const ImageBox = styled(Box)<BoxProps>(({ theme }) => ({
   position: 'relative',
   display: 'flex',
   justifyContent: 'center',
@@ -20,7 +20,7 @@ const ImageBox = styled(Box)<BoxProps>(({ theme }) => ({
   },
 }));
 
-const Text404 = styled(Typography)<TypographyProps>(({ theme }) => ({
+export const Text404 = styled(Typography)<TypographyProps>(({ theme }) => ({
   position: 'absolute',
   bottom: 0,
   left: 0,
@@ -38,7 +38,7 @@ const Text404 = styled(Typography)<TypographyProps>(({ theme }) => ({
   },
 }));
 
-const ContentBox = styled(Box)<BoxProps>(({ theme }) => ({
+export const ContentBox = styled(Box)<BoxProps>(({ theme }) => ({
   padding: '120px 0',
   [theme.breakpoints.only('md')]: {
     padding: '80px 0',
@@ -48,7 +48,7 @@ const ContentBox = styled(Box)<BoxProps>(({ theme }) => ({
   },
 }));
 
-const Error404Box = styled(Box)<BoxProps>(({ theme }) => ({
+export const Error404Box = styled(Box)<BoxProps>(({ theme }) => ({
   paddingBottom: '35px',
   [theme.breakpoints.only('md')]: {
     paddingBottom: '30px',
@@ -58,7 +58,7 @@ const Error404Box = styled(Box)<BoxProps>(({ theme }) => ({
   },
 }));
 
-const SupportTextBox = styled(Stack)<StackProps>(({ theme }) => ({
+export const SupportTextBox = styled(Stack)<StackProps>(({ theme }) => ({
   alignItems: 'center',
   textAlign: 'center',
   rowGap: '24px',
@@ -66,5 +66,3 @@ const SupportTextBox = styled(Stack)<StackProps>(({ theme }) => ({
     rowGap: '16px',
   },
 }));
-
-export { ContentBox, Error404Box, ImageBox, SupportTextBox, Text404 };

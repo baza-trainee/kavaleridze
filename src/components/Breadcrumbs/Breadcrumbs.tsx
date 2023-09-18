@@ -2,8 +2,8 @@ import { Box, Breadcrumbs, Container, Typography, styled, useMediaQuery } from '
 import Link, { LinkProps } from '@mui/material/Link';
 import { Link as RouterLink, useLocation, useParams } from 'react-router-dom';
 import { routing } from '../../assets/siteData';
+import SvgSpriteIcon from '../Common/SvgSpriteIcon';
 import { theme } from '../../theme';
-import SvgSpriteIcon from '../PrimaryButton/SvgSpriteIcon';
 
 const BreadcrumbsBox = styled(Box)(({ theme }) => ({
   backgroundColor: theme.palette.common.white,

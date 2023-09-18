@@ -1,21 +1,23 @@
 import { FC } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
-import { Container } from '@mui/material';
-import { styled, Box, Typography, Button } from '@mui/material';
-import SvgSpriteIcon from '../../PrimaryButton/SvgSpriteIcon';
+import { Container, styled, Box, Typography } from '@mui/material';
+import ButtonWithIcon from '../../Common/ButtonWithIcon';
 import { dataInfo } from './fakeData';
 import Slider from './Slider';
 
 const EventsPreviewSection = styled('section')(({ theme }) => ({
   position: 'relative',
-  marginBottom: '60px',
+  paddingTop: '60px',
+  paddingBottom: '60px',
 
   [theme.breakpoints.up('md')]: {
-    marginBottom: '80px',
+    paddingTop: '80px',
+    paddingBottom: '80px',
   },
 
   [theme.breakpoints.up('lg')]: {
-    marginBottom: '120px',
+    paddingTop: '120px',
+    paddingBottom: '120px',
   },
 }));
 
@@ -32,15 +34,16 @@ const EventsPreview: FC = () => {
             alignItems: { xs: 'flex-start', md: 'flex-end' },
             marginBottom: { xs: '24px', md: '32px', lg: '40px' },
           }}>
-          <Typography variant="h1">Події музею</Typography>
-          <Button
+          <Typography variant="h1" component="h2">
+            Події музею
+          </Typography>
+          <ButtonWithIcon
             variant="tertiary"
             component={RouterLink}
-            sx={{ fontSize: { xs: '14px', md: '18px' }, fontWeight: '600', lineHeight: { xs: '20px', md: 'normal' } }}
             to="/events"
-            endIcon={<SvgSpriteIcon svgSpriteId="breadcrumbsSeparator_icon" />}>
-            Дивитись усі події
-          </Button>
+            svgSpriteId="breadcrumbsSeparator_icon"
+            title="Дивитись усі події"
+          />
         </Box>
         <Slider fakeData={dataInfo} />
       </Container>
