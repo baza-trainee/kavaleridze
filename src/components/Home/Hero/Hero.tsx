@@ -1,6 +1,6 @@
 import { FC, useState } from 'react';
 import { Typography } from '@mui/material';
-import { ContentBlock, WrapperContent } from './style';
+import { ContentBlock, WrapperContent } from './styles.js';
 import Section from '../../Common/Section';
 import data from '../../../assets/siteData';
 import ButtonWithIcon from '../../Common/ButtonWithIcon.js';
