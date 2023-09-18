@@ -1,6 +1,6 @@
 import { FC, useState, useRef, useEffect } from 'react';
 import { Box, IconButton, Slide, Paper, Stack } from '@mui/material';
-import SvgSpriteIcon from '../../PrimaryButton/SvgSpriteIcon';
+import SvgSpriteIcon from '../../Common/SvgSpriteIcon';
 import MobileMainMenu from './MobileMainMenu';
 import SubMenu from './SubMenu';
 import MobileDialog from './MobileDialog';

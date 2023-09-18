@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import Section from '../Section/Section';
+import Section from '../Common/Section';
 import { Container, Box, Typography } from '@mui/material';
 
 const Donation: FC = () => {

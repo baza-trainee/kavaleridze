@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { Container, Box, Typography } from '@mui/material';
-import Section from '../Section/Section';
+import Section from '../Common/Section';
 
 const Tickets: FC = () => {
   return (

@@ -1,8 +1,7 @@
 import { FC } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
-import { Container } from '@mui/material';
-import { styled, Box, Typography, Button } from '@mui/material';
-import SvgSpriteIcon from '../../PrimaryButton/SvgSpriteIcon';
+import { Container, styled, Box, Typography } from '@mui/material';
+import ButtonWithIcon from '../../Common/ButtonWithIcon';
 import { dataInfo } from './fakeData';
 import Slider from './Slider';
 
@@ -35,15 +34,16 @@ const EventsPreview: FC = () => {
             alignItems: { xs: 'flex-start', md: 'flex-end' },
             marginBottom: { xs: '24px', md: '32px', lg: '40px' },
           }}>
-          <Typography variant="h1">Події музею</Typography>
-          <Button
+          <Typography variant="h1" component="h2">
+            Події музею
+          </Typography>
+          <ButtonWithIcon
             variant="tertiary"
             component={RouterLink}
-            sx={{ fontSize: { xs: '14px', md: '18px' }, fontWeight: '600', lineHeight: { xs: '20px', md: 'normal' } }}
             to="/events"
-            endIcon={<SvgSpriteIcon svgSpriteId="breadcrumbsSeparator_icon" />}>
-            Дивитись усі події
-          </Button>
+            svgSpriteId="breadcrumbsSeparator_icon"
+            title="Дивитись усі події"
+          />
         </Box>
         <Slider fakeData={dataInfo} />
       </Container>

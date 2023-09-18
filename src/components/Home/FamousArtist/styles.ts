@@ -1,4 +1,4 @@
-import { List, ListItem, Container, Typography, styled } from '@mui/material';
+import { List, ListItem, Container, styled } from '@mui/material';
 const styles = {
   overflow: 'hidden',
 
@@ -10,7 +10,7 @@ export const FamousList = styled(List)(({ theme }) => ({
   display: 'grid',
   justifyContent: 'center',
   alignContent: 'center',
-  padding: '60px',
+  padding: '60px 0',
   gridTemplateRows: 'min-content repeat(5,minmax(100px , 168px))',
   [theme.breakpoints.up('md')]: {
     position: 'absolute',
@@ -18,7 +18,7 @@ export const FamousList = styled(List)(({ theme }) => ({
     left: 0,
     width: '100%',
     height: '100%',
-    padding: '80px',
+    padding: '80px 40px',
     gridTemplateRows: 'minmax(172px,260px) minmax(240px,400px) minmax(172px,260px)',
     gridTemplateColumns: 'repeat(6,1fr)',
   },
@@ -79,7 +79,4 @@ export const ImgArt = styled('img')({
   objectFit: 'cover',
   height: '100%',
   width: '100%',
-});
-export const Title = styled(Typography)({
-  fontWeight: 500,
 });

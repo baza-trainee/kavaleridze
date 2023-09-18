@@ -1,13 +1,12 @@
 import { FC, useEffect, useState } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { Container, Box, Typography, Button, useTheme } from '@mui/material';
-
-import SvgSpriteIcon from '../PrimaryButton/SvgSpriteIcon';
-import Section from '../Section/Section';
+import ButtonWithIcon from '../Common/ButtonWithIcon';
+import Section from '../Common/Section';
 import { dataInfo } from './fakeData';
 import Banner from './Banner';
-import { WrapperImg } from './stylesComponents';
-import { truncateDescription } from './helpers';
+import { WrapperImg } from './styles';
+import { truncateDescription } from '../../helpers/truncateString';
 
 const Events: FC = () => {
   const [cardsEvent, setItems] = useState(dataInfo);
@@ -58,14 +57,14 @@ const Events: FC = () => {
                     </Typography>
                     <Typography variant="caption">{truncateDescription(item.description, 150)}</Typography>
                   </Box>
-                  <Button
+                  <ButtonWithIcon
                     variant="tertiary"
                     component={RouterLink}
-                    sx={{ marginTop: '24px', fontSize: '18px', fontWeight: '600', lineHeight: 'normal' }}
+                    sx={{ marginTop: '24px' }}
                     to="/events/event"
-                    endIcon={<SvgSpriteIcon svgSpriteId="breadcrumbsSeparator_icon" />}>
-                    Читати далі
-                  </Button>
+                    svgSpriteId="breadcrumbsSeparator_icon"
+                    title="Читати далі"
+                  />
                 </Box>
               </Box>
             </Box>

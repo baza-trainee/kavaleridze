@@ -1,17 +1,16 @@
 import { Container, Typography } from '@mui/material';
 import { FC, MouseEventHandler } from 'react';
-
 import { useNavigate } from 'react-router-dom';
-
-import Section from '../Section/Section';
+import Section from '../Common/Section';
 import ErrorImage from './parts/ErrorImage';
 import NavToMainPageBtn from './parts/NavToMainPageBtn';
-import { ContentBox, Error404Box, ImageBox, SupportTextBox, Text404 } from './styledComponents';
+import { ContentBox, Error404Box, ImageBox, SupportTextBox, Text404 } from './styles';
 
 import image from '/404.png';
 
 const NotFoundPage: FC = () => {
   const navigate = useNavigate();
+
   const handleClick: MouseEventHandler<HTMLButtonElement> | undefined = (e) => {
     e.preventDefault();
     navigate('/');

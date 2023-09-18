@@ -3,7 +3,7 @@ import { Dialog, Stack, IconButton } from '@mui/material';
 import DialogTransition from '../parts/DialogTransition';
 import LangPanel from '../parts/LangPanel';
 import SearchInput from '../parts/SearchInput';
-import SvgSpriteIcon from '../../PrimaryButton/SvgSpriteIcon';
+import SvgSpriteIcon from '../../Common/SvgSpriteIcon';
 
 interface MobileDialogProps {
   state: boolean;

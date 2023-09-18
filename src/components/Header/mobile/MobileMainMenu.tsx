@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { Box, ListItem, ListItemButton, ListItemIcon, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
 import useActiveLink from '../../../hooks/useActiveLink';
-import SvgSpriteIcon from '../../PrimaryButton/SvgSpriteIcon';
+import SvgSpriteIcon from '../../Common/SvgSpriteIcon';
 interface MobileMainMenuProp {
   title: string;
   href: string;
@@ -21,10 +21,10 @@ const MobileMainMenu: FC<MobileMainMenuProp> = ({ title, href, openSubMenu, clos
           sx={{
             px: 0,
             py: 1,
-
             display: ' flex',
             justifyContent: 'space-between',
             color: (theme) => (isActiveLink ? theme.palette.primary.main : theme.palette.text.primary),
+            transition: (theme) => theme.transitions.create('color'),
             '&:hover': { color: (theme) => theme.palette.primary.dark },
           }}>
           <Typography variant="navigationKyiv" component="span">
@@ -48,6 +48,7 @@ const MobileMainMenu: FC<MobileMainMenuProp> = ({ title, href, openSubMenu, clos
           width: '100%',
           lineHeight: 1,
           color: (theme) => (isActiveLink ? theme.palette.primary.main : theme.palette.text.primary),
+          transition: (theme) => theme.transitions.create('color'),
           '&:hover': { color: (theme) => theme.palette.primary.dark },
         }}>
         <Typography variant="navigationKyiv" component="span">

@@ -1,4 +1,4 @@
-import { styled, Typography, Box, Container } from '@mui/material';
+import { styled, Box, Container } from '@mui/material';
 
 export const ContentBlock = styled(Container)({
   height: '100%',
@@ -24,10 +24,4 @@ export const WrapperContent = styled(Box)(({ theme }) => ({
   },
   background:
     'linear-gradient(90deg, rgba(0, 0, 0, 0.70) 28.24%, rgba(0, 0, 0, 0.50) 53.35%, rgba(0, 0, 0, 0.00) 70.25%), url("./images/hero/section_hero_bg.jpg") lightgray 50% / cover no-repeat',
-}));
-export const Title = styled(Typography)(({ theme }) => ({
-  whiteSpace: 'pre',
-  color: theme.palette.common.white,
-  fontWeight: 500,
-  fontSize: '24px',
 }));

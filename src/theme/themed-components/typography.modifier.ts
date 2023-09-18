@@ -44,6 +44,7 @@ export const MuiTypography: Components<Theme>['MuiTypography'] = {
         fontFamily: 'Kyiv Type',
         fontSize: 24,
         lineHeight: 1.167, //28px,
+        fontWeight: 500,
         [theme.breakpoints.up('md')]: {
           fontSize: 32,
           lineHeight: 1.125, //36px,
@@ -60,6 +61,7 @@ export const MuiTypography: Components<Theme>['MuiTypography'] = {
         fontFamily: 'Kyiv Type',
         fontSize: 20,
         lineHeight: 1.2, // '24px',
+        fontWeight: 500,
         [theme.breakpoints.up('md')]: {
           fontSize: 24,
           lineHeight: 1.167, // '28px',
@@ -77,6 +79,7 @@ export const MuiTypography: Components<Theme>['MuiTypography'] = {
         fontVariantNumeric: 'lining-nums proportional-nums',
         fontSize: 18,
         lineHeight: 1.222, // '22px',
+        fontWeight: 500,
         [theme.breakpoints.up('md')]: {
           fontSize: 20,
           lineHeight: 1.2, //'24px',

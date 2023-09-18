@@ -1,5 +1,5 @@
 import { Box, Divider, styled, useMediaQuery, useTheme } from '@mui/material';
-import Section from '../Section/Section.tsx';
+import Section from '../Common/Section.tsx';
 import FooterBottom from './FooterBottom.tsx';
 import { ListContacts, NavRedder } from './FooterListItem.tsx';
 import { ButtonBlok, MainIconBlok } from './IconButton.tsx';

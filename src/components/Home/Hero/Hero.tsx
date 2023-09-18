@@ -1,7 +1,9 @@
 import { FC, useState } from 'react';
-import { ContentBlock, Title, WrapperContent } from './style.js';
+import { Typography } from '@mui/material';
+import { ContentBlock, WrapperContent } from './style';
+import Section from '../../Common/Section';
 import data from '../../../assets/siteData';
-import GeneralButton from '../../GeneralButton/GeneralButton.js';
+import ButtonWithIcon from '../../Common/ButtonWithIcon.js';
 import ShareModal from './ShareModal/ShareModal.js';
 
 const Hero: FC = () => {
@@ -14,12 +16,14 @@ const Hero: FC = () => {
   const onCloseModal = () => setOpen(false);
 
   return (
-    <>
+    <Section variant="dark" component="section">
       <WrapperContent>
         <ContentBlock>
-          <Title variant="title">{mainTitle}</Title>
-          <GeneralButton
-            sx={{ color: 'white', borderColor: 'white', backgroundColor: 'transparent!important' }}
+          <Typography variant="title" component="h1" sx={{ whiteSpace: 'pre' }}>
+            {mainTitle}
+          </Typography>
+          <ButtonWithIcon
+            sx={{ color: 'inherit', borderColor: 'inherit' }}
             title={share}
             svgSpriteId="share_icon"
             variant="secondary"
@@ -28,7 +32,7 @@ const Hero: FC = () => {
         </ContentBlock>
       </WrapperContent>
       <ShareModal onCloseModal={onCloseModal} open={open} />
-    </>
+    </Section>
   );
 };
 

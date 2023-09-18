@@ -1,10 +1,9 @@
 import { FC } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { Button, Box, Typography } from '@mui/material';
-
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import { WrapperImg } from './partsStyle';
+import { WrapperImg } from './style';
 
 interface IDataSliderProps {
   mainTitle: string;

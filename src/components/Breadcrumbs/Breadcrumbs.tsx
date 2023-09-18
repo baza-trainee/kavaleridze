@@ -2,7 +2,7 @@ import Link, { LinkProps } from '@mui/material/Link';
 import { Container, Box, styled, useMediaQuery, Typography, Breadcrumbs } from '@mui/material';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 import { routing } from '../../assets/siteData';
-import SvgSpriteIcon from '../PrimaryButton/SvgSpriteIcon';
+import SvgSpriteIcon from '../Common/SvgSpriteIcon';
 import { theme } from '../../theme';
 
 const BreadcrumbsBox = styled(Box)(({ theme }) => ({

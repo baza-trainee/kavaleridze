@@ -33,6 +33,7 @@ const NavMenuItem: FC<NavMenuItemProp> = ({ href, title }) => {
           py: 0,
           width: '100%',
           color: isActiveLink ? theme.palette.primary.main : theme.palette.text.primary,
+          transition: (theme) => theme.transitions.create('color'),
           '&:hover': { color: theme.palette.primary.dark },
         }}>
         <Typography variant="navigationKyiv" component="span">

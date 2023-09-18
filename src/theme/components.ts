@@ -11,6 +11,7 @@ import { MuiInputBase, MuiOutlinedInput, MuiTextField } from './themed-component
 import { MuiTooltip } from './themed-components/tooltip.modifier';
 import { MuiTypography } from './themed-components/typography.modifier';
 import { MuiBreadcrumbs } from './themed-components/breadcrumbs.modifier';
+import { MuiLink } from './themed-components/link.modifier';
 
 import { Theme } from '@mui/material/styles';
 
@@ -29,4 +30,5 @@ export const components: Components<Theme> = {
   MuiTooltip,
   MuiTypography,
   MuiBreadcrumbs,
+  MuiLink,
 };
