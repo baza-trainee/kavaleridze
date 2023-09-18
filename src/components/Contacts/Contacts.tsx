@@ -1,10 +1,10 @@
-import { Container, Typography, useTheme } from '@mui/material';
+import { Container, Typography } from '@mui/material';
 import { FC, useState } from 'react';
 import data from '../../assets/siteData';
 import FeedBackForm from '../Form/FeedBackForm.tsx';
 import ModalDialog from '../Form/ModalDialog.tsx';
-import Section from '../Section/Section.tsx';
-import { BoxContact, ContactButton, ContactItem, ContactLink, ContactList, ContactPaper, Paragraph, Title } from './style.ts';
+import Section from '../Common/Section.tsx';
+import { BoxContact, ContactButton, ContactItem, ContactLink, ContactList, ContactPaper, Paragraph, Title } from './styles';
 
 const Contacts: FC = () => {
   const [open, setOpen] = useState(false);
@@ -23,14 +23,8 @@ const Contacts: FC = () => {
     setOpenDialog(false);
   };
 
-  const theme = useTheme();
   const { phone, email } = data.general;
-  const textHover = {
-    ':hover': {
-      cursor: 'pointer',
-      color: theme.palette.primary.main,
-    },
-  };
+
   return (
     <>
       <Section variant="light">
@@ -39,7 +33,7 @@ const Contacts: FC = () => {
             <ContactList>
               <ContactItem>
                 <Title variant="h3">Подзвонити до нас</Title>
-                <ContactLink sx={textHover} href={`tel:${phone}`} className="Blondie">
+                <ContactLink href={`tel:${phone}`} className="Blondie">
                   <Typography component="span" variant="body1">
                     {phone}
                   </Typography>
@@ -62,7 +56,7 @@ const Contacts: FC = () => {
               </ContactItem>
               <ContactItem>
                 <Title variant="h3">Написати нам</Title>
-                <ContactButton onClick={handleClickOpen} sx={{ textHover }} variant="text">
+                <ContactButton onClick={handleClickOpen} variant="text">
                   <Typography component="span" variant="body1">
                     {email}
                   </Typography>

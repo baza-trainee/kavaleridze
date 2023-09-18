@@ -1,9 +1,10 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Box, Button, Dialog, IconButton, Typography } from '@mui/material';
+import { Box, Dialog, IconButton, Typography } from '@mui/material';
 import { FC } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import SvgSpriteIcon from '../PrimaryButton/SvgSpriteIcon';
+import SvgSpriteIcon from '../Common/SvgSpriteIcon';
 import InputForm from './InputForm';
+import ButtonWithIcon from '../Common/ButtonWithIcon';
 import { validateSchema } from './Validation';
 import { IFormInput } from '../../types';
 import { sendFeedbackForm } from '../../api';
@@ -149,9 +150,7 @@ const FeedBackForm: FC<FeedBackFormProps> = ({ handleClose, open, handleClickBut
               marginTop: { xs: '24px' },
               marginBottom: { xs: '48px', md: '24px' },
             }}>
-            <Button type="submit" variant="primary" disabled={!isValid} endIcon={<SvgSpriteIcon svgSpriteId="send_icon" />}>
-              Відправити
-            </Button>
+            <ButtonWithIcon title="Відправити" type="submit" disabled={!isValid} svgSpriteId="send_icon" />
           </Box>
         </form>
       </Box>

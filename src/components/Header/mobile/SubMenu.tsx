@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { Box, ListItem, Stack, Button, List, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
 import useActiveLink from '../../../hooks/useActiveLink';
-import SvgSpriteIcon from '../../PrimaryButton/SvgSpriteIcon';
+import SvgSpriteIcon from '../../Common/SvgSpriteIcon';
 import TicketBtn from '../parts/TicketBtn';
 import Info from '../parts/Info';
 import data from '../../../assets/siteData';
@@ -34,6 +34,7 @@ const SubmenuItem: FC<SubmenuItemProps> = ({ title, href, closeMainMenu }) => {
         sx={{
           width: '100%',
           color: (theme) => (isActiveLink ? theme.palette.primary.main : theme.palette.text.primary),
+          transition: (theme) => theme.transitions.create('color'),
           '&:hover': { color: (theme) => theme.palette.primary.dark },
         }}>
         <Typography variant="navigationKyiv" component="span">

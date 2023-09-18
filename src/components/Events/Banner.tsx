@@ -2,9 +2,8 @@ import { FC } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { Typography, Button, useMediaQuery } from '@mui/material';
 import { theme } from '../../theme';
-import { BannerWrapper, ContentBox, TextBox, ButtonBox } from './stylesComponents';
-
-import { truncateDescription } from './helpers';
+import { BannerWrapper, ContentBox, TextBox, ButtonBox } from './styles';
+import { truncateDescription } from '../../helpers/truncateString';
 
 const Banner: FC = () => {
   const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));

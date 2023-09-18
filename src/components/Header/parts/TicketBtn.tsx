@@ -1,6 +1,6 @@
-import { FC, MouseEvent } from 'react';
-import { useNavigate } from 'react-router-dom';
-import PrimaryButton from '../../PrimaryButton/PrimaryButton';
+import { FC } from 'react';
+import { Link } from 'react-router-dom';
+import ButtonWithIcon from '../../Common/ButtonWithIcon';
 import data from '../../../assets/siteData';
 
 interface TicketBtnProps {
@@ -8,19 +8,16 @@ interface TicketBtnProps {
 }
 
 const TicketBtn: FC<TicketBtnProps> = ({ additionalClickFn }) => {
-  const navigate = useNavigate();
-
-  const onClickBtn = (e: MouseEvent) => {
-    e.preventDefault();
-    navigate('/tickets');
+  const onClickBtn = () => {
     if (additionalClickFn) {
       additionalClickFn();
     }
   };
 
   return (
-    <PrimaryButton
-      href="/tickets"
+    <ButtonWithIcon
+      component={Link}
+      to="/tickets"
       svgSpriteId="ticket_icon"
       title={data.buttonsLabels.tickets}
       onClick={onClickBtn}

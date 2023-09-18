@@ -68,6 +68,8 @@ export const MuiButton: Components<Theme>['MuiButton'] = {
         borderBottom: '1px solid',
         borderColor: 'transparent',
         fontFamily: 'Raleway',
+        lineHeight: 'normal',
+        fontWeight: 600,
         backgroundColor: theme.palette.common.white,
         color: theme.palette.common.black,
 
@@ -107,7 +109,6 @@ export const MuiButton: Components<Theme>['MuiButton'] = {
         '&:hover': {
           color: theme.palette.primary.dark,
           borderColor: theme.palette.primary.dark,
-          backgroundColor: theme.palette.secondary.main,
         },
 
         // після кліку на кнопку ПОКАЗАТИ БІЛЬШЕ вона не змінює колір на дефолтний, якщо ці властивості розкоментувати
@@ -119,7 +120,7 @@ export const MuiButton: Components<Theme>['MuiButton'] = {
 
         '&:active': {
           boxShadow: '0px 4px 8px 0px rgba(21, 21, 20, 0.15) inset',
-          backgroundColor: theme.palette.secondary.main,
+
           color: theme.palette.primary.dark,
           borderColor: theme.palette.primary.dark,
         },
@@ -127,7 +128,6 @@ export const MuiButton: Components<Theme>['MuiButton'] = {
         '&:disabled': {
           color: theme.palette.text.disabled,
           borderColor: theme.palette.text.disabled,
-          backgroundColor: 'transparent',
         },
       }),
     },

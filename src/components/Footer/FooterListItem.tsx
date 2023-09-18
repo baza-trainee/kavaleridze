@@ -2,7 +2,7 @@ import { Box, List, ListItem, ListItemIcon, ListItemText, Stack, Typography, sty
 import { Link } from 'react-router-dom';
 import data from '../../assets/siteData';
 import useActiveLink from '../../hooks/useActiveLink';
-import SvgSpriteIcon from '../PrimaryButton/SvgSpriteIcon';
+import SvgSpriteIcon from '../Common/SvgSpriteIcon';
 
 const {
   menuList: { main },
@@ -38,6 +38,7 @@ const ListNavigation = ({ title, href }: IListLinkTextProps) => {
           py: 0,
           width: '100%',
           color: isActiveLink ? theme.palette.primary.main : theme.palette.text.primary,
+          transition: (theme) => theme.transitions.create('color'),
           '&:hover': { color: theme.palette.primary.dark },
         }}>
         <Typography variant="navigationRale" component="span">
@@ -79,7 +80,8 @@ const ListContactItem = ({ title, svg = '', href = '#' }: IListLinkTextProps) =>
       <Link to={href}>
         <Stack
           sx={{
-            ':hover': {
+            transition: (theme) => theme.transitions.create('color'),
+            '&:hover': {
               color: (theme) => theme.palette.primary.main,
             },
           }}

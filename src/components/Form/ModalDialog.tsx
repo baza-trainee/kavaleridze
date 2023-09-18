@@ -1,6 +1,6 @@
 import { Box, Dialog, IconButton, Typography } from '@mui/material';
-import SvgSpriteIcon from '../PrimaryButton/SvgSpriteIcon';
-import Section from '../Section/Section';
+import SvgSpriteIcon from '../Common/SvgSpriteIcon';
+import Section from '../Common/Section';
 interface IModalDialog {
   handleClose: () => void;
   open: boolean;

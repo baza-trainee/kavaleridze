@@ -1,5 +1,5 @@
 import { Box, styled } from '@mui/material';
-import GeneralButton from '../../../GeneralButton/GeneralButton';
+import ButtonWithIcon from '../../../Common/ButtonWithIcon';
 import { buttonClasses } from '@mui/material/Button';
 
 export const StyledBox = styled(Box)(({ theme }) => ({
@@ -21,11 +21,12 @@ export const StyledBox = styled(Box)(({ theme }) => ({
   },
 }));
 
-export const StyledTextButton = styled(GeneralButton)(({ theme }) => ({
+export const StyledTextButton = styled(ButtonWithIcon)(({ theme }) => ({
   padding: 0,
   paddingBottom: '4px',
   fontFamily: 'Raleway',
   color: theme.palette.common.black,
+  borderRadius: 0,
   borderBottom: '1px solid',
   borderColor: 'inherit',
   fontSize: '14px',

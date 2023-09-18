@@ -1,8 +1,7 @@
-import { MouseEvent } from 'react';
 import { Box } from '@mui/material';
 
-import { Link, useNavigate } from 'react-router-dom';
-import PrimaryButton from '../PrimaryButton/PrimaryButton.tsx';
+import { Link } from 'react-router-dom';
+import ButtonWithIcon from '../Common/ButtonWithIcon';
 import Logo from '/Logo.svg';
 
 export const MainIconBlok = () => {
@@ -16,23 +15,17 @@ export const MainIconBlok = () => {
 };
 
 export const ButtonBlok = () => {
-  const navigate = useNavigate();
-  const onClickDonation = (e: MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    navigate('/donation', { replace: true });
-  };
-
   return (
     <Box
       sx={{
         display: 'grid',
         placeItems: { xs: 'center', lg: 'start' },
       }}>
-      <PrimaryButton
+      <ButtonWithIcon
         sx={{ width: { md: '280px', lg: '261px' } }}
         title="Підтримати музей"
         component={Link}
-        onClick={onClickDonation}
+        to={'/donation'}
         svgSpriteId="support_icon"
       />
     </Box>

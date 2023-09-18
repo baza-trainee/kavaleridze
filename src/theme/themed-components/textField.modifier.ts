@@ -41,6 +41,7 @@ export const MuiOutlinedInput: Components<Theme>['MuiOutlinedInput'] = {
     },
     root: ({ theme }) => ({
       color: theme.palette.common.black,
+
       maxHeight: 200,
       padding: 16,
       [`&:hover .${outlinedInputClasses.notchedOutline}`]: {

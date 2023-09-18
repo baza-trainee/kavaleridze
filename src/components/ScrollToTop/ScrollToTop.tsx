@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Box, Fab, Stack, Fade } from '@mui/material';
 
-import SvgSpriteIcon from '../PrimaryButton/SvgSpriteIcon';
+import SvgSpriteIcon from '../Common/SvgSpriteIcon';
 
 interface ScrollToTopProps {
   scrollTrigger: boolean;

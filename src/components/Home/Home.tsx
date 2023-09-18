@@ -4,7 +4,7 @@ import MainSlider from './MainSlider/MainSlider';
 import EventsPreview from './EventsPreview/EventsPreview';
 import FamousArtist from './FamousArtist/FamousArtist';
 import AboutHistory from './AboutHistory/AboutHistory';
-import Section from '../Section/Section';
+import Section from '../Common/Section';
 
 const Home: FC = () => {
   return (
