@@ -8,7 +8,6 @@ import Banner from './Banner';
 import { dataInfo } from './fakeData';
 import { truncateDescription } from './helpers';
 import { WrapperImg } from './stylesComponents';
-import Event from '../Event/Event';
 
 const Events: FC = () => {
   const [cardsEvent, setItems] = useState(dataInfo);
