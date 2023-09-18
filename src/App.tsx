@@ -27,7 +27,6 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<SharedLayout />}>
-        <Route path="/:title" element={<Event />} />
         <Route index element={<Home />} />
         <Route path="history" element={<MuseumHistory />} />
         <Route path="events" element={<Events />} />

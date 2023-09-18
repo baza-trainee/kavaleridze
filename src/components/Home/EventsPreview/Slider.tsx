@@ -60,7 +60,7 @@ const Slider: FC<IFullData> = ({ fakeData }) => {
               <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: { xs: 'center', md: 'flex-start' } }}>
                 <Button
                   component={RouterLink}
-                  to={cardTitle}
+                  to={`events/${cardTitle}`}
                   variant="secondary"
                   sx={{ width: { xs: '288px', md: '242px', lg: '248px' }, height: '48px', fontSize: { xs: '16px', lg: '18px' } }}>
                   Детальніше про подію
