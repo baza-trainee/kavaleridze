@@ -4,7 +4,7 @@ import data from '../../assets/siteData';
 import FeedBackForm from '../Form/FeedBackForm.tsx';
 import ModalDialog from '../Form/ModalDialog.tsx';
 import Section from '../Common/Section.tsx';
-import { BoxContact, ContactButton, ContactItem, ContactLink, ContactList, ContactPaper, Paragraph, Title } from './styles.tsx';
+import { BoxContact, ContactButton, ContactItem, ContactLink, ContactList, ContactPaper, Paragraph, Title } from './styles';
 
 const Contacts: FC = () => {
   const [open, setOpen] = useState(false);
