@@ -4,18 +4,8 @@
     height: 600px;
     overflow: hidden;
     position: relative;
-
-    
+   
 }
-
-/* .swiper-slide-shadow-left,
-.swiper-slide-shadow-right {
-    display: none;
-} */
-
-/* .swiper-slide-active::after {
-    background-color: 255 255 255 0.8;
-} */
 
 .swiper-slide2-first {
     width: 100%;
