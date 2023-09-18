@@ -61,7 +61,7 @@ const Events: FC = () => {
                     variant="tertiary"
                     component={RouterLink}
                     sx={{ marginTop: '24px' }}
-                    to="/events/event"
+                    to={dataInfo[index].cardTitle}
                     svgSpriteId="breadcrumbsSeparator_icon"
                     title="Читати далі"
                   />
