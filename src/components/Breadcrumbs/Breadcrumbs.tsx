@@ -1,9 +1,9 @@
+import { Box, Breadcrumbs, Container, Typography, styled, useMediaQuery } from '@mui/material';
 import Link, { LinkProps } from '@mui/material/Link';
-import { Container, Box, styled, useMediaQuery, Typography, Breadcrumbs } from '@mui/material';
-import { Link as RouterLink, useLocation } from 'react-router-dom';
+import { Link as RouterLink, useLocation, useParams } from 'react-router-dom';
 import { routing } from '../../assets/siteData';
-import SvgSpriteIcon from '../PrimaryButton/SvgSpriteIcon';
 import { theme } from '../../theme';
+import SvgSpriteIcon from '../PrimaryButton/SvgSpriteIcon';
 
 const BreadcrumbsBox = styled(Box)(({ theme }) => ({
   backgroundColor: theme.palette.common.white,
@@ -45,6 +45,8 @@ function Page() {
   const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
 
   const maxItemsBreadcrumbs = isSmallScreen ? 2 : 10;
+  // for breadcrumbs title on single event page
+  const { title } = useParams();
 
   return (
     <BreadcrumbsBox>
@@ -56,6 +58,7 @@ function Page() {
           <LinkRouter underline="hover" color="inherit" to="/">
             Головна
           </LinkRouter>
+
           {pathnames.map((_value, index) => {
             const last = index === pathnames.length - 1;
             const to = `/${pathnames.slice(0, index + 1).join('/')}`;
@@ -64,7 +67,7 @@ function Page() {
 
             return last ? (
               <Typography variant="breadcrumbs" sx={{ color: (theme) => theme.palette.common.black }} key={to}>
-                {breadcrumbNameMap[to]}
+                {breadcrumbNameMap[to] || title}
               </Typography>
             ) : (
               <LinkRouter underline="hover" color="inherit" to={to} key={to}>
