@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, EffectCoverflow } from 'swiper/modules';
 import "swiper/css";
 import "swiper/css/effect-coverflow";
-import "./mainslider.css";
+import "./MainSlider.css";
 import slide_image_1 from "../../../assets/tempData/images/mainSlider/img1.jpg";
 import slide_image_2 from "../../../assets/tempData/images/mainSlider/img2.jpg" ;
 import slide_image_3 from "../../../assets/tempData/images/mainSlider/img3.jpg" ;
