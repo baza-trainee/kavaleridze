@@ -32,6 +32,11 @@ const SocialMediaIcon: FC<SocialMediaIconProps> = ({ src, alt }) => {
         borderRadius: '50%',
         boxShadow:
           '0px 1px 2px 0px rgba(0, 0, 0, 0.04), 0px 4px 4px 0px rgba(0, 0, 0, 0.03), 0px 10px 6px 0px rgba(0, 0, 0, 0.02), 0px 17px 7px 0px rgba(0, 0, 0, 0.01), 0px 27px 7px 0px rgba(0, 0, 0, 0.00)',
+
+        transition: (theme) => theme.transitions.create('box-shadow'),
+        '&:hover': {
+          boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px;',
+        },
       }}
     />
   );
