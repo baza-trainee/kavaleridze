@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Box, Typography } from '@mui/material';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, EffectCoverflow } from 'swiper/modules';
+import { Pagination,Autoplay, EffectCoverflow } from 'swiper/modules';
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "./MainSlider.css";
@@ -36,6 +36,10 @@ const MainSlider:FC = () => {
           spaceBetween={500}
           slidesPerView={'auto'}
           loop={true}
+          autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
           coverflowEffect={{
             rotate: 0,
             stretch: 0,
@@ -43,7 +47,7 @@ const MainSlider:FC = () => {
             modifier: 5,
             slideShadows: true,
           }}
-          modules={[EffectCoverflow, Pagination]}
+          modules={[EffectCoverflow,Autoplay, Pagination]}
           className="mySwiper2"
       >
           <SwiperSlide className="swiper_slide2">
