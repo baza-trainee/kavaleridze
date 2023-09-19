@@ -5,6 +5,9 @@ const BASE_URL = import.meta.env.VITE_SERVER_URL;
 
 const instance = axios.create({
   baseURL: BASE_URL,
+  headers: {
+    'Content-Security-Policy': 'upgrade-insecure-requests',
+  },
 });
 
 export const sendFeedbackForm = (data: IFormInput) => {
