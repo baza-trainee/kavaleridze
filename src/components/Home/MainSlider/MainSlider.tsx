@@ -1,7 +1,8 @@
 import { FC } from 'react';
-import { Box, Typography } from '@mui/material';
+import { Box, Typography, Container } from '@mui/material';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination,Autoplay, EffectCoverflow } from 'swiper/modules';
+import { Pagination, Autoplay, EffectCoverflow } from 'swiper/modules';
+import Section from '../../Common/Section';
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "./MainSlider.css";
@@ -25,10 +26,18 @@ import slide_image_10 from "../../../assets/tempData/images/mainSlider/img5_mobi
 const MainSlider:FC = () => {
   return (
     <>
+      <Container>
+        <Section variant="light" sx={
+          { marginTop: { xs: '60px', md: '80px', lg: '120px' },
+            marginBottom: { xs: '24px', md: '32px', lg: '40px' },
+          }}>
+          <Typography variant="h1" component="h2"  maxWidth={1000} >
+              Вас вітає музей-майстерня Івана Кавалерідзе!
+          </Typography>
+        </Section>
+       </Container>
        <Box className="container">
-      <Typography variant="h2" mb={{ xs: 3, md: 4, lg: 5 }} sx={{ ml: 10}} mt={{ xs: 5, md: 10, lg: 15 }} maxWidth={1000} >
-           Вас вітає музей-майстерня Івана Кавалерідзе!
-      </Typography>
+
         <Swiper
           effect={'coverflow'}
           grabCursor={true}
