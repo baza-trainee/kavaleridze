@@ -11,6 +11,7 @@ declare module '@mui/material/Typography' {
     body2Kyiv: true;
     breadcrumbs: true;
     navigationRale: true;
+    navigationRaleFooter: true;
     navigationKyiv: true;
     caption: true;
     imageLabel: true;
@@ -181,6 +182,16 @@ export const MuiTypography: Components<Theme>['MuiTypography'] = {
         [theme.breakpoints.up('lg')]: {
           fontSize: 18,
         },
+      }),
+    },
+    {
+      props: { variant: 'navigationRaleFooter' },
+      style: () => ({
+        fontFamily: 'Raleway',
+        fontVariantNumeric: 'lining-nums proportional-nums',
+        fontSize: 16,
+        lineHeight: 'normal',
+        fontWeight: 500,
       }),
     },
     {
