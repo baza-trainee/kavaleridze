@@ -12,15 +12,15 @@
 }
 
 .container {
-  max-width: 1280px;
+  max-width: 1850px;
   margin-left: auto;
   margin-right: auto;
 }
 
 @media (max-width: 768px) {
-  .container {
+  /* .container {
     width: 768px;
-  }
+  } */
 
   .swiper_slide2 {
     width: 510px;
