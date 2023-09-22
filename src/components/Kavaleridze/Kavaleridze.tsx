@@ -1,9 +1,9 @@
+import { Container, useMediaQuery, useTheme } from '@mui/material';
 import { FC, useEffect } from 'react';
-import { Outlet } from 'react-router-dom';
-import { Container, useTheme, useMediaQuery } from '@mui/material';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import Section from '../Common/Section';
 import Menu from './Menu/Menu';
+import MobileMenu from './MobileMenu/MobileMenu';
 
 const Kavaleridze: FC = () => {
   const location = useLocation();
@@ -21,7 +21,7 @@ const Kavaleridze: FC = () => {
   return (
     <Section variant="light">
       <Container>
-        {isNotMobile && <Menu />}
+        {isNotMobile ? <Menu /> : <MobileMenu />}
         <Outlet />
       </Container>
     </Section>
