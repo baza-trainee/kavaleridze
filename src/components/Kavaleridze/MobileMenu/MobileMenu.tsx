@@ -1,4 +1,4 @@
-import { FormControl, ListItemIcon, ListItemText, MenuItem, SelectChangeEvent, styled } from '@mui/material';
+import { FormControl, ListItemIcon, MenuItem, SelectChangeEvent } from '@mui/material';
 import { FC } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import siteData, { routing } from '../../../assets/siteData';
