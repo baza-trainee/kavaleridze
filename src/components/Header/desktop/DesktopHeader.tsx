@@ -6,14 +6,13 @@ import Search from '../parts/SearchInput';
 import NavMenu from '../parts/NavMenu';
 import LangPanel from '../parts/LangPanel';
 import HeaderWrapper from '../parts/HeaderWrapper';
-import DesktopNavMenu from './DesktopNavMenu';
 import TicketBtn from '../parts/TicketBtn';
 
 const DesktopHeader = forwardRef<HTMLDivElement>(function (_, ref) {
   return (
     <>
       <AppBar position="static" component="header" ref={ref}>
-        <Toolbar disableGutters sx={{ display: 'flex', flexDirection: 'column' }}>
+        <Toolbar disableGutters>
           <HeaderWrapper alignItems="flex-start">
             <Info />
             <HeaderLogo />
@@ -24,12 +23,10 @@ const DesktopHeader = forwardRef<HTMLDivElement>(function (_, ref) {
       </AppBar>
 
       <AppBar position="sticky" component="div">
-        <Toolbar>
+        <Toolbar disableGutters>
           <HeaderWrapper alignItems="center" position="relative" justifyContent="flex-end">
             <Search />
-            <NavMenu>
-              <DesktopNavMenu />
-            </NavMenu>
+            <NavMenu />
             <LangPanel />
           </HeaderWrapper>
         </Toolbar>

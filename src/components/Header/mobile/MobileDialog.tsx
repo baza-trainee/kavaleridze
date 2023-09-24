@@ -1,16 +1,19 @@
-import { FC, PropsWithChildren } from 'react';
+import { FC } from 'react';
 import { Dialog, Stack, IconButton } from '@mui/material';
 import DialogTransition from '../parts/DialogTransition';
 import LangPanel from '../parts/LangPanel';
 import SearchInput from '../parts/SearchInput';
 import SvgSpriteIcon from '../../Common/SvgSpriteIcon';
+import NavMenu from '../parts/NavMenu';
+import Info from '../parts/Info';
+import TicketBtn from '../parts/TicketBtn';
 
 interface MobileDialogProps {
   state: boolean;
   onClose: () => void;
 }
 
-const MobileDialog: FC<PropsWithChildren<MobileDialogProps>> = ({ state, onClose, children }) => {
+const MobileDialog: FC<MobileDialogProps> = ({ state, onClose }) => {
   return (
     <Dialog
       fullScreen
@@ -26,7 +29,11 @@ const MobileDialog: FC<PropsWithChildren<MobileDialogProps>> = ({ state, onClose
           </IconButton>
         </Stack>
         <SearchInput onCloseMenu={onClose} />
-        {children}
+        <NavMenu onCloseMobileMenu={onClose} />
+        <Stack alignItems="center">
+          <TicketBtn additionalClickFn={onClose} />
+        </Stack>
+        <Info />
       </Stack>
     </Dialog>
   );
