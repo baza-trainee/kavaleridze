@@ -8,7 +8,7 @@ export const ImageBox = styled(Box)<BoxProps>(({ theme }) => ({
   textAlign: 'center',
   margin: '0px auto',
   width: '280px',
-  height: '250px',
+  height: '260px',
 
   [theme.breakpoints.only('md')]: {
     width: '224px',
@@ -26,7 +26,7 @@ export const Text404 = styled(Typography)<TypographyProps>(({ theme }) => ({
   left: 0,
   fontSize: '7.5rem',
   fontWeight: 800,
-  lineHeight: 1,
+  lineHeight: 'normal',
   width: '100%',
   textShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
   textAlign: 'center',
@@ -49,12 +49,12 @@ export const ContentBox = styled(Box)<BoxProps>(({ theme }) => ({
 }));
 
 export const Error404Box = styled(Box)<BoxProps>(({ theme }) => ({
-  paddingBottom: '35px',
+  paddingBottom: '24px',
   [theme.breakpoints.only('md')]: {
-    paddingBottom: '30px',
+    paddingBottom: '24px',
   },
   [theme.breakpoints.only('sm')]: {
-    paddingBottom: '25px',
+    paddingBottom: '16px',
   },
 }));
 
