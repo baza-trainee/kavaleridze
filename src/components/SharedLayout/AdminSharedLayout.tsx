@@ -9,7 +9,7 @@ const AdminSharedLayout = () => {
   if (!user) {
     return <Navigate to="/admin/login" state={{ from: location }} replace />;
   }
-
+  //ToDo: add components for left bar below:
   return <Outlet />;
 };
 

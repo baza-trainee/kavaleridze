@@ -51,7 +51,6 @@ function App() {
       <Route path="admin" element={<AdminSharedLayout />}>
         <Route index element={<AddEvent />} />
       </Route>
-
       <Route path="admin/login" element={<Login />} />
     </Routes>
   );
