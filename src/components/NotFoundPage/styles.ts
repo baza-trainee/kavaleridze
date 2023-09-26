@@ -10,11 +10,11 @@ export const ImageBox = styled(Box)<BoxProps>(({ theme }) => ({
   width: '280px',
   height: '260px',
 
-  [theme.breakpoints.only('md')]: {
+  [theme.breakpoints.down('lg')]: {
     width: '224px',
     height: '210px',
   },
-  [theme.breakpoints.only('sm')]: {
+  [theme.breakpoints.down('md')]: {
     width: '160px',
     height: '140px',
   },
@@ -30,20 +30,20 @@ export const Text404 = styled(Typography)<TypographyProps>(({ theme }) => ({
   width: '100%',
   textShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
   textAlign: 'center',
-  [theme.breakpoints.only('md')]: {
+  [theme.breakpoints.down('lg')]: {
     fontSize: '6.25rem',
   },
-  [theme.breakpoints.only('sm')]: {
+  [theme.breakpoints.down('md')]: {
     fontSize: '4rem',
   },
 }));
 
 export const ContentBox = styled(Box)<BoxProps>(({ theme }) => ({
   padding: '120px 0',
-  [theme.breakpoints.only('md')]: {
+  [theme.breakpoints.down('lg')]: {
     padding: '80px 0',
   },
-  [theme.breakpoints.only('sm')]: {
+  [theme.breakpoints.down('md')]: {
     padding: '60px 0',
   },
 }));
