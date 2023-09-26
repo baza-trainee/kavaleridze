@@ -23,6 +23,7 @@ const ErrorImage: FC<ErrorImageProps> = ({ image }) => {
           lg: '280px',
           md: '224px',
           sm: '160px',
+          xs: '160px',
         },
       }}
     />
