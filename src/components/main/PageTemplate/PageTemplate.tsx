@@ -1,6 +1,6 @@
 import { FC, useMemo } from 'react';
 import { Box, Typography, Grid, useMediaQuery, useTheme } from '@mui/material';
-import { IPage } from '../../types';
+import { IPage } from '@/types';
 import TextContent from './TextContent/TextContent';
 import ImageContent from './ImageContent/ImageContent';
 import SliderContent from './SliderContent/SliderContent';

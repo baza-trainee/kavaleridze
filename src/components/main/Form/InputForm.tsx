@@ -2,7 +2,7 @@ import { Box, FormHelperText, InputLabel, TextField, useTheme } from '@mui/mater
 import { FC, useEffect, useState } from 'react';
 import { Control, Controller, FieldError } from 'react-hook-form';
 import SvgSpriteIcon from '../Common/SvgSpriteIcon';
-import { IFormInput } from '../../types';
+import { IFormInput } from '@/types';
 import TooltipInfo from './TooltipInfo';
 
 interface InputFormProps {
