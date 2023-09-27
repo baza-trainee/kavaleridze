@@ -24,7 +24,7 @@ export const sculptureData: IPage = {
     {
       type: 'image',
       imageLink: sculpture1,
-      imageLabel: "Пам'ятник княгині Ользі. Автор - Івана Кавалерідзе. Фото: retroua.com",
+      imageLabel: "Пам'ятник княгині Ользі. Автор - Іван Кавалерідзе. Фото: retroua.com",
       columns: 1,
     },
     {
