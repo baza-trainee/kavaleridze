@@ -33,44 +33,42 @@ const Events: FC = () => {
           paddingBottom: { xs: '40px', md: '32px' },
         }}>
         {cardsEvent.slice(0, visibleItems).map((item, index) => (
-          <>
-            <Container sx={{ borderBottom: `1px solid ${theme.palette.gray.main} ` }}>
-              <Box key={index} sx={{ padding: { xs: '24px 0' } }}>
-                <Box
-                  sx={{
-                    display: 'grid',
-                    gridTemplateColumns: { md: '1fr 1fr', lg: '494px 436px' },
-                    gap: { xs: '16px', md: '24px', lg: '48px' },
-                  }}>
-                  <WrapperImg>
-                    <img src={item.img} alt="" />
-                  </WrapperImg>
-                  <Box>
-                    <Box
-                      sx={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        gap: '16px',
-                      }}>
-                      <Typography variant="h2">{truncateDescription(item.cardTitle, 100)}</Typography>
-                      <Typography variant="body1" sx={{ fontWeight: '600' }}>
-                        {item.dataPerformance}
-                      </Typography>
-                      <Typography variant="caption">{truncateDescription(item.description, 150)}</Typography>
-                    </Box>
-                    <ButtonWithIcon
-                      variant="tertiary"
-                      component={RouterLink}
-                      sx={{ marginTop: '24px' }}
-                      to={dataInfo[index].cardTitle}
-                      svgSpriteId="breadcrumbsSeparator_icon"
-                      title="Читати далі"
-                    />
+          <Container key={index} sx={{ borderBottom: `1px solid ${theme.palette.gray.main} ` }}>
+            <Box key={index} sx={{ padding: { xs: '24px 0' } }}>
+              <Box
+                sx={{
+                  display: 'grid',
+                  gridTemplateColumns: { md: '1fr 1fr', lg: '494px 436px' },
+                  gap: { xs: '16px', md: '24px', lg: '48px' },
+                }}>
+                <WrapperImg>
+                  <img src={item.img} alt="" />
+                </WrapperImg>
+                <Box>
+                  <Box
+                    sx={{
+                      display: 'flex',
+                      flexDirection: 'column',
+                      gap: '16px',
+                    }}>
+                    <Typography variant="h2">{truncateDescription(item.cardTitle, 100)}</Typography>
+                    <Typography variant="body1" sx={{ fontWeight: '600' }}>
+                      {item.dataPerformance}
+                    </Typography>
+                    <Typography variant="caption">{truncateDescription(item.description, 150)}</Typography>
                   </Box>
+                  <ButtonWithIcon
+                    variant="tertiary"
+                    component={RouterLink}
+                    sx={{ marginTop: '24px' }}
+                    to={dataInfo[index].cardTitle}
+                    svgSpriteId="breadcrumbsSeparator_icon"
+                    title="Читати далі"
+                  />
                 </Box>
               </Box>
-            </Container>
-          </>
+            </Box>
+          </Container>
         ))}
       </Box>
       <Box sx={{ width: '100%', textAlign: 'center', marginBottom: { xs: '60px', md: '80px' } }}>
