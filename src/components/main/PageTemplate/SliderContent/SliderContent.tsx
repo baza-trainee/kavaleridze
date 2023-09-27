@@ -13,7 +13,7 @@ import 'swiper/css/pagination';
 import './sliderStyles.css';
 
 // import required modules
-import { EffectFade, Navigation, Pagination, Mousewheel, Keyboard } from 'swiper/modules';
+import { EffectFade, Navigation, Pagination, Keyboard } from 'swiper/modules';
 
 interface SliderItemProps {
   imageLink: string;
@@ -41,7 +41,7 @@ const SliderContent: FC<SliderContentProps> = ({ images, columns }) => {
           }}
           keyboard={true}
           spaceBetween={30}
-          modules={[EffectFade, Navigation, Mousewheel, Pagination, Keyboard]}
+          modules={[EffectFade, Navigation, Pagination, Keyboard]}
           className="historySwiper">
           {images.map(({ imageLink, imageLabel }, index) => (
             <SwiperSlide key={index}>

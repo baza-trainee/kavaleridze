@@ -27,7 +27,7 @@ import 'swiper/css/pagination';
 import './sliderStyles.css';
 
 // import required modules
-import { Keyboard, Mousewheel, Navigation, Pagination } from 'swiper/modules';
+import { Keyboard, Navigation, Pagination } from 'swiper/modules';
 
 const Slider: FC<IFullData> = ({ fakeData }) => {
   const truncateDescription = (string: string, maxLength: number): string => {
@@ -37,12 +37,13 @@ const Slider: FC<IFullData> = ({ fakeData }) => {
   return (
     <Swiper
       navigation={true}
-      pagination={true}
-      mousewheel={true}
+      pagination={{
+        clickable: true,
+      }}
       keyboard={true}
       speed={700}
       spaceBetween={80}
-      modules={[Navigation, Pagination, Mousewheel, Keyboard]}
+      modules={[Navigation, Pagination, Keyboard]}
       className="mySwiper">
       {fakeData.map(({ cardTitle, dataPerformance, description, img }, index) => (
         <SwiperSlide key={index}>
