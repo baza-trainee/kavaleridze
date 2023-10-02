@@ -1,17 +1,28 @@
-import { Box, Button, ButtonProps } from '@mui/material';
+import { Box, BoxProps, Button, ButtonProps, styled } from '@mui/material';
 import { FC } from 'react';
 
-interface ShowMoreBtnProps extends ButtonProps {}
+const ButtonBox = styled(Box)<BoxProps>(({ theme }) => ({
+  margin: '0 auto',
+  [theme.breakpoints.up('xs')]: {
+    width: '288px',
+    paddingTop: '24px',
+  },
+  [theme.breakpoints.up('md')]: {
+    width: '248px',
+    paddingTop: '32px',
+  },
+  [theme.breakpoints.up('lg')]: {
+    paddingTop: '44px',
+  },
+}));
 
-const ShowMoreBtn: FC<ShowMoreBtnProps> = ({ onClick }) => {
+const ShowMoreBtn: FC<ButtonProps> = ({ onClick }) => {
   return (
-    <>
-      <Box sx={{ textAlign: 'center', paddingTop: { lg: '44px', md: '32px', sm: '24px' } }}>
-        <Button onClick={onClick} variant="secondary" sx={{ width: '248px' }}>
-          Показати більше
-        </Button>
-      </Box>
-    </>
+    <ButtonBox>
+      <Button onClick={onClick} variant="secondary" fullWidth sx={{ lineHeight: 1.61 }}>
+        Показати більше
+      </Button>
+    </ButtonBox>
   );
 };
 
