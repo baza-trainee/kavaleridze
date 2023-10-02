@@ -1,15 +1,23 @@
 import { Box, Button, ButtonProps } from '@mui/material';
+import { BoxProps, styled } from '@mui/system';
 import { FC } from 'react';
 
-interface NavToMainPageBtnProps extends ButtonProps {}
+const ButtonBox = styled(Box)<BoxProps>(({ theme }) => ({
+  [theme.breakpoints.up('xs')]: {
+    width: '288px',
+  },
+  [theme.breakpoints.up('md')]: {
+    width: '278px',
+  },
+}));
 
-const NavToMainPageBtn: FC<NavToMainPageBtnProps> = ({ onClick }) => {
+const NavToMainPageBtn: FC<ButtonProps> = ({ onClick }) => {
   return (
-    <Box sx={{ textAlign: 'center' }}>
-      <Button onClick={onClick} variant="primary" sx={{ width: '279px' }}>
+    <ButtonBox sx={{ textAlign: 'center' }}>
+      <Button onClick={onClick} variant="primary" fullWidth>
         На головну сторінку
       </Button>
-    </Box>
+    </ButtonBox>
   );
 };
 
