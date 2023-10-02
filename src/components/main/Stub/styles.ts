@@ -1,5 +1,4 @@
-import { Button, Container, styled } from '@mui/material';
-
+import { Button, Container, styled   } from '@mui/material';
 export const Wrapper = styled(Container)(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
@@ -17,8 +16,9 @@ export const Wrapper = styled(Container)(({ theme }) => ({
   },
 }));
 export const ButtonStub = styled(Button)(({ theme }) => ({
-  width: '288px',
+  maxwidth: '288px',
   [theme.breakpoints.up('md')]: {
     width: '279px',
   },
 }));
+
