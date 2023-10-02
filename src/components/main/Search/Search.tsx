@@ -1,4 +1,4 @@
-import { Box, Container, Stack } from '@mui/material';
+import { Container } from '@mui/material';
 import { ChangeEventHandler, FC, FormEventHandler, useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
@@ -8,8 +8,8 @@ import SearchListItem from './parts/SearchListItem';
 import SearchResultsInput from './parts/SearchResultsInput';
 import ShowMoreBtn from './parts/ShowMoreBtn.tsx';
 
+import { ContentBox, SearchResultsWrapper } from './styles.ts';
 import { testData } from './testData.ts';
-import { ContentBox } from './styles.ts';
 
 const Search: FC = () => {
   const [searchParams] = useSearchParams();
@@ -63,28 +63,15 @@ const Search: FC = () => {
     <Section variant="light">
       <Container>
         <ContentBox>
-          <SearchResultsInput
-            {...{ inputData, handleChange, onSubmit }}
-            // inputData={inputData}
-            // handleChange={handleChange}
-            // onSubmit={onSubmit}
-          />
+          <SearchResultsInput {...{ inputData, handleChange, onSubmit }} />
           <SearchInfo resultsCount={searchResults.length} searchTitle={searchTitleVal} />
           {!!searchResults?.length && (
             <>
-              <Stack
-                component={'ul'}
-                sx={{
-                  rowGap: {
-                    lg: '44px',
-                    md: '32px',
-                    sm: '24px',
-                  },
-                }}>
+              <SearchResultsWrapper component={'ul'}>
                 {searchResults.slice(0, visibleNum).map((data, index) => {
                   return <SearchListItem key={index} {...data} />;
                 })}
-              </Stack>
+              </SearchResultsWrapper>
               {visibleNum < searchResults.length && <ShowMoreBtn onClick={changeVisibleNum} />}
             </>
           )}

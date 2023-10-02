@@ -1,4 +1,4 @@
-import { Box, BoxProps, TextField, TextFieldProps, styled } from '@mui/material';
+import { Box, BoxProps, Stack, StackProps, TextField, TextFieldProps, styled } from '@mui/material';
 
 export const ContentBox = styled(Box)<BoxProps>(({ theme }) => ({
   [theme.breakpoints.up('xs')]: {
@@ -45,5 +45,17 @@ export const SearchInput = styled(TextField)<TextFieldProps>(({ theme }) => ({
     '&:hover:not(.Mui-disabled, .Mui-error):before': {
       borderBottom: `1px solid ${theme.palette.primary.dark}`,
     },
+  },
+}));
+
+export const SearchResultsWrapper = styled(Stack)<StackProps>(({ theme }) => ({
+  [theme.breakpoints.up('xs')]: {
+    rowGap: '24px',
+  },
+  [theme.breakpoints.up('md')]: {
+    rowGap: '32px',
+  },
+  [theme.breakpoints.up('lg')]: {
+    rowGap: '44px',
   },
 }));
