@@ -9,6 +9,7 @@ import SearchResultsInput from './parts/SearchResultsInput';
 import ShowMoreBtn from './parts/ShowMoreBtn.tsx';
 
 import { testData } from './testData.ts';
+import { ContentBox } from './styles.ts';
 
 const Search: FC = () => {
   const [searchParams] = useSearchParams();
@@ -61,15 +62,13 @@ const Search: FC = () => {
   return (
     <Section variant="light">
       <Container>
-        <Box
-          sx={{
-            paddingBottom: {
-              lg: '120px',
-              md: '80px',
-              sm: '60px',
-            },
-          }}>
-          <SearchResultsInput inputData={inputData} handleChange={handleChange} onSubmit={onSubmit} />
+        <ContentBox>
+          <SearchResultsInput
+            {...{ inputData, handleChange, onSubmit }}
+            // inputData={inputData}
+            // handleChange={handleChange}
+            // onSubmit={onSubmit}
+          />
           <SearchInfo resultsCount={searchResults.length} searchTitle={searchTitleVal} />
           {!!searchResults?.length && (
             <>
@@ -89,7 +88,7 @@ const Search: FC = () => {
               {visibleNum < searchResults.length && <ShowMoreBtn onClick={changeVisibleNum} />}
             </>
           )}
-        </Box>
+        </ContentBox>
       </Container>
     </Section>
   );
