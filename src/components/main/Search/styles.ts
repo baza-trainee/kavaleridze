@@ -1,4 +1,4 @@
-import { Box, BoxProps, Stack, StackProps, TextField, TextFieldProps, styled } from '@mui/material';
+import { Box, BoxProps, Stack, StackProps, TextField, TextFieldProps, Typography, TypographyProps, styled } from '@mui/material';
 
 export const ContentBox = styled(Box)<BoxProps>(({ theme }) => ({
   [theme.breakpoints.up('xs')]: {
@@ -57,5 +57,62 @@ export const SearchResultsWrapper = styled(Stack)<StackProps>(({ theme }) => ({
   },
   [theme.breakpoints.up('lg')]: {
     rowGap: '44px',
+  },
+}));
+
+export const SearchTitle = styled(Typography)<TypographyProps>(({ theme }) => ({
+  textTransform: 'none',
+  [theme.breakpoints.up('xs')]: {
+    padding: '24px 0',
+  },
+  [theme.breakpoints.up('md')]: {
+    padding: '32px 0',
+  },
+  [theme.breakpoints.up('md')]: {
+    lg: '44px 0 56px 0',
+  },
+}));
+
+export const NoResultsStack = styled(Stack)(({ theme }) => ({
+  [theme.breakpoints.up('xs')]: {
+    rowGap: '16px',
+    padding: '24px 0 60px',
+  },
+  [theme.breakpoints.up('md')]: {
+    rowGap: '16px',
+    padding: '32px 0 80px',
+  },
+  [theme.breakpoints.up('md')]: {
+    rowGap: '24px',
+    padding: '24px 0 60px',
+  },
+}));
+
+export const NothingFoundTitle = styled(Typography)<TypographyProps>(({ theme }) => ({
+  textTransform: 'none',
+  lineHeight: 1.1,
+  [theme.breakpoints.up('xs')]: {
+    fontSize: '1.25rem',
+  },
+  [theme.breakpoints.up('md')]: {
+    fontSize: '1.5rem',
+  },
+  [theme.breakpoints.up('md')]: {
+    fontSize: '2rem',
+  },
+}));
+
+export const NothingFoundSubTitle = styled(Typography)<TypographyProps>(({ theme }) => ({
+  fontWeight: 400,
+  lineHeight: 1.5,
+
+  [theme.breakpoints.up('xs')]: {
+    fontSize: '0.875rem',
+  },
+  [theme.breakpoints.up('md')]: {
+    fontSize: '1rem',
+  },
+  [theme.breakpoints.up('md')]: {
+    fontSize: '1.125rem',
   },
 }));
