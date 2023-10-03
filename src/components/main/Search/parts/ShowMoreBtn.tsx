@@ -1,17 +1,14 @@
-import { Box, Button, ButtonProps } from '@mui/material';
+import { Button, ButtonProps } from '@mui/material';
 import { FC } from 'react';
+import { ButtonBox } from '../styles';
 
-interface ShowMoreBtnProps extends ButtonProps {}
-
-const ShowMoreBtn: FC<ShowMoreBtnProps> = ({ onClick }) => {
+const ShowMoreBtn: FC<ButtonProps> = ({ onClick }) => {
   return (
-    <>
-      <Box sx={{ textAlign: 'center', paddingTop: { lg: '44px', md: '32px', sm: '24px' } }}>
-        <Button onClick={onClick} variant="secondary" sx={{ width: '248px' }}>
-          Показати більше
-        </Button>
-      </Box>
-    </>
+    <ButtonBox>
+      <Button onClick={onClick} variant="secondary" fullWidth sx={{ lineHeight: 1.61 }}>
+        Показати більше
+      </Button>
+    </ButtonBox>
   );
 };
 
