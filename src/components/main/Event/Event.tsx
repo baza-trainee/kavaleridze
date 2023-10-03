@@ -11,7 +11,7 @@ import { ContentBox } from './styledComponents';
 
 const Event: FC = () => {
   const { breakpoints } = useTheme();
-  const isMobile = useMediaQuery(breakpoints.only('sm'));
+  const isMobile = useMediaQuery(breakpoints.down('md'));
   return (
     <Section variant="light">
       <Container>
