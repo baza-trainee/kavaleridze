@@ -12,7 +12,7 @@ const DesktopHeader = forwardRef<HTMLDivElement>(function (_, ref) {
   return (
     <>
       <AppBar position="static" component="header" ref={ref}>
-        <Toolbar disableGutters>
+        <Toolbar disableGutters sx={{ display: 'flex', flexDirection: 'column' }}>
           <HeaderWrapper alignItems="flex-start">
             <Info />
             <HeaderLogo />

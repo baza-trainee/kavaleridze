@@ -11,9 +11,9 @@
 
 @font-face {
   font-family: 'Kyiv Type';
-  src: url('fonts/kyivtype/KyivTypeTitling-Regular.eot');
-  src: url('fonts/kyivtype/KyivTypeTitling-Regular.eot') format('embedded-opentype'),
-    url('fonts/kyivtype/KyivTypeTitling-Regular.woff2') format('woff2'), url('fonts/kyivtype/KyivTypeTitling-Regular.woff') format('woff');
+  src: url('fonts/kyivtype/KyivTypeTitling-Medium.eot');
+  src: url('fonts/kyivtype/KyivTypeTitling-Medium.eot') format('embedded-opentype'),
+    url('fonts/kyivtype/KyivTypeTitling-Medium.woff2') format('woff2'), url('fonts/kyivtype/KyivTypeTitling-Medium.woff') format('woff');
   font-weight: 350;
   font-style: normal;
 }

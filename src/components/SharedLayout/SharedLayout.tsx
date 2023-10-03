@@ -1,10 +1,10 @@
 import { Stack, useMediaQuery, useScrollTrigger, useTheme } from '@mui/material';
 import { FC, useRef } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
-import Breadcrumbs from '../main/Breadcrumbs/Breadcrumbs';
-import Footer from '../main/Footer/Footer';
-import Header from '../main/Header/Header';
-import ScrollToTop from '../main/ScrollToTop/ScrollToTop';
+import Breadcrumbs from '../Breadcrumbs/Breadcrumbs';
+import Footer from '../Footer/Footer';
+import Header from '../Header/Header';
+import ScrollToTop from '../ScrollToTop/ScrollToTop';
 
 const SharedLayout: FC = () => {
   const location = useLocation();
