@@ -1,14 +1,14 @@
 import { Box, BoxProps, styled } from '@mui/material';
 
 const ContentBox = styled(Box)<BoxProps>(({ theme }) => ({
-  [theme.breakpoints.only('lg')]: {
-    paddingBottom: '120px',
+  [theme.breakpoints.up('xs')]: {
+    paddingBottom: '60px',
   },
-  [theme.breakpoints.only('md')]: {
+  [theme.breakpoints.up('md')]: {
     paddingBottom: '80px',
   },
-  [theme.breakpoints.only('sm')]: {
-    paddingBottom: '60px',
+  [theme.breakpoints.up('lg')]: {
+    paddingBottom: '120px',
   },
 }));
 
