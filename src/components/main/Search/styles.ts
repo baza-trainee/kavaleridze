@@ -116,3 +116,18 @@ export const NothingFoundSubTitle = styled(Typography)<TypographyProps>(({ theme
     fontSize: '1.125rem',
   },
 }));
+
+export const ButtonBox = styled(Box)<BoxProps>(({ theme }) => ({
+  margin: '0 auto',
+  [theme.breakpoints.up('xs')]: {
+    width: '288px',
+    paddingTop: '24px',
+  },
+  [theme.breakpoints.up('md')]: {
+    width: '248px',
+    paddingTop: '32px',
+  },
+  [theme.breakpoints.up('lg')]: {
+    paddingTop: '44px',
+  },
+}));
