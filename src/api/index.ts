@@ -4,7 +4,7 @@ import { IFormInput } from '../types';
 const BASE_URL = import.meta.env.VITE_SERVER_URL;
 
 const instance = axios.create({
-  baseURL: 'http://localhost:8080',
+  baseURL: 'http://localhost:8081',
 });
 
 export const sendFeedbackForm = (data: IFormInput) => {
