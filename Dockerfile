@@ -1,4 +1,5 @@
 FROM node:18-alpine as BUILD_IMAGE
+ARG SERVER_URL
 
 WORKDIR /app/front
 
@@ -8,7 +9,7 @@ RUN npm install
 
 COPY . . 
 
-RUN npm run build 
+RUN VITE_SERVER_URL=${SERVER_URL} \ npm run build 
 
 FROM node:18-alpine as PRODUCTION_IMAGE
 
