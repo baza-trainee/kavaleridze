@@ -8,6 +8,9 @@ const instance = axios.create({
 });
 
 export const sendFeedbackForm = (data: IFormInput) => {
+  console.log('BASE-URL from environment', BASE_URL);
+  console.log('axios base url', instance.getUri());
+  console.log('data', data);
   return instance.post('/api/feedback/submit', data);
 };
 
