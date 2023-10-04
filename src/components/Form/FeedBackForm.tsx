@@ -127,7 +127,7 @@ const FeedBackForm: FC<FeedBackFormProps> = ({ handleClose, open, handleClickBut
               placeholder={'olenapetrova@gmail.com'}
               label={'Електронна адреса*'}
               name={'email'}
-              alert={'Формат example@google.com'}
+              alert={'Формат зразок@зразок.зразок'}
             />
 
             <InputForm
@@ -135,7 +135,7 @@ const FeedBackForm: FC<FeedBackFormProps> = ({ handleClose, open, handleClickBut
               error={errors.message}
               isMulti={true}
               rows={6}
-              placeholder={'Ваше повідомлення'}
+              placeholder={'Введіть Ваше повідомлення'}
               label={'Текст повідомлення*'}
               name={'message'}
               alert={'Від 10 до 300 символів'}

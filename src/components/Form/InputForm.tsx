@@ -36,7 +36,8 @@ const InputForm: FC<InputFormProps> = ({ placeholder, control, name, alert, labe
         render={({ field }) => (
           <TextField
             sx={{
-              input: {
+              '& .MuiInputBase-input.MuiOutlinedInput-input': {
+                padding: '0 28px 0 0',
                 '&::placeholder': {
                   fontSize: { xs: '14px', md: '16px' },
                 },
