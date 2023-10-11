@@ -1,27 +1,14 @@
-FROM node:18-alpine as BUILD_IMAGE
+FROM node:18-alpine3.17 as build
 
-WORKDIR /app/front
+ARG SERVER_URL
 
-COPY package.json .
+WORKDIR /app
+COPY . /app
 
-RUN npm install 
+RUN npm install
+RUN VITE_SERVER_URL=${SERVER_URL} npm run build
 
-COPY . . 
-
-RUN npm run build 
-
-FROM node:18-alpine as PRODUCTION_IMAGE
-
-WORKDIR /app/front
-
-COPY --from=BUILD_IMAGE /app/front/dist/ /app/front/dist/
-EXPOSE 8080
-
-COPY package.json .
-COPY vite.config.ts .
-
-RUN npm install typescript
-
-EXPOSE 8080
-
-CMD ["npm", "run", "preview" ]
+FROM nginx
+EXPOSE 80
+COPY ./docker/nginx/conf.d/default.conf /etc/nginx/conf.d/default.conf
+COPY --from=build /app/dist /usr/share/nginx/html
