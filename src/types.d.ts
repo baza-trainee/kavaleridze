@@ -1,13 +1,13 @@
 export interface IImage {
   type: 'image';
   imageLabel?: string;
-  imageLink: string;
+  imageLink: { desktop: string; tablet: string };
   columns: 1 | 2;
 }
 
 export interface ISlider {
   type: 'slider';
-  images: { imageLink: string; imageLabel: string }[];
+  images: { imageLink: { desktop: string; tablet: string }; imageLabel: string }[];
   columns: 2;
 }
 

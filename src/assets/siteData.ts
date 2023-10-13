@@ -1,3 +1,16 @@
+import famousArtistBig1 from '@/assets/images/famous-artist/1-big.jpg';
+import famousArtistBig2 from '@/assets/images/famous-artist/2-big.jpg';
+import famousArtistBig3 from '@/assets/images/famous-artist/3-big.jpg';
+import famousArtistBig4 from '@/assets/images/famous-artist/4-big.jpg';
+import famousArtistBig5 from '@/assets/images/famous-artist/5-big.jpg';
+import famousArtistSmall1 from '@/assets/images/famous-artist/1-small.jpg';
+import famousArtistSmall2 from '@/assets/images/famous-artist/2-small.jpg';
+import famousArtistSmall3 from '@/assets/images/famous-artist/3-small.jpg';
+import famousArtistSmall4 from '@/assets/images/famous-artist/4-small.jpg';
+import famousArtistSmall5 from '@/assets/images/famous-artist/5-small.jpg';
+import museumHistoryDesktop from '@/assets/images/about-history/desktop.jpg';
+import museumHistoryTablet from '@/assets/images/about-history/small.jpg';
+
 const siteData = {
   general: {
     workingHours: 'Вт-Нд 11:00 – 18:00',
@@ -14,11 +27,11 @@ const siteData = {
     more: 'Читати більше',
   },
   famousArtImages: [
-    { src: `./images/famous_artist/1.png`, alt: 'famous_artist', size: 'big' },
-    { src: `./images/famous_artist/2.png`, alt: 'famous_artist', size: 'big' },
-    { src: `./images/famous_artist/3.png`, alt: 'famous_artist', size: 'big' },
-    { src: `./images/famous_artist/4.png`, alt: 'famous_artist', size: 'small' },
-    { src: `./images/famous_artist/5.png`, alt: 'famous_artist', size: 'small' },
+    { src: { small: famousArtistSmall1, big: famousArtistBig1 }, alt: 'famous_artist', size: 'big' },
+    { src: { small: famousArtistSmall2, big: famousArtistBig2 }, alt: 'famous_artist', size: 'big' },
+    { src: { small: famousArtistSmall3, big: famousArtistBig3 }, alt: 'famous_artist', size: 'big' },
+    { src: { small: famousArtistSmall4, big: famousArtistBig4 }, alt: 'famous_artist', size: 'small' },
+    { src: { small: famousArtistSmall5, big: famousArtistBig5 }, alt: 'famous_artist', size: 'small' },
   ],
   about_history: {
     text: {
@@ -26,7 +39,7 @@ const siteData = {
       `,
       text2: `Музей розташований на Андріївському узвозі, в будинку, де Іван Петрович Кавалерідзе, відомий український скульптор і кінорежисер працював над пам'ятником княгині Ольги.`,
     },
-    src: `/images/about_history/museum.png`,
+    src: { big: museumHistoryDesktop, small: museumHistoryTablet },
   },
   menuList: {
     main: [

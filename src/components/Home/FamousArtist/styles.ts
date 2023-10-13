@@ -67,13 +67,18 @@ export const ContainerFamous = styled(Container)(({ theme }) => ({
     },
   },
 }));
-export const BottomtTextBlock = styled(SmallGridItem)(({ theme }) => ({
+export const BottomTextBlock = styled(SmallGridItem)(({ theme }) => ({
   width: '75%',
   [theme.breakpoints.up('md')]: {
     alignSelf: 'end',
     width: '100%',
   },
 }));
+
+export const PictureArt = styled('picture')({
+  width: '100%',
+  height: '100%',
+});
 
 export const ImgArt = styled('img')({
   objectFit: 'cover',

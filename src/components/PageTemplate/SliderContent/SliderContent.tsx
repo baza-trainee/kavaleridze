@@ -16,7 +16,7 @@ import './sliderStyles.css';
 import { EffectFade, Navigation, Pagination, Keyboard } from 'swiper/modules';
 
 interface SliderItemProps {
-  imageLink: string;
+  imageLink: { tablet: string; desktop: string };
   imageLabel: string;
 }
 
@@ -46,7 +46,11 @@ const SliderContent: FC<SliderContentProps> = ({ images, columns }) => {
           {images.map(({ imageLink, imageLabel }, index) => (
             <SwiperSlide key={index}>
               <SlideWrapper>
-                <img src={imageLink} alt={imageLabel} />
+                <picture>
+                  <source srcSet={imageLink.desktop} media="(min-width: 768px)" />
+                  <img src={imageLink.tablet} alt={imageLabel} />
+                </picture>
+
                 <SlideOverlay />
                 <SlideDescriptionBox>
                   <Typography

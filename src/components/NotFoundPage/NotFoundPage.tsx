@@ -5,8 +5,7 @@ import Section from '../Common/Section';
 import ErrorImage from './parts/ErrorImage';
 import NavToMainPageBtn from './parts/NavToMainPageBtn';
 import { ContentBox, Error404Box, ImageBox, SupportTextBox, Text404 } from './styles';
-
-import image from '/404.png';
+import image from '@/assets/images/404.png';
 
 const NotFoundPage: FC = () => {
   const navigate = useNavigate();

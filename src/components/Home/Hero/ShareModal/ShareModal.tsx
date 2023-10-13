@@ -1,13 +1,13 @@
 import { FC } from 'react';
 import { Modal, Box, Typography, Stack, IconButton, Divider } from '@mui/material';
 import { FacebookShareButton, ViberShareButton, TelegramShareButton } from 'react-share';
-import SvgSpriteIcon from '../../../Common/SvgSpriteIcon';
+import SvgSpriteIcon from '@/components/Common/SvgSpriteIcon';
 import { StyledBox, StyledTextButton } from './styles';
 
-import facebook from '/images/social_media/facebook.png';
-import gmail from '/images/social_media/gmail.png';
-import viber from '/images/social_media/viber.png';
-import telegram from '/images/social_media/telegram.png';
+import facebook from '@/assets/images/social-media/facebook.png';
+import gmail from '@/assets/images/social-media/gmail.png';
+import viber from '@/assets/images/social-media/viber.png';
+import telegram from '@/assets/images/social-media/telegram.png';
 
 interface ShareModalProps {
   open: boolean;
