@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Typography, useTheme } from '@mui/material';
 import Section from '../../Common/Section';
-import { SmallGridItem, BigGridItem, FamousList, ImgArt, TopTextBlock, BottomtTextBlock, ContainerFamous } from './styles';
+import { SmallGridItem, BigGridItem, FamousList, ImgArt, TopTextBlock, BottomTextBlock, ContainerFamous, PictureArt } from './styles';
 import data from '@/assets/siteData';
 
 const FamousArtist: FC = () => {
@@ -25,17 +25,21 @@ const FamousArtist: FC = () => {
               Щорічно ми проводимо виставки молодих митців та організовуємо творчі вечори
             </Typography>
           </TopTextBlock>
-          {famousArtImages.map(({ src, alt, size }) => {
-            const img = <ImgArt src={src} alt={alt} />;
-            const key = src + alt + size;
-            return size === 'small' ? <SmallGridItem key={key}>{img}</SmallGridItem> : <BigGridItem key={key}>{img}</BigGridItem>;
+          {famousArtImages.map(({ src, alt, size }, index) => {
+            const img = (
+              <PictureArt>
+                <source media="(min-width: 768px)" srcSet={src.big} type="image/webp"></source>
+                <ImgArt src={src.small} alt={alt} loading="lazy" />
+              </PictureArt>
+            );
+            return size === 'small' ? <SmallGridItem key={index}>{img}</SmallGridItem> : <BigGridItem key={index}>{img}</BigGridItem>;
           })}
 
-          <BottomtTextBlock sx={{}}>
+          <BottomTextBlock>
             <Typography variant="h1" component="p" sx={{ fontSize: { xs: 24, lg: 40 } }}>
               станьте частиною нашої загальної історії
             </Typography>
-          </BottomtTextBlock>
+          </BottomTextBlock>
         </FamousList>
       </ContainerFamous>
     </Section>

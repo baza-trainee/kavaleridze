@@ -19,9 +19,14 @@ export const InfoWrapper = styled(Box)(({ theme }) => ({
     padding: '120px 0',
   },
 }));
-export const Img = styled('img')({
-  maxWidth: '100%',
+
+export const Picture = styled('picture')({
+  width: '100%',
   gridColumn: '1 / 3',
+});
+
+export const Img = styled('img')({
+  width: '100%',
 });
 
 // export const Button = styled(GeneralButton)(({ theme }) => ({

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Container, Typography, Stack } from '@mui/material';
 import Section from '../../Common/Section';
 import data from '@/assets/siteData';
-import { InfoWrapper, Img } from './styles';
+import { InfoWrapper, Img, Picture } from './styles';
 import ButtonWithIcon from '../../Common/ButtonWithIcon';
 
 const AboutHistory: FC = () => {
@@ -27,7 +27,10 @@ const AboutHistory: FC = () => {
           <Typography align="justify" sx={{ gridColumn: { md: 'span 2', lg: 'auto' } }}>
             {text.text2}
           </Typography>
-          <Img sx={{ order: 2 }} src={src} alt="Фото музею Івана Кавалерідзе" />
+          <Picture>
+            <source srcSet={src.big} media="(min-width: 768px)" />
+            <Img sx={{ order: 2 }} src={src.small} alt="Фото музею Івана Кавалерідзе" />
+          </Picture>
         </InfoWrapper>
       </Container>
     </Section>

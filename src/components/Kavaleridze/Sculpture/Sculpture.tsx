@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import PageTemplate from '../../PageTemplate/PageTemplate';
-import { sculptureData } from '@/assets/tempData/staticInfo/sculpture';
+import { sculptureData } from '@/assets/staticPagesData/sculpture';
 
 const Sculpture: FC = () => {
   return <PageTemplate data={sculptureData} />;

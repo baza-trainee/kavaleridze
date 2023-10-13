@@ -2,7 +2,7 @@ import { Box } from '@mui/material';
 
 import { Link } from 'react-router-dom';
 import ButtonWithIcon from '../Common/ButtonWithIcon';
-import Logo from '/Logo.svg';
+import Logo from '@/assets/images/logo.svg';
 
 export const MainIconBlok = () => {
   return (

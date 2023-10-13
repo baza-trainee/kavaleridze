@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import PageTemplate from '../../PageTemplate/PageTemplate';
-import { artistData } from '@/assets/tempData/staticInfo/artist';
+import { artistData } from '@/assets/staticPagesData/artist';
 
 const Artist: FC = () => {
   return <PageTemplate data={artistData} />;
