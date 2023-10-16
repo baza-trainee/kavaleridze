@@ -7,20 +7,19 @@ import { dataInfo } from './fakeData';
 import Banner from './Banner';
 import { WrapperImg } from './styles';
 import { truncateDescription } from '@/helpers/truncateString';
-
-import CircularProgress from '@mui/material/CircularProgress';
-import { RotatingLines, ThreeDots } from 'react-loader-spinner';
+import Loader from '../Loader/Loader';
 
 const Events: FC = () => {
+  const theme = useTheme();
+
   const [cardsEvent, setItems] = useState(dataInfo);
   const [visibleItems, setVisibleItems] = useState(3);
-  const theme = useTheme();
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 2000);
+    }, 1500);
 
     return () => clearTimeout(timer);
   }, []);
@@ -35,14 +34,7 @@ const Events: FC = () => {
 
   return (
     <Section variant="light">
-      {loading && (
-        <Box sx={{ display: 'grid', placeItems: 'center', height: '50vh' }}>
-          <CircularProgress size="4rem" />
-          <RotatingLines strokeColor="#F0B92D" strokeWidth="5" animationDuration="0.75" width="96" visible={true} />
-          <ThreeDots height="80" width="80" radius="9" color="#F0B92D" ariaLabel="three-dots-loading" wrapperStyle={{}} visible={true} />
-        </Box>
-      )}
-
+      {loading && <Loader visible={loading} />}
       {!loading && (
         <>
           <Banner />
