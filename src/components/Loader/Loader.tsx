@@ -16,7 +16,7 @@ const Loader: FC<LoaderProps> = ({ visible }) => {
 
   return (
     <Box sx={{ display: visible ? 'grid' : 'none', placeItems: 'center', height: '50vh' }}>
-      <RotatingLines strokeColor="#F0B92D" strokeWidth="5" animationDuration="0.75" width={loaderSize} visible={true} />
+      <RotatingLines strokeColor={theme.palette.primary.main} strokeWidth="5" animationDuration="0.75" width={loaderSize} visible={true} />
     </Box>
   );
 };
