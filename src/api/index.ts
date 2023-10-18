@@ -14,3 +14,7 @@ export const sendFeedbackForm = (data: IFormInput) => {
 export const getEvents = (size = 5, page = 1) => {
   return instance.get(`/events?size=${size}&page=${page}`);
 };
+
+export const getEventById = (id: string) => {
+  return instance.get(`/events/${id}`);
+};
